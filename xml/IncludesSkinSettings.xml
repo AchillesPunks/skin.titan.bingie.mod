@@ -147,8 +147,7 @@
     <include name="SkinSettings_HomeLayout">
         <include content="SkinSettings_Tab">
             <param name="id" value="12"/>
-            <!-- content -->
-            <include>Home_Layout_Settings</include>
+            <!-- content -->            
             <include>Home_Spotlight_Settings</include>
 			<include>Home_Widgets_Settings</include>
             <include>Home_Details_Settings</include>

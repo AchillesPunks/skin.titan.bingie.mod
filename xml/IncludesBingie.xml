@@ -2662,7 +2662,7 @@ Bingie Menu Icons -->
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=tvshows)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32045][/CAPITALIZE]</value>
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=nextaired)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32043][/CAPITALIZE]</value>
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=newrelease&amp;mediatype=media)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32087][/CAPITALIZE]</value>
-        <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32078][/CAPITALIZE]</value>
+        <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=media)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32078][/CAPITALIZE]</value>
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=popular&amp;mediatype=media)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32090][/CAPITALIZE]</value>
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=toprated&amp;mediatype=movies)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32083][/CAPITALIZE]</value>
         <value condition="String.StartsWith(Container.FolderPath, plugin://script.skin.helper.widgets/?action=toprated&amp;mediatype=tvshows)">[CAPITALIZE]$ADDON[script.skin.helper.widgets 32097][/CAPITALIZE]</value>

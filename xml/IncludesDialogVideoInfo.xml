@@ -125,7 +125,7 @@
 					<top>710</top>
 					<width>1510</width>
 					<height>317</height>
-                                         <left>130</left>
+                                         <left>128</left>
 					<ondown condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</ondown>
 					<ondown condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !String.IsEqual(ListItem.DBType,set)">EnableAddon(script.embuary.info)</ondown>
 					<ondown condition="!System.HasAddon(script.embuary.info) + !String.IsEqual(ListItem.DBType,set)">InstallAddon(script.embuary.info)</ondown>
@@ -137,38 +137,39 @@
 				
 						<itemlayout height="317" width="215">
 			                                <control type="image">
-                                                           <width>210</width>
-							<height>302</height>
+                                                           <width>214</width>
+							<height>306</height>
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="defaultactorposter.png">$INFO[ListItem.Art(thumb)]</texture>
 								
-					<bordersize>8</bordersize>
+					<bordersize>10</bordersize>
 					</control>
 
 					</itemlayout>
 					 <focusedlayout height="317" width="215">
 						<control type="image">
-                                                    <width>210</width>
-							<height>302</height>
+                                                    <width>214</width>
+							<height>306</height>
                                                     <bordersize>6</bordersize>
 							<include>PosterThumbFO_Defs</include>
 						</control>
 						<control type="image">
-                                                     <width>210</width>
-							<height>302</height>
+                                                     <width>214</width>
+							<height>306</height>
 
 							<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="defaultactorposter.png">$INFO[ListItem.Art(thumb)]</texture>
 							
-							<bordersize>8</bordersize>
+							<bordersize>10</bordersize>
 						</control>
 	                                           <control type="label">
-							<left>10</left>
-							<bottom>0</bottom>
+							<left>12</left>
+							<bottom>-10</bottom>
 							<width>90%</width>
 							<height>120</height>
 							<align>left</align>
 							<label>$INFO[Container(351).ListItem.Label2,[B],[/B][CR]]$INFO[Container(351).ListItem.Label]</label>
-							<font>font12</font>
+							<font>font10</font>
 							<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+							<shadowcolor>ff000000</shadowcolor>
 						</control>
 
 					</focusedlayout>

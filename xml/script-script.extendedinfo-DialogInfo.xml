@@ -483,6 +483,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -492,6 +493,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -511,6 +513,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -520,6 +523,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -555,6 +559,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -564,6 +569,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -583,6 +589,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -592,6 +599,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -627,6 +635,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -636,6 +645,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -655,6 +665,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -664,6 +675,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -699,6 +711,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -708,6 +721,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -727,6 +741,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -736,6 +751,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>

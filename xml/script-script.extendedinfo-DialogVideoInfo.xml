@@ -603,6 +603,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -612,6 +613,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -631,6 +633,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -640,6 +643,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -699,6 +703,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -708,6 +713,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -727,6 +733,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -736,6 +743,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -806,6 +814,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -815,6 +824,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -834,6 +844,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -843,6 +854,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -1012,7 +1024,7 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>94</height>
+										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -1041,10 +1053,10 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>94</height>
+										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
-										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg28</font>
 										<label>$INFO[ListItem.Label]</label>
 									</control>
@@ -1108,7 +1120,7 @@
                              <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>94</height>
+										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -1136,10 +1148,10 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>94</height>
+										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
-										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg28</font>
 										<label>$INFO[ListItem.Label]</label>
 									</control>
@@ -1196,7 +1208,7 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>94</height>
+										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -1224,10 +1236,10 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>94</height>
+										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
-										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg28</font>
 										<label>$INFO[ListItem.Label]</label>
 									</control>
@@ -1315,7 +1327,7 @@
 										<height>260</height>
 										<align>justify</align>
 										
-										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg26</font>
 										<label>$INFO[ListItem.Property(Author),[B],[/B][CR]]$INFO[ListItem.Property(Content)]</label>
 									</control>
@@ -1512,6 +1524,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -1521,6 +1534,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </itemlayout>
@@ -1540,6 +1554,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>25</top>
@@ -1549,6 +1564,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -1616,7 +1632,7 @@
 										<left>4</left>
 										<width>305</width>
 										<height>60</height>
-										<textcolor>ffffffff</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 										<font>Reg20</font>
 										<label>$INFO[ListItem.Episode,[B],[/B]]$INFO[ListItem.Label,[B]:[/B] ]</label>
 									</control>
@@ -1644,7 +1660,7 @@
 										<left>4</left>
 										<width>305</width>
 										<height>60</height>
-										<textcolor>ffffffff</textcolor>
+										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg20</font>
 										<label>$INFO[ListItem.Episode,[B],[/B]]$INFO[ListItem.Label,[B]:[/B] ]</label>
 									</control>

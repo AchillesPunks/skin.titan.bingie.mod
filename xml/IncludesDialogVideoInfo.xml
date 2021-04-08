@@ -161,9 +161,9 @@
 							<bordersize>10</bordersize>
 						</control>
 	                                           <control type="label">
-							<left>12</left>
-							<bottom>-10</bottom>
-							<width>90%</width>
+							<left>14</left>
+							<bottom>-9</bottom>
+							<width>88%</width>
 							<height>120</height>
 							<align>left</align>
 							<label>$INFO[Container(351).ListItem.Label2,[B],[/B][CR]]$INFO[Container(351).ListItem.Label]</label>

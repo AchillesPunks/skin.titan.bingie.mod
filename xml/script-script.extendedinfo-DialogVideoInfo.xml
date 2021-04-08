@@ -64,7 +64,7 @@
 
 				<!--Butons 9000-->			
 				<control type="grouplist" id="9000">
-					<posx>60</posx>
+					<posx>65</posx>
 					<bottom>15</bottom>
 					<width>1800</width>
 					<height>60</height>
@@ -162,8 +162,9 @@
 						<visible>Integer.IsGreater(Container(1150).NumItems,0)</visible>
 					</control>
                     
-                    <control type="button" id="101">
-                        <!--Get Thumb Artwork Beef-->
+                    
+                        <!--Get Thumb Artwork Beef
+						<control type="button" id="101">
                         <label>13511</label>
                         <width>285</width>
                         <height>60</height>
@@ -174,7 +175,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=tvshow, dbid=$INFO[Window.Property(DBID)])</onclick>
 						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),movie) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=movie, dbid=$INFO[Window.Property(DBID)])</onclick>
 						<onclick condition="!System.HasAddon(script.artwork.beef)">RunPlugin(plugin://script.artwork.beef)</onclick>
-                    </control>
+                    </control>-->
                     
                     <control type="radiobutton" id="3052">
                         <!--Hide panel behind moviedetails-->
@@ -543,7 +544,7 @@
 						</control>
 						<control type="image">
 							<!--poster-->
-							<right>314</right>
+							<right>326</right>
 							<posy>-144</posy>
 							<width>300</width>
 							<height>470</height>
@@ -555,9 +556,9 @@
 					<!-- cast panel -->
                     <control type="group" id="50111">
                         <visible>Integer.IsGreater(Container(1000).NumItems,0)</visible>
-                        <height>340</height>
+                        <height>410</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -569,61 +570,91 @@
                         </control>
 						<control type="image">
                             <posx>1810</posx>
-                            <posy>95</posy>
+                            <posy>106</posy>
                             <width>35</width>
                             <height>150</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
                             <visible>Container(1000).HasNext</visible>
                         </control>
                         <control type="panel" id="1000">
-                            <posx>0</posx>
+                            <posx>-3</posx>
                             <posy>40</posy>
                             <width>1800</width>
-                            <height>280</height>
+                            <height>390</height>
                             <onleft>9000</onleft>
                             <onright>1000</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">5000</onup>
                             <ondown condition="!Skin.HasSetting(EnableTouchSupport)">750</ondown>
                             <scrolltime>200</scrolltime>
                             <orientation>horizontal</orientation>
-                            <itemlayout height="270" width="201">
+                            <itemlayout height="295" width="226">
                                 <control type="group">
-									<width>186</width>
-									<height>256</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayout</include>
                                   </control>
+								  <control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Property(Character)]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </itemlayout>
-                            <focusedlayout height="260" width="201">
+                            <focusedlayout height="295" width="226">
                                <control type="group">
-									<width>186</width>
-									<height>256</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayoutFocus</include>
                                 </control>
+								<control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Property(Character)]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </focusedlayout>
 						</control>
                     </control>
              					
-					<!-- arrow down -->
-                    <control type="group">
-						<height>80</height>
-						<visible>[Control.HasFocus(1000) | !ControlGroup(4000).HasFocus]</visible>
-						<control type="image">
-							<posx>18</posx>
-							<posy>-35</posy>
-							<width>150</width>
-							<height>35</height>
-							<texture>dialogs/videoinfo/info/arrowdown.png</texture>
-							<animation effect="fade" start="0" end="100" tween="sine" easing="inout" time="1200" pulse="true" reversible="false" condition="true">Conditional</animation>
-						</control>
-					</control>
+				
 					
 					
 					<!-- crew panel -->
 					<control type="group" id="54111">
                         <visible>Integer.IsGreater(Container(750).NumItems,0)</visible>
-                        <height>340</height>
+                        <height>410</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -635,36 +666,78 @@
                         </control>
 						<control type="image">
                             <posx>1810</posx>
-                            <posy>95</posy>
+                            <posy>106</posy>
                             <width>35</width>
                             <height>150</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
                             <visible>Container(750).HasNext</visible>
                         </control>
                         <control type="panel" id="750">
-                            <posx>0</posx>
+                            <posx>-3</posx>
                             <posy>40</posy>
                             <width>1800</width>
-                            <height>280</height>
+                            <height>390</height>
                             <onleft>9000</onleft>
                             <onright>750</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">1000</onup>
                             <ondown condition="!Skin.HasSetting(EnableTouchSupport)">250</ondown>
                             <scrolltime>200</scrolltime>
                             <orientation>horizontal</orientation>
-                            <itemlayout height="270" width="201">
+                            <itemlayout height="295" width="226">
                                 <control type="group">
-									<width>186</width>
-									<height>256</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayout</include>
                                   </control>
+								  <control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Property(Job)]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </itemlayout>
-                            <focusedlayout height="260" width="201">
+                            <focusedlayout height="295" width="226">
                                <control type="group">
-									<width>186</width>
-									<height>256</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayoutFocus</include>
                                 </control>
+								<control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Property(Job)]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </focusedlayout>
 						</control>
                     </control>
@@ -672,10 +745,10 @@
 					
              					<!-- movie sets or seasons-->
 					<control type="group" id="50113">
-                        <height>350</height>
+                        <height>410</height>
                         <visible>Integer.IsGreater(Container(250).NumItems,0)</visible>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -700,7 +773,7 @@
                         </control>
                         <control type="image">
                             <posx>1810</posx>
-                            <posy>95</posy>
+                            <posy>106</posy>
                             <width>35</width>
                             <height>150</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
@@ -710,36 +783,78 @@
                             <posx>0</posx>
                             <posy>40</posy>
                             <width>1800</width>
-                            <height>280</height>
+                            <height>390</height>
                             <onleft>9000</onleft>
                             <onright>250</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">750</onup>
                             <ondown condition="!Skin.HasSetting(EnableTouchSupport)">1150</ondown>
                             <scrolltime>200</scrolltime>
                             <orientation>horizontal</orientation>
-							<itemlayout height="270" width="201">
+							<itemlayout height="295" width="226">
                                 <control type="group">
-									<width>186</width>
-									<height>262</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayout</include>
                                   </control>
+								  <control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Year]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </itemlayout>
-                            <focusedlayout height="260" width="201">
+                            <focusedlayout height="295" width="226">
                                <control type="group">
-									<width>186</width>
-									<height>262</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayoutFocus</include>
                                 </control>
+								<control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Year]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </focusedlayout>
 						</control>
                     </control>
              					<!-- official movies -->
 					<control type="group">
                         <visible>Integer.IsGreater(Container(1150).NumItems,0)</visible>
-                        <height>317</height>
+                        <height>318</height>
                         <control type="label">
-                            <posx>5</posx>
-                            <posy>-4</posy>
+                            <posx>4</posx>
+                            <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
                             <aligny>center</aligny>
@@ -757,7 +872,7 @@
                             <visible>Container(1150).HasNext</visible>
                         </control>
                         <control type="panel" id="1150">
-                            <posx>0</posx>
+                            <posx>1</posx>
                             <posy>40</posy>
                             <width>1800</width>
                             <height>250</height>
@@ -772,14 +887,14 @@
                             <preloaditems>2</preloaditems>
 							<itemlayout width="360" height="240">
 								<control type="group">
-                                    <width>345</width>
+                                    <width>348</width>
                                     <height>240</height>
                                     <include>ThumbsViewLayout</include>
                                 </control>
 							</itemlayout>
 							<focusedlayout width="360" height="220">
 								<control type="group">
-                                    <width>345</width>
+                                    <width>348</width>
                                     <height>240</height>
                                     <include>ThumbsViewLayoutFocus</include>
                                 </control>
@@ -789,9 +904,9 @@
              					<!-- youtube movies -->
 					<control type="group">
                         <visible>Integer.IsGreater(Container(350).NumItems,0)</visible>
-                        <height>310</height>
+                        <height>318</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -810,7 +925,7 @@
                             <visible>Container(350).HasNext</visible>
                         </control>
                         <control type="panel" id="350">
-                            <posx>0</posx>
+                            <posx>1</posx>
                             <posy>40</posy>
                             <width>1800</width>
                             <height>250</height>
@@ -843,9 +958,9 @@
              					<!-- studios -->
 					<control type="group">
                         <visible>Integer.IsGreater(Container(550).NumItems,0)</visible>
-                        <height>180</height>
+                        <height>194</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -857,7 +972,7 @@
                         </control>
                        <control type="image">
                             <posx>1810</posx>
-                            <posy>50</posy>
+                            <posy>59</posy>
                             <width>35</width>
                             <height>80</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
@@ -865,9 +980,9 @@
                         </control>
                         <control type="panel" id="550">
                             <posx>0</posx>
-                            <posy>40</posy>
+                            <posy>49</posy>
                             <width>1800</width>
-                            <height>100</height>
+                            <height>160</height>
                             <onleft>9000</onleft>
                             <onright>550</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">350</onup>
@@ -897,7 +1012,7 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>90</height>
+										<height>94</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -926,7 +1041,7 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>90</height>
+										<height>94</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -940,9 +1055,9 @@
              					<!-- networks -->
 					<control type="group">
                         <visible>Integer.IsGreater(Container(1450).NumItems,0)</visible>
-                        <height>180</height>
+                        <height>194</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -954,7 +1069,7 @@
                         </control>
                         <control type="image">
                             <posx>1810</posx>
-                            <posy>50</posy>
+                            <posy>59</posy>
                             <width>35</width>
                             <height>80</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
@@ -962,9 +1077,9 @@
                         </control>
                         <control type="panel" id="1450">
                             <posx>0</posx>
-                            <posy>40</posy>
+                            <posy>49</posy>
                             <width>1800</width>
-                            <height>100</height>
+                            <height>160</height>
                             <onleft>9000</onleft>
                             <onright>1450</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">550</onup>
@@ -993,7 +1108,7 @@
                              <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>90</height>
+										<height>94</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -1021,7 +1136,7 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>90</height>
+										<height>94</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -1037,9 +1152,9 @@
 					<!-- Genres -->
                     <control type="group">
                         <visible>Integer.IsGreater(Container(850).NumItems,0)</visible>
-                        <height>180</height>
+                        <height>194</height>
                         <control type="label">
-                           <posx>5</posx>
+                           <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -1051,9 +1166,9 @@
                         </control>
                         <control type="panel" id="850">
                             <posx>0</posx>
-                            <posy>40</posy>
+                            <posy>49</posy>
                             <width>1800</width>
-                            <height>100</height>
+                            <height>160</height>
                             <onleft>9000</onleft>
                             <onright>850</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">1450</onup>
@@ -1081,7 +1196,7 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>90</height>
+										<height>94</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -1109,7 +1224,7 @@
                                    <control type="label">
 										<left>10</left>
 										<width>322</width>
-										<height>90</height>
+										<height>94</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -1123,9 +1238,9 @@
              					<!-- reviews -->
 					<control type="group">
                         <visible>Integer.IsGreater(Container(1050).NumItems,0)</visible>
-                        <height>365</height>
+                        <height>392</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>500</width>
                             <height>25</height>
@@ -1136,7 +1251,7 @@
                         </control>
 						<control type="image">
                             <posx>1810</posx>
-                            <posy>140</posy>
+                            <posy>148</posy>
                             <width>35</width>
                             <height>100</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
@@ -1144,9 +1259,9 @@
                         </control>
                         <control type="panel" id="1050">
                             <posx>5</posx>
-                            <posy>40</posy>
+                            <posy>48</posy>
                             <width>1800</width>
-                            <height>300</height>
+                            <height>320</height>
                             <onleft>9000</onleft>
                             <onright>1050</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">850</onup>
@@ -1161,11 +1276,11 @@
 							<itemlayout height="300" width="900">
                                 <control type="group">
                                     <control type="image">
-										<width>880</width>
+										<width>874</width>
                                         <texture border="5" colordiffuse="ff1b1b1b">diffuse/panel.png</texture>
                                     </control>
                                     <control type="image">
-										<width>880</width>
+										<width>874</width>
 										<bordersize>5</bordersize>
                                         <texture border="5" colordiffuse="ff000000">diffuse/panel.png</texture>
                                     </control>
@@ -1185,11 +1300,11 @@
                             <focusedlayout height="300" width="900">
                                 <control type="group">
                                     <control type="image">
-										<width>880</width>
+										<width>874</width>
                                         <texture border="5" colordiffuse="ffe8e8e8">diffuse/panel.png</texture>
                                     </control>
                                     <control type="image">
-										<width>880</width>
+										<width>874</width>
 										<bordersize>4</bordersize>
                                         <texture border="5" colordiffuse="ff000000">diffuse/panel.png</texture>
                                     </control>
@@ -1211,11 +1326,11 @@
              						
              					<!-- artwork (posters) -->
 					<control type="group">
-                        <height>350</height>
+                        <height>356</height>
                         <visible>Integer.IsGreater(Container(1250).NumItems,0)</visible>
                         <control type="label">
-                            <posx>5</posx>
-							<posy>7</posy>
+                            <posx>4</posx>
+							<posy>0</posy>
                             <width>500</width>
                             <height>25</height>
                             <aligny>center</aligny>
@@ -1226,7 +1341,7 @@
                         </control>
 						<control type="image">
                             <posx>1810</posx>
-                            <posy>100</posy>
+                            <posy>106</posy>
                             <width>35</width>
                             <height>150</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
@@ -1234,49 +1349,44 @@
                         </control>
                         <control type="panel" id="1250">
                             <posx>-10</posx>
-                            <posy>40</posy>
+                            <posy>33</posy>
                             <width>1800</width>
-                            <height>280</height>
+                            <height>390</height>
                             <onleft>9000</onleft>
                             <onright>1250</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">1050</onup>
                             <ondown condition="!Skin.HasSetting(EnableTouchSupport)">1350</ondown>
                             <scrolltime>200</scrolltime>
                             <orientation>horizontal</orientation>
-                            <itemlayout height="270" width="201">
-                                <control type="group">
-									<width>176</width>
-									<height>252</height>
+                            <itemlayout height="295" width="226">
+                                <control type="group">									
 									<posy>10</posy>
-									<posx>10</posx>
-									
+									<posx>10</posx>									
                                     <control type="image">
-										<width>176</width>
-										<height>252</height>
+										<width>197</width>
+										<height>274</height>
 										<include>PosterThumbBG</include>
 									  </control>
 									  <control type="image">
-										<width>176</width>
-										<height>252</height>
+										<width>197</width>
+										<height>274</height>
 										<texture border="0" background="true" diffuse="diffuse/poster.png" fallback="DefaultActorPoster.png">$INFO[ListItem.Art(thumb)]</texture>
 										<aspectratio scalediffuse="false" aligny="center" align="center">stretch</aspectratio><bordersize>5</bordersize>
 									  </control>
                                 </control>
                             </itemlayout>
-                            <focusedlayout height="260" width="201">
-                               <control type="group">
-									<width>176</width>
-									<height>252</height>
+                            <focusedlayout height="295" width="226">
+                               <control type="group">								
 									<posy>11</posy>
 									<posx>11</posx>
                                     <control type="image">
-										<width>174</width>
-										<height>250</height>
+										<width>195</width>
+										<height>272</height>
 										<include>PosterThumbFO_Defs</include>
 									  </control>
 									  <control type="image">
-										<width>174</width>
-										<height>250</height>
+										<width>195</width>
+										<height>272</height>
 										<texture border="0" background="true" diffuse="diffuse/poster.png" fallback="DefaultActorPoster.png">$INFO[ListItem.Art(thumb)]</texture>
 										<aspectratio scalediffuse="false" aligny="center" align="center">stretch</aspectratio><bordersize>4</bordersize>
 									  </control>
@@ -1286,11 +1396,11 @@
                     </control>
              					<!-- fanart -->
 					<control type="group">
-                        <height>285</height>
+                        <height>282</height>
                         <visible>Integer.IsGreater(Container(1350).NumItems,0)</visible>
                         <control type="label">
-                            <posx>5</posx>
-							<posy>-3</posy>
+                            <posx>4</posx>
+							<posy>0</posy>
                             <width>500</width>
                             <height>25</height>
                             <aligny>center</aligny>
@@ -1301,7 +1411,7 @@
                         </control>
 						<control type="image">
                             <posx>1810</posx>
-                            <posy>65</posy>
+                            <posy>67</posy>
                             <width>35</width>
                             <height>150</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
@@ -1309,7 +1419,7 @@
                         </control>
                         <control type="panel" id="1350">
                             <posx>0</posx>
-                            <posy>40</posy>
+                            <posy>42</posy>
                             <width>1800</width>
                             <height>280</height>
                             <onleft>9000</onleft>
@@ -1318,7 +1428,7 @@
                             <ondown condition="!Skin.HasSetting(EnableTouchSupport)">150</ondown>
                             <scrolltime>200</scrolltime>
                             <orientation>horizontal</orientation>
-                            <itemlayout width="362" height="200">
+                            <itemlayout width="360" height="226">
 								<control type="group">
 									<width>340</width>
 									<height>200</height>
@@ -1330,7 +1440,7 @@
 									</control>
 								</control>
 							</itemlayout>
-							<focusedlayout width="362" height="200">
+							<focusedlayout width="360" height="226">
 								<control type="group">
 									<width>338</width>
 									<height>198</height>
@@ -1355,9 +1465,9 @@
 <!-- recommended by TMDB -->
 					<control type="group" id="50112">
                         <visible>Integer.IsGreater(Container(150).NumItems,0)</visible>
-                        <height>350</height>
+                        <height>410</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>1540</width>
                             <height>25</height>
@@ -1369,7 +1479,7 @@
                         </control>
                         <control type="image">
                             <posx>1810</posx>
-                            <posy>95</posy>
+                            <posy>106</posy>
                             <width>35</width>
                             <height>150</height>
                             <texture>dialogs/videoinfo/info/arrowright.png</texture>
@@ -1379,26 +1489,68 @@
                             <posx>0</posx>
                             <posy>40</posy>
                             <width>1800</width>
-                            <height>280</height>
+                            <height>390</height>
                             <onleft>9000</onleft>
                             <onright>150</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">1350</onup>
                             <ondown condition="!Skin.HasSetting(EnableTouchSupport)">2000</ondown>
                             <scrolltime>200</scrolltime>
                             <orientation>horizontal</orientation>
-							<itemlayout height="270" width="201">
+							 <itemlayout height="295" width="226">
                                 <control type="group">
-									<width>186</width>
-									<height>262</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayout</include>
                                   </control>
+								  <control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Year]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </itemlayout>
-                            <focusedlayout height="260" width="201">
+                            <focusedlayout height="295" width="226">
                                <control type="group">
-									<width>186</width>
-									<height>262</height>
+									<width>203</width>
+									<height>280</height>
                                     <include>PosterPanelLayoutFocus</include>
                                 </control>
+								<control type="group">
+									<left>-3</left>
+									<top>261</top>
+									<control type="label">
+										<width>208</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>208</width>
+										<label>$INFO[ListItem.Year]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
                             </focusedlayout>
 						
 						</control>
@@ -1407,9 +1559,9 @@
              					<!-- episode index -->
 					<control type="group">
                         <visible>Integer.IsGreater(Container(2000).NumItems,0)</visible>
-                        <height>270</height>
+                        <height>318</height>
                         <control type="label">
-                            <posx>5</posx>
+                            <posx>4</posx>
                             <posy>0</posy>
                             <width>500</width>
                             <height>25</height>
@@ -1431,7 +1583,7 @@
                             <posx>-4</posx>
                             <posy>44</posy>
                             <width>1800</width>
-                            <height>210</height>
+                            <height>260</height>
                             <onleft>9000</onleft>
                             <onright>2000</onright>
                             <onup condition="!Skin.HasSetting(EnableTouchSupport)">150</onup>
@@ -1441,7 +1593,7 @@
                             <focusposition>0</focusposition>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
-							<itemlayout width="362" height="200">
+							<itemlayout width="360" height="200">
 								<control type="group">
 									<posx>5</posx>
 									
@@ -1458,23 +1610,14 @@
 										<height>192</height>
 										<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$INFO[ListItem.Art(thumb)]</texture>
 										<aspectratio scalediffuse="true" align="center" aligny="center">scale</aspectratio>
-									</control>
-									<control type="image">
-										<bottom>8</bottom>
-										<left>10</left>
-										<width>320</width>
-										<height>53</height>
-										<include>PosterThumbBG</include>
-										
-									</control>
+									</control>								
 									<control type="textbox">
-										<bottom>2</bottom>
-										<left>15</left>
+										<bottom>-62</bottom>
+										<left>4</left>
 										<width>305</width>
 										<height>60</height>
 										<textcolor>ffffffff</textcolor>
 										<font>Reg20</font>
-										<shadowcolor>ff000000</shadowcolor>
 										<label>$INFO[ListItem.Episode,[B],[/B]]$INFO[ListItem.Label,[B]:[/B] ]</label>
 									</control>
 								</control>
@@ -1496,22 +1639,13 @@
 										<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$INFO[ListItem.Art(thumb)]</texture>
 										<aspectratio scalediffuse="true" align="center" aligny="center">scale</aspectratio>
 									</control>
-									<control type="image">
-										<bottom>8</bottom>
-										<left>10</left>
-										<width>320</width>
-										<height>53</height>
-										<include>PosterThumbBG</include>
-										
-									</control>
 									<control type="textbox">
-										<bottom>2</bottom>
-										<left>15</left>
+										<bottom>-62</bottom>
+										<left>4</left>
 										<width>305</width>
 										<height>60</height>
 										<textcolor>ffffffff</textcolor>
 										<font>Reg20</font>
-										<shadowcolor>ff000000</shadowcolor>
 										<label>$INFO[ListItem.Episode,[B],[/B]]$INFO[ListItem.Label,[B]:[/B] ]</label>
 									</control>
 								</control>

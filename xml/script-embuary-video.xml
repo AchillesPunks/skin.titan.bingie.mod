@@ -31,17 +31,9 @@
 			</control>
 		<!-- infos -->
 		<control type="grouplist" id="50">
-			<animation type="WindowOpen">
-				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
-				<effect type="slide" start="320" end="0" time="400" tween="cubic" easing="out" />
-			</animation>
-			<animation type="WindowCLose" condition="String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">
-				<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-				<effect type="slide" start="0" end="320" time="300" tween="cubic" easing="out" />
-			</animation>
-			<animation type="WindowCLose" condition="!String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">
-				<effect type="fade" start="100" end="0" time="0" tween="sine" easing="out" />
-			</animation>
+			<!-- default animation -->
+			<include>animation_window_open_close</include>
+			
 			<width>1920</width>
 			<height>1080</height>
 			<orientation>vertical</orientation>
@@ -484,24 +476,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
+								<control type="group">
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayout</include>
+                                  </control>						
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -529,41 +510,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<animation type="Focus">
-									<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<animation type="Unfocus">
-									<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>11</left>
-									<top>-14</top>
-									<width>297</width>
-									<height>478</height>
-									<texture colordiffuse="gray">colors/grey.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-									<animation effect="fade" start="0" end="100" time="200" tween="sine">Focus</animation>
-									<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
+								<control type="group">
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayoutFocus</include>
+                                  </control>		
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -595,7 +548,7 @@
 			<control type="group">
 				<visible>true</visible>
 				<visible>Integer.IsGreater(Container(10056).NumItems,0) | Container(10056).IsUpdating</visible>
-				<top>50</top>
+				<top>42</top>
 				<height>715</height>
 				<control type="group">
 					<control type="label">
@@ -635,24 +588,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
+								<control type="group">
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayout</include>
+                                  </control>			
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -680,40 +622,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<animation type="Focus">
-									<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<animation type="Unfocus">
-									<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>11</left>
-									<top>-14</top>
-									<width>297</width>
-									<height>478</height>
-									<texture colordiffuse="gray">colors/grey.png</texture>									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-									<animation effect="fade" start="0" end="100" time="200" tween="sine">Focus</animation>
-									<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
+								<control type="group">
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayoutFocus</include>
+                                  </control>		
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -745,7 +660,7 @@
 			<control type="group">
 				<visible>true</visible>
 				<visible>Integer.IsGreater(Container(10057).NumItems,0) | Container(10057).IsUpdating</visible>
-				<top>50</top>
+				<top>42</top>
 				<height>715</height>
 				<control type="group">
 					<control type="label">
@@ -773,63 +688,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<top>10</top>
-									<left>35</left>
-									<width>250</width>
-									<control type="group">
-										<visible>!String.IsEmpty(ListItem.DBID)</visible>
-										<control type="image">
-											<left>0</left>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<left>5</left>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayLocal.png</texture>
-										</control>
-									</control>
-									<control type="group">
-										<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-										<control type="image">
-											<right>0</right>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<right>5</right>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayWatched.png</texture>
-										</control>
-									</control>
-								</control>
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayout</include>
+                                  </control>			
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -857,79 +722,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<animation type="Focus">
-									<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<animation type="Unfocus">
-									<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>11</left>
-									<top>-14</top>
-									<width>297</width>
-									<height>478</height>
-									<texture colordiffuse="gray">colors/grey.png</texture>									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-									<animation effect="fade" start="0" end="100" time="200" tween="sine">Focus</animation>
-									<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<top>10</top>
-									<left>35</left>
-									<width>250</width>
-									<control type="group">
-										<visible>!String.IsEmpty(ListItem.DBID)</visible>
-										<control type="image">
-											<left>0</left>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<left>5</left>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayLocal.png</texture>
-										</control>
-									</control>
-									<control type="group">
-										<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-										<control type="image">
-											<right>0</right>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<right>5</right>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayWatched.png</texture>
-										</control>
-									</control>
-								</control>
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayoutFocus</include>
+                                  </control>
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -961,7 +760,7 @@
 			<control type="group">
 				<visible>true</visible>
 				<visible>Integer.IsGreater(Container(10058).NumItems,0) | Container(10058).IsUpdating</visible>
-				<top>50</top>
+				<top>42</top>
 				<height>715</height>
 				<control type="group">
 					<control type="label">
@@ -989,63 +788,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<top>10</top>
-									<left>35</left>
-									<width>250</width>
-									<control type="group">
-										<visible>!String.IsEmpty(ListItem.DBID)</visible>
-										<control type="image">
-											<left>0</left>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<left>5</left>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayLocal.png</texture>
-										</control>
-									</control>
-									<control type="group">
-										<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-										<control type="image">
-											<right>0</right>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<right>5</right>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayWatched.png</texture>
-										</control>
-									</control>
-								</control>
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayout</include>
+                                  </control>		
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -1073,79 +822,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<animation type="Focus">
-									<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<animation type="Unfocus">
-									<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>11</left>
-									<top>-14</top>
-									<width>297</width>
-									<height>478</height>
-									<texture colordiffuse="gray">colors/grey.png</texture>									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-									<animation effect="fade" start="0" end="100" time="200" tween="sine">Focus</animation>
-									<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<top>10</top>
-									<left>35</left>
-									<width>250</width>
-									<control type="group">
-										<visible>!String.IsEmpty(ListItem.DBID)</visible>
-										<control type="image">
-											<left>0</left>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<left>5</left>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayLocal.png</texture>
-										</control>
-									</control>
-									<control type="group">
-										<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-										<control type="image">
-											<right>0</right>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<right>5</right>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayWatched.png</texture>
-										</control>
-									</control>
-								</control>
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayoutFocus</include>
+                                  </control>		
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -1177,7 +860,7 @@
 			<control type="group">
 				<visible>true</visible>
 				<visible>Integer.IsGreater(Container(10053).NumItems,0) | Container(10053).IsUpdating</visible>
-				<top>50</top>
+				<top>42</top>
 				<height>715</height>
 				<control type="group">
 					<control type="label">
@@ -1205,63 +888,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<top>10</top>
-									<left>35</left>
-									<width>250</width>
-									<control type="group">
-										<visible>!String.IsEmpty(ListItem.DBID)</visible>
-										<control type="image">
-											<left>0</left>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<left>5</left>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayLocal.png</texture>
-										</control>
-									</control>
-									<control type="group">
-										<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-										<control type="image">
-											<right>0</right>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<right>5</right>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayWatched.png</texture>
-										</control>
-									</control>
-								</control>
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayout</include>
+                                  </control>			
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -1289,79 +922,13 @@
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<animation type="Focus">
-									<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<animation type="Unfocus">
-									<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="230,65" />
-								</animation>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>475</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>11</left>
-									<top>-14</top>
-									<width>297</width>
-									<height>478</height>
-									<texture colordiffuse="gray">colors/grey.png</texture>									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-									<animation effect="fade" start="0" end="100" time="200" tween="sine">Focus</animation>
-									<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>290</width>
-									<height>400</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<top>10</top>
-									<left>35</left>
-									<width>250</width>
-									<control type="group">
-										<visible>!String.IsEmpty(ListItem.DBID)</visible>
-										<control type="image">
-											<left>0</left>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<left>5</left>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayLocal.png</texture>
-										</control>
-									</control>
-									<control type="group">
-										<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-										<control type="image">
-											<right>0</right>
-											<top>0</top>
-											<width>80</width>
-											<height>80</height>
-											<texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
-										</control>
-										<control type="image">
-											<right>5</right>
-											<top>5</top>
-											<width>32</width>
-											<height>32</height>
-											<texture>icons/OverlayWatched.png</texture>
-										</control>
-									</control>
-								</control>
+								    <left>27</left>
+									<top>2</top>
+									<width>266</width>
+									<height>376</height>
+                                    <include>PosterPanelLayoutFocus</include>
+                                  </control>	
 								<control type="group">
 									<left>29</left>
 									<top>363</top>
@@ -1393,7 +960,7 @@
 			<control type="group">
 				<visible>true</visible>
 				<visible>Integer.IsGreater(Container(10054).NumItems,0) | Container(10054).IsUpdating</visible>
-				<top>50</top>
+				<top>42</top>
 				<height>643</height>
 				<control type="group">
 					<control type="label">
@@ -1417,33 +984,22 @@
 						<onleft>9000</onleft>
 						<onright>noop</onright>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="586" height="489">
+						<itemlayout width="460" height="489">
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>583</width>
-									<height>403</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>583</width>
-									<height>328</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<left>29</left>
-									<top>291</top>
+								    <left>27</left>
+									<top>2</top>
+									<width>433</width>
+									<height>328</height>
+                                    <include>ThumbsViewLayout</include>
+                                  </control>		
+								<control type="group">
+									<left>30</left>
+									<top>315</top>
 									<control type="label">
-										<width>557</width>
+										<width>427</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
@@ -1452,7 +1008,7 @@
 									</control>
 									<control type="label">
 										<top>28</top>
-										<width>557</width>
+										<width>427</width>
 										<label>$INFO[ListItem.label2]</label>
 										<font>font12</font>
 										<textoffsetx>10</textoffsetx>
@@ -1462,50 +1018,22 @@
 								</control>
 							</control>
 						</itemlayout>
-						<focusedlayout width="586" height="489">
+						<focusedlayout width="460" height="489">
 							<control type="group">
 								<left>68</left>
 								<top>10</top>
-								<animation type="Focus">
-									<effect type="zoom" start="100" end="110" time="200" tween="sine" easing="inout" center="366,65" />
-								</animation>
-								<animation type="Unfocus">
-									<effect type="zoom" start="110" end="100" time="200" tween="sine" easing="inout" center="366,65" />
-								</animation>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>583</width>
-									<height>403</height>
-									<texture>dialogs/dialog-bg-nobo.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-								</control>
-								<control type="image">
-									<left>11</left>
-									<top>-14</top>
-									<width>591</width>
-									<height>408</height>
-									<texture colordiffuse="gray">colors/grey.png</texture>
-									<bordertexture border="21">overlays/shadow.png</bordertexture>
-									<bordersize>20</bordersize>
-									<animation effect="fade" start="0" end="100" time="200" tween="sine">Focus</animation>
-									<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-								</control>
-								<control type="image">
-									<left>15</left>
-									<top>-10</top>
-									<width>583</width>
-									<height>328</height>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-									<bordersize>20</bordersize>
-								</control>
 								<control type="group">
-									<left>29</left>
-									<top>291</top>
+								    <left>27</left>
+									<top>2</top>
+									<width>433</width>
+									<height>328</height>
+                                    <include>ThumbsViewLayoutFocus</include>
+                                  </control>		
+								<control type="group">
+									<left>30</left>
+									<top>315</top>
 									<control type="label">
-										<width>555</width>
+										<width>427</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
@@ -1514,7 +1042,7 @@
 									</control>
 									<control type="label">
 										<top>28</top>
-										<width>555</width>
+										<width>427</width>
 										<label>$INFO[ListItem.label2]</label>
 										<font>font12</font>
 										<textoffsetx>10</textoffsetx>
@@ -1534,9 +1062,7 @@
 				<left>102</left>
 				<right>102</right>
 				<height>100</height>
-				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200" condition="String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">WindowClose</animation>
-				<animation effect="fade" start="100" end="0" time="0" condition="!String.IsEmpty(Window(home).Property(script.embuary.info-nextcall))">WindowClose</animation>
+                <include>animation_window_open_close</include>
 				<control type="label">
 					<left>0</left>
 					<right>150</right>

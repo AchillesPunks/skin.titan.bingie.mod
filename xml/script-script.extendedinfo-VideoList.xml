@@ -63,8 +63,8 @@
 			
 			<!-- movie items -->
             <control type="panel" id="500">
-                <posx>60</posx>
-                <posy>160</posy>
+                <posx>56</posx>
+                <posy>180</posy>
                 <width>1820</width>
                 <height>850</height>
                 <viewtype label="31234">icon</viewtype>
@@ -76,20 +76,62 @@
                 <onup>700</onup>
                 <ondown>600</ondown>
                 <orientation>vertical</orientation>
-                <itemlayout height="270" width="201">
-					<control type="group">
-                        <width>190</width>
-                        <height>260</height>
-                        <include>PosterPanelLayout</include>
-                      </control>
-				</itemlayout>
-				<focusedlayout height="260" width="201">
-				   <control type="group">
-                        <width>190</width>
-                        <height>260</height>
-                        <include>PosterPanelLayoutFocus</include>
-                      </control>
-				</focusedlayout>
+                <itemlayout height="421" width="260">
+                                <control type="group">
+                                    <width>244</width>
+                                    <height>338</height>
+                                    <include>PosterPanelLayout</include>
+                                  </control>
+								  <control type="group">
+									<left>0</left>
+									<top>319</top>
+									<control type="label">
+										<width>244</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>244</width>
+										<label>$INFO[ListItem.Year]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
+                            </itemlayout>
+                            <focusedlayout height="421" width="260">
+                                <control type="group">
+                                    <width>244</width>
+                                    <height>338</height>
+                                    <include>PosterPanelLayoutFocus</include>
+                                  </control>
+								  <control type="group">
+									<left>0</left>
+									<top>319</top>
+									<control type="label">
+										<width>244</width>
+										<label>$INFO[ListItem.Label]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+									<control type="label">
+										<top>25</top>
+										<width>244</width>
+										<label>$INFO[ListItem.Year]</label>
+										<font>font10</font>
+										<textoffsetx>10</textoffsetx>
+										<scroll>false</scroll>
+										<align>center</align>
+									</control>
+								</control>
+                            </focusedlayout>
 			
 			</control>
      			

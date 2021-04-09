@@ -47,7 +47,7 @@
 			<texturesliderbackground colordiffuse="ff000000">white.jpg</texturesliderbackground>
 			<texturesliderbar colordiffuse="ffffffff">white.jpg</texturesliderbar>
 			<texturesliderbarfocus colordiffuse="ffffffff">white.jpg</texturesliderbarfocus>
-			<include>animation_window_open_close</include>
+			<animation effect="fade" time="300" start="100" end="0" condition="System.IdleTime(2)">Conditional</animation>
 		</control>
 	</controls>
 </window>

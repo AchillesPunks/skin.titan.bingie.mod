@@ -87,7 +87,7 @@
 						<aligny>top</aligny>
 						<label fallback="19055">$INFO[Container(10051).ListItem.Property(biography)]</label>
 						<font>font13</font>
-						<textcolor>ffffffff</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>
 					</control>
 					<!-- facts -->
@@ -109,7 +109,7 @@
 							<label>[COLOR FFCC0001]$LOCALIZE[39025]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(Gender)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -119,7 +119,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32017]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(Known_For_Department)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -129,7 +129,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32006]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(age)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -139,7 +139,7 @@
 							<label>[COLOR FFCC0001]$LOCALIZE[21893]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(birthday)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -149,7 +149,7 @@
 							<label>[COLOR FFCC0001]$LOCALIZE[21897]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(deathday)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -159,7 +159,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32007]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(Place_Of_Birth)]</label>
 							<height>auto</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<wrapmultiline>true</wrapmultiline>
 							<scroll>false</scroll>
 							<align>left</align>
@@ -314,6 +314,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -323,6 +324,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -348,6 +350,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -357,6 +360,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -414,6 +418,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -423,6 +428,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -448,6 +454,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -457,6 +464,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -533,9 +541,10 @@
 				<control type="label">
 					<left>0</left>
 					<right>150</right>
-					<label>$INFO[Container(10051).ListItem.Label]$INFO[Container(10051).ListItem.Year, ([COLOR FFFFFFFF],[/COLOR])]</label>
+					<label>$INFO[Container(10051).ListItem.Label]$INFO[Container(10051).ListItem.Year, ([COLOR FFD6D6D6],[/COLOR])]</label>
 					<font>font45</font>
 					<height>100</height>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 				</control>
 			</control>
 	</controls>

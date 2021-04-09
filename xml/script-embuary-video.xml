@@ -119,7 +119,7 @@
 						<aligny>top</aligny>
 						<label fallback="19055">$INFO[Container(10051).ListItem.Tagline,[B],[/B][CR][CR]]$INFO[Container(10051).ListItem.Plot]</label>
 						<font>font13</font>
-						<textcolor>ffffffff</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>
 						<visible>!String.IsEqual(Container(10051).ListItem.DBType,season)</visible>
 					</control>
@@ -132,7 +132,7 @@
 						<aligny>top</aligny>
 						<label>$INFO[Container(10051).ListItem.Season,[B]$LOCALIZE[20373] ,[/B][CR][CR]]$INFO[Container(10051).ListItem.Plot]</label>
 						<font>font13</font>
-						<textcolor>ffffffff</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>
 						<visible>String.IsEqual(Container(10051).ListItem.DBType,season) + !String.IsEmpty(Container(10051).ListItem.Plot)</visible>
 					</control>
@@ -145,7 +145,7 @@
 						<aligny>top</aligny>
 						<label>$INFO[Container(10051).ListItem.Season,[B]$LOCALIZE[20373] ,[/B][CR][CR]]$LOCALIZE[19055]</label>
 						<font>font13</font>
-						<textcolor>ffffffff</textcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 						<autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>
 						<visible>String.IsEqual(Container(10051).ListItem.DBType,season) + String.IsEmpty(Container(10051).ListItem.Plot)</visible>
 					</control>
@@ -173,7 +173,7 @@
 							<label>[COLOR FFD50000]$LOCALIZE[126]:[/COLOR][CR]$INFO[Container(10051).ListItem.Status]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -183,7 +183,7 @@
 							<label>[COLOR FFD50000]$ADDON[script.embuary.info 32011]:[/COLOR][CR]$INFO[Container(10051).ListItem.Premiered]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -193,7 +193,7 @@
 							<label>[COLOR FFD50000]$ADDON[script.embuary.info 32012]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(release)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -203,7 +203,7 @@
 							<label>[COLOR FFD50000]$LOCALIZE[20074]:[/COLOR][CR]$INFO[Container(10051).ListItem.MPAA]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -213,7 +213,7 @@
 							<label>[COLOR FFD50000]TMDb:[/COLOR][CR]$INFO[Container(10051).ListItem.Rating] / 10$INFO[Container(10051).ListItem.Votes, (,)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -223,7 +223,7 @@
 							<label>[COLOR FFD50000]IMDb:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(rating.imdb)] / 10$INFO[Container(10051).ListItem.Property(votes.imdb), (,)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<visible>!String.IsEmpty(Container(10051).ListItem.Property(rating.imdb))</visible>
 						</control>
@@ -231,7 +231,7 @@
 							<label>[COLOR FFD50000]Rotten Tomatoes:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(rating.rotten)] / 100$INFO[Container(10051).ListItem.Property(votes.rotten), (,)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -241,7 +241,7 @@
 							<label>[COLOR FFD50000]Metacritic:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(rating.metacritic)] / 100</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -251,7 +251,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32046]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(WatchedEpisodes)] / $INFO[Container(10051).ListItem.Property(TotalEpisodes)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -261,7 +261,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32048]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(NextEpisode_date)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -285,7 +285,7 @@
 							<label>[COLOR FFCC0001]$LOCALIZE[572]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(studio.0)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -295,7 +295,7 @@
 							<label>[COLOR FFCC0001]$LOCALIZE[705]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(network.0)]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -305,7 +305,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32013]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(Budget),$]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<align>left</align>
 							<aligny>top</aligny>
@@ -315,7 +315,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32014]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(Revenue),$]</label>
 							<height>80</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<scroll>false</scroll>
 							<visible>!String.IsEmpty(Container(10051).ListItem.Property(revenue))</visible>
 						</control>
@@ -323,7 +323,7 @@
 							<label>[COLOR FFCC0001]$ADDON[script.embuary.info 32015]:[/COLOR][CR]$INFO[Container(10051).ListItem.Property(awards)]</label>
 							<height>auto</height>
 							<font>font12</font>
-							<textcolor>ffffffff</textcolor>
+							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 							<wrapmultiline>true</wrapmultiline>
 							<scroll>false</scroll>
 							<align>left</align>
@@ -493,6 +493,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -502,6 +503,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -527,6 +529,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -536,6 +539,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -605,6 +609,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -614,6 +619,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -639,6 +645,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -648,6 +655,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -705,6 +713,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -714,6 +723,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -739,6 +749,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -748,6 +759,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -805,6 +817,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -814,6 +827,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -839,6 +853,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -848,6 +863,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -905,6 +921,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -914,6 +931,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -939,6 +957,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -948,6 +967,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -1005,6 +1025,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -1014,6 +1035,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
 							</control>
@@ -1039,6 +1061,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 									<control type="label">
 										<top>28</top>
@@ -1048,6 +1071,7 @@
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
+										<textcolor>FFE8E8E8</textcolor>
 									</control>
 								</control>
 							</control>
@@ -1066,9 +1090,10 @@
 				<control type="label">
 					<left>0</left>
 					<right>150</right>
-					<label>$INFO[Container(10051).ListItem.Label]$INFO[Container(10051).ListItem.Year, ([COLOR FFFFFFFF],[/COLOR])]</label>
+					<label>$INFO[Container(10051).ListItem.Label]$INFO[Container(10051).ListItem.Year, ([COLOR FFD6D6D6],[/COLOR])]</label>
 					<font>font45</font>
 					<height>100</height>
+					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 				</control>
 			</control>
 

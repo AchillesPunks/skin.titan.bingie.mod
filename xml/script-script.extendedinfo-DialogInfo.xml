@@ -65,7 +65,7 @@
             <control type="label">
                 <!-- additional info subtitle -->
 				<include>animation_fade_visible_hidden</include>
-				<right>61</right>
+				<right>49</right>
 				<posy>10</posy>
 				<width min="80" max="1400">auto</width>
 				<height>100</height>
@@ -475,7 +475,7 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -505,13 +505,13 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -521,7 +521,7 @@
 										<label>$INFO[ListItem.Year]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -551,7 +551,7 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -581,13 +581,13 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -597,7 +597,7 @@
 										<label>$INFO[ListItem.Year]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -627,7 +627,7 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -657,13 +657,13 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -673,7 +673,7 @@
 										<label>$INFO[ListItem.Year]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -703,7 +703,7 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -733,13 +733,13 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>303</top>
+									<top>302</top>
 									<control type="label">
 										<width>232</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -749,7 +749,7 @@
 										<label>$INFO[ListItem.Year]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>

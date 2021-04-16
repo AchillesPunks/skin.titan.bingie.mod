@@ -162,14 +162,27 @@
 						</control>
 	                                           <control type="label">
 							<left>14</left>
-							<bottom>-9</bottom>
-							<width>88%</width>
+							<bottom>0</bottom>
+							<width>87%</width>
 							<height>120</height>
 							<align>left</align>
-							<label>$INFO[Container(351).ListItem.Label2,[B],[/B][CR]]$INFO[Container(351).ListItem.Label]</label>
+							<label>$INFO[Container(351).ListItem.Label,[B],[/B][CR]]</label>
 							<font>font10</font>
 							<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
 							<shadowcolor>ff000000</shadowcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<left>14</left>
+							<bottom>-23</bottom>
+							<width>87%</width>
+							<height>120</height>
+							<align>left</align>
+							<label>$INFO[Container(351).ListItem.Label2]</label>
+							<font>font10</font>
+							<textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
+							<shadowcolor>ff000000</shadowcolor>
+							<scroll>true</scroll>
 						</control>
 
 					</focusedlayout>

@@ -595,7 +595,7 @@
                                   </control>
 								  <control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -625,13 +625,13 @@
                                 </control>
 								<control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -641,7 +641,7 @@
 										<label>$INFO[ListItem.Property(Character)]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -695,7 +695,7 @@
                                   </control>
 								  <control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -725,13 +725,13 @@
                                 </control>
 								<control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -741,7 +741,7 @@
 										<label>$INFO[ListItem.Property(Job)]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -806,7 +806,7 @@
                                   </control>
 								  <control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -836,13 +836,13 @@
                                 </control>
 								<control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -852,7 +852,7 @@
 										<label>$INFO[ListItem.Year]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -1023,7 +1023,7 @@
                                     </control>
                                    <control type="label">
 										<left>10</left>
-										<width>322</width>
+										<width>320</width>
 										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -1052,13 +1052,14 @@
                                     </control>
                                    <control type="label">
 										<left>10</left>
-										<width>322</width>
+										<width>320</width>
 										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg28</font>
 										<label>$INFO[ListItem.Label]</label>
+										<scroll>true</scroll>
 									</control>
                                 </control>
                             </focusedlayout>
@@ -1119,7 +1120,7 @@
                                     </control>
                              <control type="label">
 										<left>10</left>
-										<width>322</width>
+										<width>320</width>
 										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -1147,13 +1148,14 @@
                                     </control>
                                    <control type="label">
 										<left>10</left>
-										<width>322</width>
+										<width>320</width>
 										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg28</font>
 										<label>$INFO[ListItem.Label]</label>
+										<scroll>true</scroll>
 									</control>
                                 </control>
                             </focusedlayout>
@@ -1207,7 +1209,7 @@
                                     </control>
                                    <control type="label">
 										<left>10</left>
-										<width>322</width>
+										<width>320</width>
 										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -1235,13 +1237,14 @@
                                     </control>
                                    <control type="label">
 										<left>10</left>
-										<width>322</width>
+										<width>320</width>
 										<height>93</height>
 										<align>center</align>
 										<aligny>center</aligny>
 										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg28</font>
 										<label>$INFO[ListItem.Label]</label>
+										<scroll>true</scroll>
 									</control>
                                 </control>
                             </focusedlayout>
@@ -1516,7 +1519,7 @@
                                   </control>
 								  <control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -1546,13 +1549,13 @@
                                 </control>
 								<control type="group">
 									<left>-3</left>
-									<top>261</top>
+									<top>260</top>
 									<control type="label">
 										<width>208</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -1562,7 +1565,7 @@
 										<label>$INFO[ListItem.Year]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -1627,11 +1630,10 @@
 										<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$INFO[ListItem.Art(thumb)]</texture>
 										<aspectratio scalediffuse="true" align="center" aligny="center">scale</aspectratio>
 									</control>								
-									<control type="textbox">
-										<bottom>-62</bottom>
+									<control type="label">
+										<bottom>-44</bottom>
 										<left>4</left>
-										<width>305</width>
-										<height>60</height>
+										<width>332</width>
 										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 										<font>Reg20</font>
 										<label>$INFO[ListItem.Episode,[B],[/B]]$INFO[ListItem.Label,[B]:[/B] ]</label>
@@ -1655,14 +1657,14 @@
 										<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$INFO[ListItem.Art(thumb)]</texture>
 										<aspectratio scalediffuse="true" align="center" aligny="center">scale</aspectratio>
 									</control>
-									<control type="textbox">
-										<bottom>-62</bottom>
+									<control type="label">
+										<bottom>-44</bottom>
 										<left>4</left>
-										<width>305</width>
-										<height>60</height>
+										<width>332</width>
 										<textcolor>FFE8E8E8</textcolor>
 										<font>Reg20</font>
 										<label>$INFO[ListItem.Episode,[B],[/B]]$INFO[ListItem.Label,[B]:[/B] ]</label>
+										<scroll>true</scroll>
 									</control>
 								</control>
 							</focusedlayout>

@@ -84,7 +84,7 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>319</top>
+									<top>318</top>
 									<control type="label">
 										<width>244</width>
 										<label>$INFO[ListItem.Label]</label>
@@ -114,13 +114,13 @@
                                   </control>
 								  <control type="group">
 									<left>0</left>
-									<top>319</top>
+									<top>318</top>
 									<control type="label">
 										<width>244</width>
 										<label>$INFO[ListItem.Label]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>
@@ -130,7 +130,7 @@
 										<label>$INFO[ListItem.Year]</label>
 										<font>font10</font>
 										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
+										<scroll>true</scroll>
 										<align>center</align>
 										<textcolor>FFE8E8E8</textcolor>
 									</control>

@@ -166,11 +166,11 @@
 			<!-- IMDB logo White -->
 			<control type="image">
 				<include>Default_Visible_Fade</include>
-				<posy>1</posy>
-				<height>25</height>
-                <width>50</width>
+				<posy>2</posy>
+				<height>30</height>
+                <width>52</width>
                 <aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/imdb1.png</texture>
+                <texture background="true" colordiffuse="fffafafa">bingie/imdb11.png</texture>
 				<visible>Skin.HasSetting(whiteIMDBDetailsRow)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(6997021))</visible>
             </control>
@@ -178,11 +178,11 @@
 			<!-- IMDB logo Colored -->
 			<control type="image">
 				<include>Default_Visible_Fade</include>
-				<posy>1</posy>
+				<posy>2</posy>
 				<height>30</height>
-                <width>54</width>
+                <width>52</width>
                 <aspectratio>keep</aspectratio>
-                <texture background="true">bingie/imdb2.png</texture>
+                <texture background="true">bingie/imdb22.png</texture>
 				<visible>!Skin.HasSetting(whiteIMDBDetailsRow)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(699702))</visible>
             </control>
@@ -218,11 +218,11 @@
 			<!-- TVDB logo Colored -->
 			<control type="image">
 				<include>Default_Visible_Fade</include>
-				<posy>1</posy>
+				<posy>2</posy>
 				<height>30</height>
-                <width>53</width>
+                <width>50</width>
                 <aspectratio>keep</aspectratio>
-                <texture>bingie/tvdb2.png</texture>
+                <texture>bingie/tvdb22.png</texture>
 				<visible>!Skin.HasSetting(whiteIMDBDetailsRow)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(878787))</visible>
             </control>
@@ -230,11 +230,11 @@
 			<!-- TVDB logo White -->
 			<control type="image">
 				<include>Default_Visible_Fade</include>
-				<posy>1</posy>
-				<height>25</height>
-                <width>55</width>
+				<posy>2</posy>
+				<height>30</height>
+                <width>50</width>
                 <aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/tvdb1.png</texture>
+                <texture background="true" colordiffuse="fffafafa">bingie/tvdb11.png</texture>
 				<visible>Skin.HasSetting(whiteIMDBDetailsRow)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(8787871))</visible>
             </control>
@@ -269,23 +269,23 @@
 			<!-- RT white -->
 			<control type="image">
 				<include>Default_Visible_Fade</include>
-                <posy>4</posy>
+                <posy>0</posy>
 				<aspectratio>keep</aspectratio>
-                <width>25</width>
-                <height>25</height>
-                <texture background="true" colordiffuse="fffafafa">bingie/whiteRTcritics.png</texture>
+                <width>28</width>                                     <!-- The Size seem to look nicer to me -->
+                <height>31</height>
+                <texture background="true" colordiffuse="fffafafa">bingie/whiteRTcritics1.png</texture>
 			    <visible>!String.IsEmpty(Control.GetLabel(6997061))</visible>
 				<visible>Skin.HasSetting(whiteIMDBDetailsRow)</visible>
             </control>
 			
 			<!-- Rotten Tomatoes Colored -->
 			<control type="image">
-				<posy>-3</posy>
+				<posy>0</posy>
 				<include>Default_Visible_Fade</include>
                 <aspectratio>keep</aspectratio>
-                <width>34</width>                                     <!-- The Size seem to look nicer to me -->
-                <height>34</height>
-                <texture background="true">bingie/fresh1.png</texture> <!-- I Really like the look of the Real Tomatoe -->
+                <width>28</width>                                     <!-- The Size seem to look nicer to me -->
+                <height>31</height>
+                <texture background="true">bingie/fresh11.png</texture> <!-- I Really like the look of the Real Tomatoe -->
 				<visible>!String.IsEmpty(Control.GetLabel(699706))</visible>
 				<visible>!Skin.HasSetting(whiteIMDBDetailsRow)</visible>
             </control>
@@ -1808,7 +1808,8 @@ Bingie Menu Icons -->
                 <include content="right" condition="$EXP[IsBingieCategoriesActive]">
                     <param name="right" value="130" />
                 </include>
-                <right>30</right>
+                <right>16</right>
+				<top>45</top>
                 <height>50</height>
                 <width>1000</width>
                 <include>Bingie_RatingsAndStudio_Hor</include>
@@ -1824,7 +1825,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>-15</top>
+				<top>10</top>
 				<include>new_footer</include>
 			</control>
 
@@ -1837,7 +1838,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>-15</top>
+				<top>10</top>
 				<include>text_footer</include>
 			</control>
 
@@ -1932,7 +1933,7 @@ Bingie Menu Icons -->
         <control type="list" id="$PARAM[widgetid]">
             <visible>Container($PARAM[widgetid]).IsUpdating | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
             <orientation>horizontal</orientation>
-            <height>210</height> <!--Spotlight widget height. Moving this changes widget height in includeshomebingie.xml!-->
+            <height>250</height> <!--Spotlight widget height. Moving this changes widget height in includeshomebingie.xml!-->
             <preloaditems>1</preloaditems>
             <include content="SetFixedVerticalNavigationProps">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -2538,6 +2539,7 @@ Bingie Menu Icons -->
                     <right>130</right>
                     <height>90</height>
                     <width>1000</width>
+					<top>4</top>
                     <include>Bingie_Main_RatingsAndStudio_Hor</include>
                 </control>
 								
@@ -2546,10 +2548,10 @@ Bingie Menu Icons -->
 					<visible>!Skin.HasSetting(EnableTextFooter)</visible>
 					<visible>Skin.HasSetting(EnableNewFooter)</visible>
 					<visible>!Skin.HasSetting(BingieViewsDisableStudio)</visible>
-					<right>15</right>
+					<right>20</right>
 					<height></height>
 					<width></width>
-					<top>-15</top>
+					<top>-31</top>
 					<include>new_footer</include>
 				</control>
 				
@@ -2558,10 +2560,10 @@ Bingie Menu Icons -->
 					<visible>!Skin.HasSetting(EnableTextFooter)</visible>
 					<visible>Skin.HasSetting(EnableNewFooter)</visible>
 					<visible>Skin.HasSetting(BingieViewsDisableStudio)</visible>
-					<right>140</right>
+					<right>130</right>
 					<height></height>
 					<width></width>
-					<top>-15</top>
+					<top>-31</top>
 					<include>new_footer</include>
 				</control>
 				
@@ -2571,7 +2573,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>-15</top>
+				<top>-31</top>
 				<include>text_footer</include>
 				</control>
 			
@@ -2581,7 +2583,7 @@ Bingie Menu Icons -->
 				<right>140</right>
                 <height></height>
                 <width></width>
-				<top>-15</top>
+				<top>-31</top>
 				<include>text_footer</include>
 				</control>
 					

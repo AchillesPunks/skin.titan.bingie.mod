@@ -1544,7 +1544,7 @@
     <include name="Footer_RatingAndStudio_Hor">
         <control type="group">
             <bottom>50</bottom>
-            <right>20</right>
+            <right>21</right>
             <height>50</height>
             <width>1000</width>
             <control type="grouplist">

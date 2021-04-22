@@ -756,36 +756,7 @@
 								</control>
                             </focusedlayout>
                         </control>
-                                         <!-- youtube videos -->
-                        <control type="panel" id="350">
-                            <posx>63</posx>
-							<posy>202</posy>
-							<width>1200</width>
-							<height>714</height>
-							<ondown>9000</ondown>
-							<onleft>ClearProperty(AdditionalInfo)</onleft>
-							<onback>ClearProperty(AdditionalInfo)</onback>
-							<onleft>SetFocus(9000)</onleft>
-							<scrolltime>200</scrolltime>
-							<orientation>vertical</orientation>
-							<focusposition>0</focusposition>
-							<viewtype label="actor list">list</viewtype>
-                            <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),youtube)</visible>
-                            <itemlayout width="400" height="238">
-								<control type="group">
-                                    <width>95%</width>
-                                    <height>95%</height>
-                                    <include>ThumbsViewLayout</include>
-                                </control>
-							</itemlayout>
-							<focusedlayout width="400" height="238">
-								<control type="group">
-                                    <width>95%</width>
-                                    <height>95%</height>
-                                    <include>ThumbsViewLayoutFocus</include>
-                                </control>
-							</focusedlayout>
-                        </control>
+ 
                                           <!-- posters -->
                         <control type="panel" id="450">
                             <posx>55</posx>

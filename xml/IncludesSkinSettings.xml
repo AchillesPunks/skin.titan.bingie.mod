@@ -1250,15 +1250,15 @@
             <selected>Skin.HasSetting(DisableWelcomeMsg)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-	   <!-- Season Greetings  -->
-		<control type="label" id="2034">
+	   <!-- Season Greetings
+	    <control type="label" id="2034">
             <include>SkinSettings_Header</include>
 			<label>Season Greetings</label>
 			<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-        </control>
-		
-		<!-- Enable Snow -->
-        <control type="radiobutton" id="2010">
+        </control> -->
+		                                                               <!-- Waiting for next holiday season -->
+		<!-- Enable Snow                                         
+            <control type="radiobutton" id="2010">
             <description/>
             <include>SkinSettings_Button</include>
             <label>Enable Snow Animation</label>
@@ -1267,7 +1267,7 @@
             <selected>Skin.HasSetting(enablesnow)</selected>
 			<selected>Skin.HasSetting(expandsnow)</selected>
 			<visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-		</control>
+		</control> -->
 	   <!--Toggle RSS Feed-->
         <control type="radiobutton" id="23720">
        <include>SkinSettings_Button</include>
@@ -2967,10 +2967,10 @@
             <param name="id" value="31015" />
             <param name="addon" value="plugin.video.youtube" />
         </include>
-       <!-- <include content="SkinSettings_AddonButton">
+        <include content="SkinSettings_AddonButton">
             <param name="id" value="31300" />
-            <param name="addon" value="script.artwork.beef" />
-        </include> -->
+            <param name="addon" value="script.artwork.dump" />
+        </include>
         <include content="SkinSettings_AddonButton">
             <param name="id" value="31003" />
             <param name="addon" value="script.extendedinfo" />
@@ -3883,14 +3883,14 @@
             <param name="action" value="Addon.OpenSettings(script.module.metadatautils)" />
             <param name="visible" value="true" />
         </include>
-        <!-- Enable auto-download via Artwork Beef -->
-       <!-- <control type="radiobutton" id="5139">
+        <!-- Enable auto-download via Artwork Dump -->
+            <control type="radiobutton" id="5139">
             <include>SkinSettings_Button</include>
             <label>31099</label>
-            <onclick condition="System.HasAddon(script.artwork.beef)">Skin.ToggleSetting(EnableArtworkBeef)</onclick>
-            <onclick condition="!System.HasAddon(script.artwork.beef)">RunPlugin(plugin://script.artwork.beef)</onclick>
-            <selected>Skin.HasSetting(EnableArtworkBeef)</selected>
-        </control> -->
+            <onclick condition="System.HasAddon(script.artwork.dump)">Skin.ToggleSetting(EnableArtworkDump)</onclick>
+            <onclick condition="!System.HasAddon(script.artwork.dump)">RunPlugin(plugin://script.artwork.dump)</onclick>
+            <selected>Skin.HasSetting(EnableArtworkDump)</selected>
+        </control> 
         <control type="radiobutton" id="31710">
             <description>Enable Skin Helper Artwork Lookups for Addons</description>
             <include>SkinSettings_Button</include>

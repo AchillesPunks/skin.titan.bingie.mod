@@ -450,7 +450,7 @@
 
 				
 							
-							<!-- Artwork Beef -->
+							<!-- Artwork Dump -->
 							<control type="radiobutton" id="10">
 								<visible>Skin.HasSetting(videoinfo_button_artwork) + !Skin.HasSetting(KioskMode.Enabled)</visible>
 								<visible>String.IsEmpty(Window.Property(AdditionalInfo)) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo) | String.IsEqual(ListItem.DBType,episode)]</visible>
@@ -464,7 +464,7 @@
 								<radioposx>15</radioposx>
 								<radiowidth>21</radiowidth>
 								<radioheight>25</radioheight>
-								</control>
+								</control> 
 
 
 					</control>
@@ -1194,8 +1194,8 @@
 								<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 							</control>
 
-							<!-- Artwork Beef -->
-							<control type="radiobutton" id="10">
+							<!-- Artwork Dump -->
+							    <control type="radiobutton" id="10">
 								<visible>Skin.HasSetting(videoinfo_button_artwork) + !Skin.HasSetting(KioskMode.Enabled)</visible>
 								<visible>String.IsEmpty(Window.Property(AdditionalInfo)) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo) | String.IsEqual(ListItem.DBType,episode)]</visible>
 								<include>Bingie_InfoDialog_Button_Default_Defs</include>
@@ -1206,11 +1206,11 @@
 								<radioposx>15</radioposx>
 								<radiowidth>21</radiowidth>
 								<radioheight>25</radioheight>
-								<onclick condition="String.IsEqual(ListItem.DBType,episode) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=episode, dbid=$INFO[ListItem.DBID])</onclick>
-								<onclick condition="String.IsEqual(ListItem.DBType,tvshow) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-								<onclick condition="String.IsEqual(ListItem.DBType,movie) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-								<onclick condition="!System.HasAddon(script.artwork.beef)">RunPlugin(plugin://script.artwork.beef)</onclick>
-							</control>
+						   <!-- <onclick condition="String.IsEqual(ListItem.DBType,episode) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=episode, dbid=$INFO[ListItem.DBID])</onclick>
+								<onclick condition="String.IsEqual(ListItem.DBType,tvshow) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+								<onclick condition="String.IsEqual(ListItem.DBType,movie) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+								<onclick condition="!System.HasAddon(script.artwork.dump)">RunPlugin(plugin://script.artwork.dump)</onclick> -->
+							</control> 
 
 							<!--Refresh-->
 							<control type="radiobutton" id="6">

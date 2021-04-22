@@ -279,7 +279,7 @@
 			<itemgap>15</itemgap>
 		<!-- Spotlight Details Row Top250 Colored Icon -->
 		<control type="image">
-				<visible>Skin.HasSetting(EnableTop250ColoredLabel)</visible>
+				<visible>!Skin.HasSetting(EnableTop250ColoredLabel)</visible>
 				<visible>Control.IsVisible(8231)</visible>
 				<posy>5</posy>
 				<left>1</left>
@@ -290,7 +290,7 @@
 		</control>
 		<!-- Spotlight Details Row Top250 White Icon -->
 		<control type="image">
-				<visible>!Skin.HasSetting(EnableTop250ColoredLabel)</visible>
+				<visible>Skin.HasSetting(EnableTop250ColoredLabel)</visible>
 				<visible>Control.IsVisible(8231)</visible>
 				<posy>5</posy>
 				<left>1</left>
@@ -384,7 +384,7 @@
 
                    <!-- Movie Continue Watching -->
                     <control type="grouplist">
-                        <visible>!Skin.HasSetting(MovieDetailsHome)</visible>
+                        <visible>Skin.HasSetting(MovieDetailsHome)</visible>
 						<visible>$EXP[IsMovieDBType]</visible>
                         <include>Default_Visible_Fade</include>
                         <orientation>vertical</orientation>
@@ -396,7 +396,7 @@
                         
                         <!-- Progress Bar & Remaining Label -->
                         <control type="group">
-                            <visible>!Skin.HasSetting(MovieDetailsHome)</visible>
+                            <visible>Skin.HasSetting(MovieDetailsHome)</visible>
 							<visible>Integer.IsGreater(ListItem.PercentPlayed,1) | [$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)]</visible>
                             <top>10</top>
 							<width>650</width>

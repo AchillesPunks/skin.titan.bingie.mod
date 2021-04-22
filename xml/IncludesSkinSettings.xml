@@ -875,9 +875,9 @@
  <!--Enable Audio Codecs-->
         <control type="radiobutton" id="2018">
             <include>SkinSettings_Button</include>
-            <label>Enable Audio Codec on Details Row</label>
+            <label>Disable Audio Codec on Details Row</label>
             <onclick>Skin.ToggleSetting(EnableAudioCodec)</onclick>
-            <selected>Skin.HasSetting(EnableAudioCodec)</selected>
+            <selected>!Skin.HasSetting(EnableAudioCodec)</selected>
 			<visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
 <!--Enable Audio Codecs ATMOS only-->
@@ -886,7 +886,7 @@
             <label>Only Show Atmos Audio Codec on Details Row</label>
             <onclick>Skin.ToggleSetting(enableAtmosOnly)</onclick>
             <selected>Skin.HasSetting(enableAtmosOnly)</selected>
-			<visible>Skin.HasSetting(EnableAudioCodec)</visible>
+			<visible>!Skin.HasSetting(EnableAudioCodec)</visible>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
 <!--Fake Codec info on Details Row (if no codec info is present)-->
@@ -934,7 +934,7 @@
             <include>SkinSettings_Button</include>
             <label>Disable Continue Watching Movie Percentage</label>
             <onclick>Skin.ToggleSetting(MovieDetailsHome)</onclick>
-            <selected>Skin.HasSetting(MovieDetailsHome)</selected>
+            <selected>!Skin.HasSetting(MovieDetailsHome)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
 	</include>
@@ -970,7 +970,7 @@
 		<!--Enable New footer -->
 			<control type="radiobutton" id="2039">
             <include>SkinSettings_Button</include>
-            <label>Enable New Footer Ratings</label>
+            <label>Disable New Footer Ratings</label>
             <onclick>Skin.ToggleSetting(EnableNewFooter)</onclick>
 			<selected>Skin.HasSetting(EnableNewFooter)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(NoFooterBarOnHome)</visible>
@@ -1001,7 +1001,7 @@
 			<!--Enable RT Audience (if default) -->
 			<control type="radiobutton" id="2043">
             <include>SkinSettings_Button</include>
-            <label>      Enable RT Audience. Only select this if Rotten Tomatoes Audience is your default movie database rating!</label>
+            <label>      Disable RT Audience. Rotten Tomatoes Audience must be your default movie database rating!</label>
             <onclick>Skin.ToggleSetting(enableRTAudience)</onclick>
 			<selected>Skin.HasSetting(enableRTAudience)</selected>
             <visible>Skin.HasSetting(EnableNewFooter) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(NoFooterBarOnHome)</visible>
@@ -1052,7 +1052,7 @@
             <onclick>Skin.ToggleSetting(HideMediaFlagsTrailer)</onclick>
             <!-- <visible>!Skin.HasSetting(BingieHomeDisableFirstRow) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(NoFooterBarOnHome) + [Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(BingieAutoTrailer)]</visible> -->
             <visible>!Skin.HasSetting(NoFooterBarOnHome)</visible>
-			<selected>Skin.HasSetting(HideMediaFlagsTrailer)</selected>
+			<selected>!Skin.HasSetting(HideMediaFlagsTrailer)</selected>
         </control>
 	</include>
 

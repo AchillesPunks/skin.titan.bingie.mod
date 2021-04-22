@@ -89,6 +89,8 @@
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableFixedFocusWidgets)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowInformationBypass)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PreferTvShowThumbWidget)</onload>	
+	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableNewFooter)</onload>	
+	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableRTAudience)</onload>	
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableMediaCodecInfoInHome)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(LockHubWidgets)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AllowTVShowsTrailer)</onload>

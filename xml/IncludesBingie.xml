@@ -674,7 +674,7 @@
 			<include condition="Skin.HasSetting(EnableFakeResolution)">Resolution_Details_Row_fake</include>
             <include>Audio_Channels_Details_Row</include>
 			<include condition="Skin.HasSetting(EnableTVShowStatus)">ShowStatus</include>
-			<include condition="Skin.HasSetting(EnableAudioCodec)">Audiocodec1</include>
+			<include condition="!Skin.HasSetting(EnableAudioCodec)">Audiocodec1</include>
 		</control>
 	</include>
 
@@ -1799,7 +1799,7 @@ Bingie Menu Icons -->
     <include name="Bingie_Footer">
         <control type="group">
             <animation effect="slide" end="0,250" time="300" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
-            <animation effect="fade" start="100" end="0" time="300"  condition="Skin.HasSetting(HideMediaFlagsTrailer) + [$EXP[IsPlayingUnrecognizedContent] | $EXP[IsCurrentWidgetSpotlight]]">Conditional</animation>
+            <animation effect="fade" start="100" end="0" time="300"  condition="!Skin.HasSetting(HideMediaFlagsTrailer) + [$EXP[IsPlayingUnrecognizedContent] | $EXP[IsCurrentWidgetSpotlight]]">Conditional</animation>
             <top>520</top>
             <width>100%</width>
 <!-- Ratings & Studio Home-->
@@ -1809,7 +1809,7 @@ Bingie Menu Icons -->
                     <param name="right" value="130" />
                 </include>
                 <right>16</right>
-				<top>45</top>
+				<top>35</top>
                 <height>50</height>
                 <width>1000</width>
                 <include>Bingie_RatingsAndStudio_Hor</include>
@@ -1825,7 +1825,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>10</top>
+				<top>0</top>
 				<include>new_footer</include>
 			</control>
 
@@ -1838,7 +1838,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>10</top>
+				<top>0</top>
 				<include>text_footer</include>
 			</control>
 
@@ -1866,7 +1866,7 @@ Bingie Menu Icons -->
         <control type="image">
             <nested />
             <visible>$PARAM[visibility]</visible>
-            <top>610</top>                                           <!-- default 645 -->
+            <top>650</top>                                           <!-- default 645 -->
             <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <left>0</left>
             <width>$PARAM[width]</width>
@@ -2573,7 +2573,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>-31</top>
+				<top>-23</top>
 				<include>text_footer</include>
 				</control>
 			
@@ -2583,7 +2583,7 @@ Bingie Menu Icons -->
 				<right>140</right>
                 <height></height>
                 <width></width>
-				<top>-31</top>
+				<top>-23</top>
 				<include>text_footer</include>
 				</control>
 					

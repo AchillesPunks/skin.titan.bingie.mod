@@ -2573,7 +2573,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>-23</top>
+				<top>-31</top>
 				<include>text_footer</include>
 				</control>
 			
@@ -2583,7 +2583,7 @@ Bingie Menu Icons -->
 				<right>140</right>
                 <height></height>
                 <width></width>
-				<top>-23</top>
+				<top>-31</top>
 				<include>text_footer</include>
 				</control>
 					

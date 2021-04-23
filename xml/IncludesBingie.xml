@@ -1809,7 +1809,7 @@ Bingie Menu Icons -->
                     <param name="right" value="130" />
                 </include>
                 <right>16</right>
-				<top>35</top>
+				<top>5</top>
                 <height>50</height>
                 <width>1000</width>
                 <include>Bingie_RatingsAndStudio_Hor</include>
@@ -1825,7 +1825,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>0</top>
+				<top>-30</top>
 				<include>new_footer</include>
 			</control>
 
@@ -1838,7 +1838,7 @@ Bingie Menu Icons -->
 				<right>15</right>
                 <height></height>
                 <width></width>
-				<top>0</top>
+				<top>-30</top>
 				<include>text_footer</include>
 			</control>
 

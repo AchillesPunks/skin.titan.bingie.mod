@@ -458,7 +458,7 @@
                 <include condition="$EXP[IsBingieListsActive]" content="top">
                     <param name="top" value="600" />
                 </include>
-                <top>611</top> <!--home widget height, affects spotlight widget in includesbingie.  Was 605 but didn't work for landscape, cutting off text-->
+                <top>571</top> <!--home widget height, affects spotlight widget in includesbingie.  Was 605 but didn't work for landscape, cutting off text-->
                 <include condition="Skin.HasSetting(EnableFixedFocusWidgets) + [Window.IsActive(Home) | [$EXP[IsBingieHubsActive] + Skin.HasSetting(LockHubWidgets)]]">Fixed_Focus_Bottom</include>
                 <bottom>0</bottom>
                 <include condition="Skin.HasSetting(EnableFixedFocusWidgets) + [Window.IsActive(Home) | [$EXP[IsBingieHubsActive] + Skin.HasSetting(LockHubWidgets)]]">Fixed_Focus_Itemgap</include>

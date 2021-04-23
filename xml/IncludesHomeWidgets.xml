@@ -151,7 +151,7 @@
     <!-- widget poster details layout -->
     <include name="widget_layout_posterdetails">
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_posterdetails_animation</include>
-        <height>381</height>
+        <height>380</height>
 		<left>4</left>
         <orientation>horizontal</orientation>
         <itemlayout height="380" width="261">

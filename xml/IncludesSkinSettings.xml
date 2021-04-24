@@ -1317,8 +1317,8 @@
             <include>SkinSettings_Button</include>
             <label>31339</label>
             <onclick>Skin.ToggleSetting(SmartShortcuts.emby)</onclick>
-            <selected>Skin.HasSetting(SmartShortcuts.emby) + System.HasAddon(plugin.video.emby)</selected>
-            <enable>System.HasAddon(plugin.video.emby)</enable>
+            <selected>Skin.HasSetting(SmartShortcuts.emby) + System.HasAddon(plugin.video.emby-next-gen)</selected>
+            <enable>System.HasAddon(plugin.video.emby-next-gen)</enable>
             <animation effect="fade" start="100" end="40" time="0" condition="!Control.IsEnabled(19012)">Conditional</animation>
         </control>
         <control type="label" id="19015">
@@ -2985,7 +2985,7 @@
         </include>
         <include content="SkinSettings_AddonButton">
             <param name="id" value="31016" />
-            <param name="addon" value="plugin.video.emby" />
+            <param name="addon" value="plugin.video.emby-next-gen" />
         </include>
     </include>
 

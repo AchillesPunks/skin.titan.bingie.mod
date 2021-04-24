@@ -163,18 +163,17 @@
 					</control>
                     
                     
-                        <!--Get Thumb Artwork Dump -->
-						<control type="button" id="101">
+                        <!--Get Thumb Artwork Beef-->
                         <label>13511</label>
                         <width>285</width>
                         <height>60</height>
                         <align>center</align>
                         <textoffsetx>0</textoffsetx>
                         <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
-						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),episode) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=episode, dbid=$INFO[Window.Property(DBID)])</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=tvshow, dbid=$INFO[Window.Property(DBID)])</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),movie) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=movie, dbid=$INFO[Window.Property(DBID)])</onclick>
-						<onclick condition="!System.HasAddon(script.artwork.dump)">RunPlugin(plugin://script.artwork.dump)</onclick>
+						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),episode) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=episode, dbid=$INFO[Window.Property(DBID)])</onclick>
+						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=tvshow, dbid=$INFO[Window.Property(DBID)])</onclick>
+						<onclick condition="!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),movie) + System.HasAddon(script.artwork.beef)">RunScript(script.artwork.beef, mode=gui, mediatype=movie, dbid=$INFO[Window.Property(DBID)])</onclick>
+						<onclick condition="!System.HasAddon(script.artwork.beef)">RunPlugin(plugin://script.artwork.beef)</onclick>
                     </control>
                     
                     <control type="radiobutton" id="3052">

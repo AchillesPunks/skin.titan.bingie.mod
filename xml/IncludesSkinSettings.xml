@@ -916,7 +916,7 @@
         <!-- Prefer Colored Top250 Sublabel on Spotlight Details Row -->	
 		<control type="radiobutton" id="2038">
             <include>SkinSettings_Button</include>
-            <label>      Prefer Color Icon on Top250 Sublabel</label>
+            <label>      Prefer White Icon on Top250 Sublabel</label>
             <onclick>Skin.ToggleSetting(EnableTop250ColoredLabel)</onclick>
             <selected>Skin.HasSetting(EnableTop250ColoredLabel)</selected>
             <visible>!Skin.HasSetting(DisableTop250)</visible>

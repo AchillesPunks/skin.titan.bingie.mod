@@ -1196,8 +1196,10 @@
     </variable>
 
     <!-- Skin Helper Vars -->
-    <variable name="CustomBackgroundSetting">
-        <value>$INFO[Window(Home).Property(SkinHelper.TopRatedMovies)]</value>
+     <variable name="CustomBackgroundSetting">
+        <value condition="String.IsEqual(Skin.String(CustomBackgroundSetting.name), Random movies background)">$INFO[Window(Home).Property(SkinHelper.TopRatedMovies)]</value>
+        <value condition="String.IsEqual(Skin.String(CustomBackgroundSetting.name), Wall: Random movies background)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Wall)]</value>
+        <value condition="String.IsEqual(Skin.String(CustomBackgroundSetting.name), Poster Wall: Random movies background)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Poster.Wall)]</value>
     </variable>
     <variable name="MusicBackground">
         <value>$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>

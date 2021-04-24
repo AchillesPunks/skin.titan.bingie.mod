@@ -310,6 +310,16 @@
 					<include>DialogButtonOther</include>
                     <visible>Control.IsEnabled(13)</visible>
                 </control>
+				
+				<control type="button" id="14">
+                    <!--version-->
+                    <width>300</width>
+                    <height>80</height>
+                    <align>center</align>
+                    <label>24069</label>
+                    <include>DialogButtonOther</include>
+                    <visible>Control.IsEnabled(14)</visible>
+                </control>
                 
             </control>
             <!--Arrows-->

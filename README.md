@@ -1,6 +1,6 @@
 # Skin Titan BINGIE MOD
 
-Titan BINGIE MOD for Kodi Matrix.
+Titan BINGIE MOD for Kodi Leia.
 
 #IMPORTANT NOTE FOR USERS# 
 Install the skin through the official titan bingie mod repository for updates and the supported addons required!

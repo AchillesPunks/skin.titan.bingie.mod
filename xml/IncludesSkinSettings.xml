@@ -2969,7 +2969,7 @@
         </include>
         <include content="SkinSettings_AddonButton">
             <param name="id" value="31300" />
-            <param name="addon" value="script.artwork.dump" />
+            <param name="addon" value="script.artwork.beef" />
         </include>
         <include content="SkinSettings_AddonButton">
             <param name="id" value="31003" />
@@ -3883,14 +3883,14 @@
             <param name="action" value="Addon.OpenSettings(script.module.metadatautils)" />
             <param name="visible" value="true" />
         </include>
-        <!-- Enable auto-download via Artwork Dump -->
-            <control type="radiobutton" id="5139">
+         <!-- Enable auto-download via Artwork Beef -->
+        <control type="radiobutton" id="5139">
             <include>SkinSettings_Button</include>
             <label>31099</label>
-            <onclick condition="System.HasAddon(script.artwork.dump)">Skin.ToggleSetting(EnableArtworkDump)</onclick>
-            <onclick condition="!System.HasAddon(script.artwork.dump)">RunPlugin(plugin://script.artwork.dump)</onclick>
-            <selected>Skin.HasSetting(EnableArtworkDump)</selected>
-        </control> 
+            <onclick condition="System.HasAddon(script.artwork.beef)">Skin.ToggleSetting(EnableArtworkBeef)</onclick>
+            <onclick condition="!System.HasAddon(script.artwork.beef)">RunPlugin(plugin://script.artwork.beef)</onclick>
+            <selected>Skin.HasSetting(EnableArtworkBeef)</selected>
+        </control>
         <control type="radiobutton" id="31710">
             <description>Enable Skin Helper Artwork Lookups for Addons</description>
             <include>SkinSettings_Button</include>

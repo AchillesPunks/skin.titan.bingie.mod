@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
-<addon id="skin.titan.bingie.mod" version="2.0.0" name="Titan BINGIE MOD" provider-name="AchillesPunks, HugoL, Matke">
+<addon id="skin.titan.bingie.mod" version="1.1.0" name="Titan BINGIE MOD" provider-name="AchillesPunks, HugoL, Matke">
 	<requires>
 		<import version="5.14.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.0.0"/>
@@ -42,7 +42,7 @@
 			<screenshot>resources/screenshot011.jpg</screenshot>
 		</assets>
 		<news>
-			[B]Titan BINGIE MOD v2[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=355993
+			[B]Titan BINGIE MOD v1[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=355993
 		</news>
 	</extension>
 </addon>

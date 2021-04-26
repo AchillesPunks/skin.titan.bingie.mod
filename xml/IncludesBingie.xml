@@ -1590,7 +1590,7 @@
                 <visible>$PARAM[visibility]</visible>
                 <left>$PARAM[left]</left>
                 <width>25</width>
-                <bottom>19</bottom>
+                <bottom>16</bottom>
 				<height>-7</height>
                 <texture>colors/color_white.png</texture>
                 <colordiffuse>red</colordiffuse>
@@ -1644,7 +1644,7 @@ Bingie Menu Icons -->
             <include condition="$PARAM[includeAnimCond] + !Skin.HasSetting(EnhancedHome_Circular)">Bingie_Menu_Icon_Anim</include>
             <left>60</left>
             <height>100%</height>
-            <top>33</top>
+            <top>36</top>
             <control type="image">
                 <include>Bingie_Menu_Icon_Defs</include>
                 <colordiffuse>darkgray</colordiffuse>
@@ -1656,7 +1656,7 @@ Bingie Menu Icons -->
             <include condition="$PARAM[includeAnimCond] + !Skin.HasSetting(EnhancedHome_Circular)">Bingie_Menu_Icon_Anim</include>
             <left>60</left>
             <height>100%</height>
-            <top>33</top>
+            <top>36</top>
             <control type="image">
                 <include>Bingie_Menu_Icon_Defs</include>
                 <colordiffuse>white</colordiffuse>

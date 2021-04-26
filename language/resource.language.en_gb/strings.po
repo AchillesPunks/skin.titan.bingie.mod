@@ -1,7 +1,7 @@
 # Kodi Media Center language file
-# Addon Name: Titan Bingie
-# Addon id: skin.titan.bingie
-# Addon Provider: cartmandos, marcelveldt
+# Addon Name: Titan Bingie Mod
+# Addon id: skin.titan.bingie.mod
+# Addon Provider: AchillesPunks, HugoL, Matke
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Skins\n"

@@ -1605,7 +1605,7 @@ msgid "Unlock Hubs now"
 msgstr ""
 
 msgctxt "#31395"
-msgid "With Bingie you can have all of your Kodi and library content in one place, through the use of widgets.[CR][CR]"
+msgid "With Titan BINGIE MOD you can have all of your Kodi and library content in one place, through the use of widgets.[CR][CR]"
 "Home widgets can be configured from:[CR]"
 "[COLOR gray]    - Skin Settings -> Configure Shortcuts tab -> Edit Menu Shortcuts[/COLOR][CR][CR]"
 "There are also Hubs for Movies, TV Shows, New and you can add your own.[CR]"

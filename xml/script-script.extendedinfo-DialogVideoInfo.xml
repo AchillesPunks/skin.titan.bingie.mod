@@ -235,7 +235,7 @@
 								<usecontrolcoords>true</usecontrolcoords>
                                 <control type="group">
 									<posx>0</posx>
-									<width>155</width>
+									<width>180</width>
 									<visible>!String.IsEqual(Window.Property(Rating),0.0) + !String.IsEmpty(Window.Property(Rating))</visible>
 									<control type="image">
 										<posx>0</posx>
@@ -247,7 +247,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>12</posy>
-										<width>155</width>
+										<width>180</width>
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Rating)]</label>
@@ -258,7 +258,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>37</posy>
-										<width>155</width>
+										<width>180</width>
 										<height>38</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -270,7 +270,7 @@
 								</control>								
 								<control type="group">
 									<posx>0</posx>
-									<width>235</width>
+									<width>220</width>
 									<visible>!String.IsEqual(Window.Property(Premiered),0.0) + !String.IsEmpty(Window.Property(Premiered))</visible>
 									<control type="image">
 										<posx>0</posx>
@@ -282,7 +282,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>12</posy>
-										<width>235</width>
+										<width>220</width>
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Premiered)]</label>
@@ -293,7 +293,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>37</posy>
-										<width>235</width>
+										<width>220</width>
 										<height>38</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -305,7 +305,7 @@
 								</control>
 								<control type="group">
 									<posx>0</posx>
-									<width>155</width>
+									<width>135</width>
 									<visible>!String.IsEqual(Window.Property(mpaa),0.0) + !String.IsEmpty(Window.Property(mpaa))</visible>
 									<control type="image">
 										<posx>0</posx>
@@ -317,7 +317,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>12</posy>
-										<width>155</width>
+										<width>135</width>
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(mpaa)]</label>
@@ -328,7 +328,7 @@
                                         <control type="label">
 										<posx>0</posx>
 										<posy>37</posy>
-										<width>155</width>
+										<width>135</width>
 										<height>38</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -340,7 +340,7 @@
 								</control>
 								<control type="group">
 									<posx>0</posx>
-									<width>155</width>
+									<width>135</width>
 									<visible>!String.IsEqual(Window.Property(duration),0.0) + !String.IsEmpty(Window.Property(duration))</visible>
 									<control type="image">
 										<posx>0</posx>
@@ -352,7 +352,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>12</posy>
-										<width>155</width>
+										<width>135</width>
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(duration)]</label>
@@ -363,7 +363,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>37</posy>
-										<width>155</width>
+										<width>135</width>
 										<height>38</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -374,12 +374,12 @@
 									</control>
 								</control>	
 								<control type="group">
-									<width>220</width>
+									<width>225</width>
 									<visible>!String.IsEmpty(Window.Property(ReleaseDate))</visible>
 									<control type="label">
 										<posx>0</posx>
 										<posy>12</posy>
-										<width>220</width>
+										<width>225</width>
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(ReleaseDate)]</label>
@@ -390,7 +390,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>37</posy>
-										<width>220</width>
+										<width>225</width>
 										<height>38</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -402,7 +402,7 @@
 								</control>
 								<control type="group">
 									<posx>0</posx>
-									<width>220</width>
+									<width>225</width>
 									<visible>!String.IsEmpty(Window.Property(Budget))</visible>
 									<control type="image">
 										<posx>0</posx>
@@ -415,7 +415,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>12</posy>
-										<width>220</width>
+										<width>225</width>
 										<height>38</height>
 										<align>center</align>
 										<label>$INFO[Window.Property(Budget),$]</label>
@@ -426,7 +426,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>37</posy>
-										<width>220</width>
+										<width>225</width>
 										<height>38</height>
 										<align>center</align>
 										<aligny>center</aligny>
@@ -438,7 +438,7 @@
 								</control>
 								<control type="group" id="3300">
 									<posx>0</posx>
-									<width>220</width>
+									<width>225</width>
 									<visible>!String.IsEmpty(Window.Property(Revenue))</visible>
 									<control type="image">
 										<posx>0</posx>
@@ -451,7 +451,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>12</posy>
-										<width>220</width>
+										<width>225</width>
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Revenue),$]</label>
@@ -462,7 +462,7 @@
 									<control type="label">
 										<posx>0</posx>
 										<posy>37</posy>
-										<width>220</width>
+										<width>225</width>
 										<height>38</height>
 										<align>center</align>
 										<aligny>center</aligny>

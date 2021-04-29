@@ -33,11 +33,11 @@
         <animation effect="slide" end="-627" time="250" condition="Skin.HasSetting(View59_ShowInfoRight)">Conditional</animation>
         <viewtype label="31428">mediainfo</viewtype>
           <include content="View_Forced">
-              <param name="viewtype" value="$LOCALIZE[31430]" />
+              <param name="viewtype" value="$LOCALIZE[31428]" />
           </include>
         <!-- Right Group Panel -->
 		<right>0</right>
-        <bottom>12%</bottom>
+        <bottom>126</bottom>
         <height>800</height>
         <width>1190</width>
         <orientation>vertical</orientation>

@@ -2418,7 +2418,7 @@ Bingie Menu Icons -->
 			<itemgap>15</itemgap>
 		<!--top 250 icon White-->	
 		<control type="image">
-				<visible>Control.IsVisible(8231) + !Skin.HasSetting(EnableTop250ColoredLabel)</visible>
+				<visible>Control.IsVisible(8231) + Skin.HasSetting(EnableTop250ColoredLabel)</visible>
 				<posy>5</posy>
 				<left>0</left>
                 <height>50</height>
@@ -2428,7 +2428,7 @@ Bingie Menu Icons -->
 		</control>
 		<!--top 250 icon color-->	
 		<control type="image">
-				<visible>Control.IsVisible(8231) + Skin.HasSetting(EnableTop250ColoredLabel)</visible>
+				<visible>Control.IsVisible(8231) + !Skin.HasSetting(EnableTop250ColoredLabel)</visible>
 				<posy>5</posy>
 				<left>0</left>
                 <height>50</height>

@@ -913,7 +913,7 @@
             <selected>Skin.HasSetting(DisableTop250)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>	
-        <!-- Prefer Colored Top250 Sublabel on Spotlight Details Row -->	
+        <!-- Prefer White Top250 Sublabel on Spotlight Details Row -->	
 		<control type="radiobutton" id="2038">
             <include>SkinSettings_Button</include>
             <label>      Prefer White Icon on Top250 Sublabel</label>

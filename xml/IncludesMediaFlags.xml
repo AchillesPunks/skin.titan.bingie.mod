@@ -70,7 +70,7 @@
                 <texture background="true">$VAR[mediaflags_large_path]/cc.png</texture>
                 <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + !Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
-            <control type="image" >
+            <!-- <control type="image" >
                 <height>95</height>
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$INFO[ListItem.AudioLanguage,$VAR[LanguageFlagIconPath],.png]</texture>
@@ -81,7 +81,7 @@
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$INFO[ListItem.SubtitleLanguage,$VAR[LanguageFlagIconPath],.png]</texture>
                 <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
-            </control>
+            </control> -->
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture fallback="flags/flags_large/mpaa/nr.png">$VAR[mediaflags_large_rating]</texture>
@@ -469,15 +469,21 @@
 		
 	</variable>		
 
-	<!--details row MPAA US icons-->
+	<!-- US MPAA / Movie Ratings - DETAILS ROW -->
 	<variable name="mediaflags_large_rating_US_icons">
         <value condition="String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G) | String.IsEqual(ListItem.Mpaa,G)">bingie/usicons/g.png</value>
 		<value condition="String.Contains(ListItem.mpaa,US:PG-13) | String.Contains(ListItem.mpaa,USA:PG-13) | String.Contains(ListItem.mpaa,Rated PG-13) | String.IsEqual(ListItem.Mpaa,PG-13)">bingie/usicons/pg-13.png</value>
 		<value condition="String.IsEqual(ListItem.mpaa,US:PG) | String.IsEqual(ListItem.mpaa,USA:PG) | String.IsEqual(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.Mpaa,PG)">bingie/usicons/pg.png</value>
 		<value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.Mpaa,R)">bingie/usicons/r.png</value>
 		<value condition="String.Contains(ListItem.mpaa,NC-17)">bingie/usicons/NC-17.png</value>
-		
-		
+		<!-- US MPAA / TV Ratings -->
+		<value condition="String.Contains(ListItem.mpaa,TV-Y)">Bingie/usicons/tv-y.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-Y7)">Bingie/usicons/tv-y7.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-G)">Bingie/usicons/tv-g.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-PG)">Bingie/usicons/tv-pg.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-14)">Bingie/usicons/tv-14.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-MA)">Bingie/usicons/tv-ma.png</value>
+				
 		
 	</variable>	
 	
@@ -1859,6 +1865,7 @@
 	<variable name="VideoFileTypeVar">
         <value condition="Window.IsActive(fullscreenvideo) + [VideoPlayer.IsStereoScopic | String.Contains(Player.FileName,.3d.)]">3D</value>
 		<value condition="Window.IsActive(fullscreenvideo) + [Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)]">4K</value>
+		<value condition="Window.IsActive(fullscreenvideo) + [Integer.IsGreater(VideoPlayer.VideoResolution,4K)) | String.IsEqual(VideoPlayer.VideoResolution,8K)]">8K</value>
 		<value condition="Window.IsActive(fullscreenvideo) + [String.Contains(Player.FilenameAndPath,blu-ray) | String.Contains(Player.FilenameAndPath,bluray) | String.Contains(Player.FilenameAndPath,bdrip) | String.Contains(Player.FilenameAndPath,bd25) | String.Contains(Player.FilenameAndPath,bd50)]">BD</value>
 		<value condition="Window.IsActive(fullscreenvideo) + String.EndsWith(Player.FileNameAndPath,dvd) | String.EndsWith(Player.FileNameAndPath,.ifo) | String.Contains(Player.FileNameAndPath,.ISO)">DVD</value>
 		<value condition="Window.IsActive(fullscreenvideo) + String.Contains(Player.FileNameAndPath,WEBDL) | String.Contains(Player.FileNameAndPath,WEB-DL)">WEB-DL</value>

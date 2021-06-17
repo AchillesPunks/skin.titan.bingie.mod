@@ -532,22 +532,22 @@
 						</control>
                         <control type="image">
 							<!--cdart image-->
-							<right>430</right>
-							<posy>-70</posy>
+							<right>426</right>
+							<posy>-61</posy>
 							<width>300</width>
 							<height>300</height>
 							<texture background="true" diffuse="diffuse/cdmask_big.png" fallback="defaultcovers/cd_big.png">$INFO[Window.Property(DiscArt)]</texture>
 							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-							<animation effect="rotate" end="-90" center="auto" time="600" loop="false" reversible="false" condition="!Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+							<animation effect="rotate" end="-360" center="auto" time="600" loop="false" reversible="false" condition="!Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 							<animation effect="rotate" end="-360" center="auto" time="20000" delay="0" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 							<visible>!String.IsEmpty(Window.Property(Poster)) + !String.IsEmpty(Window.Property(DiscArt))</visible>
 						</control>
 						<control type="image">
 							<!--poster-->
 							<right>326</right>
-							<posy>-144</posy>
-							<width>300</width>
-							<height>470</height>
+							<posy>-130</posy>
+							<width>292</width>
+							<height>457</height>
 							<aspectratio align="right" aligny="top" scalediffuse="true">keep</aspectratio>
 							<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png" border="5">$INFO[Window.Property(Poster)]</texture>
 						</control>
@@ -579,7 +579,7 @@
                         <control type="panel" id="1000">
                             <posx>-3</posx>
                             <posy>40</posy>
-                            <width>1800</width>
+                            <width>1808</width>
                             <height>390</height>
                             <onleft>9000</onleft>
                             <onright>1000</onright>
@@ -679,7 +679,7 @@
                         <control type="panel" id="750">
                             <posx>-3</posx>
                             <posy>40</posy>
-                            <width>1800</width>
+                            <width>1808</width>
                             <height>390</height>
                             <onleft>9000</onleft>
                             <onright>750</onright>
@@ -790,7 +790,7 @@
                         <control type="panel" id="250">
                             <posx>0</posx>
                             <posy>40</posy>
-                            <width>1800</width>
+                            <width>1808</width>
                             <height>390</height>
                             <onleft>9000</onleft>
                             <onright>250</onright>
@@ -1365,7 +1365,7 @@
                         <control type="panel" id="1250">
                             <posx>-10</posx>
                             <posy>33</posy>
-                            <width>1800</width>
+                            <width>1808</width>
                             <height>390</height>
                             <onleft>9000</onleft>
                             <onright>1250</onright>
@@ -1377,11 +1377,6 @@
                                 <control type="group">									
 									<posy>10</posy>
 									<posx>10</posx>									
-                                    <control type="image">
-										<width>197</width>
-										<height>274</height>
-										<include>PosterThumbBG</include>
-									  </control>
 									  <control type="image">
 										<width>197</width>
 										<height>274</height>
@@ -1503,7 +1498,7 @@
                         <control type="panel" id="150">
                             <posx>0</posx>
                             <posy>40</posy>
-                            <width>1800</width>
+                            <width>1808</width>
                             <height>390</height>
                             <onleft>9000</onleft>
                             <onright>150</onright>

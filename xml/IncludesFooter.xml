@@ -1546,7 +1546,7 @@
             <bottom>50</bottom>
             <right>21</right>
             <height>50</height>
-            <width>1000</width>
+            <width>1100</width>
             <control type="grouplist">
                 <orientation>horizontal</orientation>
                 <height>90</height>
@@ -1565,6 +1565,51 @@
         <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Top250_Color_Hor</include>
         <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Color_Hor</include>
 		<include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">TomatoMeter_Color_Hor</include>
+		<!--RT Audience Fresh Color (Won't display RT audience unless RT audience is your default rating!) -->
+				<control type="image">
+				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default can never be RT Audience-->
+                <!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<visible>!String.IsEmpty(Control.GetLabel(3777122)) + Integer.IsGreater(ListItem.Rating,5.9)</visible>
+                <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
+				<visible>Skin.HasSetting(enableRTAudience)</visible>
+				<width>37</width>
+                <height>79</height>
+				<bottom>0</bottom>
+                <aspectratio>keep</aspectratio>
+                <fadetime>300</fadetime>
+                <texture background="true">bingie/audiencefresh.png</texture>
+				</control>	
+				
+				<!--RT Audience Rotten Color (Won't display RT audience unless RT audience is your default rating-->
+				<control type="image">
+				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default will never be RT Audience-->
+                <visible>!String.IsEmpty(Control.GetLabel(3777122)) + !Integer.IsGreater(ListItem.Rating,5.9)</visible>
+                <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
+				<visible>Skin.HasSetting(enableRTAudience)</visible>
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<width>56</width>
+                <height>89</height>
+				<bottom>0</bottom>
+                <aspectratio>keep</aspectratio>
+                <fadetime>300</fadetime>
+                <texture background="true">bingie/audiencerotten.png</texture>
+				</control>	
+				
+				<!-- RT Audience label (Won't display RT audience unless RT audience is your default rating-->
+				<control type="label" id="3777122">
+				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default will never be RT Audience-->
+				<visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
+                <visible>Skin.HasSetting(enableRTAudience)</visible>
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<posy>3</posy>
+				<width>auto</width>
+				<height></height>
+                <aligny>center</aligny>
+				<fadetime>300</fadetime>
+                <font>footer</font>
+                <textcolor>fffafafa</textcolor>
+                <label>$VAR[RatingDecimalToPercentage,,%  ]</label>
+				</control>
         <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TVDB_Color_Hor</include>
         <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TMDB_Color_Hor</include>
         <include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">MetaCritic_Color_Hor</include>
@@ -1576,6 +1621,53 @@
         <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Top250_Monochrome_Hor</include>
         <include condition="Skin.HasSetting(EnableIMDBRating)">IMDB_Monochrome_Hor</include>
 		<include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">TomatoMeter_Monochrome_Hor</include>
+		<!--RT Audience Fresh White (Won't display RT audience unless RT audience is your default rating!) -->
+				<control type="image">
+				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default can never be RT Audience-->
+                <visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
+                <visible>Skin.HasSetting(EnableMonochromeRatingInFooter)</visible>
+				<visible>Skin.HasSetting(enableRTAudience)</visible>
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<visible>Integer.IsGreater(ListItem.Rating,5.9)</visible>
+				<width>37</width>
+                <height>79</height>
+				<bottom>0</bottom>
+                <aspectratio>keep</aspectratio>
+                <fadetime>300</fadetime>
+                <texture background="true">bingie/audiencefreshwhite1.png</texture>
+				</control>	
+				
+				<!--RT Audience Rotten White (Won't display RT audience unless RT audience is your default rating!) -->
+				<control type="image">
+				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default can never be RT Audience-->
+                <visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
+                <visible>Skin.HasSetting(EnableMonochromeRatingInFooter)</visible>
+				<visible>Skin.HasSetting(enableRTAudience)</visible>
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<visible>!Integer.IsGreater(ListItem.Rating,5.9)</visible>
+				<width>56</width>
+                <height>89</height>
+				<bottom>0</bottom>
+                <aspectratio>keep</aspectratio>
+                <fadetime>300</fadetime>
+                <texture background="true">bingie/audiencerottenwhite1.png</texture>
+				</control>	
+				
+				<!-- RT Audience label (Won't display RT audience unless RT audience is your default rating-->
+				<control type="label" id="3777122">
+				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default will never be RT Audience-->
+				<visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
+                <visible>Skin.HasSetting(enableRTAudience)</visible>
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<posy>3</posy>
+				<width>auto</width>
+				<height></height>
+                <aligny>center</aligny>
+				<fadetime>300</fadetime>
+                <font>footer</font>
+                <textcolor>fffafafa</textcolor>
+                <label>$VAR[RatingDecimalToPercentage,,%  ]</label>
+				</control>
         <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TVDB_Monochrome_Hor</include>
         <include condition="Skin.HasSetting(EnableTVdbAndTMdbRating)">TMDB_Monochrome_Hor</include>
         <include condition="Skin.HasSetting(EnableRTAndMetaCriticRating)">MetaCritic_Monochrome_Hor</include>
@@ -1813,7 +1905,7 @@
 				<!--RT Audience Fresh Color (Won't display RT audience unless RT audience is your default rating!) -->
 				<control type="image">
 				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default can never be RT Audience-->
-                <visible>!String.IsEmpty(ListItem.DateAdded)</visible>  <!--Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+                <!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<visible>!String.IsEmpty(Control.GetLabel(3777122)) + Integer.IsGreater(ListItem.Rating,5.9)</visible>
                 <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
@@ -1831,7 +1923,7 @@
                 <visible>!String.IsEmpty(Control.GetLabel(3777122)) + !Integer.IsGreater(ListItem.Rating,5.9)</visible>
                 <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
-				<visible>!String.IsEmpty(ListItem.DateAdded)</visible>  <!--Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<width>56</width>
                 <height>42</height>
 				<bottom>19</bottom>
@@ -1846,7 +1938,7 @@
                 <visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
-				<visible>!String.IsEmpty(ListItem.DateAdded)</visible>  <!--Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<visible>Integer.IsGreater(ListItem.Rating,5.9)</visible>
 				<width>37</width>
                 <height>49</height>
@@ -1862,7 +1954,7 @@
                 <visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
-				<visible>!String.IsEmpty(ListItem.DateAdded)</visible>  <!--Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<visible>!Integer.IsGreater(ListItem.Rating,5.9)</visible>
 				<width>56</width>
                 <height>42</height>
@@ -1877,7 +1969,7 @@
 				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default will never be RT Audience-->
 				<visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
                 <visible>Skin.HasSetting(enableRTAudience)</visible>
-				<visible>!String.IsEmpty(ListItem.DateAdded)</visible>  <!--Stops default rating showing up in addon widgets since their default rating is never RT audience-->
+				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<posy>37</posy>
 				<width>auto</width>
 				<height></height>
@@ -2017,7 +2109,7 @@
 				<visible>!Control.IsVisible(77777)</visible>
 				<visible>!Skin.HasSetting(BingieViewsDisableStudio)</visible>
 				<top>46</top>
-				<left></left>
+				<left>-4</left>
                 <width>100</width>
                 <height>66</height>
 				<aspectratio>keep</aspectratio>
@@ -2550,8 +2642,8 @@
 				<visible>!String.IsEmpty(Control.GetLabel(270009))</visible>
 				<visible>Control.IsVisible(77777)</visible>
 				<visible>!Skin.HasSetting(BingieViewsDisableStudio)</visible>
-				<top>53</top>
-				<left>2</left>
+				<top>54</top>
+				<left>0</left>
                 <width>110</width>
                 <height>60</height>
 				<aspectratio>keep</aspectratio>
@@ -2563,8 +2655,8 @@
 				<control type="image">
 				<visible>!Control.IsVisible(77777)</visible>
 				<visible>!Skin.HasSetting(BingieViewsDisableStudio)</visible>
-				<top>53</top>
-				<left>5</left>
+				<top>54</top>
+				<left>1</left>
                 <width>110</width>
                 <height>60</height>
 				<aspectratio>keep</aspectratio>

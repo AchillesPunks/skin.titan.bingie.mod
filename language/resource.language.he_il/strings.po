@@ -751,8 +751,8 @@ msgstr "תשתמש בצבעים כהים"
 
 
 msgctxt "#31155"
-msgid "Hide panel background"
-msgstr "הסתר רקע לוח"
+msgid "Show panel background"
+msgstr ""
 
 
 msgctxt "#31156"

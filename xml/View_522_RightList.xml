@@ -9,23 +9,27 @@
             <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
             <include>animation_view_change</include>
 			
-			<!-- Background Panel-->
-			<control type="image">
-				<posx>50</posx>
-				<width>1820</width>
-                <bottom>13%</bottom>
-                <height>736</height>
-				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                <visible>!Skin.HasSetting(View522_HidePanel)</visible>
-                <visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			</control>
-            
+			 <!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
+
             <include>MovieDetailsLeft_Small</include>
-            
+
             <!-- ID="522" -->
             <control type="list" id="522">
-                <bottom>14%</bottom>
+                <bottom>148</bottom>
                 <height>720</height>
                 <right>65</right>
                 <width>800</width>
@@ -44,8 +48,8 @@
                     <control type="label">
                         <!--Label 1-->
                         <align>right</align>
-                        <right>5</right>
-                        <width>100%</width>
+                        <right>10</right>
+                        <width>98%</width>
                         <font>Reg28</font>
                         <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
                         <label>$VAR[ListTitle]</label>
@@ -53,8 +57,8 @@
                     <control type="image">
                         <!--Separator-->
                         <right>0</right>
-                        <posy>56</posy>
-                        <width>100%</width>
+                        <posy>62</posy>
+                        <width>797</width>
                         <height>20</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
@@ -73,9 +77,9 @@
                     <control type="label">
                         <!--Label 1-->
                         <align>right</align>
-                        <right>5</right>
-                        <width>100%</width>
-                        <height>55</height>
+                        <right>10</right>
+                        <width>98%</width>
+                        <height>54</height>
                         <font>Reg36</font>
 						<scroll>true</scroll>
                         <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
@@ -84,9 +88,9 @@
                     <control type="label">
                         <!--Label 2-->
                         <align>right</align>
-                        <right>5</right>
-                        <width>100%</width>
-                        <posy>52</posy>
+                        <right>10</right>
+                        <width>98%</width>
+                        <posy>50</posy>
                         <height>30</height>
                         <font>Light30</font>
 						<scroll>true</scroll>
@@ -98,7 +102,7 @@
                         <!--Separator-->
                         <right>0</right>
                         <posy>86</posy>
-                        <width>100%</width>
+                        <width>797</width>
                         <height>20</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
@@ -107,21 +111,6 @@
 					
                 </focusedlayout>
             </control>
-            <!-- Fanart Image Added to View-->
-            <control type="multiimage">
-                <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
-				<imagepath background="true">$VAR[backgroundVar]</imagepath>
-                <aspectratio>scale</aspectratio>
-                <fadetime>350</fadetime>
-                <include>fanartSpeed</include>
-                <randomize>true</randomize>
-                <loop>yes</loop>
-<!-- Background Animation -->
-                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-            </control>
             <!--Poster with discart-->
             <control type="group">
                 <right>870</right>
@@ -129,20 +118,6 @@
                 <bottom>13%</bottom>
                 <height>736</height>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
-                <control type="image">
-					<!--cdart image-->
-                    <width>500</width>
-                    <height>500</height>
-                    <top>118</top>
-					<texture background="true" diffuse="diffuse/cdmask_new.png">$VAR[DiscArtImage]</texture>
-					<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-					<animation effect="slide" start="0,0" end="200,0" tween="cubic" easing="inout" time="1200" delay="600" condition="Skin.HasSetting(View522_ShowCDart)">Conditional</animation>
-					<animation effect="fade" start="0" end="100" delay="600" time="800" pulse="false" condition="Skin.HasSetting(View522_ShowCDart)">Conditional</animation>
-					<animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-					<visible>Skin.HasSetting(View522_ShowCDart) + [!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster))]</visible>
-                    <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
-                    <visible>Window.IsActive(Videos)</visible>
-				</control>
                 <control type="image">
 					<aspectratio align="center" aligny="center" scalediffuse="true">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumb]</texture>
@@ -158,7 +133,7 @@
                     <visible>[ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
 				</control>
                 <control type="image">
-					<aspectratio align="center" aligny="bottom" scalediffuse="true">keep</aspectratio>
+					<aspectratio align="center" aligny="top" scalediffuse="true">keep</aspectratio>
 					<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumb]</texture>
 					<bordersize>8</bordersize>
                     <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
@@ -176,9 +151,9 @@
             <!--vertical Scollbar-->
             <control type="scrollbar" id="60">
                 <visible>Control.IsVisible(522) + Integer.IsGreater(Container.NumItems,0)</visible>
-                <right>15</right>
-                <bottom>13%</bottom>
-                <height>736</height>
+                <right>10</right>
+                <bottom>148</bottom>
+                <height>720</height>
                 <onup>60</onup>
                 <ondown>6000</ondown>
                 <onleft>522</onleft>

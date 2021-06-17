@@ -11,10 +11,27 @@
         <control type="group">
             <include>animation_view_change</include>
             <visible>Control.IsVisible(518)</visible>
+			
+			<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
+			
             <control type="group">
                 <control type="fixedlist" id="518">
                     <posx>60</posx>
-                    <bottom>13%</bottom>
+                    <bottom>11%</bottom>
                     <height>810</height>
                     <width>1800</width>
                     <onup>518</onup>
@@ -45,14 +62,14 @@
                                 <!--Panel icon image-->
                                 <width>30%</width>
                                 <height>100%</height>
-                                <bordersize>8</bordersize>
+                                <bordersize>9</bordersize>
                                 <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
                                 <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
                             </control>
                             <control type="label">
                                 <left>31%</left>
                                 <width>6%</width>
-                                <top>0</top>
+                                <top>-3</top>
                                 <height>100</height>
                                 <aligny>center</aligny>
                                 <align>left</align>
@@ -65,7 +82,7 @@
                             <control type="label">
                                 <left>31%</left>
                                 <width>61%</width>
-                                <top>8</top>
+                                <top>5</top>
                                 <height>50</height>
                                 <align>left</align>
                                 <font>Bold30</font>
@@ -88,8 +105,8 @@
                                 <animation effect="slide" start="0" end="120" time="0" condition="Container.Content(episodes)">Conditional</animation>
                             </control>
                             <control type="group">
-                                <right>8</right>
-                                <top>8</top>
+                                <right>9</right>
+                                <top>9</top>
                                 <include>WatchedIndicatorNormal</include>
                              </control>
                         </control>
@@ -108,7 +125,7 @@
                                 <!--Panel icon image-->
                                 <width>30%</width>
                                 <height>100%</height>
-                                <bordersize>8</bordersize>
+                                <bordersize>9</bordersize>
                                 <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
                                 <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
                             </control>
@@ -127,11 +144,11 @@
                             </control>
                             <control type="label">
                                 <left>31%</left>
-                                <width>61%</width>
+                                <width>67%</width>
                                 <top>15</top>
                                 <height>50</height>
                                 <align>left</align>
-                                <font>Bold68</font>
+                                <font>Bold52</font>
                                 <textcolor>ffcc0000</textcolor>
                                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
                                 <label>$INFO[ListItem.Label]</label>
@@ -139,7 +156,7 @@
                             </control>
                             <control type="label">
                                 <left>31%</left>
-                                <width>62%</width>
+                                <width>67%</width>
                                 <top>70</top>
                                 <aligny>center</aligny>
                                 <height>38</height>
@@ -152,9 +169,9 @@
                             </control>
                             <control type="textbox">
                                 <left>31%</left>
-                                <right>30</right>
+                                <right>35</right>
                                 <top>110</top>
-                                <height>188</height>
+                                <height>180</height>
                                 <align>justify</align>
                                 <font>Bold34</font>
                                 <textcolor>FFFFFFFF</textcolor>
@@ -163,8 +180,8 @@
                                 <autoscroll delay="4000" time="4000" repeat="2000">true</autoscroll>
                             </control>
                             <control type="group">
-                                <right>8</right>
-                                <top>8</top>
+                                <right>9</right>
+                                <top>9</top>
                                 <include>WatchedIndicatorNormal</include>
                              </control>
                         </control>
@@ -173,9 +190,9 @@
                 <!--vertical Scollbar-->
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(518) + Integer.IsGreater(Container.NumItems,0)</visible>
-                    <right>15</right>
-                    <bottom>13%</bottom>
-                    <height>810</height>
+                    <right>10</right>
+                    <bottom>128</bottom>
+                    <height>792</height>
                     <onup>60</onup>
                     <ondown>6000</ondown>
                     <onleft>518</onleft>

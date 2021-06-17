@@ -67,14 +67,14 @@
             <width>100%</width>
             <height>40</height>
             <align>left</align>
+			<left>4</left>
             <font>Reg24</font>
             <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
                 <param name="textoffsetx" value="bingie_no_circular_posx" />
             </include>
             <textoffsetx>65</textoffsetx>
             <label>[$ADDON[script.skinshortcuts 32025]]</label>
-            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>           
             <onclick>Skin.SetString($PARAM[skinsetting].label)</onclick>
             <texturenofocus/>
             <visible>!Skin.HasSetting(LockHubWidgets) + Skin.String($PARAM[skinsetting].label) + [String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle)) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(genretitle))]</visible>
@@ -374,10 +374,10 @@
             <width>100%</width>
             <height>40</height>
             <align>left</align>
+			<left>4</left>
             <font>Reg32</font>
             <label>$PARAM[label]</label>
-            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-            <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>           
             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
             <texturenofocus/>
         </control>
@@ -610,6 +610,7 @@
             <orientation>horizontal</orientation>
             <itemgap>50</itemgap>
             <align>left</align>
+			<left>4</left>
             <onright>noop</onright>
             <onleft>900</onleft>
 

@@ -23,7 +23,7 @@
 					<posx>50</posx>
 					<posy>330</posy>
 					<width>1820</width>
-					<height>510</height>
+					<height>580</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
                      <visible>!Skin.HasSetting(View10_Hidepanel)</visible>

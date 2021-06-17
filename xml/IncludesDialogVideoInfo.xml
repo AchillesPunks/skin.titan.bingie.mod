@@ -56,7 +56,7 @@
 				<!-- dialog info details -->
 				<control type="grouplist">
 					<include>BingieLeftDefs</include>
-					<top>10</top>
+					<top>0</top>
                                          <left>-800</left>
 					<width>1200</width>
 					<usecontrolcoords>true</usecontrolcoords>
@@ -108,10 +108,12 @@
 						<height max="255">auto</height>
 						<width>800</width>
 						<itemgap>5</itemgap>  <!--to match Netflix-->
-                                           <include condition="Skin.HasSetting(videoinfo_details_director)">More_Details_Director</include>
 						<include condition="Skin.HasSetting(videoinfo_details_cast)">More_Details_Cast</include>
-                        <include condition="Skin.HasSetting(videoinfo_details_genre)">More_Details_Genre</include>
-                        	</control>
+                        <include condition="Skin.HasSetting(videoinfo_details_director)">More_Details_Director</include>
+                        <include condition="Skin.HasSetting(videoinfo_details_writer)">More_Details_Writer</include>
+						<include condition="Skin.HasSetting(videoinfo_details_genre)">More_Details_Genre</include>
+						<include condition="Skin.HasSetting(videoinfo_details_awards)">More_Details_Awards</include>
+                    </control>
 
 </control>
 </control>
@@ -123,9 +125,9 @@
      
           			<control type="panel" id="50">
 					<top>710</top>
-					<width>1510</width>
+					<width>1720</width>
 					<height>317</height>
-                                         <left>128</left>
+                                         <left>126</left>
 					<ondown condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</ondown>
 					<ondown condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !String.IsEqual(ListItem.DBType,set)">EnableAddon(script.embuary.info)</ondown>
 					<ondown condition="!System.HasAddon(script.embuary.info) + !String.IsEqual(ListItem.DBType,set)">InstallAddon(script.embuary.info)</ondown>
@@ -261,11 +263,11 @@
 
 				
 						<control type="grouplist" id="8000">
-							<width>1210</width>
+							<width>1420</width>
 							<height>325</height>
                             <orientation>horizontal</orientation>
                            <top>655</top>
-                          <left>138</left>
+                          <left>136</left>
 			 <itemgap>14</itemgap>
                             <onup>noop</onup>
                             <ondown>50</ondown>
@@ -279,14 +281,15 @@
 								<visible>Control.IsVisible(5050) + String.IsEqual(ListItem.dbtype,tvshow)</visible>
                                 
                                 <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/play.png"/>
+                                    <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
                                 </include>
 				<height>40</height>
                             <width>300</width>
                                 <label>$VAR[PlayOrResumeSeasonEpisodeLabel]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>23</radiowidth>
-                                <radioheight>21</radioheight>
+								<textwidth>243</textwidth>
+                                <radioposx>14</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>Dialog.Close(movieinformation)</onclick>
                                 <onclick>PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick>
@@ -298,14 +301,14 @@
 				<visible>!Control.IsVisible(9) + !$EXP[IsTvShowDBTypeNoFallback]</visible>
                                 
                                 <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/play.png"/>
+                                    <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
                                 </include>
 				 <height>40</height>
-                            <width>300</width>
+                            <width>210</width>
                                 <label>$LOCALIZE[208]$INFO[ListItem.Season, $LOCALIZE[31871] ,]$INFO[ListItem.Episode,: $LOCALIZE[31873] ,]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>23</radiowidth>
-                                <radioheight>21</radioheight>
+                                <radioposx>14</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
 								<onclick>Dialog.Close(movieinformation)</onclick>
@@ -317,14 +320,14 @@
 				<visible>ListItem.IsResumable</visible>
                                 
                                 <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/play.png"/>
+                                    <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
                                 </include>
 				 <height>40</height>
-                            <width>330</width>
+                            <width>210</width>
                                 <label>$LOCALIZE[13404]$INFO[ListItem.Season, $LOCALIZE[31871],: ]$INFO[ListItem.Episode,$LOCALIZE[31873]. ,]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>23</radiowidth>
-                                <radioheight>21</radioheight>
+                                <radioposx>14</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
 								<onclick>Dialog.Close(movieinformation)</onclick>
@@ -342,9 +345,9 @@
 				<height>40</height>
                             <width>210</width>
                                 <label>episodes</label>
-                                <radioposx>2</radioposx>
-                                <radiowidth>25</radiowidth>
-                                <radioheight>25</radioheight>
+                                <radioposx>15</radioposx>
+                                <radiowidth>24</radiowidth>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>Dialog.Close(movieinformation)</onclick>
                                 <!-- activate ALL EPISODES view -->
@@ -369,15 +372,15 @@
                                 <label>Trailer</label>
 				<height>40</height>
                             <width>210</width>
-                                <radioposx>2</radioposx>
-                                <radiowidth>47</radiowidth>
-                                <radioheight>36</radioheight>
+                                <radioposx>11</radioposx>
+                                <radiowidth>27</radiowidth>
+                                <radioheight>27</radioheight>
                                                            </control>
 
 							
 		
 
-							<!--Similar Button-->
+							<!--Similar Button											Temporarily disabled until I fix the bug
                             <control type="radiobutton" id="62">
                                 <visible>Skin.HasSetting(videoinfo_button_similar)</visible>
                                 <visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + Integer.IsGreater(Container(352).NumItems,0)</visible>
@@ -388,13 +391,13 @@
 					  <height>40</height>
                             <width>210</width>								
                                 <label>$LOCALIZE[31622]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
+                                <radioposx>13</radioposx>
+                                <radiowidth>24</radiowidth>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(AdditionalInfo, similar)</onclick>
                                 <onclick>SetProperty(subtitle, $LOCALIZE[31622])</onclick>
                                 <onclick>SetFocus(352)</onclick>
-                            </control>
+                            </control> -->
 
 					<!-- Extended Info -->
                             <control type="radiobutton" id="13">
@@ -406,8 +409,8 @@
                             <width>210</width>
                                 <label>Director</label>
                                 <radioposx>13</radioposx>
-                                <radiowidth>25</radiowidth>
-                                <radioheight>30</radioheight>
+                                <radiowidth>27</radiowidth>
+                                <radioheight>32</radioheight>
 			</control>
 
 							<!-- add to my list -->
@@ -423,8 +426,8 @@
                             <width>210</width>								
                                 
                                 <radioposx>15</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <onclick>RunScript(script.bingie.helper,action=togglemylist)</onclick>
                             </control>
 
@@ -441,8 +444,8 @@
                             <width>210</width>								
                                 
                                 <radioposx>15</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <onclick>RunScript(script.bingie.helper,action=togglemylist)</onclick>
                             </control>
 
@@ -462,8 +465,8 @@
                                                               <width>210</width>
 								<label>Artwork</label>
 								<radioposx>15</radioposx>
-								<radiowidth>21</radiowidth>
-								<radioheight>25</radioheight>
+								<radiowidth>23</radiowidth>
+								<radioheight>23</radioheight>
 								</control> 
 
 
@@ -487,7 +490,7 @@
 				<top>10</top>
 				<left>0</left>
 				<control type="label">
-					<left>74</left>
+					<left>134</left>
 					<width>500</width>
 					<height>44</height>
 					<shadowcolor>text_shadow</shadowcolor>
@@ -500,7 +503,7 @@
 				<top>10</top>
 				<left>0</left>
 				<control type="label">
-					<left>74</left>
+					<left>134</left>
 					<width>500</width>
 					<height>44</height>
 					<shadowcolor>text_shadow</shadowcolor>
@@ -601,7 +604,7 @@
 					<right>40</right>
 					<width></width>
 					<height>100</height>
-					<bottom>0</bottom>
+					<bottom>10</bottom>
 					<aspectratio aligny="top" align="right">keep</aspectratio>
 					<include condition="!String.Contains(Skin.String(SkinHelper.StudioLogos.Path),colo)">videoInfoColorDiffuse</include>
 					<texture background="true">$VAR[StudioLogoImg]</texture>
@@ -611,7 +614,7 @@
 				<control type="label">
 					<visible>!String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 					<include>animation_fade_visible_hidden</include>
-					<right>61</right>
+					<right>34</right>
 					<posy>10</posy>
 					<width min="80" max="1400">auto</width>
 					<height>100</height>
@@ -722,7 +725,7 @@
 							<animation effect="fade" start="0" end="100" time="0" delay="250">Visible</animation>
 							<width>550</width>
 							<height>65</height>
-							<texture background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texture>
+							<texture border="4" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texture>
 							<animation effect="slide" end="0,65" time="150" tween="sine" easing="out" condition="Integer.IsGreater(Container(8000).Position, 0)">Conditional</animation>
 							<animation effect="slide" end="0,65" time="150" tween="sine" easing="out" condition="Integer.IsGreater(Container(8000).Position, 1)">Conditional</animation>
 							<animation effect="slide" end="0,65" time="150" tween="sine" easing="out" condition="Integer.IsGreater(Container(8000).Position, 2)">Conditional</animation>
@@ -803,10 +806,10 @@
 								<font>Plots</font>
 								<textcolor>$VAR[BingieInfoDialogButtonsTextColor]</textcolor>
 								<focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-								<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/border/slimframefo.png</texturefocus>
-								<texturenofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/border/slimframenf.png</texturenofocus>
-								<alttexturefocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/border/slimframefo.png</alttexturefocus>
-								<alttexturenofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/border/slimframenf.png</alttexturenofocus>
+								<texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/border/slimframefo.png</texturefocus>
+								<texturenofocus border="10" colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/border/slimframenf.png</texturenofocus>
+								<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/border/slimframefo.png</alttexturefocus>
+								<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/border/slimframenf.png</alttexturenofocus>
 								<radioposx>120</radioposx>
 								<radiowidth>30</radiowidth>
 								<radioheight>30</radioheight>
@@ -873,12 +876,12 @@
 								<visible>Control.IsVisible(5050) + String.IsEqual(ListItem.dbtype,tvshow)</visible>
                                 <include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/play.png"/>
+                                    <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
                                 </include>
                                 <label>$VAR[PlayOrResumeSeasonEpisodeLabel]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>23</radiowidth>
-                                <radioheight>21</radioheight>
+                                <radioposx>17</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>Dialog.Close(movieinformation)</onclick>
                                 <onclick>PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick>
@@ -890,12 +893,12 @@
 								<visible>!Control.IsVisible(9) + !$EXP[IsTvShowDBTypeNoFallback]</visible>
                                 <include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/play.png"/>
+                                    <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
                                 </include>
                                 <label>$LOCALIZE[208]$INFO[ListItem.Season, $LOCALIZE[20373] ,]$INFO[ListItem.Episode,: $LOCALIZE[20359] ,]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>23</radiowidth>
-                                <radioheight>21</radioheight>
+                                <radioposx>17</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
 								<onclick>Dialog.Close(movieinformation)</onclick>
@@ -907,12 +910,12 @@
 								<visible>ListItem.IsResumable</visible>
                                 <include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/play.png"/>
+                                    <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
                                 </include>
                                 <label>$LOCALIZE[13404]$INFO[ListItem.Season, $LOCALIZE[31871],: ]$INFO[ListItem.Episode,$LOCALIZE[31873]. ,]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>23</radiowidth>
-                                <radioheight>21</radioheight>
+                                <radioposx>17</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
                                 <onclick condition="!$EXP[IsTvShowDBTypeNoFallback]">SetProperty(BaseWindow,1,Home)</onclick>
 								<onclick>Dialog.Close(movieinformation)</onclick>
@@ -927,8 +930,8 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/play_beginning.png"/>
                                 </include>
                                 <label>$LOCALIZE[12021]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>25</radiowidth>
+                                <radioposx>17</radioposx>
+                                <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>Dialog.Close(movieinformation)</onclick>
@@ -952,9 +955,10 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/more_episodes.png"/>
                                 </include>
                                 <label>$LOCALIZE[31853]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>25</radiowidth>
-                                <radioheight>25</radioheight>
+								<radioposy>22</radioposy>
+                                <radioposx>16</radioposx>
+                                <radiowidth>24</radiowidth>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>Dialog.Close(movieinformation)</onclick>
                                 <!-- activate ALL EPISODES view -->
@@ -979,9 +983,10 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/tvstudio-icon.png"/>
                                 </include>
                                 <label>$LOCALIZE[31868]</label>
-                                <radioposx>2</radioposx>
-                                <radiowidth>47</radiowidth>
-                                <radioheight>36</radioheight>
+								<radioposy>17</radioposy>
+                                <radioposx>13</radioposx>
+                                <radiowidth>27</radiowidth>
+                                <radioheight>27</radioheight>
                                 <!-- Set InfoDialog as BaseWindow in case of activating videofullscreen -->
                                 <onclick condition="String.IsEqual(Skin.String(videoinfo_traileraction),fullscreen)">SetProperty(BaseWindow,1,Home)</onclick>
                                 <!-- default -->
@@ -1000,12 +1005,12 @@
                                 <visible>!String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
                                 <include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/tvstudio-icon.png"/>
+                                    <param name="radiotexture" value="dialogs/videoinfo/full-screen.png"/>
                                 </include>
                                 <label>$LOCALIZE[35232]</label>
-                                <radioposx>2</radioposx>
-                                <radiowidth>47</radiowidth>
-                                <radioheight>36</radioheight>
+                                <radioposx>17</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                                 <onclick>SetProperty(TrailerPlaying,fullscreen,Home)</onclick>
                                 <onclick>FullScreen</onclick>
@@ -1021,7 +1026,7 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/plus.png"/>
                                 </include>
                                 <label>$LOCALIZE[31869]</label>
-                                <radioposx>15</radioposx>
+                                <radioposx>17</radioposx>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
                                 <onclick>RunScript(script.bingie.helper,action=togglemylist)</onclick>
@@ -1037,9 +1042,9 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/minus.png"/>
                                 </include>
                                 <label>$LOCALIZE[31870]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
+                                <radioposx>17</radioposx>
+                                <radiowidth>22</radiowidth>
+                                <radioheight>22</radioheight>
                                 <onclick>RunScript(script.bingie.helper,action=togglemylist)</onclick>
                             </control>
 
@@ -1052,9 +1057,9 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/thumbs-up.png"/>
                                 </include>
                                 <label>$LOCALIZE[31854]</label>
-                                <radioposx>15</radioposx>
+                                <radioposx>17</radioposx>
                                 <radiowidth>24</radiowidth>
-                                <radioheight>26</radioheight>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(showrateoptions,1,Home)</onclick>
                                 <onclick>SetProperty(ratebuttonposition,$INFO[Container(8000).Position],Home)</onclick>
                                 <onclick>SetFocus(700)</onclick>
@@ -1072,7 +1077,7 @@
                                 <label>$LOCALIZE[31855]</label>
                                 <radioposx>15</radioposx>
                                 <radiowidth>24</radiowidth>
-                                <radioheight>26</radioheight>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(showrateoptions,1,Home)</onclick>
                                 <onclick>SetProperty(ratebuttonposition,$INFO[Container(8000).Position],Home)</onclick>
                                 <onclick>SetFocus(700)</onclick>
@@ -1091,7 +1096,7 @@
                                 <radioposx>15</radioposx>
 								<radioposy>22</radioposy>
                                 <radiowidth>24</radiowidth>
-                                <radioheight>26</radioheight>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(showrateoptions,1,Home)</onclick>
                                 <onclick>SetProperty(ratebuttonposition,$INFO[Container(8000).Position],Home)</onclick>
                                 <onclick>SetFocus(700)</onclick>
@@ -1107,9 +1112,9 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/plot.png"/>
                                 </include>
                                 <label>$LOCALIZE[207] &amp; $LOCALIZE[31608]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
+                                <radioposx>16</radioposx>
+                                <radiowidth>24</radiowidth>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(AdditionalInfo, plot)</onclick>
                                 <onclick>SetProperty(subtitle, $LOCALIZE[207] &amp; $LOCALIZE[31608])</onclick>
                                 <onclick>SetFocus(3531)</onclick>
@@ -1141,9 +1146,9 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/similar.png"/>
                                 </include>
                                 <label>$LOCALIZE[31622]</label>
-                                <radioposx>15</radioposx>
-                                <radiowidth>20</radiowidth>
-                                <radioheight>25</radioheight>
+                                <radioposx>16</radioposx>
+                                <radiowidth>24</radiowidth>
+                                <radioheight>24</radioheight>
                                 <onclick>SetProperty(AdditionalInfo, similar)</onclick>
                                 <onclick>SetProperty(subtitle, $LOCALIZE[31622])</onclick>
                                 <onclick>SetFocus(352)</onclick>
@@ -1157,9 +1162,9 @@
                                     <param name="radiotexture" value="dialogs/videoinfo/info/info.png"/>
                                 </include>
                                 <label>$LOCALIZE[31838]</label>
-                                <radioposx>13</radioposx>
-                                <radiowidth>25</radiowidth>
-                                <radioheight>30</radioheight>
+                                <radioposx>15</radioposx>
+                                <radiowidth>24</radiowidth>
+                                <radioheight>24</radioheight>
 								<onclick condition="!System.HasAddon(script.extendedinfo)">RunPlugin(plugin://script.extendedinfo)</onclick>
 								<onclick condition="System.HasAddon(script.extendedinfo) + $EXP[IsMovieDBTypeNoFallback]">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
 								<onclick condition="System.HasAddon(script.extendedinfo) + $EXP[IsTvShowDBTypeNoFallback]">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
@@ -1203,9 +1208,10 @@
 									<param name="radiotexture" value="dialogs/videoinfo/info/artwork.png"/>
 								</include>
 								<label>13511</label>
-								<radioposx>15</radioposx>
-								<radiowidth>21</radiowidth>
-								<radioheight>25</radioheight>
+								<radioposx>16</radioposx>
+								<radioposy>22</radioposy>
+								<radiowidth>23</radiowidth>
+								<radioheight>23</radioheight>
 						        <onclick condition="String.IsEqual(ListItem.DBType,episode) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=episode, dbid=$INFO[ListItem.DBID])</onclick>
 								<onclick condition="String.IsEqual(ListItem.DBType,tvshow) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
 								<onclick condition="String.IsEqual(ListItem.DBType,movie) + System.HasAddon(script.artwork.dump)">RunScript(script.artwork.dump, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
@@ -1221,9 +1227,10 @@
 									<param name="radiotexture" value="dialogs/videoinfo/info/refresh.png"/>
 								</include>
 								<label>184</label>
-								<radioposx>15</radioposx>
-								<radiowidth>25</radiowidth>
-								<radioheight>25</radioheight>
+								<radioposy>23</radioposy>
+								<radioposx>16</radioposx>
+								<radiowidth>22</radiowidth>
+								<radioheight>22</radioheight>
 							</control>
 						</control>
 					</control>
@@ -1281,10 +1288,10 @@
 				</control>
 				<!-- extendedinfo cast list -->
 				<control type="panel" id="351">
-					<posx>600</posx>
-					<posy>335</posy>
+					<posx>601</posx>
+					<posy>341</posy>
 					<width>800</width>
-					<height>714</height>
+					<height>720</height>
 					<onleft>ClearProperty(AdditionalInfo)</onleft>
 					<onback>ClearProperty(AdditionalInfo)</onback>
 					<onback>8000</onback>
@@ -1297,31 +1304,31 @@
 					<viewtype label="actor list">list</viewtype>
 					<visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),cast)</visible>
 					<include>animation_window_open_close</include>
-					<itemlayout height="357" width="240">
+					<itemlayout height="360" width="250">
 						<control type="group">
-							<width>233</width>
-							<height>342</height>
+							<width>238</width>
+							<height>348</height>
 							<control type="image">
 								<include>PosterThumbBG</include>
 							</control>
 							<control type="image">
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="defaultactorposter.png">$INFO[ListItem.Art(thumb)]</texture>
 								<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-								<bordersize>8</bordersize>
+								<bordersize>4</bordersize>
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout height="357" width="240">
+					<focusedlayout height="360" width="250">
 						<control type="group">
-							<width>233</width>
-							<height>342</height>
+							<width>238</width>
+							<height>348</height>
 							<control type="image">
 								<include>PosterThumbFO_Defs</include>
 							</control>
 							<control type="image">
 								<texture border="1" diffuse="diffuse/poster.png" background="true" fallback="defaultactorposter.png">$INFO[ListItem.Art(thumb)]</texture>
 								<aspectratio scalediffuse="true" aligny="top" align="center">scale</aspectratio>
-								<bordersize>8</bordersize>
+								<bordersize>4</bordersize>
 							</control>
 						</control>
 						<control type="button">
@@ -1354,9 +1361,9 @@
 					</control>
 					<control type="group">
 						<right>35</right>
-						<posy>335</posy>
-						<width>530</width>
-						<height>65%</height>
+						<posy>345</posy>
+						<width>515</width>
+						<height>700</height>
 						<!--Actor Image-->
 						<control type="image">
 							<description>Actor image</description>
@@ -1387,10 +1394,10 @@
 
 				<!--Similar List-->
 				<control type="panel" id="352">
-					<posx>600</posx>
-					<posy>250</posy>
+					<posx>601</posx>
+					<posy>341</posy>
 					<width>800</width>
-					<height>714</height>
+					<height>720</height>
 					<onleft>ClearProperty(AdditionalInfo)</onleft>
 					<onback>ClearProperty(AdditionalInfo)</onback>
 					<onback>8000</onback>
@@ -1403,17 +1410,17 @@
 					<animation effect="fade" start="100" end="25" time="0" condition="Container(352).IsUpdating">Conditional</animation>
 					<animation effect="slide" start="0,0" end="0,1000" time="0" delay="0" condition="!String.IsEqual(Window.Property(AdditionalInfo),similar)">Conditional</animation>
 					<!-- itemlayout movies -->
-					<itemlayout height="357" width="240">
+					<itemlayout height="360" width="250">
 						<control type="group">
-							<width>233</width>
-							<height>342</height>
+							<width>238</width>
+							<height>348</height>
 							<include>PosterPanelLayout</include>
 						</control>
 					</itemlayout>
-					<focusedlayout height="357" width="240">
+					<focusedlayout height="360" width="250">
 						<control type="group">
-							<width>233</width>
-							<height>342</height>
+							<width>238</width>
+							<height>348</height>
 							<include>PosterPanelLayoutFocus</include>
 						</control>
 					</focusedlayout>
@@ -1425,10 +1432,10 @@
 					<include>animation_window_open_close</include>
 					<visible>String.IsEqual(Window.Property(AdditionalInfo),similar)</visible>
 					<control type="group">
-						<right>50</right>
-						<posy>250</posy>
-						<width>530</width>
-						<height>67%</height>
+						<right>35</right>
+						<posy>345</posy>
+						<width>515</width>
+						<height>700</height>
 						<control type="image">
 							<aspectratio align="center" aligny="top" scalediffuse="true">scale</aspectratio>
 							<texture background="true" diffuse="diffuse/poster.png">$INFO[Container(352).ListItem.Art(poster)]</texture>
@@ -1691,7 +1698,7 @@
 
 
 	<include name="No_FixedFrame_Texture">
-		<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texturefocus>
+		<texturefocus border="4" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texturefocus>
 	</include>
 
     <include name="Bingie_InfoDialog_Button_Texture">
@@ -1711,8 +1718,8 @@
                 <param name="visibility" value="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))" />
             </include>
             <include content="More_Details_Object_Icon" condition="Skin.HasSetting(EnableDetailsIconsInfoDialog)">
-                <param name="icon_posx" value="8"/>
-                <param name="icon_posy" value="16"/>
+                <param name="icon_posx" value="7"/>
+                <param name="icon_posy" value="18"/>
                 <param name="icon_width" value="24"/>
                 <param name="icon_height" value="24"/>
                 <param name="icon_image" value="flags/rating.png"/>
@@ -1730,7 +1737,7 @@
             </include>
             <include content="More_Details_Object_Icon" condition="Skin.HasSetting(EnableDetailsIconsInfoDialog)">
                 <param name="icon_posx" value="0"/>
-                <param name="icon_posy" value="11"/>
+                <param name="icon_posy" value="13"/>
                 <param name="icon_width" value="39"/>
                 <param name="icon_height" value="39"/>
                 <param name="icon_image" value="dialogs/videoinfo/director-icon.png"/>
@@ -1747,8 +1754,8 @@
                 <param name="visibility" value="!String.IsEmpty(ListItem.Writer)" />
             </include>
             <include content="More_Details_Object_Icon" condition="Skin.HasSetting(EnableDetailsIconsInfoDialog)">
-                <param name="icon_posx" value="0"/>
-                <param name="icon_posy" value="15"/>
+                <param name="icon_posx" value="3"/>
+                <param name="icon_posy" value="16"/>
                 <param name="icon_width" value="34"/>
                 <param name="icon_height" value="30"/>
                 <param name="icon_image" value="dialogs/videoinfo/writer-icon.png"/>
@@ -1765,8 +1772,8 @@
                 <param name="visibility" value="!String.IsEmpty(ListItem.Genre)" />
             </include>
             <include content="More_Details_Object_Icon" condition="Skin.HasSetting(EnableDetailsIconsInfoDialog)">
-                <param name="icon_posx" value="0"/>
-                <param name="icon_posy" value="8"/>
+                <param name="icon_posx" value="1"/>
+                <param name="icon_posy" value="12"/>
                 <param name="icon_width" value="37"/>
                 <param name="icon_height" value="39"/>
                 <param name="icon_image" value="dialogs/videoinfo/genre-icon.png"/>
@@ -1784,7 +1791,7 @@
             </include>
             <include content="More_Details_Object_Icon" condition="Skin.HasSetting(EnableDetailsIconsInfoDialog)">
                 <param name="icon_posx" value="4"/>
-                <param name="icon_posy" value="19"/>
+                <param name="icon_posy" value="22"/>
                 <param name="icon_width" value="29"/>
                 <param name="icon_height" value="22"/>
                 <param name="icon_image" value="flags/subtitles.png"/>
@@ -1801,10 +1808,10 @@
                 <param name="visibility" value="!String.IsEmpty(ListItem.Property(AudioLanguage.0)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Languages))" />
             </include>
             <include content="More_Details_Object_Icon" condition="Skin.HasSetting(EnableDetailsIconsInfoDialog)">
-                <param name="icon_posx" value="9"/>
-                <param name="icon_posy" value="17"/>
-                <param name="icon_width" value="26"/>
-                <param name="icon_height" value="25"/>
+                <param name="icon_posx" value="8"/>
+                <param name="icon_posy" value="20"/>
+                <param name="icon_width" value="24"/>
+                <param name="icon_height" value="24"/>
                 <param name="icon_image" value="flags/audio.png"/>
             </include>
             <include content="More_Details_Object_Label">
@@ -1819,10 +1826,10 @@
                 <param name="visibility" value="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))" />
             </include>
             <include content="More_Details_Object_Icon" condition="Skin.HasSetting(EnableDetailsIconsInfoDialog)">
-                <param name="icon_posx" value="8"/>
-                <param name="icon_posy" value="17"/>
-                <param name="icon_width" value="23"/>
-                <param name="icon_height" value="21"/>
+                <param name="icon_posx" value="2"/>
+                <param name="icon_posy" value="16"/>
+                <param name="icon_width" value="34"/>
+                <param name="icon_height" value="30"/>
                 <param name="icon_image" value="dialogs/videoinfo/info/trophy.png"/>
             </include>
             <include content="More_Details_Object_Label">

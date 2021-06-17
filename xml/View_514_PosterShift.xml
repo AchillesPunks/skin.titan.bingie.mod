@@ -126,7 +126,7 @@
                     <!--cdart image-->
                     <width>435</width>
                     <height>435</height>
-                    <posx>740</posx>
+                    <posx>738</posx>
 					<bottom>480</bottom>
                     <texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$VAR[DiscArtImage]</texture>
                     <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
@@ -169,7 +169,7 @@
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(514) + Integer.IsGreater(Container.NumItems,0)</visible>
                     <left>60</left>
-                    <bottom>11%</bottom>
+                    <bottom>4</bottom>
                     <width>1800</width>
                     <height>15</height>
                     <onup>513</onup>

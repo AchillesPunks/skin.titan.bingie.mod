@@ -8,7 +8,21 @@
 			<include>animation_view_change</include>
 			<defaultcontrol always="true">502</defaultcontrol>
 		    <visible>Control.IsVisible(502)</visible>
-			
+			<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
 			<!-- movie details -->
 			<control type="group">
 				<visible>Skin.HasSetting(LandscapeViewShowInfo)</visible>
@@ -19,8 +33,8 @@
             <control type="image">
                 <width>530</width>
                 <height>530</height>
-                <bottom>15%</bottom>
-                <posx>700</posx>
+                <bottom>140</bottom>
+                <posx>694</posx>
                 <texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$VAR[DiscArtImage]</texture>
                 <aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
                 <animation effect="slide" start="0,10" end="0" tween="cubic" easing="inout" time="1200" delay="1200">Visible</animation>
@@ -33,7 +47,7 @@
 			
 			<control type="fixedlist" id="502">
 				<posx>60</posx>
-				<width>1800</width>
+				<width>1796</width>
 				<height>325</height>
 				<bottom>12%</bottom>
 				<onup>9000</onup>
@@ -51,28 +65,28 @@
 				<preloaditems>4</preloaditems>
 				<scrolltime tween="cubic" easing="inout">500</scrolltime>
 				<visible>!Container.Content(files)</visible>
-				<itemlayout width="620" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<itemlayout width="610" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 					<control type="group">
                         <width>580</width>
                         <height>325</height>
                         <include>LandscapeLayout</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="620" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<focusedlayout width="610" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
                     <control type="group">
                         <width>580</width>
                         <height>325</height>
                         <include>LandscapeLayoutFocus</include>
                     </control>
 				</focusedlayout>
-                    <itemlayout width="450" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+                    <itemlayout width="440" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 					<control type="group">
                         <width>440</width>
                         <height>303</height>
                         <include>LandscapeLayout</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="450" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<focusedlayout width="440" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
                     <control type="group">
                         <width>440</width>
                         <height>303</height>
@@ -87,7 +101,7 @@
 				<control type="scrollbar" id="60">
 					<visible>Control.IsVisible(502) + Integer.IsGreater(Container.NumItems,0)</visible>
 					<left>60</left>
-					<bottom>10%</bottom>
+					<bottom>4</bottom>
 					<width>1800</width>
 					<height>15</height>
 					<onup>502</onup>

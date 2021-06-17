@@ -111,9 +111,9 @@
         <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
         <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
         <disabledcolor>aaffffff</disabledcolor>
-        <textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]" flipx="true">common/radio/radio-button-nf.png</textureradiofocus>
+        <textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
         <textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
-        <textureradioondisabled colordiffuse="aaffffff" flipx="true">common/radio/radio-button-nf.png</textureradioondisabled>
+        <textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
         <textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
         <textoffsetx>50</textoffsetx>
         <radioposx/>

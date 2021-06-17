@@ -29,7 +29,7 @@
               <param name="viewtype" value="$LOCALIZE[31426]" />
           </include>
         <posx>45</posx>
-        <bottom>119</bottom>
+        <bottom>134</bottom>
         <height>760</height>
         <width>1834</width>
         <orientation>vertical</orientation>
@@ -59,9 +59,9 @@
 		<!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(57) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>15</right>
-			<bottom>150</bottom>
-			<height>730</height>
+			<right>10</right>
+			<bottom>142</bottom>
+			<height>744</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>57</onleft>

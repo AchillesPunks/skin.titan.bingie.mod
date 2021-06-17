@@ -441,8 +441,8 @@ msgid "Use dark colors"
 msgstr "Use dark colours"
 
 msgctxt "#31155"
-msgid "Hide panel background"
-msgstr "Hide panel background"
+msgid "Show panel background"
+msgstr "Show panel background"
 
 msgctxt "#31165"
 msgid "Edit Main Menu"

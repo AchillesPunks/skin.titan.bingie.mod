@@ -54,13 +54,15 @@
 				<visible>Skin.HasSetting(FanArtViewShowInfo)</visible>
 				<include>animation_view_change</include>
 				<bottom>13%</bottom>
-				<height>200</height>
+				<height>283</height>
 
 				<control type="image">
+				    <posy>-65</posy>
 					<posx>50</posx>
+					<height>298</height>
 					<width>1820</width>
 					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+					<colordiffuse>bb0f0f0f</colordiffuse>
 				</control>
 				
 				<control type="grouplist">
@@ -70,11 +72,11 @@
 					<ondown>500</ondown>
 					<onleft>100</onleft>
 					<orientation>vertical</orientation>
-					<posx>80</posx>
+					<posx>71</posx>
 					<posy>-50</posy>
 					<control type="label">
-						<height>50</height>
-						<width>1100</width>
+						<height>70</height>
+						<width>1775</width>
 						<font>Bold74</font>
 						<textcolor>ff00ff00</textcolor>
                         <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
@@ -82,7 +84,7 @@
 					</control>
                     <control type="label">
 						  <height>40</height>
-						  <width>1100</width>
+						  <width>1775</width>
 						  <font>bold40</font>
 						  <textcolor>ffcc0000</textcolor>
 						  <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
@@ -91,8 +93,8 @@
 					<control type="textbox">
 						<posx>0</posx>
 						<posy>0</posy>
-						<width>1770</width>
-						<height>150</height>
+						<width>1775</width>
+						<height>115</height>
 						<label>$VAR[Plots]</label>
 						<textcolor>ffffffff</textcolor>
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>

@@ -637,8 +637,8 @@ msgid "Use dark colors"
 msgstr "Dunkle Farben verwenden"
 
 msgctxt "#31155"
-msgid "Hide panel background"
-msgstr "Panel-Hintergrund ausblenden"
+msgid "Show panel background"
+msgstr "Panel-Hintergrund anzeigen"
 
 msgctxt "#31156"
 msgid "Amazon Original Series"

@@ -13,7 +13,7 @@
 
             <!-- View 526 -->
             <control type="group">
-                <include>BingieLeftDefs</include>
+                <left>128</left>
                 <top>600</top>
                 <width>1660</width>
                 <!-- Content Header -->
@@ -57,13 +57,14 @@
                 </control>
                <include content="Bingie_Main_View_Fixed_Frame">
                     <include>Bounce_Up</include>
-                   <param name="visibility" value="!Skin.HasSetting(View523_DisableFixedBingieFrame)" />
+                   <param name="visibility" value="!Skin.HasSetting(View526_DisableFixedBingieFrame)" />
                     <param name="containerid" value="526" />
                     <param name="top" value="40" />
-                    <param name="width" value="229" />
-                    <param name="height" value="332" />
-                    <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]" />
-                    <param name="xAxisAnim" value="237" />
+                    <param name="width" value="240" />
+                    <param name="height" value="325" />
+                    <texture background="true" border="4">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+					<bordersize>5</bordersize>
+                    <param name="xAxisAnim" value="238" />
                    <param name="isHorizontal" value="Skin.HasSetting(View_526_HorizontalNavigation)" />
                     <param name="yAxisAnim" value="340" />
                 </include>
@@ -73,7 +74,7 @@
             <control type="group">
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(526) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_526_HorizontalNavigation)</visible>
-                    <top>710</top>
+                    <top>648</top>
                     <width>8</width>
                     <right>3</right>
                     <bottom>15</bottom>
@@ -88,7 +89,7 @@
                         <param name="left" value="140" />
                     </include>
                     <left>70</left>
-                    <width>1640</width>
+                    <width>1655</width>
                     <height>8</height>
                     <bottom>2</bottom>
                     <onup>526</onup>
@@ -110,7 +111,7 @@
             </include>
             <top>40</top>
             <height>450</height>
-            <width>1660</width>
+            <width>1666</width>
             <itemgap>0</itemgap>
             <include condition="Skin.HasSetting(View_526_HorizontalNavigation)">navigation_horizontal</include>
             <orientation>vertical</orientation>
@@ -133,17 +134,17 @@
             <ondown condition="Skin.HasSetting(View_526_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + !Control.IsVisible(7002)">noop</ondown>
             <ondown condition="Skin.HasSetting(View_526_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</ondown>
             <ondown condition="!Skin.HasSetting(View_526_HorizontalNavigation)">526</ondown>
-            <itemlayout height="340" width="237">
+            <itemlayout height="323" width="238">
                 <control type="group">
-                    <width>97%</width>
-                    <height>97%</height>
+                    <width>240</width>
+                    <height>325</height>
                     <include>PosterPanelLayout</include>
                 </control>
             </itemlayout>
-            <focusedlayout height="340" width="237">
+            <focusedlayout height="323" width="238">
                 <control type="group">
-                    <width>97%</width>
-                    <height>97%</height>
+                    <width>240</width>
+                    <height>325</height>
                     <control type="image">
                         <visible>Skin.HasSetting(View526_DisableFixedBingieFrame)</visible>
                         <include>PosterThumbFO_Defs</include>
@@ -164,7 +165,7 @@
                         </animation>
                     </control>
                     <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">             <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />         </include>
-                    <animation effect="zoom" end="110,110" center="auto" time="100" condition="Skin.HasSetting(View526_DisableFixedBingieFrame) + Skin.HasSetting(View526_EnableZoomEffect)">focus</animation>
+                    <animation effect="zoom" end="103,103" center="auto" time="100" condition="Skin.HasSetting(View526_DisableFixedBingieFrame) + Skin.HasSetting(View526_EnableZoomEffect)">focus</animation>
                     <include>Bounce_Up</include>
                 </control>
             </focusedlayout>

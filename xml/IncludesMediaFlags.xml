@@ -33,10 +33,11 @@
         <include condition="!Window.IsActive(Home)">mediaflags_large_normal</include>
     </include>
     
+	<!-- MPAA/Resolution/AudioChannels - Bottom Footer -->
     <include name="mediaflags_large_normal">
         <control type="grouplist">
             <posy>-22</posy>
-            <posx>-25</posx>
+            <posx>10</posx>
 			<orientation>horizontal</orientation>
 			<!-- <usecontrolcoords>true</usecontrolcoords>
 			<itemgap>25</itemgap> -->
@@ -70,7 +71,7 @@
                 <texture background="true">$VAR[mediaflags_large_path]/cc.png</texture>
                 <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + !Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
-            <control type="image" >
+            <!-- <control type="image" >
                 <height>95</height>
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$INFO[ListItem.AudioLanguage,$VAR[LanguageFlagIconPath],.png]</texture>
@@ -81,7 +82,7 @@
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$INFO[ListItem.SubtitleLanguage,$VAR[LanguageFlagIconPath],.png]</texture>
                 <visible>!String.IsEmpty(ListItem.SubtitleLanguage) + Skin.String(mediaflagsstyle,large_color)</visible>
-            </control>
+            </control> -->
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture fallback="flags/flags_large/mpaa/nr.png">$VAR[mediaflags_large_rating]</texture>
@@ -466,24 +467,65 @@
 		<value condition="String.Contains(ListItem.mpaa,US:PG) | String.Contains(ListItem.mpaa,USA:PG) | String.Contains(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.mpaa,PG)">Flags/flags_color/mpaa/bbfc_pg_certificate_uk.png</value> 
 		<value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.mpaa,R)">Flags/flags_color/mpaa/bbfc_15_certificate_uk.png</value>
 		<value condition="String.Contains(ListItem.mpaa,NC-17)">Flags/flags_color/mpaa/bbfc_18_certificate_uk.png</value>
+		<value condition="String.Contains(ListItem.mpaa,NR)">Flags/flags_color/mpaa/bbfc_nr_certificate_uk.png</value>
 		
 	</variable>		
+	
+	<!--MPAA UK & UK style US icons for spotlight-->
+	<variable name="mediaflags_large_rating_UK_spotlight_icons">
+		
+		<!---UK classifcations using UK or Rated prefix--->
+		<value condition="String.Contains(ListItem.mpaa,UK:U) | String.Contains(ListItem.mpaa,Rated U) | String.IsEqual(ListItem.mpaa,U)">Flags/flags_color/mpaa/uk_spotlight/bbfc_u.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:PG) | String.Contains(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.mpaa,PG) | String.Contains(ListItem.mpaa,Guidance)">Flags/flags_color/mpaa/uk_spotlight/bbfc_pg.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12A) | String.Contains(ListItem.mpaa,Rated 12A) | String.IsEqual(ListItem.mpaa,12A)">Flags/flags_color/mpaa/uk_spotlight/bbfc_12a.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12) | String.Contains(ListItem.mpaa,Rated 12) | String.IsEqual(ListItem.mpaa,12)">Flags/flags_color/mpaa/uk_spotlight/bbfc_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:15) | String.Contains(ListItem.mpaa,Rated 15) | String.IsEqual(ListItem.mpaa,15) | String.Contains(ListItem.mpaa,Mature)">Flags/flags_color/mpaa/uk_spotlight/bbfc_15.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:18) | String.Contains(ListItem.mpaa,Rated 18) | String.IsEqual(ListItem.mpaa,18)">Flags/flags_color/mpaa/uk_spotlight/bbfc_18.png</value>
+		
+		<!--UK translation of US TV ratings-->
+		<value condition="String.Contains(ListItem.mpaa,TV-Y) | String.Contains(ListItem.mpaa,TV-G)">Flags/flags_color/mpaa/uk_spotlight/bbfc_u.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-PG)">Flags/flags_color/mpaa/uk_spotlight/bbfc_pg.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-14)">Flags/flags_color/mpaa/uk_spotlight/bbfc_15.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-MA)">Flags/flags_color/mpaa/uk_spotlight/bbfc_18.png</value>
+		
+		<!--UK Styled of US MPAA icons-->
+		<!-- <value condition="String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G) | String.IsEqual(ListItem.mpaa,G)">bingie/usicons/ukstyle/g.png</value> -->
+		<!-- <value condition="String.Contains(ListItem.mpaa,PG-13)">bingie/usicons/ukstyle/pg13.png</value> -->
+		<!-- <value condition="String.Contains(ListItem.mpaa,US:PG) | String.Contains(ListItem.mpaa,USA:PG) | String.Contains(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.mpaa,PG)">bingie/usicons/ukstyle/pg.png</value>  -->
+		<!-- <value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.mpaa,R)">bingie/usicons/ukstyle/r.png</value> -->
+		<!-- <value condition="String.Contains(ListItem.mpaa,NC-17)">bingie/usicons/ukstyle/nc17.png</value> -->
+		
+		<!--UK translation of US MPAA so US can also use UK icons if setting is enabled-->
+		<value condition="String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G) | String.IsEqual(ListItem.mpaa,G)">Flags/flags_color/mpaa/uk_spotlight/bbfc_u.png</value>
+		<value condition="String.Contains(ListItem.mpaa,PG-13)">Flags/flags_color/mpaa/uk_spotlight/bbfc_12a.png</value>
+		<value condition="String.Contains(ListItem.mpaa,US:PG) | String.Contains(ListItem.mpaa,USA:PG) | String.Contains(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.mpaa,PG)">Flags/flags_color/mpaa/uk_spotlight/bbfc_pg.png</value> 
+		<value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.mpaa,R)">Flags/flags_color/mpaa/uk_spotlight/bbfc_15.png</value>
+		<value condition="String.Contains(ListItem.mpaa,NC-17)">Flags/flags_color/mpaa/uk_spotlight/bbfc_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,NR)">Flags/flags_color/mpaa/uk_spotlight/bbfc_nr.png</value>
+		
+	</variable>
 
-	<!--details row MPAA US icons-->
+	<!-- US MPAA / Movie Ratings - DETAILS ROW -->
 	<variable name="mediaflags_large_rating_US_icons">
         <value condition="String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G) | String.IsEqual(ListItem.Mpaa,G)">bingie/usicons/g.png</value>
 		<value condition="String.Contains(ListItem.mpaa,US:PG-13) | String.Contains(ListItem.mpaa,USA:PG-13) | String.Contains(ListItem.mpaa,Rated PG-13) | String.IsEqual(ListItem.Mpaa,PG-13)">bingie/usicons/pg-13.png</value>
 		<value condition="String.IsEqual(ListItem.mpaa,US:PG) | String.IsEqual(ListItem.mpaa,USA:PG) | String.IsEqual(ListItem.mpaa,Rated PG) | String.IsEqual(ListItem.Mpaa,PG)">bingie/usicons/pg.png</value>
 		<value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | String.IsEqual(ListItem.Mpaa,R)">bingie/usicons/r.png</value>
-		<value condition="String.Contains(ListItem.mpaa,NC-17)">bingie/usicons/NC-17.png</value>
-		
-		
-		
+		<value condition="String.Contains(ListItem.mpaa,NC-17)">bingie/usicons/nc-17.png</value>
+		<value condition="String.Contains(ListItem.mpaa,NR)">bingie/usicons/nr.png</value>
+		<!-- US MPAA / TV Ratings -->
+		<value condition="String.Contains(ListItem.mpaa,TV-Y)">Bingie/usicons/tv-y.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-Y7)">Bingie/usicons/tv-y7.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-G)">Bingie/usicons/tv-g.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-PG)">Bingie/usicons/tv-pg.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-14)">Bingie/usicons/tv-14.png</value>
+		<value condition="String.Contains(ListItem.mpaa,TV-MA) | String.Contains(ListItem.mpaa,USA:TV-MA)">Bingie/usicons/tv-ma.png</value>
+		<value condition="String.Contains(ListItem.mpaa,NR)">Bingie/usicons/nr.png</value>
 	</variable>	
 	
+	<!-- nextaired info -->					
 	<include name="mediaflags_classic">
         <include>mediaflags_sets</include>
-        <!-- nextaired info -->
         <control type="group">
             <width>400</width>
             <posy>1</posy>
@@ -1859,6 +1901,7 @@
 	<variable name="VideoFileTypeVar">
         <value condition="Window.IsActive(fullscreenvideo) + [VideoPlayer.IsStereoScopic | String.Contains(Player.FileName,.3d.)]">3D</value>
 		<value condition="Window.IsActive(fullscreenvideo) + [Integer.IsGreater(VideoPlayer.VideoResolution,1080) | String.IsEqual(VideoPlayer.VideoResolution,4K)]">4K</value>
+		<value condition="Window.IsActive(fullscreenvideo) + [Integer.IsGreater(VideoPlayer.VideoResolution,4K)) | String.IsEqual(VideoPlayer.VideoResolution,8K)]">8K</value>
 		<value condition="Window.IsActive(fullscreenvideo) + [String.Contains(Player.FilenameAndPath,blu-ray) | String.Contains(Player.FilenameAndPath,bluray) | String.Contains(Player.FilenameAndPath,bdrip) | String.Contains(Player.FilenameAndPath,bd25) | String.Contains(Player.FilenameAndPath,bd50)]">BD</value>
 		<value condition="Window.IsActive(fullscreenvideo) + String.EndsWith(Player.FileNameAndPath,dvd) | String.EndsWith(Player.FileNameAndPath,.ifo) | String.Contains(Player.FileNameAndPath,.ISO)">DVD</value>
 		<value condition="Window.IsActive(fullscreenvideo) + String.Contains(Player.FileNameAndPath,WEBDL) | String.Contains(Player.FileNameAndPath,WEB-DL)">WEB-DL</value>

@@ -5,6 +5,23 @@
         <control type="group">
             <include>animation_view_change</include>
             <visible>Control.IsVisible(517)</visible>
+			
+			<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
+			
             <control type="group">
                 <control type="panel" id="517">
                     <posx>60</posx>
@@ -37,14 +54,14 @@
                                 <!--Panel icon image-->
                                 <width>400</width>
                                 <height>330</height>
-                                <bordersize>8</bordersize>
+                                <bordersize>9</bordersize>
                                 <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
                                 <aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
                             </control>
                             <control type="label">
-                                <left>430</left>
-                                <width>420</width>
-                                <top>20</top>
+                                <left>410</left>
+                                <width>440</width>
+                                <top>12</top>
                                 <height>50</height>
                                 <align>left</align>
                                 <font>Bold28</font>
@@ -53,10 +70,10 @@
                                 <label>$INFO[ListItem.Label]</label>
                             </control>
                             <control type="textbox">
-                                <left>430</left>
+                                <left>410</left>
                                 <right>30</right>
-                                <top>70</top>
-                                <height>185</height>
+                                <top>64</top>
+                                <height>200</height>
                                 <align>justify</align>
                                 <font>Reg26</font>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -65,12 +82,12 @@
                                 <autoscroll>false</autoscroll>
                             </control>
                             <control type="label">
-                                <width>420</width>
-                                <right>30</right>
+                                <width>440</width>
+                                <right>40</right>
                                 <bottom>20</bottom>
                                 <aligny>center</aligny>
                                 <height>38</height>
-                                <align>right</align>
+                                <align>left</align>
                                 <font>Reg26</font>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
                                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
@@ -89,33 +106,34 @@
                             <height>330</height>
                             <control type="image">
                                 <texture>diffuse/wide.png</texture>
-                                <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                                <colordiffuse>bb0f0f0f</colordiffuse>
                                 <include>thumbsborder_unfocused</include>
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
                                 <width>400</width>
                                 <height>330</height>
-                                <bordersize>8</bordersize>
+                                <bordersize>9</bordersize>
                                 <texture background="true" diffuse="diffuse/wide.png">$VAR[LandscapeImage]</texture>
                                 <aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
                             </control>
                             <control type="label">
-                                <left>430</left>
-                                <width>420</width>
-                                <top>20</top>
+                                <left>410</left>
+                                <width>440</width>
+                                <top>12</top>
                                 <height>50</height>
                                 <align>left</align>
                                 <font>Bold28</font>
+								<textcolor>ffff0000</textcolor>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
                                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
                                 <label>$INFO[ListItem.Label]</label>
                             </control>
                             <control type="textbox">
-                                <left>430</left>
+                                <left>410</left>
                                 <right>30</right>
-                                <top>70</top>
-                                <height>188</height>
+                                <top>64</top>
+                                <height>200</height>
                                 <align>justify</align>
                                 <font>Reg26</font>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
@@ -124,13 +142,14 @@
                                 <autoscroll delay="4000" time="4000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll)</autoscroll>
                             </control>
                             <control type="label">
-                                <width>420</width>
-                                <right>30</right>
+                                <width>440</width>
+                                <right>40</right>
                                 <bottom>20</bottom>
                                 <aligny>center</aligny>
                                 <height>38</height>
-                                <align>right</align>
+                                <align>left</align>
                                 <font>Reg26</font>
+								<textcolor>ffff0000</textcolor>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
                                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
                                 <label fallback="19055">$VAR[ListDetails]</label>
@@ -154,16 +173,16 @@
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
-                                <width>250</width>
+                                <width>240</width>
                                 <height>330</height>
-                                <bordersize>8</bordersize>
+                                <bordersize>9</bordersize>
                                 <texture background="true" diffuse="diffuse/wide.png">$VAR[PosterThumbList]</texture>
-                                <aspectratio scalediffuse="false" align="left" aligny="center">keep</aspectratio>
+                                <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
                             </control>
                             <control type="label">
                                 <left>250</left>
                                 <width>600</width>
-                                <top>20</top>
+                                <top>15</top>
                                 <height>50</height>
                                 <align>left</align>
                                 <font>Bold30</font>
@@ -174,8 +193,8 @@
                             <control type="textbox">
                                 <left>250</left>
                                 <right>30</right>
-                                <top>70</top>
-                                <height>185</height>
+                                <top>64</top>
+                                <height>200</height>
                                 <align>justify</align>
                                 <font>Reg26</font>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
@@ -184,20 +203,20 @@
                                 <autoscroll>false</autoscroll>
                             </control>
                             <control type="label">
-                                <width>600</width>
+                                <width>610</width>
                                 <right>30</right>
                                 <bottom>20</bottom>
                                 <aligny>center</aligny>
                                 <height>38</height>
-                                <align>right</align>
+                                <align>left</align>
                                 <font>Reg26</font>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
                                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</selectedcolor>
                                 <label fallback="19055">$VAR[ListDetails]</label>
                             </control>
                             <control type="group">
-                                <right>8</right>
-                                <top>8</top>
+                                <right>9</right>
+                                <top>9</top>
                                 <include>WatchedIndicatorNormal</include>
                              </control>
                         </control>
@@ -213,19 +232,19 @@
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
-                                <width>250</width>
+                                <width>240</width>
                                 <height>330</height>
-                                <bordersize>8</bordersize>
+                                <bordersize>9</bordersize>
                                 <texture background="true" diffuse="diffuse/wide.png">$VAR[PosterThumbList]</texture>
-                                <aspectratio scalediffuse="false" align="left" aligny="center">keep</aspectratio>
+                                <aspectratio scalediffuse="false" align="left" aligny="center">stretch</aspectratio>
                             </control>
                             <control type="label">
                                 <left>250</left>
                                 <width>600</width>
-                                <top>20</top>
+                                <top>15</top>
                                 <height>50</height>
                                 <align>left</align>
-                                <font>Bold32</font>
+                                <font>Bold30</font>
                                 <textcolor>ffff0000</textcolor>
                                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
                                 <label>$INFO[ListItem.Label]</label>
@@ -233,8 +252,8 @@
                             <control type="textbox">
                                 <left>250</left>
                                 <right>30</right>
-                                <top>70</top>
-                                <height>188</height>
+                                <top>64</top>
+                                <height>200</height>
                                 <align>justify</align>
                                 <font>Reg26</font>
                                 <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
@@ -243,20 +262,20 @@
                                 <autoscroll delay="4000" time="4000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll)</autoscroll>
                             </control>
                             <control type="label">
-                                <width>600</width>
+                                <width>610</width>
                                 <right>30</right>
                                 <bottom>20</bottom>
                                 <aligny>center</aligny>
                                 <height>38</height>
-                                <align>right</align>
-                                <font>Bold26</font>
+                                <align>left</align>
+                                <font>Reg26</font>
                                 <textcolor>ffff0000</textcolor>
                                 <selectedcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</selectedcolor>
                                 <label fallback="19055">$VAR[ListDetails]</label>
                             </control>
                             <control type="group">
-                                <right>8</right>
-                                <top>8</top>
+                                <right>9</right>
+                                <top>9</top>
                                 <include>WatchedIndicatorNormal</include>
                              </control>
                         </control>
@@ -265,9 +284,9 @@
                 <!--vertical Scollbar-->
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(517) + Integer.IsGreater(Container.NumItems,0)</visible>
-                    <right>15</right>
-                    <bottom>150</bottom>
-                    <height>730</height>
+                    <right>10</right>
+                    <bottom>179</bottom>
+                    <height>662</height>
                     <onup>60</onup>
                     <ondown>6000</ondown>
                     <onleft>517</onleft>

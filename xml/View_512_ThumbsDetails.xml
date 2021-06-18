@@ -7,6 +7,21 @@
       <visible>Control.IsVisible(512)</visible>
 		<include>animation_view_change</include>
       
+	  <!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
 
     <include>MovieDetailsLeft</include>
 	  
@@ -17,7 +32,7 @@
               <param name="viewtype" value="$LOCALIZE[31439]" />
           </include>
         <right>40</right>
-        <bottom>12%</bottom>
+        <bottom>132</bottom>
         <height>744</height>
         <width>1192</width>
         <orientation>vertical</orientation>
@@ -28,16 +43,16 @@
         <ondown>512</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-          <itemlayout height="186" width="298" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+          <itemlayout height="186" width="296" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
             <control type="group">
-                <width>290</width>
+                <width>288</width>
                 <height>178</height>
                 <include>ThumbsViewLayout</include>
             </control>
         </itemlayout>
-        <focusedlayout height="186" width="298" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <focusedlayout height="186" width="296" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 			<control type="group">
-                <width>290</width>
+                <width>288</width>
                 <height>178</height>
 				<include>ThumbsViewLayoutFocus</include>
                 <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
@@ -74,9 +89,9 @@
 	  <!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(512) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>15</right>
-			<bottom>12%</bottom>
-            <height>744</height>
+			<right>10</right>
+			<bottom>148</bottom>
+            <height>720</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>509</onleft>

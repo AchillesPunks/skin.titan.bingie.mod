@@ -337,8 +337,8 @@ msgid "Use dark colors"
 msgstr "Ползвай тъмни цветове"
 
 msgctxt "#31155"
-msgid "Hide panel background"
-msgstr "Без фон за панела"
+msgid "Show panel background"
+msgstr "Показвай фон за панела"
 
 msgctxt "#31157"
 msgid "Favourite Shows"

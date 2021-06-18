@@ -13,7 +13,7 @@
 
             <!-- View 523 -->
             <control type="group">
-                <include>BingieLeftDefs</include>
+                <left>128</left>
                 <top>600</top>
                 <width>1660</width>
                 <!-- Content Header -->
@@ -57,12 +57,13 @@
                     <param name="visibility" value="!Skin.HasSetting(View523_DisableFixedBingieFrame)" />
                     <param name="containerid" value="523" />
                     <param name="top" value="40" />
-                    <param name="width" value="332" />
-                    <param name="height" value="195" />
-                    <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
-                    <param name="xAxisAnim" value="332" />
+                    <param name="width" value="335" />
+                    <param name="height" value="198" />
+                    <texture background="true" border="4">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
+					<bordersize>5</bordersize>
+                    <param name="xAxisAnim" value="333" />
                     <param name="isHorizontal" value="Skin.HasSetting(View_523_HorizontalNavigation)" />
-                    <param name="yAxisAnim" value="195" />
+                    <param name="yAxisAnim" value="198" />
                 </include>
             </control>
             
@@ -71,7 +72,7 @@
             <control type="group">
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(523) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_523_HorizontalNavigation)</visible>
-                    <top>710</top>
+                    <top>648</top>
                     <width>8</width>
                     <right>3</right>
                     <bottom>15</bottom>
@@ -86,7 +87,7 @@
                         <param name="left" value="140" />
                     </include>
                     <left>70</left>
-                    <width>1640</width>
+                    <width>1647</width>
                     <height>8</height>
                     <bottom>2</bottom>
                     <onup>523</onup>
@@ -107,7 +108,7 @@
             </include>
             <focusedposition>0</focusedposition>
             <top>40</top>
-            <width>1660</width>
+            <width>1668</width>
             <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">View523_Navigation_Horizontal_Height</include>
             <height>389</height>
             <include condition="Skin.HasSetting(View_523_HorizontalNavigation)">navigation_horizontal</include>
@@ -127,10 +128,10 @@
             <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + !Control.IsVisible(7002)">noop</ondown>
             <ondown condition="Skin.HasSetting(View_523_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</ondown>
             <ondown condition="!Skin.HasSetting(View_523_HorizontalNavigation)">523</ondown>
-            <itemlayout height="195" width="332">
+            <itemlayout height="196" width="333">
                 <control type="group">
-                    <width>332</width>
-                    <height>195</height>
+                    <width>335</width>
+                    <height>198</height>
                     <control type="image">
                         <!--Panel Normal-->
                         <texture background="true">home/home_matte2.png</texture>
@@ -145,10 +146,10 @@
                     </control>
                 </control>
             </itemlayout>
-            <focusedlayout height="195" width="332">
+            <focusedlayout height="196" width="333">
                 <control type="group">
-                    <width>332</width>
-                    <height>195</height>
+                    <width>335</width>
+                    <height>198</height>
                     <control type="image">
                         <!--Panel Normal-->
                         <visible>Skin.HasSetting(View523_DisableFixedBingieFrame)</visible>

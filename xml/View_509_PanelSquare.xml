@@ -6,6 +6,21 @@
     <control type="group">
       <visible>Control.IsVisible(509)</visible>
       <include>animation_view_change</include>
+	  <!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
       <control type="panel" id="509">
         <viewtype label="31436">icons</viewtype>
           <include content="View_Forced">
@@ -43,9 +58,9 @@
 	  <!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(509) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>15</right>
-			<bottom>13%</bottom>
-			<height>765</height>
+			<right>10</right>
+			<bottom>163</bottom>
+			<height>734</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>509</onleft>

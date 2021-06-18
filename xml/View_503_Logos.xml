@@ -74,7 +74,7 @@
 					</itemlayout>
 					<focusedlayout width="650" height="550">
 						<control type="group">
-							<animation effect="zoom" center="auto" start="100" end="230" time="480" tween="back" reversible="false">Focus</animation>
+							<animation effect="zoom" center="auto" start="100" end="190" time="480" tween="back" reversible="false">Focus</animation>
 							<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
 							<control type="image">
 <!-- Removed Logo Shadow -->
@@ -104,7 +104,7 @@
                 <control type="scrollbar" id="60">
 					<visible>Control.IsVisible(503) + Integer.IsGreater(Container.NumItems,0)</visible>
 					<left>60</left>
-                    <bottom>14%</bottom>
+                    <bottom>4</bottom>
 					<width>1800</width>
 					<height>15</height>
 					<onup>503</onup>

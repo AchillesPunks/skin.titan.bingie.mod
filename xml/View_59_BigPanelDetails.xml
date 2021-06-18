@@ -27,6 +27,7 @@
       <control type="group">
           <animation effect="slide" end="0,-50" time="0" condition="true">Conditional</animation>
           <include>MovieDetailsLeft</include>
+		  <left>4</left>
       </control>
 	 
       <control type="panel" id="59">
@@ -36,10 +37,10 @@
               <param name="viewtype" value="$LOCALIZE[31428]" />
           </include>
         <!-- Right Group Panel -->
-		<right>0</right>
-        <bottom>126</bottom>
-        <height>800</height>
-        <width>1190</width>
+		<right>-11</right>
+        <bottom>106</bottom>
+        <height>820</height>
+        <width>1245</width>
         <orientation>vertical</orientation>
         <itemgap>0</itemgap>
         <onleft>9000</onleft>
@@ -50,18 +51,18 @@
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
           <!-- Poster Panel Layout -->
-		  <itemlayout height="400" width="280">
+		  <itemlayout height="410" width="300">
           <control type="group">
             <width>280</width>
-            <height>400</height>
+            <height>390</height>
             <include>PosterPanelLayout</include>
           </control>
         </itemlayout>
         <!-- Poster Main Panel Layout -->
-		<focusedlayout height="400" width="280">
+		<focusedlayout height="410" width="300">
           <control type="group">
             <width>280</width>
-            <height>400</height>
+            <height>390</height>
             <include>PosterPanelLayoutFocus</include>
               <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
                   <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
@@ -73,9 +74,9 @@
 		<!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(59) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>15</right>
-			 <bottom>125</bottom>
-			<height>800</height>
+			<right>10</right>
+			 <bottom>134</bottom>
+			<height>784</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>59</onleft>

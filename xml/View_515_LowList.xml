@@ -188,30 +188,39 @@
 			<defaultcontrol always="true">515</defaultcontrol>
 			<visible>Control.IsVisible(515)</visible>
             <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
-			<bottom>125</bottom>
-			<height>365</height>
+
 			
-			<!-- Background Panel-->
+			<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
+			
+			<!-- Background Panel-->			
 			<control type="image">
-				<posx>50</posx>
-				<width>1820</width>
+				<posx>61</posx>
+				<bottom>109</bottom>
+				<width>1798</width>
+				<height>372</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-				<visible>!Skin.HasSetting(View515_HidePanel)</visible>
-                <visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			</control>
-			<control type="image">
-				<posx>1200</posx>
-				<width>670</width>
-				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-				<visible>!Skin.HasSetting(View515_HidePanel)</visible>
+                <visible>Skin.HasSetting(View515_HidePanel)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
 			</control>
 		
 			<control type="panel" id="515">
-					
-				<posx>330</posx>
+				<bottom>125</bottom>	
+				<posx>337</posx>
 				<posy>10</posy>
 				<width>1400</width>
 				<height>345</height>
@@ -273,12 +282,13 @@
 			
 			<!--info-->
 			<control type="group">
-				
+			<bottom>102</bottom>
+			<height>365</height>
 				<control type="textbox">
-					<right>80</right>
-					<posy>5</posy>
+					<right>81</right>
+					<posy>6</posy>
 					<width>625</width>
-					<height>335</height>
+					<height>333</height>
 					<label>$VAR[Plots]</label>
 					<font>Light28</font>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -293,7 +303,8 @@
 			<control type="group">
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
 				<control type="image">
-					<left>65</left>
+					<bottom>120</bottom>
+					<left>72</left>
 					<posy>7</posy>
 					<width>255</width>
 					<height>350</height>
@@ -322,9 +333,9 @@
 			<!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(515) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>15</right>
-				<posy>0</posy>
-				<height>365</height>
+				<right>10</right>
+				<bottom>120</bottom>
+				<height>350</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>515</onleft>

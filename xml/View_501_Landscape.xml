@@ -7,7 +7,21 @@
 			<defaultcontrol always="true">501</defaultcontrol>
 		    <visible>Control.IsVisible(501)</visible>
 			<include>animation_view_change</include>
-
+<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
 			<control type="panel" id="501">
 				<posx>60</posx>
 				<width>1880</width>
@@ -69,7 +83,7 @@
 				<control type="scrollbar" id="60">
 					<visible>Control.IsVisible(501) + Integer.IsGreater(Container.NumItems,0) + Skin.HasSetting(View_501_HorizontalNavigation)</visible>
 					<left>60</left>
-					<bottom>140</bottom>
+					<bottom>4</bottom>
 					<width>1800</width>
 					<height>15</height>
 					<onup>501</onup>
@@ -83,7 +97,7 @@
                 <!--vertical Scollbar-->
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(501) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_501_HorizontalNavigation)</visible>
-                    <right>15</right>
+                    <right>10</right>
                     <bottom>150</bottom>
                     <height>700</height>
                     <onup>60</onup>

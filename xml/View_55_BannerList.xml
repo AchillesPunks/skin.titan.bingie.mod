@@ -7,26 +7,30 @@
         <control type="group">
             <visible>Control.IsVisible(55)</visible>
             <include>animation_view_change</include>
-            <include>MovieDetailsLeft</include>
-<!-- Fanart Image Added-->
+			<!-- Fanart Image Added to View-->
             <control type="multiimage">
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>21ffffff</colordiffuse>
+			    <colordiffuse>31ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
-                <bottom>120</bottom>                      <!-- Used for Bottom Footer -->
-			    <fadetime>350</fadetime>
+                <fadetime>350</fadetime>
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
+			
+            <include>MovieDetailsLeft</include>
 			
 			<!-- ID="52" -->
             <control type="panel" id="55">
                 <animation effect="slide" end="-645" time="250" condition="Skin.HasSetting(View55_ShowInfoRight)">Conditional</animation>
-                <right>40</right>
-				<bottom>13%</bottom>
-                <height>738</height>
+                <right>39</right>
+				<bottom>118</bottom>
+                <height>758</height>
 				<width>1190</width>
                 <onup>55</onup>
                 <ondown>55</ondown>
@@ -43,7 +47,7 @@
                 <orientation>vertical</orientation>
                 <preloaditems>4</preloaditems>
                 <animation effect="slide" start="0" end="-20" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
-                <itemlayout height="123" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
+                <itemlayout height="125" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>585</width>
                         <height>119</height>
@@ -56,7 +60,7 @@
                         <include>BannerLayout</include>
 					</control>
                 </itemlayout>
-                <focusedlayout height="123" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
+                <focusedlayout height="125" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>585</width>
                         <height>119</height>
@@ -72,9 +76,9 @@
                         </include>
 					</control>
                 </focusedlayout>
-                <itemlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
+                <itemlayout height="252" width="1180" condition="Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
-                        <width>1190</width>
+                        <width>1180</width>
                         <height>238</height>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
@@ -85,9 +89,9 @@
                         <include>BannerLayout</include>
 					</control>
                 </itemlayout>
-                <focusedlayout height="246" width="1190" condition="Skin.HasSetting(View55_LargeBanners)">
+                <focusedlayout height="252" width="1180" condition="Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
-                        <width>1190</width>
+                        <width>1180</width>
                         <height>238</height>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
@@ -105,9 +109,9 @@
  			<!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(55) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>15</right>
-				<bottom>13%</bottom>
-                <height>736</height>
+				<right>10</right>
+				<bottom>140</bottom>
+                <height>728</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>55</onleft>

@@ -6,13 +6,27 @@
         <control type="group">
             <visible>Control.IsVisible(56)</visible>
             <include>animation_view_change</include>
-			
+						<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
             <!-- ID="52" -->
             <control type="panel" id="56">
                 <posx>65</posx>
-                <bottom>13%</bottom>
+                <bottom>10%</bottom>
                 <width>1800</width>
-                <height>675</height>
+                <height>818</height>
                 <onup>56</onup>
                 <ondown>56</ondown>
                 <onleft>9000</onleft>
@@ -45,10 +59,10 @@
                         <width>590</width>
                         <height>125</height>
                         <animation type="focus">
-							<effect type="zoom" start="100" end="105" center="auto" time="150" />
+							<effect type="zoom" start="100" end="103" center="auto" time="150" />
 						</animation>
 						<animation type="unfocus">
-							<effect type="zoom" start="105" end="100" center="auto" time="150" />
+							<effect type="zoom" start="103" end="100" center="auto" time="150" />
 						</animation>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
@@ -77,10 +91,10 @@
                         <width>890</width>
                         <height>205</height>
                         <animation type="focus">
-							<effect type="zoom" start="100" end="105" center="auto" time="150" />
+							<effect type="zoom" start="100" end="103" center="auto" time="150" />
 						</animation>
 						<animation type="unfocus">
-							<effect type="zoom" start="105" end="100" center="auto" time="150" />
+							<effect type="zoom" start="103" end="100" center="auto" time="150" />
 						</animation>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
@@ -96,9 +110,9 @@
  			<!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(56) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>15</right>
-				<bottom>13%</bottom>
-				<height>675</height>
+				<right>10</right>
+				<bottom>134</bottom>
+				<height>784</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>56</onleft>

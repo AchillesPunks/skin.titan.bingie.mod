@@ -6,6 +6,21 @@
     <control type="group">
       <visible>Control.IsVisible(511)</visible>
       <include>animation_view_change</include>
+	  <!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
       <control type="panel" id="511">
         <viewtype label="31438">icons</viewtype>
           <include content="View_Forced">
@@ -33,10 +48,10 @@
         <focusedlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 			<control type="group">
 				<animation type="focus">
-					<effect type="zoom" start="100" end="115" center="auto" time="150" />
+					<effect type="zoom" start="100" end="107" center="auto" time="150" />
 				</animation>
 				<animation type="unfocus">
-					<effect type="zoom" start="115" end="100" center="auto" time="150" />
+					<effect type="zoom" start="107" end="100" center="auto" time="150" />
 				</animation>
                 <width>354</width>
                 <height>185</height>
@@ -70,9 +85,9 @@
 	  <!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(511) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>15</right>
-			<bottom>13%</bottom>
-			<height>768</height>
+			<right>10</right>
+			<bottom>155</bottom>
+			<height>745</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>511</onleft>

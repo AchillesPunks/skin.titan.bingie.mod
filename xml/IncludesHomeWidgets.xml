@@ -81,7 +81,7 @@
         <include condition="$PARAM[multiRows]">widget_layout_poster_multi</include>
         <height>325</height>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_poster_animation</include>
-        <itemlayout height="325" width="240">
+        <itemlayout height="325" width="238">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -100,7 +100,7 @@
                <include>Poster_New_Episodes_Tag_Overlay</include>
             </control>
         </itemlayout>
-        <focusedlayout height="325" width="240">
+        <focusedlayout height="325" width="238">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -151,16 +151,16 @@
     <!-- widget poster details layout -->
     <include name="widget_layout_posterdetails">
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_posterdetails_animation</include>
-        <height>380</height>
-		<left>4</left>
+        <height>325</height>
+		<left>-2</left>
         <orientation>horizontal</orientation>
-        <itemlayout height="380" width="261">
+        <itemlayout height="325" width="238">
           <control type="group">
               <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                   <param name="left" value="bingie_no_circular_posx"/>
               </include>
-            <width>250</width>
-            <height>370</height>
+            <width>240</width>
+            <height>325</height>
             <include>PosterPanelLayout</include>
             <control type="group">
                 <description>widget label overlay</description>
@@ -172,13 +172,13 @@
             </control>
           </control>
         </itemlayout>
-        <focusedlayout height="380" width="261" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="325" width="238" condition="!Control.HasFocus($PARAM[widgetid])">
           <control type="group">
               <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                   <param name="left" value="bingie_no_circular_posx"/>
               </include>
-            <width>250</width>
-            <height>370</height>
+            <width>240</width>
+            <height>325</height>
             <include>PosterPanelLayout</include>
             <control type="group">
                 <description>widget label overlay</description>
@@ -194,13 +194,13 @@
             </include>
           </control>
         </focusedlayout>
-        <focusedlayout width="780" height="380" condition="Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="714" height="335" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>768</width>
-                <height>370</height>
+                <width>710</width>
+                <height>319</height>
                 <include content="widget_layout_posterdetails_widebox">
                     <param name="widgetid" value="$PARAM[widgetid]" />
                 </include>
@@ -215,35 +215,44 @@
     <include name="widget_layout_posterdetails_widebox">
         <!-- wide box widget -->
         <control type="group">
-            <control type="image">
+		<!-- poster image -->
+			<control type="group">
+                <width>240</width>
+                <height>325</height>
+                <include>PosterPanelLayout</include>
+            </control> 
+			<control type="image">
                 <texture border="5">diffuse/panel.png</texture>
                 <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-            </control>
+				<left>232</left>
+				<width>476</width>
+				<posy>6</posy>
+            </control>			
             <control type="image">
-                <texture border="5">diffuse/thinborder.png</texture>
+                <texture border="5">diffuse/border.png</texture>
                 <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-            </control>
-            <!-- poster image -->
-            <control type="group">
-                <width>250</width>
-                <height>370</height>
-                <include>PosterPanelLayout</include>
-              </control>
-            <control type="textbox">
-                <left>260</left>
+				<posx>6</posx>
+				<posy>6</posy>
+            </control>         
+            <control type="label">
+                <left>241</left>
                 <right>30</right>
-                <top>8</top>
+                <top>11</top>
                 <aligny>top</aligny>
                 <height>40</height>
+				<width>456</width>
                 <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
+				<scroll>true</scroll>
             </control>
             <control type="textbox">
-                <left>260</left>
+                <left>241</left>
                 <right>30</right>
-                <top>50</top>
+                <top>60</top>
                 <bottom>20</bottom>
+				<height>251</height>
+				<width>456</width>
                 <font>Reg24</font>
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Skin.HasSetting(DisablePlotAutoScroll)" />
@@ -257,14 +266,14 @@
     <!-- widget small poster layout -->
     <include name="widget_layout_smallposter">
         <include condition="$PARAM[multiRows]">widget_layout_smallposter_multi</include>
-        <height>253</height>
+        <height>240</height>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_smallposter_animation</include>
-        <itemlayout height="253" width="182" condition="!$EXP[IsVerticalLayout]">
+        <itemlayout height="253" width="175" condition="!$EXP[IsVerticalLayout]">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>162</width>
+                <width>177</width>
                 <height>240</height>
                 <include>SmallPosterPanelLayout</include>
                 <control type="group">
@@ -277,12 +286,12 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout height="253" width="182" condition="!$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="253" width="175" condition="!$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>162</width>
+                <width>177</width>
                 <height>240</height>
                 <include>SmallPosterPanelLayout</include>
                 <control type="group">
@@ -295,12 +304,12 @@
                 </control>
             </control>
         </focusedlayout>
-        <focusedlayout height="253" width="182" condition="!$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="253" width="175" condition="!$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>162</width>
+                <width>177</width>
                 <height>240</height>
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
                 <include>SmallPosterPanelLayoutFocus</include>
@@ -319,9 +328,9 @@
             </control>
         </focusedlayout>
         
-        <itemlayout height="253" width="162" condition="$EXP[IsVerticalLayout]">
+        <itemlayout height="253" width="175" condition="$EXP[IsVerticalLayout]">
             <control type="group">
-                <width>162</width>
+                <width>177</width>
                 <height>240</height>
                 <include>SmallPosterPanelLayout</include>
                 <control type="group">
@@ -334,9 +343,9 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout height="253" width="162" condition="$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="253" width="175" condition="$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-                <width>162</width>
+                <width>177</width>
                 <height>240</height>
                 <include>SmallPosterPanelLayout</include>
                 <control type="group">
@@ -349,9 +358,9 @@
                 </control>
             </control>
         </focusedlayout>
-        <focusedlayout height="253" width="162" condition="$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout height="253" width="175" condition="$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
             <control type="group">
-                <width>162</width>
+                <width>177</width>
                 <height>240</height>
                 <include>SmallPosterPanelLayoutFocus</include>
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
@@ -402,9 +411,9 @@
     <!-- widget square layout -->
     <include name="widget_layout_square">
         <include condition="$PARAM[multiRows]">widget_layout_square_multi</include>
-        <height>263</height>
+        <height>255</height>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_square_animation</include>
-        <itemlayout height="263" width="262">
+        <itemlayout height="263" width="238">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -422,7 +431,30 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout height="263" width="262">
+        <focusedlayout height="263" width="238" condition="!Control.HasFocus($PARAM[widgetid])">
+            <control type="group">
+                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="left" value="bingie_no_circular_posx"/>
+                </include>
+                <width>240</width>
+                <height>240</height>
+                <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
+                <include>SquarePosterPanelLayout</include>
+                <control type="group">
+                    <description>widget label overlay</description>
+                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SquarePosterTagOverlay</include>
+                    <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">SquarePosterTagOverlayVisibility</include>
+                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
+                        <param name="prefix" value="SquarePoster"/>
+                    </include>
+                </control>
+                <include content="HiddenWidgetButton">
+                    <param name="widgetstyle" value="square"/>
+                    <param name="widgetid" value="$PARAM[widgetid]"/>
+                </include>
+            </control>
+        </focusedlayout>
+		<focusedlayout height="263" width="238" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -460,7 +492,7 @@
         <include condition="$PARAM[multiRows]">widget_layout_minisquare_multi</include>
         <height>131</height>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_minisquare_animation</include>
-        <itemlayout height="131" width="130">
+        <itemlayout height="131" width="119">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -470,7 +502,22 @@
                 <include>SquarePosterPanelLayout</include>
             </control>
         </itemlayout>
-        <focusedlayout height="131" width="130">
+        <focusedlayout height="131" width="119" condition="!Control.HasFocus($PARAM[widgetid])">
+            <control type="group">
+                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="left" value="bingie_no_circular_posx"/>
+                </include>
+                <width>120</width>
+                <height>120</height>
+                <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
+                <include>SquarePosterPanelLayout</include>
+                <include content="HiddenWidgetButton">
+                    <param name="widgetstyle" value="minisquare"/>
+                    <param name="widgetid" value="$PARAM[widgetid]"/>
+                </include>
+            </control>
+        </focusedlayout>
+		<focusedlayout height="131" width="119" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -548,7 +595,7 @@
     <include name="widget_layout_landscape_not_vertical_layout">
         <include condition="$PARAM[multiRows]">widget_layout_landscape_multi</include>
         <height>210</height>
-        <itemlayout width="360" height="210">
+        <itemlayout width="364" height="210">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -567,7 +614,7 @@
                 <include>New_Episodes_Tag_Overlay</include>
             </control>
         </itemlayout>
-        <focusedlayout width="360" height="210">
+        <focusedlayout width="364" height="210">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -734,7 +781,7 @@
         <include condition="$PARAM[multiRows]">widget_layout_landscapelarge_multi</include>
         <height>260</height>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_landscapelarge_animation</include>
-        <itemlayout width="430" height="260">
+        <itemlayout width="428" height="260">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -753,7 +800,7 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout width="430" height="260" condition="Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="428" height="260" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -777,7 +824,7 @@
                 </include>
             </control>
         </focusedlayout>
-        <focusedlayout width="430" height="260" condition="!Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="428" height="260" condition="!Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
@@ -809,16 +856,16 @@
     <!-- landscape details -->
     <include name="widget_layout_landscapedetails">
         <height>210</height>
-		<left>4</left>
+		<left>-2</left>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_landscapedetails_animation</include>
         <orientation>horizontal</orientation>
-        <itemlayout width="366" height="210">
+        <itemlayout width="364" height="210">
 			<control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>354</width>
-                <height>200</height>
+                <width>366</width>
+                <height>210</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -830,13 +877,13 @@
                 </control>
             </control>
 		</itemlayout>
-        <focusedlayout width="1090" height="205" condition="Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="1092" height="210" condition="Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>1078</width>
-                <height>200</height>
+                <width>1088</width>
+                <height>204</height>
                 <include>widget_layout_landscapelarge_widebox</include>
                 <include content="HiddenWidgetButton">
                     <param name="widgetstyle" value="landscapedetails" />
@@ -844,13 +891,13 @@
                 </include>
             </control>
         </focusedlayout>
-		<focusedlayout width="366" height="210" condition="!Control.HasFocus($PARAM[widgetid])">
+		<focusedlayout width="364" height="210" condition="!Control.HasFocus($PARAM[widgetid])">
 			<control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>354</width>
-                <height>200</height>
+                <width>366</width>
+                <height>210</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -870,35 +917,42 @@
     <include name="widget_layout_landscapelarge_widebox">
         <!-- wide box widget -->
         <control type="group">
-            <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture border="5">diffuse/thinborder.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-            </control>
-            <!-- poster image -->
+		<!-- poster image -->
             <control type="group">
-                <width>354</width>
-                <height>200</height>
+                <width>366</width>
+                <height>210</height>
                 <include>ThumbsViewLayout</include>
             </control>
+			<control type="image">
+                <texture border="5">diffuse/panel.png</texture>
+                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
+				<left>358</left>
+				<width>728</width>
+				<posy>6</posy>
+            </control>
+            <control type="image">
+                <texture border="5">diffuse/border.png</texture>
+                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+				<posx>6</posx>
+				<posy>6</posy>
+            </control>           
             <control type="label">
-                <left>370</left>
-                <width>70%</width>
-                <top>8</top>
+                <left>368</left>
+                <top>12</top>
                 <aligny>top</aligny>
                 <height>80</height>
+				<width>704</width>
                 <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
+				<scroll>true</scroll>
             </control>
             <control type="textbox">
-                <left>370</left>
+                <left>368</left>
                 <right>30</right>
-                <top>50</top>
-                <height>145</height>
+                <top>66</top>
+                <height>130</height>
+				<width>706</width>
                 <font>Reg24</font>
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Skin.HasSetting(DisablePlotAutoScroll)" />
@@ -912,24 +966,24 @@
     <!-- widget banner layout -->
     <include name="widget_layout_banner">
         <include condition="$EXP[IsVerticalLayout] + ![$PARAM[multiRows]]" content="height">
-            <param name="height" value="146" />
+            <param name="height" value="147" />
         </include>
         <include condition="$EXP[IsVerticalLayout] + [$PARAM[multiRows]] + ![String.IsEqual(Skin.AspectRatio,16:10) + Skin.HasSetting(VerticalHomeLargeWidget)]" content="height">
-            <param name="height" value="876" />
+            <param name="height" value="877" />
         </include>
         <include condition="$EXP[IsVerticalLayout] + [$PARAM[multiRows]] + [String.IsEqual(Skin.AspectRatio,16:10) + Skin.HasSetting(VerticalHomeLargeWidget)]" content="height">
-            <param name="height" value="1022" />
+            <param name="height" value="1023" />
         </include>
         <include condition="!$EXP[IsVerticalLayout]" content="height">
-            <param name="height" value="126" />
+            <param name="height" value="127" />
         </include>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_banner_animation</include>
-        <itemlayout height="126" width="610" condition="!$EXP[IsVerticalLayout]">
+        <itemlayout height="126" width="594" condition="!$EXP[IsVerticalLayout]">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>598</width>
+                <width>596</width>
                 <height>120</height>
                 <control type="image">
                     <texture border="5">diffuse/banner.png</texture>
@@ -940,12 +994,33 @@
                 <include>BannerLayout</include>
             </control>
         </itemlayout>
-        <focusedlayout height="126" width="610" condition="!$EXP[IsVerticalLayout]">
+        <focusedlayout height="126" width="594" condition="!$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>598</width>
+                <width>596</width>
+                <height>120</height>
+                <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
+                <control type="image">
+                    <texture border="5">diffuse/banner.png</texture>
+                    <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+                    <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+                    <include>thumbsborder_unfocused</include>
+                </control>
+                <include>BannerLayout</include>
+                <include content="HiddenWidgetButton">
+                    <param name="widgetstyle" value="banner"/>
+                    <param name="widgetid" value="$PARAM[widgetid]"/>
+                </include>
+            </control>
+        </focusedlayout>
+		<focusedlayout height="126" width="594" condition="!$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
+            <control type="group">
+                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                    <param name="left" value="bingie_no_circular_posx"/>
+                </include>
+                <width>596</width>
                 <height>120</height>
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
                 <control type="image">
@@ -970,7 +1045,23 @@
             </control>
             <include>BannerLayout</include>
         </itemlayout>
-        <focusedlayout height="146" width="650" condition="$EXP[IsVerticalLayout]">
+        <focusedlayout height="146" width="650" condition="$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
+            <control type="group">
+                <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
+                <control type="image">
+					<texture border="5">diffuse/banner.png</texture>
+					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+					<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+					<include>thumbsborder_unfocused</include>
+				</control>
+                <include>BannerLayout</include>
+                <include content="HiddenWidgetButton">
+                    <param name="widgetstyle" value="banner"/>
+                    <param name="widgetid" value="$PARAM[widgetid]"/>
+                </include>
+            </control>
+        </focusedlayout>
+		<focusedlayout height="146" width="650" condition="$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
                 <control type="image">
@@ -993,13 +1084,13 @@
         <include condition="$PARAM[multiRows]">widget_layout_landscapesmall_multi</include>
         <height>148</height>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_landscapesmall_animation</include>
-        <itemlayout width="262" height="148" condition="!$EXP[IsVerticalLayout]">
+        <itemlayout width="258" height="148" condition="!$EXP[IsVerticalLayout]">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>99%</width>
-                <height>100%</height>
+                <width>260</width>
+                <height>148</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -1011,13 +1102,13 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout width="262" height="148" condition="!$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="258" height="148" condition="!$EXP[IsVerticalLayout] + Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>99%</width>
-                <height>100%</height>
+                <width>260</width>
+                <height>148</height>
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
                 <include>ThumbsViewLayoutFocus</include>
                 <control type="group">
@@ -1034,13 +1125,13 @@
                 </include>
             </control>
         </focusedlayout>
-        <focusedlayout width="262" height="148" condition="!$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
+        <focusedlayout width="258" height="148" condition="!$EXP[IsVerticalLayout] + !Control.HasFocus($PARAM[widgetid])">
             <control type="group">
                 <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
-                <width>99%</width>
-                <height>100%</height>
+                <width>260</width>
+                <height>148</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -1052,10 +1143,10 @@
                 </control>
             </control>
         </focusedlayout>
-        <itemlayout width="261" height="148" condition="$EXP[IsVerticalLayout]">
+        <itemlayout width="258" height="148" condition="$EXP[IsVerticalLayout]">
             <control type="group">
-                <width>99%</width>
-                <height>100%</height>
+                <width>260</width>
+                <height>148</height>
                 <include>ThumbsViewLayout</include>
                 <control type="group">
                     <description>widget label overlay</description>
@@ -1067,10 +1158,10 @@
                 </control>
             </control>
         </itemlayout>
-        <focusedlayout width="261" height="148" condition="$EXP[IsVerticalLayout]">
+        <focusedlayout width="258" height="148" condition="$EXP[IsVerticalLayout]">
             <control type="group">
-                <width>99%</width>
-                <height>100%</height>
+                <width>260</width>
+                <height>148</height>
                 <animation effect="zoom" center="auto" start="100" end="105" time="160" tween="quadratic" condition="Skin.HasSetting(WidgetsZoomFocus)">Focus</animation>
                 <include>ThumbsViewLayoutFocus</include>
                 <control type="group">
@@ -1118,8 +1209,6 @@
                 <bordersize>0</bordersize>
                 <height>330</height>
                 <width>940</width>
-                <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                 <visible>Control.HasFocus($PARAM[widgetid])</visible>
             </control>
             <include content="itemlayout_singlebox">
@@ -1140,8 +1229,6 @@
                 <bordersize>0</bordersize>
                 <height>330</height>
                 <width>940</width>
-                <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                 <visible>Control.HasFocus($PARAM[widgetid])</visible>
             </control>
             <include content="itemlayout_singlebox">
@@ -1162,8 +1249,6 @@
                 <bordersize>0</bordersize>
                 <height>330</height>
                 <width>940</width>
-                <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
                 <visible>Control.HasFocus($PARAM[widgetid])</visible>
             </control>
             <include content="itemlayout_singlebox">
@@ -1172,7 +1257,7 @@
         </focusedlayout>
     
     </include>
-    <include name="itemlayout_singlebox">
+    <include name="itemlayout_singlebox"> 
         <!-- single box widget -->
         <control type="group">
             <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
@@ -1181,54 +1266,55 @@
             <height>330</height>
             <width>940</width>
             <include condition="Skin.HasSetting(WidgetAlignRight)">widget_layout_singlebox_rightalign</include>
-            <control type="image">
-                <bordersize>4</bordersize>
+			<control type="image">
+                <bordersize>2</bordersize>
                 <texture border="15">diffuse/bgpanel.png</texture>
                 <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture border="5">diffuse/thinborder.png</texture>
-                <colordiffuse>darkgrey</colordiffuse>
-                <bordersize>4</bordersize>
-                <visible>Skin.HasTheme(skindefault)</visible>
-            </control>
+			</control>
+			<control type="image">
+				<bordersize>0</bordersize>
+				<texture border="5">diffuse/border.png</texture>
+				<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+			</control>
             <!-- poster image -->
             <control type="image">
-                <width>240</width>
+                <width>236</width>
                 <height>329</height>
                 <texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-                <aspectratio scalediffuse="true" aligny="top" align="left">keep</aspectratio>
-                <bordersize>12</bordersize>
+                <aspectratio scalediffuse="true" aligny="top" align="left">stretch</aspectratio>
+                <bordersize>8</bordersize>
             </control>
             <control type="label">
-                <left>251</left>
-                <top>0</top>
-                <width>650</width>
+                <left>241</left>
+                <top>-2</top>
+                <width>682</width>
                 <aligny>center</aligny>
                 <height>60</height>
                 <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
             </control>
-            <control type="textbox">
-                <!--description with mediaflags present -->
+            <control type="textbox"> 
+                <!--description with mediaflags present-->
                 <visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
-                <left>251</left>
-                <width>650</width>
-                <top>60</top>
+                <left>241</left>
+                <width>683</width>
+				<height>217</height>
+                <top>65</top>
                 <bottom>70</bottom>
                 <font>Reg24</font>
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Skin.HasSetting(DisablePlotAutoScroll)"/>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
-            </control>
+            </control> 
             <control type="textbox">
-                <!--description with no mediaflags -->
+                <!--description with no mediaflags-->
                 <visible>String.IsEmpty(ListItem.VideoCodec)</visible>
-                <left>251</left>
-                <width>650</width>
-                <top>60</top>
+                <left>241</left>
+                <width>683</width>
+				<height>255</height>
+                <top>65</top>
                 <bottom>17</bottom>
                 <font>Reg24</font>
                 <align>justify</align>
@@ -1236,10 +1322,10 @@
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
-            <control type="group">
+			<control type="group">
                 <height>36</height>
-                <left>251</left>
-                <bottom>10</bottom>
+                <left>241</left>
+                <bottom>5</bottom>
                 <control type="label">
                     <font>flags</font>
                     <width>auto</width>
@@ -1249,10 +1335,10 @@
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 </control>
             </control>
-            <control type="group">
+			<control type="group">
                 <!--Watched Overlay-->
-                <right>8</right>
-                <top>8</top>
+                <right>4</right>
+                <top>4</top>
                 <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
                 <include content="WatchedIndicatorLayout">
                     <param name="width" value="80"/>
@@ -1272,12 +1358,12 @@
     
     <!-- widget widebox layout -->
     <include name="widget_layout_widebox">
-        <height>265</height>
-		<left>4</left>
+        <height>255</height>
+		<left>134</left>
         <include condition="String.IsEmpty(Window(Home).Property(bingieviews))">widget_layout_widebox_animation</include>
         <itemlayout height="265" width="1820" condition="!$EXP[IsVerticalLayout]">
             <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
                 <width>1770</width>
@@ -1290,7 +1376,7 @@
         </itemlayout>
         <focusedlayout height="265" width="1820" condition="!$EXP[IsVerticalLayout]">
             <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
                 <width>1770</width>
@@ -1311,24 +1397,18 @@
                 <texture border="15">diffuse/bgpanel.png</texture>
                 <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
             </control>
-            <control type="image">
-                <texture border="5">diffuse/thinborder.png</texture>
-                <colordiffuse>darkgrey</colordiffuse>
-                <bordersize>4</bordersize>
-                <visible>Skin.HasTheme(skindefault)</visible>
-            </control>
             <!-- poster image -->
             <control type="image">
-                <width>190</width>
+                <width>185</width>
                 <height>100%</height>
                 <texture border="1" background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
-                <aspectratio scalediffuse="true" aligny="top" align="left">keep</aspectratio>
-                <bordersize>12</bordersize>
+                <aspectratio scalediffuse="true" aligny="top" align="left">stretch</aspectratio>
+                <bordersize>8</bordersize>
             </control>
             <control type="label">
-                <left>200</left>
-                <width>70%</width>
-                <top>12</top>
+                <left>189</left>
+				<width>1551</width>
+                <top>9</top>
                 <aligny>top</aligny>
                 <height>80</height>
                 <font>Reg30</font>
@@ -1336,20 +1416,34 @@
                 <label>$VAR[HomeMenuWidgetInfoLabel]</label>
             </control>
             <control type="textbox">
-                <left>200</left>
+                <left>189</left>
                 <right>30</right>
-                <top>60</top>
-                <height>145</height>
+				<width>1565</width>
+                <top>55</top>
+                <height>155</height>
                 <font>Reg24</font>
                 <align>justify</align>
                 <autoscroll delay="4000" time="3000" repeat="10000" condition="!Skin.HasSetting(DisablePlotAutoScroll)"/>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
             </control>
+			<control type="group">
+                <height>36</height>
+                <left>189</left>
+                <bottom>5</bottom>
+                <control type="label">
+                    <font>flags</font>
+                    <width>auto</width>
+                    <height>30</height>
+                    <visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+                    <label>$VAR[VideoFileTypeVar,, • ]$VAR[VideoCodecVar,, • ]$VAR[VideoAspectVar,, • ]$VAR[VideoResolutionVar,, • ]$VAR[AudioCodecVar,, • ]$VAR[AudioChannelsVar]$VAR[AudioLanguageVar, • ]</label>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                </control>
+            </control>
             <control type="group">
                 <!--Watched Overlay-->
-                <right>8</right>
-                <top>8</top>
+                <right>4</right>
+                <top>4</top>
                 <animation effect="slide" end="-2,2" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
                 <include content="WatchedIndicatorLayout">
                     <param name="width" value="80"/>
@@ -1370,8 +1464,8 @@
         </include>
         <control type="image">
             <bordersize>0</bordersize>
-            <texture border="15">diffuse/bgpanel.png</texture>
-            <colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+            <texture border="5">diffuse/border.png</texture>
+            <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
         </control>
         <include>itemlayout_widebox</include>
     </include>

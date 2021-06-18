@@ -1,7 +1,7 @@
 # Kodi Media Center language file
-# Addon Name: Titan Bingie
-# Addon id: skin.titan.bingie
-# Addon Provider: cartmandos, marcelveldt
+# Addon Name: Titan Bingie Mod
+# Addon id: skin.titan.bingie.mod
+# Addon Provider: AchillesPunks, HugoL, Matke
 msgid ""
 msgstr ""
 "Project-Id-Version: KODI Skins\n"
@@ -635,7 +635,7 @@ msgid "Use dark colors"
 msgstr ""
 
 msgctxt "#31155"
-msgid "Hide panel background"
+msgid "Show panel background"
 msgstr ""
 
 msgctxt "#31156"
@@ -1563,12 +1563,12 @@ msgid "Use 'Options' text instead of arrow indicator"
 msgstr ""
 
 msgctxt "#31387"
-msgid "Welcome to Titan BINGIE MOD !"
+msgid "Welcome to Titan BINGIE MOD"
 msgstr ""
 
 msgctxt "#31388"
 msgid ""
-"The new Titan skin for Kodi Leia."
+"The new Titan skin for Kodi Matrix."
 "[CR]This skin has many different layouts to choose from, let us start with the "
 "Titan BINGIE MOD main layout. This layout is designed to simulate Netflix user experience "
 "for TV.[CR]In "

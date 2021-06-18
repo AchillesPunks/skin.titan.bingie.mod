@@ -325,8 +325,8 @@ msgid "Use dark colors"
 msgstr "Použít tmavší barvy"
 
 msgctxt "#31155"
-msgid "Hide panel background"
-msgstr "Skrýt pozadí panelu"
+msgid "Show panel background"
+msgstr "Zobrazit pozadí panelu"
 
 msgctxt "#31165"
 msgid "Edit Main Menu"

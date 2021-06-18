@@ -179,9 +179,7 @@
             <!-- general visibility conditions -->
             <visible>Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible>
             <visible>
-                [$EXP[IsBingieViewsActive] + [Control.HasFocus(77777) | ControlGroup(77777).HasFocus() | Window.IsActive(DialogVideoInfo.xml)] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))] |
-                [Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)] | 
-                [Window.IsMedia + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))]
+                Window.IsMedia + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))
             </visible>
         </control>
     </include>

@@ -1570,7 +1570,6 @@
 				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default can never be RT Audience-->
                 <!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<visible>!String.IsEmpty(Control.GetLabel(3777122)) + Integer.IsGreater(ListItem.Rating,5.9)</visible>
-                <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
 				<width>37</width>
                 <height>79</height>
@@ -1584,7 +1583,6 @@
 				<control type="image">
 				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default will never be RT Audience-->
                 <visible>!String.IsEmpty(Control.GetLabel(3777122)) + !Integer.IsGreater(ListItem.Rating,5.9)</visible>
-                <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
 				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<width>56</width>
@@ -1625,7 +1623,6 @@
 				<control type="image">
 				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default can never be RT Audience-->
                 <visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
-                <visible>Skin.HasSetting(EnableMonochromeRatingInFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
 				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<visible>Integer.IsGreater(ListItem.Rating,5.9)</visible>
@@ -1641,7 +1638,6 @@
 				<control type="image">
 				<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!--hides default rating for TV shows since the default can never be RT Audience-->
                 <visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
-                <visible>Skin.HasSetting(EnableMonochromeRatingInFooter)</visible>
 				<visible>Skin.HasSetting(enableRTAudience)</visible>
 				<!-- <visible>!String.IsEmpty(ListItem.DateAdded)</visible> Stops default rating showing up in addon widgets since their default rating is never RT audience-->
 				<visible>!Integer.IsGreater(ListItem.Rating,5.9)</visible>

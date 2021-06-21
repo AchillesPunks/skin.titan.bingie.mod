@@ -597,6 +597,24 @@
 			<aspectratio>keep</aspectratio>
 			<texture fallback="colors/color_transparent.png" colordiffuse="darkgray">$VAR[AudioCodecVar,bingie/audiocodec/,.png]</texture>
 		</control>
+		
+
+<!-- TEXTURE FOLDER -->
+		   <!-- <texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$PARAM[image]</texture> -->
+
+<!-- EXTRAS FOLDER -->
+		   <!-- <texture background="true" diffuse="special://skin/extras/bingie_default_spotlight_diffuse.png">$PARAM[image]</texture> -->
+		
+		
+		<!-- AudioCodec Images -->  <!-- Revisit Later -->
+        <!-- <control type="image" id="54321"> -->
+			<!-- <left>10</left> -->
+			<!-- <visible>!String.IsEmpty(ListItem.AudioCodec)</visible> -->
+			<!-- <aspectratio>keep</aspectratio> -->
+			<!-- <texture fallback="colors/color_transparent.png" colordiffuse="silver">$VAR[AudioCodecVar,special://skin/extras/audiocodec/,.png]</texture> -->
+		<!-- </control> -->
+		
+		
 		<!-- Fallback Audio Codec flag/text -->
 		<control type="group">
 				<visible>!Skin.HasSetting(enableAtmosOnly) + !String.IsEmpty(Control.GetLabel(54227)) + String.EndsWith(Control.GetLabel(54321),color_transparent.png)</visible>

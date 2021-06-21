@@ -289,7 +289,7 @@
 	<propertydefault defaultID="10000" property="widget.4">criticallyacclaimedmovies</propertydefault>
 	<propertydefault defaultID="10000" property="widgetTarget.4">videos</propertydefault>
 	<propertydefault defaultID="10000" property="widgetType.4">movies</propertydefault>
-	<propertydefault defaultID="10000" property="widgetPath.4">special://skin/playlists/blockbustermovies.xsp</propertydefault>
+	<propertydefault defaultID="10000" property="widgetPath.4">special://skin/playlists/criticallyacclaimedmovies.xsp</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.4">$LOCALIZE[31532]</propertydefault>
 
 	<propertydefault defaultID="10000" property="widget.5">similar</propertydefault>
@@ -310,18 +310,18 @@
 	<propertydefault defaultID="10000" property="widgetPath.7">$INCLUDE[CategoriesWidget]</propertydefault>
 	<propertydefault defaultID="10000" property="widgetName.7">$LOCALIZE[31025]</propertydefault>
     
-    <!-- spotlight widget -->
+    <!-- Spotlight Widget Hub-->
     <propertydefault defaultID="movies" property="widget.99">spotlightmovies</propertydefault>
     <propertydefault defaultID="movies" property="widgetTarget.99">videos</propertydefault>
     <propertydefault defaultID="movies" property="widgetType.99">movies</propertydefault>
     <propertydefault defaultID="movies" property="widgetName.99">$LOCALIZE[31185]</propertydefault>
-    <propertydefault defaultID="movies" property="widgetPath.99">special://skin/extras/widgetplaylists/recommendedmovies.xsp</propertydefault>
+    <propertydefault defaultID="movies" property="widgetPath.99">special://skin/playlists/spotlightmovies.xsp</propertydefault>
     
     <propertydefault defaultID="tvshows" property="widget.99">spotlighttvshows</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetTarget.99">videos</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetType.99">tvshows</propertydefault>
     <propertydefault defaultID="tvshows" property="widgetName.99">$LOCALIZE[31185]</propertydefault>
-    <propertydefault defaultID="tvshows" property="widgetPath.99">special://skin/extras/widgetplaylists/recommendedtvshows.xsp</propertydefault>
+    <propertydefault defaultID="tvshows" property="widgetPath.99">special://skin/playlists/spotlighttvshows.xsp</propertydefault>
 
     <propertydefault defaultID="music" property="widgetstyle">square</propertydefault>
     <widgetRename>False</widgetRename> 

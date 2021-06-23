@@ -729,7 +729,9 @@
 <!-- Red Circle More Details - Under Movie Info -->
 				  <control type="textbox" id="84">
                       <animation effect="fade" time="150">Visible</animation>
-                      <height min="60" max="100">auto</height>	<!--gets a 3 line textbox for the Cast info to display-->			  
+                      <!-- <height min="60" max="100">auto</height>	gets a 3 line textbox for the Cast info to display-->			  
+					  <bottom>33</bottom>
+                      <height>72</height>				 
                       <width>650</width>
                       <label>$VAR[BingieMoreDetails]</label>
                       <textcolor>ff8d8d8d</textcolor>

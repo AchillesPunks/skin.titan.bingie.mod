@@ -88,27 +88,27 @@
             <!--Label Menu: -->
             <control type="image">
                 <!--Seperator-->
-                <posx>21</posx>
+                <posx>56</posx>
                 <posy>160</posy>
-                <width>458</width>
+                <width>388</width>
                 <height>20</height>
                 <align>left</align>
-                <texture>common/menu-separator.png</texture>
+                <texture>common/menu-separator2.png</texture>
             </control>
 			<control type="image">
                 <!--Seperator-->
-                <posx>21</posx>
-                <posy>980</posy>
-                <width>458</width>
+                <posx>56</posx>
+                <posy>1014</posy>
+                <width>388</width>
                 <height>20</height>
                 <align>left</align>
-                <texture>common/menu-separator.png</texture>
+                <texture>common/menu-separator2.png</texture>
             </control>
 			<!-- close dialog -->
 			<control type="group">
 				<include>animation_fade_visible_hidden</include>
 				<posx>60</posx>
-                <posy>1005</posy>
+                <posy>1018</posy>
 				<include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
 			</control>
 			
@@ -192,21 +192,21 @@
         </control>
 		<control type="image">
 			<!--Seperator-->
-			<posx>21</posx>
+			<posx>56</posx>
 			<posy>160</posy>
-			<width>458</width>
+			<width>388</width>
 			<height>20</height>
 			<align>left</align>
-			<texture>common/menu-separator.png</texture>
+			<texture>common/menu-separator2.png</texture>
 		</control>
 		<control type="image">
 			<!--Seperator-->
-			<posx>21</posx>
+			<posx>56</posx>
 			<posy>980</posy>
-			<width>458</width>
+			<width>388</width>
 			<height>20</height>
 			<align>left</align>
-			<texture>common/menu-separator.png</texture>
+			<texture>common/menu-separator2.png</texture>
 		</control>
         <!-- close dialog -->
         <control type="group">

@@ -267,7 +267,7 @@
                                 <left>1090</left>
                                 <top>-12</top>
                                 <width>120</width>
-                                <height>70</height>
+                                <height>60</height>
                                 <aspectratio>keep</aspectratio>
                                 <texture>common/radio/radio-button-nf.png</texture>
                                 <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | String.IsEmpty(ListItem.Property(value))</visible>
@@ -276,7 +276,7 @@
                                 <left>1090</left>
                                 <top>-12</top>
                                 <width>120</width>
-                                <height>70</height>
+                                <height>60</height>
                                 <aspectratio>keep</aspectratio>
                                 <texture colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">common/radio/radio-button-fo.png</texture>
                                 <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
@@ -381,7 +381,7 @@
                                 <left>1090</left>
                                 <top>-12</top>
                                 <width>120</width>
-                                <height>70</height>
+                                <height>60</height>
                                 <aspectratio>keep</aspectratio>
                                 <texture>common/radio/radio-button-nf.png</texture>
                                 <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | String.IsEmpty(ListItem.Property(value))</visible>
@@ -390,7 +390,7 @@
                                 <left>1090</left>
                                 <top>-12</top>
                                 <width>120</width>
-                                <height>70</height>
+                                <height>60</height>
                                 <aspectratio>keep</aspectratio>
                                 <texture colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">common/radio/radio-button-fo.png</texture>
                                 <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>

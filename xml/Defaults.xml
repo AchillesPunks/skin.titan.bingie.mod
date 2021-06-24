@@ -103,7 +103,7 @@
         <width>600</width>
         <height>60</height>
         <radiowidth>120</radiowidth>
-        <radioheight>75</radioheight>
+        <radioheight>60</radioheight>
         <align>center</align>
         <aligny>center</aligny>
         <font>Light28</font>

@@ -2142,9 +2142,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777120))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<bottom>28</bottom>
-                <width>50</width>
-                <height>25</height>
+				<bottom>20</bottom>
+                <width>78</width>
+                <height>42</height>
 				<aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/imdb1.png</texture>
@@ -2159,7 +2159,7 @@
                 <fadetime>300</fadetime>
                 <font>footer</font>
                 <textcolor>fffafafa</textcolor>
-                <label>$VAR[rating_value_imdb_2]</label>
+                <label>$VAR[rating_value_imdb_2,,  ]</label>
 				</control>
 
 				<!--RT Critics Fresh logo Color VD-->
@@ -2190,9 +2190,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777121)) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<width>25</width>
-                <height>25</height>
-				<bottom>28</bottom>
+				<width>46</width>
+                <height>47</height>
+				<bottom>21</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/whiteRTcritics.png</texture>
@@ -2202,9 +2202,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777121)) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59)</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<width>25</width>
-                <height>25</height>
-				<bottom>28</bottom>
+				<width>44</width>
+                <height>42</height>
+				<bottom>20</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/whiteRTcriticsRotten.png</texture>
@@ -2220,7 +2220,7 @@
                 <fadetime>300</fadetime>
                 <font>footer</font>
                 <textcolor>fffafafa</textcolor>
-                <label>$VAR[rating_value_RT,,% ]</label>
+                <label>$VAR[rating_value_RT,,%  ]</label>
 				</control>
 				
 				<!--RT Audience Fresh Color VD -->
@@ -2252,9 +2252,9 @@
 				<visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>Integer.IsGreater(ListItem.Rating,5.9)</visible>
-				<width>18</width>
-                <height>25</height>
-				<bottom>28</bottom>
+				<width>37</width>
+                <height>49</height>
+				<bottom>21</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
 				<texture background="true">bingie/audiencefreshwhite1.png</texture>
@@ -2265,9 +2265,9 @@
 				<visible>!String.IsEmpty(Control.GetLabel(3777122))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
 				<visible>!Integer.IsGreater(ListItem.Rating,5.9)</visible>
-				<width>35</width>
-                <height>25</height>
-				<bottom>28</bottom>
+				<width>56</width>
+                <height>42</height>
+				<bottom>19</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
 				<texture background="true">bingie/audiencerottenwhite1.png</texture>
@@ -2283,7 +2283,7 @@
 				<fadetime>300</fadetime>
                 <font>footer</font>
                 <textcolor>fffafafa</textcolor>
-                <label>$VAR[rating_value_RTaudience,,% ]</label>
+                <label>$VAR[rating_value_RTaudience,,  ]</label>
 				<!-- <label>$VAR[RatingDecimalToPercentage,,%]</label> -->
 				</control>
 				
@@ -2303,9 +2303,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777122))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<width>55</width>
-                <height>25</height>
-				<bottom>28</bottom>
+				<width>72</width>
+                <height>42</height>
+				<bottom>20</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/tvdb1.png</texture>
@@ -2321,7 +2321,7 @@
                 <fadetime>300</fadetime>
                 <font>footer</font>
                 <textcolor>fffafafa</textcolor>
-                <label>$VAR[rating_value_TVDB]</label>
+                <label>$VAR[rating_value_TVDB,,  ]</label>
 				</control>
 				
 				<!--TMDB Color logo VD-->
@@ -2340,9 +2340,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777123))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<bottom>28</bottom>
-                <width>25</width>
-                <height>25</height>
+				<bottom>20</bottom>
+                <width>88</width>
+                <height>42</height>
 				<aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/tmdb1.png</texture>
@@ -2358,7 +2358,7 @@
 				<fadetime>300</fadetime>
                 <font>footer</font>
                 <textcolor>fffafafa</textcolor>
-                <label>$VAR[rating_value_tmdb]</label>
+                <label>$VAR[rating_value_tmdb,,  ]</label>
 				</control>
 				
 				<!--Metacritic Color logo VD-->
@@ -2377,9 +2377,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777124))</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<width>26</width>
-                <height>25</height>
-				<bottom>28</bottom>
+				<width>42</width>
+                <height>42</height>
+				<bottom>20</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/metacritic1.png</texture>
@@ -2394,7 +2394,7 @@
                 <fadetime>300</fadetime>
                 <font>footer</font>
                 <textcolor>fffafafa</textcolor>
-                <label>$VAR[rating_value_Metacritic,,% ]</label>
+                <label>$VAR[rating_value_Metacritic,,%  ]</label>
 				</control>
 				
 				<!-- Oscars color VD-->
@@ -2415,9 +2415,9 @@
                 <visible>String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Oscar) + String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Won)</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
 				
-				<width>14</width>
-                <height>35</height>
-				<bottom>28</bottom>
+				<width>21</width>
+                <height>52</height>
+				<bottom>15</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <colordiffuse></colordiffuse>
@@ -2454,9 +2454,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777119))</visible>
 				<visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<width>30</width>
-                <height>25</height>
-				<bottom>28</bottom>
+				<width>78</width>
+                <height>42</height>
+				<bottom>20</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/top250white.png</texture>
@@ -2478,7 +2478,7 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777121)) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),74)</visible>
                 <visible>!Skin.HasSetting(PreferWhiteFooter)</visible>
-				<width>72</width>
+				<width>50</width>
                 <height>52</height>
 				<bottom>15</bottom>
                 <aspectratio>keep</aspectratio>
@@ -2490,9 +2490,9 @@
 				<control type="image">
                 <visible>!String.IsEmpty(Control.GetLabel(2777121)) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),74)</visible>
                 <visible>Skin.HasSetting(PreferWhiteFooter)</visible>
-				<width>57</width>
-                <height>50</height>
-				<bottom>28</bottom>
+				<width>50</width>
+                <height>52</height>
+				<bottom>15</bottom>
                 <aspectratio>keep</aspectratio>
                 <fadetime>300</fadetime>
                 <texture background="true">bingie/cfwhite.png</texture>

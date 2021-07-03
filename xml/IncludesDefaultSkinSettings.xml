@@ -250,7 +250,7 @@
         <onload condition="!Skin.String(SideBladePanelColor) + Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor,$INFO[Skin.String(GeneralPanelsColor.base)])</onload>
         <onload condition="!Skin.String(SideBladePanelColor.name) + Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor.name,$INFO[Skin.String(GeneralPanelsColor.name)])</onload>
         <onload condition="!Skin.String(SideBladePanelColor) + !Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor,f70a0a0a)</onload>
-        <onload condition="!Skin.String(SideBladePanelColor.name) + !Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor.name,Transparent black)</onload>
+        <onload condition="!Skin.String(SideBladePanelColor.name) + !Skin.String(GeneralPanelsColor.base)">Skin.SetString(SideBladePanelColor.name,Black)</onload>
         <onload condition="!Skin.String(SideBladeTextColor)">Skin.SetString(SideBladeTextColor,$INFO[Skin.String(GeneralTextColor)])</onload>
         <onload condition="!Skin.String(SideBladeTextColor.name)">Skin.SetString(SideBladeTextColor.name,$INFO[Skin.String(GeneralTextColor.name)])</onload>
         <onload condition="!Skin.String(TagOverlaysPanelColor)">Skin.SetString(TagOverlaysPanelColor,dd000000)</onload>
@@ -268,7 +268,7 @@
         <onload condition="!Skin.String(LyricsFocusTextShadowColor)">Skin.SetString(LyricsFocusTextShadowColor,none)</onload>
         <onload condition="!Skin.String(LyricsFocusTextShadowColor.name)">Skin.SetString(LyricsFocusTextShadowColor.name,None)</onload>
         <onload condition="!Skin.String(MainMenuPanelColor)">Skin.SetString(MainMenuPanelColor,f70a0a0a)</onload>
-        <onload condition="!Skin.String(MainMenuPanelColor.name)">Skin.SetString(MainMenuPanelColor.name,Transparent black)</onload>
+        <onload condition="!Skin.String(MainMenuPanelColor.name)">Skin.SetString(MainMenuPanelColor.name,Black)</onload>
         <onload condition="!Skin.String(MainMenuTextColor)">Skin.SetString(MainMenuTextColor,ffd0d0d0)</onload>
         <onload condition="!Skin.String(MainMenuTextColor.name)">Skin.SetString(MainMenuTextColor.name,Very light gray)</onload>
         <onload condition="!Skin.String(MainMenuFocusTextColor) + !Skin.String(MainMenuFocusTextColor.name)">Skin.SetString(MainMenuFocusTextColor.name,White)</onload>

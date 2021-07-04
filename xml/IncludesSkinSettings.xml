@@ -875,7 +875,7 @@
  <!--Enable Audio Codecs-->
         <control type="radiobutton" id="2018">
             <include>SkinSettings_Button</include>
-            <label>Disable Audio Codec on Details Row</label>
+            <label>Enable Audio Codec on Details Row</label>
             <onclick>Skin.ToggleSetting(EnableAudioCodec)</onclick>
             <selected>!Skin.HasSetting(EnableAudioCodec)</selected>
 			<visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
@@ -970,7 +970,7 @@
 		<!--Enable New footer -->
 			<control type="radiobutton" id="2039">
             <include>SkinSettings_Button</include>
-            <label>Disable New Footer Ratings</label>
+            <label>Enable New Footer Ratings</label>
             <onclick>Skin.ToggleSetting(EnableNewFooter)</onclick>
 			<selected>Skin.HasSetting(EnableNewFooter)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(NoFooterBarOnHome)</visible>
@@ -1001,7 +1001,7 @@
 			<!--Enable RT Audience (if default) -->
 			<control type="radiobutton" id="2043">
             <include>SkinSettings_Button</include>
-            <label>      Disable RT Audience. Rotten Tomatoes Audience must be your default movie database rating!</label>
+            <label>      Enable RT Audience. Rotten Tomatoes Audience must be your default movie database rating!</label>
             <onclick>Skin.ToggleSetting(enableRTAudience)</onclick>
 			<selected>Skin.HasSetting(enableRTAudience)</selected>
             <visible>Skin.HasSetting(EnableNewFooter) + String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(NoFooterBarOnHome)</visible>
@@ -3883,14 +3883,14 @@
             <param name="action" value="Addon.OpenSettings(script.module.metadatautils)" />
             <param name="visible" value="true" />
         </include>
-         <!-- Enable auto-download via Artwork Beef -->
-        <control type="radiobutton" id="5139">
+        <!-- Enable auto-download via Artwork Beef -->
+            <control type="radiobutton" id="5139">
             <include>SkinSettings_Button</include>
             <label>31099</label>
             <onclick condition="System.HasAddon(script.artwork.beef)">Skin.ToggleSetting(EnableArtworkBeef)</onclick>
             <onclick condition="!System.HasAddon(script.artwork.beef)">RunPlugin(plugin://script.artwork.beef)</onclick>
             <selected>Skin.HasSetting(EnableArtworkBeef)</selected>
-        </control>
+        </control> 
         <control type="radiobutton" id="31710">
             <description>Enable Skin Helper Artwork Lookups for Addons</description>
             <include>SkinSettings_Button</include>

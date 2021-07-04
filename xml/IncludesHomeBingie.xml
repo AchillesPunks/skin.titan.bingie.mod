@@ -108,7 +108,7 @@
                     <usecontrolcoords>true</usecontrolcoords>
                     <itemgap>15</itemgap> 
 
-<!-- Title Clearlogo Spotlight-->
+<!--  CLEARLOGO SPOTLIGHT -->
                     <control type="image" id="150885">
                         <include>Default_Visible_Fade</include>
 						<animation effect="slide" end="0,95" tween="sine" easing="in" time="400" delay="0" condition="System.IdleTime(10) + !Skin.HasSetting(DisablePlotSlide)" reversible="false">Conditional</animation>
@@ -131,7 +131,7 @@
                         <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                         <label>[B]$VAR[BingieSpotlightTitle][/B]</label>
                     </control>
-<!-- Spotlight top 250/Directed By/watch xx Now Grouplist -->
+<!-- Spotlight Top 250/Directed By/watch xx Now Grouplist -->
 		<control type="grouplist">
 				<visible>!Skin.HasSetting(DisableSpotlightLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(823100)) | !String.IsEmpty(Control.GetLabel(82300)) | !String.IsEmpty(Control.GetLabel(31001))</visible>
@@ -146,26 +146,27 @@
 			<control type="image">
 				<visible>!Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(823100))</visible>
-				<posy>5</posy>
+				<posy>2</posy>
 				<left>1</left>
                 <height>50</height>
                 <width>50</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/top250.png</texture>
+                <texture>bingie/top250.png</texture>
 			</control>
 			<!-- Home Spotlight Top250 White Icon -->
 			<control type="image">
 				<visible>Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(823100))</visible>
-				<posy>5</posy>
+				<posy>2</posy>
 				<left>1</left>
                 <height>50</height>
                 <width>50</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/top2501.png</texture>
+                <texture>bingie/top2501.png</texture>
 			</control>
 			<!-- Home Spotlight on IMDB Today Text -->
 			<control type="label" id="823100">
+			    <posy>-4</posy>
 				<visible>!String.IsEmpty(Control.GetLabel(823100))</visible>
 				<font>bold32</font> 
 				<textcolor>fffafafa</textcolor> 
@@ -176,26 +177,27 @@
 			<control type="image">
 				<visible>!Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(31001)) + String.IsEmpty(Control.GetLabel(823100)) + String.IsEmpty(Control.GetLabel(82300))</visible>
-				<posy>5</posy>
+				<posy>0</posy>
 				<left>1</left>
-                <height>50</height>
-                <width>50</width>
+                <height>55</height>
+                <width>55</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/director.png</texture>
+                <texture>bingie/director2.png</texture>
 			</control>
 			<!-- Home Spotlight Director White Icon -->
 			<control type="image">
 				<visible>Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(31001)) + String.IsEmpty(Control.GetLabel(823100)) + String.IsEmpty(Control.GetLabel(82300))</visible>
-				<posy>5</posy>
+				<posy>0</posy>
 				<left>1</left>
-                <height>50</height>
-                <width>50</width>
+                <height>55</height>
+                <width>55</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/director1.png</texture>
+                <texture>bingie/director3.png</texture>
 			</control>
 			<!-- Home Spotlight Directed By Text -->
 			<control type="label" id="31001">
+			    <posy>-4</posy>
 				<visible>!String.IsEmpty(Control.GetLabel(31001)) + String.IsEmpty(Control.GetLabel(823100)) + String.IsEmpty(Control.GetLabel(82300))</visible>
 				<font>bold32</font> 
 				<textcolor>fffafafa</textcolor> 
@@ -286,7 +288,7 @@
                 <height>50</height>
                 <width>50</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/top250.png</texture>
+                <texture>bingie/top250.png</texture>
 		</control>
 		<!-- Spotlight Details Row Top250 White Icon -->
 		<control type="image">
@@ -297,7 +299,7 @@
                 <height>50</height>
                 <width>50</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/top2501.png</texture>
+                <texture>bingie/top2501.png</texture>
 		</control>
 		<!-- Spotlight Text Label Top250 -->	
 		<control type="label" id="8231">

@@ -731,7 +731,7 @@
                       <animation effect="fade" time="150">Visible</animation>
                       <!-- <height min="60" max="100">auto</height>	gets a 3 line textbox for the Cast info to display-->			  
 					  <bottom>33</bottom>
-                      <height>72</height>				 
+                      <height>72</height>			  
                       <width>650</width>
                       <label>$VAR[BingieMoreDetails]</label>
                       <textcolor>ff8d8d8d</textcolor>
@@ -1161,16 +1161,16 @@
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">$INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)]</value>
         <!-- <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">$INFO[ListItem.Top250,#, $LOCALIZE[31859]]</value> -->
-        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
-        <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,unknown)">$INFO[ListItem.Genre]</value>
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),45) + !String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
+        <value condition="!String.IsEmpty(ListItem.Genre) + Integer.IsLessOrEqual(System.Time(ss),60) + !String.Contains(ListItem.Genre,unknown)">$INFO[ListItem.Genre]</value>
     </variable>
     <!-- Bingie More Details Image (pseudo-random) -->
     <variable name="BingieMoreDetailsImage">
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">awards</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">star</value>
-        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">awards</value>
-        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">director</value>
-        <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,unknown)">genre</value>
+        <!-- <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">awards</value> -->
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),45) + !String.IsEmpty(ListItem.Director)">director</value>
+        <value condition="!String.IsEmpty(ListItem.Genre) + Integer.IsLessOrEqual(System.Time(ss),60) + !String.Contains(ListItem.Genre,unknown)">genre</value>
     </variable>
 
     <variable name="BingieEpisodeInfoHeader">
@@ -1982,7 +1982,8 @@ Bingie Menu Icons -->
             <onclick condition="String.IsEmpty(Window(Home).Property(spotlightinfo)) + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">SetProperty(KeepTVShowID,1,Home)</onclick>
             <onclick condition="String.IsEmpty(Window(Home).Property(spotlightinfo)) + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[Container($PARAM[widgetid]).ListItem.DBID]/-2/,return)</onclick>
             <onclick condition="String.IsEmpty(Window(Home).Property(spotlightinfo)) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">ActivateWindow(Videos,$ESCINFO[Container($PARAM[widgetid]).ListItem.FileNameAndPath],return)</onclick>
-
+            
+			<!-- HOME SPOTLIGHT SCROLLING -->
             <itemlayout width="1920" height="210"></itemlayout>
             <focusedlayout width="1920" height="210">
                 <include content="HiddenWidgetButton">
@@ -1994,7 +1995,7 @@ Bingie Menu Icons -->
             <content target="videos" limit="1">$VAR[BingieHomeSpotlightWidgetContent]</content>
         </control>
     </include>
-
+    <!-- SPOTLIGHT LOADING SPINNER -->
     <include name="SpotlightLoadingSpinner">
         <param name="spotlightid" default="1508" />
         <definition>
@@ -2125,7 +2126,7 @@ Bingie Menu Icons -->
         <value condition="$EXP[IsBingieListsActive]"/>
     </variable>
 
-    <!-- Home Spotlight default content -->
+    <!-- Home Spotlight Default  Video Content -->
     <variable name="SpotlightDefaultContent">
         <value condition="Integer.IsGreater(Window(Home).Property(Random),20) + Library.HasContent(movies)">special://skin/extras/widgetplaylists/recommendedmovies.xsp</value>
         <value condition="[!Integer.IsGreater(Window(Home).Property(Random),20) | !Library.HasContent(movies)] + Library.HasContent(tvshows)">special://skin/extras/widgetplaylists/recommendedtvshows.xsp</value>
@@ -2345,7 +2346,7 @@ Bingie Menu Icons -->
 <!-- Bingie Panel Color - Home Background Color-->
     <variable name="BingiePanelColor">
         <value condition="!String.IsEmpty(Skin.String(ViewDetailsPanelColor.base))">$INFO[Skin.String(ViewDetailsPanelColor.base)]</value>
-        <value>ff000000</value>                           <!-- Default Value ff0a0a0a -->
+        <value>ff000000</value>                           
     <!-- This Above Should Never Be Changed -->
 	</variable>
 
@@ -2430,7 +2431,7 @@ Bingie Menu Icons -->
                     <include>SpotlightRowDetails</include>
                 </control>
 
-		<!-- Bingie library views Sublabel grouplist (top250 + watch xx now -->
+		<!-- Bingie library views Sublabel grouplist (top250 + watch xx now) -->
     <control type="grouplist">
 			<orientation>horizontal</orientation>
 			<visible>!Container.Content(episodes)</visible>
@@ -2449,7 +2450,7 @@ Bingie Menu Icons -->
                 <height>50</height>
                 <width>50</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/top2501.png</texture>
+                <texture>bingie/top2501.png</texture>
 		</control>
 		<!--top 250 icon color-->	
 		<control type="image">
@@ -2459,7 +2460,7 @@ Bingie Menu Icons -->
                 <height>50</height>
                 <width>50</width>
 				<aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="fffafafa">bingie/top250.png</texture>
+                <texture>bingie/top250.png</texture>
 		</control>
 			
 		<control type="label" id="8231">

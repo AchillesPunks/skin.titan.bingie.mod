@@ -110,7 +110,10 @@
         <control type="radiobutton" id="2045">
 
 <!-- Enable Plot on Pause -->
-        <control type="radiobutton" id="2046">		
+        <control type="radiobutton" id="2046">	
+
+<!-- Enable round spotlight icons  -->
+        <control type="radiobutton" id="2047">				
 		
 		
 

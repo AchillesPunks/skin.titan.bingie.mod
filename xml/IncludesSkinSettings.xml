@@ -593,10 +593,18 @@
             <selected>Skin.HasSetting(DisableSpotlightLabel)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-		<!-- Prefer Colored Sub Label on Home Spotlight -->	
+		<!-- Prefer Round Sub Label on Home Spotlight -->	
+		<control type="radiobutton" id="2047">
+            <include>SkinSettings_Button</include>
+            <label>      Prefer Round Icons on Spotlight Sublabel</label>
+            <onclick>Skin.ToggleSetting(EnableSpotlightSquareLabel)</onclick>
+            <selected>Skin.HasSetting(EnableSpotlightSquareLabel)</selected>
+            <visible>!skin.HasSetting(DisableSpotlightLabel)</visible>
+        </control>
+		<!-- Prefer White Sub Label on Home Spotlight -->	
 		<control type="radiobutton" id="2037">
             <include>SkinSettings_Button</include>
-            <label>      Prefer White Icon on Spotlight Sublabel</label>
+            <label>      Prefer White Icons on Spotlight Sublabel</label>
             <onclick>Skin.ToggleSetting(EnableSpotlightColoredLabel)</onclick>
             <selected>Skin.HasSetting(EnableSpotlightColoredLabel)</selected>
             <visible>!skin.HasSetting(DisableSpotlightLabel)</visible>

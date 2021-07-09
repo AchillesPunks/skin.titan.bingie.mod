@@ -2078,11 +2078,11 @@ Bingie Menu Icons -->
     <!-- Play Button Spotlight Color -->
     <variable name="SpotlightPlayButtonColor">
         <value condition="!String.IsEmpty(Window(Home).Property(spotlightinfo))">9e424242</value>
-        <value>ffffffff</value>
+        <value>fffafafa</value>
     </variable>
     <!-- Spotlight Info Button Color -->
 	<variable name="SpotlightInfoButtonColor">
-        <value condition="!String.IsEmpty(Window(Home).Property(spotlightinfo))">ffffffff</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(spotlightinfo))">fffafafa</value>
         <value>9e424242</value>
     </variable>
     <!-- Spotlight Play Text Button Color -->

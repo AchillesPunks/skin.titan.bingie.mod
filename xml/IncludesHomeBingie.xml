@@ -138,13 +138,14 @@
 				<animation effect="slide" end="0,95" tween="sine" easing="in" time="400" delay="0" condition="System.IdleTime(10) + !Skin.HasSetting(DisablePlotSlide)" reversible="false">Conditional</animation>
 				<orientation>horizontal</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
-				<height>55</height>
+				<height>56</height>
 				<width>800</width>
 				<itemgap>15</itemgap>
 			
-			<!-- Home Spotlight Top250 Colored Icon -->
+			<!-- Home Spotlight Top250 Square Colored Icon -->
 			<control type="image">
 				<visible>!Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>!Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(823100))</visible>
 				<posy>2</posy>
 				<left>1</left>
@@ -153,9 +154,10 @@
 				<aspectratio>keep</aspectratio>
                 <texture>bingie/top250.png</texture>
 			</control>
-			<!-- Home Spotlight Top250 White Icon -->
+			<!-- Home Spotlight Top250 Square White Icon -->
 			<control type="image">
 				<visible>Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>!Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(823100))</visible>
 				<posy>2</posy>
 				<left>1</left>
@@ -163,6 +165,30 @@
                 <width>50</width>
 				<aspectratio>keep</aspectratio>
                 <texture>bingie/top2501.png</texture>
+			</control>
+			<!-- Home Spotlight Top250 Round Colored Icon -->
+			<control type="image">
+				<visible>!Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(823100))</visible>
+				<posy>0</posy>
+				<left>1</left>
+                <height>56</height>
+                <width>56</width>
+				<aspectratio>keep</aspectratio>
+                <texture>bingie/top2502.png</texture>
+			</control>
+			<!-- Home Spotlight Top250 Squared White Icon -->
+			<control type="image">
+				<visible>Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(823100))</visible>
+				<posy>0</posy>
+				<left>1</left>
+                <height>56</height>
+                <width>56</width>
+				<aspectratio>keep</aspectratio>
+                <texture>bingie/top2503.png</texture>
 			</control>
 			<!-- Home Spotlight on IMDB Today Text -->
 			<control type="label" id="823100">
@@ -173,25 +199,51 @@
 				<label>$VAR[IMDBTop250RatingValue,No., on IMDB Today]</label>
 				<include>Default_Visible_Fade</include>
 			</control>
-			<!-- Home Spotlight Director Colored Icon -->
+			<!-- Home Spotlight Director Square Colored Icon -->
 			<control type="image">
 				<visible>!Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>!Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(31001)) + String.IsEmpty(Control.GetLabel(823100)) + String.IsEmpty(Control.GetLabel(82300))</visible>
+				<posy>1</posy>
+				<left>1</left>
+                <height>50</height>
+                <width>50</width>
+				<aspectratio>keep</aspectratio>
+                <texture>bingie/director.png</texture>
+			</control>
+			<!-- Home Spotlight Director Square White Icon -->
+			<control type="image">
+				<visible>Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>!Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(31001)) + String.IsEmpty(Control.GetLabel(823100)) + String.IsEmpty(Control.GetLabel(82300))</visible>
+				<posy>1</posy>
+				<left>1</left>
+                <height>50</height>
+                <width>50</width>
+				<aspectratio>keep</aspectratio>
+                <texture>bingie/director1.png</texture>
+			</control>
+			<!-- Home Spotlight Director Round Colored Icon -->
+			<control type="image">
+				<visible>!Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(31001)) + String.IsEmpty(Control.GetLabel(823100)) + String.IsEmpty(Control.GetLabel(82300))</visible>
 				<posy>0</posy>
 				<left>1</left>
-                <height>55</height>
-                <width>55</width>
+                <height>56</height>
+                <width>56</width>
 				<aspectratio>keep</aspectratio>
                 <texture>bingie/director2.png</texture>
 			</control>
-			<!-- Home Spotlight Director White Icon -->
+			<!-- Home Spotlight Director Round White Icon -->
 			<control type="image">
 				<visible>Skin.HasSetting(EnableSpotlightColoredLabel)</visible>
+				<visible>Skin.HasSetting(EnableSpotlightSquareLabel)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(31001)) + String.IsEmpty(Control.GetLabel(823100)) + String.IsEmpty(Control.GetLabel(82300))</visible>
 				<posy>0</posy>
 				<left>1</left>
-                <height>55</height>
-                <width>55</width>
+                <height>56</height>
+                <width>56</width>
 				<aspectratio>keep</aspectratio>
                 <texture>bingie/director3.png</texture>
 			</control>

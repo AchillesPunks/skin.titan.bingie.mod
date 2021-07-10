@@ -245,7 +245,7 @@
                 <height>56</height>
                 <width>56</width>
 				<aspectratio>keep</aspectratio>
-                <texture>bingie/details/director1.png</texture>
+                <texture>bingie/director3.png</texture>
 			</control>
 			<!-- Home Spotlight Directed By Text -->
 			<control type="label" id="31001">

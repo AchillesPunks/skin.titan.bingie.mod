@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  
+  
+  <include name="View_519_BigPanel_Wall">
+    <control type="group">
+      <visible>Control.IsVisible(519)</visible>
+      <include>animation_view_change</include>
+      <include>GlobalBackground</include>
+      
+	  <!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
+	  
+	  <control type="panel" id="519">
+        <viewtype label="31666">icons</viewtype>
+          <include content="View_Forced">
+              <param name="viewtype" value="$LOCALIZE[31666]" />
+          </include>
+        <posx>8</posx>
+        <top>9</top>
+        <height>1056</height>
+        <width>1904</width>
+        <orientation>vertical</orientation>
+        <onleft>9000</onleft>
+        <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
+        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+        <onup>519</onup>
+        <ondown>519</ondown>
+        <preloaditems>4</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <animation effect="slide" end="0,80" time="0" condition="Skin.HasSetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
+          <itemlayout height="352" width="238">
+          <control type="group">
+            <width>236</width>
+            <height>350</height>
+            <include>PosterPanelLayout</include>
+          </control>
+        </itemlayout>
+        <focusedlayout height="252" width="238">
+          <control type="group">
+            <width>236</width>
+            <height>350</height>
+            <include>PosterPanelLayoutFocus</include>
+          </control>
+        </focusedlayout>
+        </control>
+      
+		<!--vertical Scollbar-->
+		<control type="scrollbar" id="60">
+			<visible>Control.IsVisible(519) + Integer.IsGreater(Container.NumItems,0)</visible>
+			<right>0</right>
+			<top>17</top>
+            <height>1048</height>
+			<width>14</width>
+			<onup>60</onup>
+			<ondown>6000</ondown>
+			<onleft>519</onleft>
+            <animation effect="slide" end="0,80" time="0" condition="Skin.HasSetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
+			<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Container.Scrolling">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling]">Conditional</animation>
+		</control>
+        
+        <include condition="!Skin.HasSetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Footer</include>
+		
+    </control>
+	
+	
+	
+  </include>
+
+  </includes>

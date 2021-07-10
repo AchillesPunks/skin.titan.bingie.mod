@@ -1,0 +1,137 @@
+<!-- INCLUDESHOMEBINGIE -->
+     
+	 
+	 
+	 <!-- SPOTLIGHT DIFFUSE VIGNETTE -->
+				<control type="image">
+                    <include>FullscreenDimensions</include>
+                    <colordiffuse>$VAR[BingiePanelColor]</colordiffuse>
+                    <texture background="true" border="15">bingie/Vignette.png</texture>
+				</control>
+                <include content="Spotlight_MPAA_Flag_Object">
+                    <param name="id" value="90007" />
+                    <param name="visibility" value="Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating" />
+                </include>
+				<include content="Spotlight_MPAA_Flag_Object1">
+                    <param name="id" value="19999" />
+                    <param name="visibility" value="Integer.IsGreater(Container(1508).NumItems,0) | Container(1508).IsUpdating" />
+                </include>
+            </control>
+			
+			
+
+
+<!--SPOTLIGHT CLEARLOGO/TEXT/BUTTONS-->
+                    <height>2000</height>
+                    <include>BingieLeftDefs</include>
+                    <top>255</top>  <!--spotlight content improvements--> 
+                    <orientation>vertical</orientation>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>-40</itemgap> <!--spotlight content improvements-->
+<!-- Title Clearlogo Spotlight-->
+                    <control type="image" id="150885">
+                        <top>50</top>
+						<height>190</height>                         <!-- default - 240 - -->
+                        <width>750</width>                           <!-- default - 480 - -->
+                        <align>left</align>
+                        <fadetime>350</fadetime>
+                        <aspectratio align="left" aligny="center">keep</aspectratio>
+                        <texture background="true" fallback="colors/color_transparent.png">$VAR[BingieSpotlightLogo]</texture>
+                    </control>
+                    <control type="textbox">
+                        <visible>String.EndsWith(Control.GetLabel(150885),color_transparent.png)</visible>
+                        <top>-145</top>
+                        <height max="195">auto</height>
+                        <width max="650">auto</width>
+                        <align>left</align>
+                        <!-- <aligny>center</aligny> -->
+                        <font>Title2</font>
+                        <textcolor>f2e0e0e0</textcolor>
+                        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                        <label>[B]$VAR[BingieSpotlightTitle][/B]</label>
+                    </control>
+
+
+
+
+<!-- Plot - Widget Spotlight Content -->
+                    <control type="textbox">
+                        <visible>Skin.HasSetting(ShowPlotInBingieSpotlight) | !$EXP[IsPlayingUnrecognizedContent]</visible>
+                        <animation effect="fade" time="500">VisibleChange</animation>
+                        <include>Default_Visible_Fade</include>
+						<top>70</top>
+						<height min="50" max="115">auto</height> <!--Spotlight Plot content  in Widgets -->
+                        <width max="720">auto</width>
+                        <align>left</align>
+                        <font>Reg27</font>
+                        <textcolor>f2e0e0e0</textcolor> <!--spotlight content improvements-->
+                        <!-- <shadowcolor>FF000000</shadowcolor> -->
+                        <label>$VAR[BingieSpotlightPlot]</label>
+					</control>
+					
+                    <!-- Buttons -->
+                    <include content="Spotlight_Buttons">
+                        <param name="top" value="60"/>  <!--spotlight content improvements-->
+                    </include>
+				</control>
+
+
+<!-- Line 401 -->
+<!-- Change to landscape to remove spotlight landscape image when at categories -->
+ <include condition="Skin.HasSetting(EnableFixedFocusWidgets) + String.IsEqual(Skin.String(widgetstyle),poster)">SpotlightDummyWidget</include>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!-- INCLUDESBACKGROUNDBUILDING.xml -->
+
+
+
+<!-- LINE# 149 -->
+<!-- Snow Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablesnow) + Skin.HasSetting(expandsnow)]">snow</include>
+        </control>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+
+ 
+ 
+
+
+<!-- INCLUDESSKINSETTINGS.xml -->
+ 
+ 
+ 
+ 
+<!-- LINE# 604 -->
+<!-- Enable Fixed Focus Widgets in Vertical Scrolling -->
+        <control type="radiobutton" id="28638">
+            <include>SkinSettings_Button</include>
+            <label>Enable Fixed Frame (Moving Frame) Vertical Scrolling in Home & Hubs</label>
+			<!-- <label>31012</label> -->
+            <onclick>Skin.ToggleSetting(EnableFixedFocusWidgets)</onclick>
+            <selected>Skin.HasSetting(EnableFixedFocusWidgets)</selected>
+            <visible>!Skin.HasSetting(LowPerformanceMode) + !Skin.HasSetting(BingieHomeDisableFirstRow) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+        </control>
+        <!-- Enable Fixed Frame in Home & Hubs (Moving Frame) -->
+        <control type="radiobutton" id="28639">
+            <include>SkinSettings_Button</include>
+            <label>31123</label>
+            <onclick>Skin.ToggleSetting(EnableFixedFrameWidgets)</onclick>
+            <selected>Skin.HasSetting(EnableFixedFrameWidgets)</selected>
+            <visible>!Skin.HasSetting(WidgetsZoomFocus) + !Skin.HasSetting(BingieHomeDisableFirstRow) + Skin.HasSetting(EnableFixedFocusWidgets) + $EXP[IsSupportedFixedFrameLayout] + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <visible>no</visible>
+		</control>
+<!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+<!-- INCLUDESDEFAULTSKINSETTINGS.xml -->
+
+
+
+<!-- LINE# 50-52 -->
+<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(EnableNetflixLogoonHome)</onload>
+	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(expandsnow)</onload>
+	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(DisableSideBladeIndicator)</onload>		

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+	<include name="ViewExtendedList">
+	
+	
+		<control type="group">
+		
+
+
+			<defaultcontrol always="true">506</defaultcontrol>
+			<visible>Control.IsVisible(506)</visible>
+            <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+			<include>animation_view_change</include>
+			
+			<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[backgroundVar]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
+
+			<control type="panel" id="506">
+							<bottom>110</bottom>
+			<height>840</height>	
+				<posx>50</posx>
+				<posy>-30</posy>
+				<width>1820</width>
+				<height>840</height>
+				<onup>9000</onup>
+				<ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
+                <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
+				<onleft>506</onleft>
+				<onright>506</onright>
+				<viewtype label="31433">biglist</viewtype>
+				<include content="View_Forced">
+					<param name="viewtype" value="$LOCALIZE[31433]" />
+				</include>
+				<orientation>horizontal</orientation>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="cubic" easing="out">600</scrolltime>
+				<preloaditems>2</preloaditems>
+
+                <visible>!Container.Content(files)</visible>
+				<itemlayout width="454" height="900">
+				
+					<control type="group">
+						<posx>0</posx>
+						<posy>40</posy>
+						<width>460</width>
+						<height>905</height>
+
+
+						
+						<control type="image">
+							<!--Panel icon image-->
+							<posx>18</posx>
+							<posy>18</posy>
+							<width>423</width>
+							<height>250</height>
+							<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$VAR[LandscapeImage]</texture>
+							<aspectratio scalediffuse="true" align="center" aligny="center">stretch</aspectratio>
+						</control>
+                                  						
+						<control type="group">
+							<!--Watched Overlay-->
+							<right>19</right>
+							<top>18</top>
+							<include>WatchedIndicatorNormal</include>
+						</control>
+						
+						<control type="label">
+							<posx>18</posx>
+							<posy>360</posy>
+							<width>423</width>
+							<height>80</height>
+							<label>$INFO[ListItem.Genre,,[CR]]$VAR[ListDetails]</label>
+							<font>Reg24</font>
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+						</control>
+						
+						<control type="textbox">
+							<posx>18</posx>
+							<posy>280</posy>
+							<width>423</width>
+							<height>80</height>
+							<label>$VAR[View_Item_Header]</label>
+							<font>Bold32</font>
+                            
+							<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+							<aligny>top</aligny>
+						</control>
+						
+						<control type="textbox">
+							<posx>18</posx>
+							<posy>440</posy>
+							<width>423</width>
+							<height>310</height>
+							<label>$VAR[Plots]</label>
+							<font>Reg24</font>
+                            
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
+							<aligny>top</aligny>
+							<autoscroll>false</autoscroll>
+						</control>
+						
+						
+					</control>
+				</itemlayout>
+				<focusedlayout width="454" height="900">
+				
+					<control type="group">
+						<posx>0</posx>
+						<posy>40</posy>
+						<width>460</width>
+						<height>906</height>
+						
+						<control type="image">
+							<posx>8</posx>
+							<posy>8</posy>
+							<width>443</width>
+							<height>765</height>
+							<texture border="15">diffuse/bgpanel.png</texture>
+							<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+						</control>
+						
+						<control type="image">
+							<!--Panel icon image-->
+							<posx>18</posx>
+							<posy>18</posy>
+							<width>423</width>
+							<height>250</height>
+							<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$VAR[LandscapeImage]</texture>
+							<aspectratio scalediffuse="true" align="center" aligny="center">stretch</aspectratio>
+						</control>
+						
+						<control type="group">
+							<!--Watched Overlay-->
+							<right>19</right>
+							<top>18</top>
+							<include>WatchedIndicatorNormal</include>
+						</control>
+					
+						<control type="textbox">
+							<posx>18</posx>
+							<posy>280</posy>
+							<width>423</width>
+							<height>80</height>
+							<label>$VAR[View_Item_Header]</label>
+							<font>Bold32</font>
+                            
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+							<aligny>top</aligny>
+						</control>
+						
+						<control type="label">
+							<posx>18</posx>
+							<posy>360</posy>
+							<width>423</width>
+							<height>80</height>
+							<label>$INFO[ListItem.Genre,,[CR]]$VAR[ListDetails]</label>
+							<font>Reg24</font>
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+						</control>
+						
+						<control type="textbox">
+							<posx>18</posx>
+							<posy>440</posy>
+							<width>423</width>
+							<height>309</height>
+							<label>$VAR[Plots]</label>
+							<font>Reg24</font>
+                            
+							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
+							<aligny>top</aligny>
+						</control>
+					
+					</control>	
+					
+				</focusedlayout>
+
+			
+			</control>
+		
+			<!--horizontal Scrollbar-->
+			<control type="group">
+				<control type="scrollbar" id="60">
+					<visible>Control.IsVisible(506) + Integer.IsGreater(Container.NumItems,0)</visible>
+					<left>60</left>
+					<bottom>4</bottom>
+					<width>1800</width>
+					<height>15</height>
+					<onup>506</onup>
+					<onleft>60</onleft>
+					<onright>60</onright>
+					<orientation>horizontal</orientation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+				</control>
+			</control>
+			
+		
+		</control>
+		
+	</include>
+
+</includes>

@@ -1003,7 +1003,8 @@
 	<variable name="GetResolution">
 		<!--normal-->
 		<value condition="ListItem.IsStereoscopic">3D</value>
-		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K) | String.IsEqual(ListItem.VideoResolution,8K)">UHD</value>
+		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K)">Ultra HD 4K</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">Ultra HD 8K</value>
 		<value condition="Integer.IsGreater(ListItem.VideoResolution,700)">HD</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value>
 		<!--normal-->
@@ -1014,11 +1015,11 @@
 		<!-- <value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value> -->	   
 		<!--home-->
 		<value condition="$EXP[IsMainMenuOpened] + Window(Home).Property(ListItem.IsStereoscopic)">3D</value>
-		<value condition="$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),1080) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K)
-		 | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K)">UHD</value>
+		<value condition="$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),1080) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K)">Ultra HD 4K</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K)">Ultra HD 8K</value>
 		<value condition="$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),700)">HD</value>
 		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.VideoResolution))">SD</value>
-	</variable>
+	</variable>>
 
 	<!-- Audio Channels Info (from 5.1 and up) -->
 	<variable name="GetAudioChannels">

@@ -3338,7 +3338,7 @@ msgid "Don't use rich artwork on the OSD at livetv playback"
 msgstr ""
 
 msgctxt "#31826"
-msgid "Select country flags / icons"
+msgid "Select Country flags / icons"
 msgstr ""
 
 msgctxt "#31827"

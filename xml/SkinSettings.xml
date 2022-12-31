@@ -19,15 +19,15 @@
 			<height>75%</height>
             <visible>!System.HasVisibleModalDialog</visible>
 			<control type="image">
-				<posx>50</posx>
+				<posx>60</posx>
 				<posy>0</posy>
-				<width>1820</width>
+				<width>1800</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			</control>
 			
 			<control type="image">
-				<posx>50</posx>
+				<posx>60</posx>
 				<posy>0</posy>
 				<width>500</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
@@ -67,7 +67,7 @@
         </control>
     
 		<!--Footer-->
-        <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+        <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
         <include>BingieVersion</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>

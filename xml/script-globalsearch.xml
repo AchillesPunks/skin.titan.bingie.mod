@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- BINGIE -->
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<views>50</views>
+	<views>50,51</views>
 	<animation effect="fade" time="400">WindowOpen</animation>
 	<animation effect="fade" time="400">WindowClose</animation>
-
 	<controls>
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>1920</width>
-			<height>1080</height>
-			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="330BAA8E">globalsearch/globalsearch-overlay.jpg</texture>
+		<include>Defs_TMDbHelper_Loader</include>
+		<!-- Hidden Top250 -->
+		<control type="label" id="1719">
+			<width>1</width>
+			<height>1</height>
+			<left>-1920</left>
+			<visible>!String.IsEmpty(ListItem.Top250) | !String.IsEmpty(Container(99950).ListItem.Property(Top250))</visible>				
 		</control>
 		<control type="image">
 			<left>0</left>
@@ -25,77 +23,98 @@
 			<animation effect="fade" time="400">Visible</animation>
 			<animation effect="fade" time="400">Hidden</animation>
 		</control>
+		<control type="grouplist">
+				<visible>!Control.IsVisible(999)</visible>				
+                <top>10</top>
+                <left>138</left>
+                <usecontrolcoords>true</usecontrolcoords>
+                <orientation>vertical</orientation>
+
+                <!-- clearlogo title -->
+                <control type="image" id="987767">
+                    <left>0</left>
+					<height>190</height>
+                    <width>490</width>
+                    <align>left</align>
+                    <top>0</top>
+                    <fadetime>350</fadetime>
+                    <aspectratio align="left" aligny="center">keep</aspectratio>
+                    <texture background="true" fallback="colors/color_transparent.png">$VAR[BingieInfoClearlogo]</texture>
+                </control>
+				
+				<!-- Blank image for gap -->
+				<control type="image">
+					<visible>String.EndsWith(Control.GetLabel(887767),color_transparent.png)</visible>
+					<visible>yes</visible>
+					<top>0</top>
+					<left>0</left>
+					<width>650</width>
+					<height>0</height>
+				</control>
+				
+                <!-- text title -->
+                <control type="textbox">
+                    <visible>String.EndsWith(Control.GetLabel(987767),color_transparent.png)</visible>
+                    <top>-194</top>
+					<left>0</left>
+                    <width max="650">auto</width>
+                    <height>189</height>
+                    <font>Title</font> 
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <label>$VAR[BingieInfoLabel]</label>
+					<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
+                </control>
+				
+				<control type="group">
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<top>-2</top>
+					<width>1000</width>
+					<height>40</height>
+					<include>GlobalSearchtRowDetails</include>
+				</control>
+		</control>
+		
 		<control type="group">
-			<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
-			<control type="image">
-				<left>-5</left>
-				<top>-5</top>
-				<width>472</width>
-				<height>1090</height>
-				<texture>globalsearch/globalsearch-panel.png</texture>
-				<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-				<bordersize>5</bordersize>
-			</control>
-			<control type="group">
-				<top>100</top>
-				<control type="label">
-					<top>40</top>
-					<left>104</left>
-					<label>$INFO[Window.Property(GlobalSearch.SearchString)]</label>
-					<width>225</width>
-					<height>40</height>
-					<font>Reg28</font>
-					<textcolor>white</textcolor>
-				</control>
-				<control type="image">
-					<left>333</left>
-					<top>1</top>
-					<width>118</width>
-					<height>118</height>
-					<texture colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">globalsearch/globalsearch-roundbutton.png</texture>
-					<visible>Control.HasFocus(990)</visible>
-				</control>
-				<control type="image">
-					<left>372</left>
-					<top>40</top>
-					<width>40</width>
-					<height>40</height>
-					<texture colordiffuse="FFA0A0A0">globalsearch/globalsearch-search.png</texture>
-					<visible>Control.IsVisible(990) + !Control.HasFocus(990)</visible>
-				</control>
-				<control type="image">
-					<left>372</left>
-					<top>40</top>
-					<width>40</width>
-					<height>40</height>
-					<texture colordiffuse="$INFO[Skin.String(BingieSecondaryTextColor)]">globalsearch/globalsearch-search.png</texture>
-					<visible>Control.HasFocus(990)</visible>
-				</control>
-				<control type="grouplist">
-					<left>20</left>
-					<top>30</top>
-					<width>442</width>
+			<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>		
+			<control type="group">			
+				<top>266</top>
+				<animation effect="fade" start="100" end="50" time="150" condition="!Control.HasFocus(9000) + !Control.HasFocus(990)">Conditional</animation>
+				<control type="grouplist">					
+					<visible>!Control.IsVisible(999)</visible>
+					<left>139</left>
+					<top>80</top>
+					<width>550</width>
+					<height>0</height>
 					<align>center</align>
-					<itemgap>10</itemgap>
-					<orientation>horizontal</orientation>
+					<itemgap>0</itemgap>
+					<orientation>vertical</orientation>
+					<control type="group">
+					<top>0</top>
+					<control type="image">
+						<visible>Control.HasFocus(990)</visible>
+						<width>550</width>
+						<height>65</height>
+						<texture border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">$INFO[Skin.String(thumbsborder_focused),bingie/border/default_button_fo_,.png]</texture>
+					</control>
 					<control type="label">
-						<width>auto</width>
-						<height>55</height>
+						<left>20</left>
+						<width>550</width>
+						<height>65</height>
 						<aligny>center</aligny>
-						<font>font13</font>
-						<label>32297</label>
-						<visible>Control.IsVisible(991)</visible>
+						<font>Plots</font>
+						<label>320053</label>
+					</control>
 					</control>
 					<control type="label" id="991">
-						<width>380</width>
-						<height>55</height>
-						<aligny>center</aligny>
-						<font>font13</font>
-						<label/>
+						<width>0</width>
+						<height>0</height>
+						<textcolor>00ffffff</textcolor>
 					</control>
 				</control>
 				<control type="button" id="990">
-					<left>77</left>
+					<left>122</left>
 					<top>0</top>
 					<width>500</width>
 					<height>120</height>
@@ -103,1218 +122,167 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font14</font>
-					<texturefocus/>
-					<texturenofocus/>
-					<onup>SetFocus(9000,99,absolute)</onup>
-					<ondown>9000</ondown>
+					<texturefocus></texturefocus>
+					<texturenofocus></texturenofocus>
+					<onup>noop</onup>
+					<ondown>SetFocus(9000)</ondown>
 					<onleft>500</onleft>
 					<onright>500</onright>
 				</control>
 			</control>
 			<control type="group">
-				<top>220</top>
-				<control type="fixedlist" id="9000">
-					<left>0</left>
-					<width>462</width>
-					<height>840</height>
-					<movement>6</movement>
+				<animation effect="fade" start="100" end="50" time="150" condition="!Control.HasFocus(9000) + !Control.HasFocus(990)">Conditional</animation>
+				<top>170</top>
+				<control type="list" id="9000">
+					<left>139</left>
+					<top>241</top>
+					<width>550</width>
+					<height>590</height>
 					<onup>990</onup>
-					<ondown>990</ondown>
+					<ondown>9000</ondown>
+					<onleft>50</onleft>
 					<onright>50</onright>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<itemlayout height="95" width="462">
-						<control type="image">
-							<left>-3</left>
-							<top>1</top>
-							<width>95</width>
-							<height>95</height>
-							<texture colordiffuse="51FFFFFF">$INFO[ListItem.Icon]</texture>
-						</control>
+					<itemlayout height="65" width="550">
 						<control type="label">
-							<left>104</left>
+							<left>20</left>
 							<top>0</top>
-							<height>95</height>
-							<width>350</width>
+							<height>65</height>
+							<width>550</width>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>Plots</font>
 							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>22000000</shadowcolor>
+							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
 						</control>
 						<control type="label">
-							<left>104</left>
+							<right>20</right>
 							<top>0</top>
-							<height>95</height>
-							<width>340</width>
+							<height>65</height>
+							<width>550</width>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>Plots</font>
 							<label>$INFO[ListItem.Label2]</label>
-							<shadowcolor>22000000</shadowcolor>
+							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout height="95" width="462">
+					<focusedlayout height="65" width="550">
 						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>462</width>
-							<height>95</height>
-							<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-focus.png</texture>
-							<animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus(9000)">Conditional</animation>
-						</control>
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>95</width>
-							<height>95</height>
-							<texture colordiffuse="51FFFFFF">globalsearch/globalsearch-black.png</texture>
-							<animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus(9000)">Conditional</animation>
-						</control>
-						<control type="image">
-							<left>-3</left>
-							<top>1</top>
-							<width>95</width>
-							<height>95</height>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<visible>Control.HasFocus(9000) | Control.HasFocus(50)</visible>
+							<width>550</width>
+							<height>65</height>
+							<texture border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">$INFO[Skin.String(thumbsborder_focused),bingie/border/default_button_fo_,.png]</texture>
 						</control>
 						<control type="label">
-							<left>104</left>
+							<left>20</left>
 							<top>0</top>
-							<height>95</height>
-							<width>350</width>
+							<height>65</height>
+							<width>550</width>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>Plots</font>
 							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>22000000</shadowcolor>
+							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
 						</control>
 						<control type="label">
-							<left>104</left>
+							<right>20</right>
 							<top>0</top>
-							<height>95</height>
-							<width>340</width>
+							<height>65</height>
+							<width>550</width>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>Plots</font>
 							<label>$INFO[ListItem.Label2]</label>
-							<shadowcolor>22000000</shadowcolor>
+							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
 						</control>
 					</focusedlayout>
 				</control>
 			</control>
-
+			<control type="label">
+				<visible>!Control.IsVisible(999)</visible>
+				<top>37</top>
+				<left>827</left>
+				<label>$INFO[Window.Property(GlobalSearch.SearchString),$LOCALIZE[320095] &quot;,&quot;]</label>
+				<width>1040</width>
+				<height>40</height>
+				<font>Bold38</font>
+				<textcolor>$INFO[Skin.String(SideBladeTextColor)]</textcolor>
+			</control>
 			<control type="panel" id="50">
-				<left>512</left>
-				<top>192</top>
-				<width>1500</width>
-				<height>720</height>
+				<top>90</top>
+				<posx>820</posx>
+                <height>1000</height>
+                <width>1100</width>
+				<orientation>vertical</orientation>
+				<focusposition>1</focusposition>
+				<pagecontrol>60</pagecontrol>
 				<onleft>9000</onleft>
-				<viewtype label="536">icon</viewtype>
-				<preloaditems>4</preloaditems>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<scrolltime tween="cubic" easing="out">500</scrolltime>
-				<itemlayout height="360" width="285" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
-					<control type="image">
-						<left>0</left>
-						<top>-1</top>
-						<width>256</width>
-						<height>362</height>
-						<texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-						<bordertexture border="20">globalsearch/globalsearch-shadow.png</bordertexture>
-						<bordersize>20</bordersize>
-						<animation effect="slide" end="-15,0" time="0" condition="true">Conditional</animation>
-						<fadetime>500</fadetime>
-					</control>
-					<control type="image">
-						<left>5</left>
-						<top>275</top>
-						<width>216</width>
-						<height>66</height>
-						<texture colordiffuse="B0FFFFFF">globalsearch/globalsearch-black.png</texture>
-					</control>
-					<control type="textbox">
-						<left>15</left>
-						<top>270</top>
-						<width>192</width>
-						<height>70</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="group">
-						<left>170</left>
-						<top>20</top>
-						<visible>!String.IsEmpty(ListItem.UserRating)</visible>
-						<control type="image">
-							<left>8</left>
-							<top>2</top>
-							<width>36</width>
-							<height>36</height>
-							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-list-circle.png</texture>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onback>527</onback>
+                <preloaditems>2</preloaditems>
+                <include>ScrollTime</include>
+				<itemlayout height="370" width="264" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(actors) | Container.Content(directors)">
+						<control type="group">
+							<width>264</width>
+							<height>370</height>
+							<include>PosterPanelBingieLayout</include>
 						</control>
-						<control type="label">
-							<top>6</top>
-							<align>center</align>
-							<width>50</width>
-							<height>32</height>
-							<textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<font>font20_title</font>
-							<label>$INFO[ListItem.UserRating]</label>
-						</control>
-					</control>
 				</itemlayout>
-				<itemlayout height="360" width="470" condition="Container.Content(episodes) | Container.Content(musicvideos)">
-					<control type="image">
-						<left>1</left>
-						<top>10</top>
-						<width>380</width>
-						<height>250</height>
-						<texture border="2" background="true">$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-						<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-						<bordersize>5</bordersize>
-						<fadetime>500</fadetime>
-					</control>
-					<control type="image">
-						<left>1</left>
-						<top>265</top>
-						<width>380</width>
-						<height>80</height>
-						<texture colordiffuse="B0FFFFFF">globalsearch/globalsearch-black.png</texture>
-						<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-						<bordersize>5</bordersize>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>275</top>
-						<width>360</width>
-						<height>29</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-						<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
-						<visible>Container.Content(episodes)</visible>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>275</top>
-						<width>360</width>
-						<height>29</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-						<label>[B]$INFO[ListItem.Artist][/B]</label>
-						<visible>Container.Content(musicvideos)</visible>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>304</top>
-						<width>360</width>
-						<height>29</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="group">
-						<left>170</left>
-						<top>20</top>
-						<visible>!String.IsEmpty(ListItem.UserRating)</visible>
-						<control type="image">
-							<left>8</left>
-							<top>2</top>
-							<width>36</width>
-							<height>36</height>
-							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-list-circle.png</texture>
+				<itemlayout height="204" width="352" condition="Container.Content(episodes) | Container.Content(musicvideos)">
+						<control type="group">
+							<width>352</width>
+							<height>204</height>
+							<include>SquarePosterPanelLayout</include>
 						</control>
-						<control type="label">
-							<top>6</top>
-							<align>center</align>
-							<width>50</width>
-							<height>32</height>
-							<textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<font>font20_title</font>
-							<label>$INFO[ListItem.UserRating]</label>
-						</control>
-					</control>
 				</itemlayout>
-				<itemlayout height="360" width="350" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(actors) | Container.Content(directors) | Container.Content(livetv)">
-					<control type="image">
-						<left>1</left>
-						<top>10</top>
-						<width>300</width>
-						<height>300</height>
-						<texture border="2" background="true">$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-						<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-						<bordersize>5</bordersize>
-						<fadetime>500</fadetime>
-					</control>
-					<control type="image">
-						<left>1</left>
-						<top>235</top>
-						<width>300</width>
-						<height>75</height>
-						<texture colordiffuse="B0FFFFFF">globalsearch/globalsearch-black.png</texture>
-						<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-						<bordersize>5</bordersize>
-					</control>
-					<control type="textbox">
-						<left>15</left>
-						<top>235</top>
-						<width>270</width>
-						<height>70</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<visible>Container.Content(artists)</visible>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>250</top>
-						<width>270</width>
-						<height>29</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-						<label>[B]$INFO[ListItem.Artist][/B]</label>
-						<visible>Container.Content(albums) | Container.Content(songs)</visible>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>250</top>
-						<width>270</width>
-						<height>29</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-						<label>[B]$INFO[ListItem.Property(ChannelName)][/B]</label>
-						<visible>Container.Content(livetv)</visible>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<top>276</top>
-						<width>280</width>
-						<height>29</height>
-						<font>font10</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<visible>!Container.Content(artists)</visible>
-					</control>
-					<control type="group">
-						<left>250</left>
-						<top>20</top>
-						<visible>!String.IsEmpty(ListItem.UserRating)</visible>
-						<control type="image">
-							<left>8</left>
-							<top>2</top>
-							<width>36</width>
-							<height>36</height>
-							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-list-circle.png</texture>
+				<itemlayout height="352" width="352" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(livetv)">
+						<control type="group">
+							<width>352</width>
+							<height>352</height>
+							<include>SquarePosterPanelLayout</include>
 						</control>
-						<control type="label">
-							<top>6</top>
-							<align>center</align>
-							<width>50</width>
-							<height>32</height>
-							<textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<font>font20_title</font>
-							<label>$INFO[ListItem.UserRating]</label>
-						</control>
-					</control>
 				</itemlayout>
-				<focusedlayout height="360" width="285" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
-					<control type="group">
-						<animation effect="slide" start="0,0" end="-40,0" time="300">Focus</animation>
-						<animation effect="slide" start="-40,0" end="0,0" time="125">UnFocus</animation>
-						<control type="image">
-							<left>1</left>
-							<top>15</top>
-							<width>220</width>
-							<height>330</height>
-							<texture border="2" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-							<bordertexture colordiffuse="60FFFFFF">globalsearch/globalsearch-black.png</bordertexture>
-							<bordersize>4</bordersize>
-							<fadetime>500</fadetime>
+				<focusedlayout height="370" width="264" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(actors) | Container.Content(directors)">
+                        <control type="group">
+							<width>264</width>
+							<height>370</height>
+							<include>PosterPanelBingieLayoutFocus</include>
+							<include>Top250Indicator2</include>
 						</control>
-						<control type="image">
-							<left>5</left>
-							<top>275</top>
-							<width>212</width>
-							<height>66</height>
-							<texture colordiffuse="B0FFFFFF">globalsearch/globalsearch-black.png</texture>
-						</control>
-						<control type="textbox">
-							<left>15</left>
-							<top>270</top>
-							<width>192</width>
-							<height>70</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="group">
-							<left>170</left>
-							<top>20</top>
-							<visible>!String.IsEmpty(ListItem.UserRating)</visible>
-							<control type="image">
-								<left>8</left>
-								<top>2</top>
-								<width>36</width>
-								<height>36</height>
-								<aspectratio>keep</aspectratio>
-								<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-list-circle.png</texture>
-							</control>
-							<control type="label">
-								<top>6</top>
-								<align>center</align>
-								<width>50</width>
-								<height>32</height>
-								<textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-								<font>font20_title</font>
-								<label>$INFO[ListItem.UserRating]</label>
-							</control>
-						</control>
-					</control>
-					<control type="group">
-						<top>15</top>
-						<animation type="Focus">
-							<effect type="slide" start="0,0" end="-40,0" time="300" />
-							<effect type="fade" start="0" end="100" time="300" />
-						</animation>
-						<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-						<control type="image">
-							<left>1</left>
-							<width>220</width>
-							<height>330</height>
-							<texture border="8" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">globalsearch/globalsearch-thumbnail-focus.png</texture>
-						</control>
-					</control>
-					<control type="image">
-						<top>15</top>
-						<left>190</left>
-						<width>70</width>
-						<height>330</height>
-						<fadetime>500</fadetime>
-						<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-white.png</texture>
-						<animation effect="zoom" start="0,100" end="100,100" time="250" center="auto">Focus</animation>
-						<animation effect="zoom" start="100,100" end="0,100" time="125" center="auto" delay="50">UnFocus</animation>
-					</control>
-					<control type="group">
-						<top>15</top>
-						<left>190</left>
-						<animation effect="fade" start="0" end="100" time="200" delay="250">Focus</animation>
-						<animation effect="fade" start="100" end="0" time="50">UnFocus</animation>
-						<control type="group">
-							<top>20</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-rating.png</texture>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Rating]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>!Container.Content(seasons)</visible>
-							<top>140</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-year.png</texture>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Year]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(seasons)</visible>
-							<top>140</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-number.png</texture>
-							</control>
-							<control type="label">
-								<top>35</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Episode]</label>
-							</control>
-						</control>
-						<control type="group">
-							<top>260</top>
-							<control type="image">
-								<left>11</left>
-								<top>0</top>
-								<width>48</width>
-								<height>48</height>
-								<texture>globalsearch/globalsearch-list-watched.png</texture>
-								<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-							</control>
-							<control type="image">
-								<left>11</left>
-								<top>0</top>
-								<width>48</width>
-								<height>48</height>
-								<texture>globalsearch/globalsearch-list-unwatched.png</texture>
-								<visible>!Integer.IsGreater(ListItem.Playcount,0)</visible>
-							</control>
-						</control>
-					</control>
 				</focusedlayout>
-				<focusedlayout height="360" width="470" condition="Container.Content(episodes) | Container.Content(musicvideos)">
-					<control type="group">
-						<animation effect="slide" start="0,0" end="-40,0" time="300">Focus</animation>
-						<animation effect="slide" start="-40,0" end="0,0" time="125">UnFocus</animation>
-						<control type="image">
-							<left>1</left>
-							<top>10</top>
-							<width>380</width>
-							<height>250</height>
-							<texture border="2" background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio>scale</aspectratio>
-							<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-							<bordersize>5</bordersize>
-							<fadetime>500</fadetime>
+				<focusedlayout height="204" width="352" condition="Container.Content(episodes) | Container.Content(musicvideos)">
+                        <control type="group">
+							<width>352</width>
+							<height>204</height>
+							<include>SquarePosterPanelLayoutFocus</include>
 						</control>
-						<control type="image">
-							<left>1</left>
-							<top>265</top>
-							<width>380</width>
-							<height>80</height>
-							<texture colordiffuse="B0FFFFFF">globalsearch/globalsearch-black.png</texture>
-							<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-							<bordersize>5</bordersize>
-						</control>
-						<control type="label">
-							<left>15</left>
-							<top>275</top>
-							<width>360</width>
-							<height>29</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
-							<visible>Container.Content(episodes)</visible>
-						</control>
-						<control type="label">
-							<left>15</left>
-							<top>275</top>
-							<width>360</width>
-							<height>29</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-							<label>[B]$INFO[ListItem.Artist][/B]</label>
-							<visible>Container.Content(musicvideos)</visible>
-						</control>
-						<control type="label">
-							<left>15</left>
-							<top>304</top>
-							<width>360</width>
-							<height>29</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="group">
-							<left>170</left>
-							<top>20</top>
-							<visible>!String.IsEmpty(ListItem.UserRating)</visible>
-							<control type="image">
-								<left>8</left>
-								<top>2</top>
-								<width>36</width>
-								<height>36</height>
-								<aspectratio>keep</aspectratio>
-								<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-list-circle.png</texture>
-							</control>
-							<control type="label">
-								<top>6</top>
-								<align>center</align>
-								<width>50</width>
-								<height>32</height>
-								<textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-								<font>font20_title</font>
-								<label>$INFO[ListItem.UserRating]</label>
-							</control>
-						</control>
-						<control type="image">
-							<left>1</left>
-							<top>11</top>
-							<width>380</width>
-							<height>333</height>
-							<texture border="8" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">globalsearch/globalsearch-thumbnail-focus.png</texture>
-						</control>
-					</control>
-					<control type="image">
-						<left>354</left>
-						<top>12</top>
-						<width>70</width>
-						<height>330</height>
-						<fadetime>500</fadetime>
-						<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-white.png</texture>
-						<animation effect="zoom" start="0,100" end="100,100" time="250" center="auto">Focus</animation>
-						<animation effect="zoom" start="100,100" end="0,100" time="125" center="auto" delay="50">UnFocus</animation>
-					</control>
-					<control type="group">
-						<top>12</top>
-						<left>354</left>
-						<animation effect="fade" start="0" end="100" time="200" delay="250">Focus</animation>
-						<animation effect="fade" start="100" end="0" time="50">UnFocus</animation>
-						<control type="group">
-							<top>20</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-rating.png</texture>
-							</control>
-							<control type="label">
-								<top>35</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Rating]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(episodes)</visible>
-							<top>140</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-number.png</texture>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Season]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(musicvideos)</visible>
-							<top>140</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-year.png</texture>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Year]</label>
-							</control>
-						</control>
-						<control type="group">
-							<top>260</top>
-							<control type="image">
-								<left>11</left>
-								<top>0</top>
-								<width>48</width>
-								<height>48</height>
-								<texture>globalsearch/globalsearch-list-watched.png</texture>
-								<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-							</control>
-							<control type="image">
-								<left>11</left>
-								<top>0</top>
-								<width>48</width>
-								<height>48</height>
-								<texture>globalsearch/globalsearch-list-unwatched.png</texture>
-								<visible>!Integer.IsGreater(ListItem.Playcount,0)</visible>
-							</control>
-						</control>
-					</control>
 				</focusedlayout>
-				<focusedlayout height="360" width="350" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(actors) | Container.Content(directors) | Container.Content(livetv)">
-					<control type="group">
-						<animation effect="slide" start="0,0" end="-40,0" time="300">Focus</animation>
-						<animation effect="slide" start="-40,0" end="0,0" time="125">UnFocus</animation>
-						<control type="image">
-							<left>1</left>
-							<top>10</top>
-							<width>300</width>
-							<height>300</height>
-							<texture border="2" background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio>scale</aspectratio>
-							<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-							<bordersize>5</bordersize>
-							<fadetime>500</fadetime>
+				<focusedlayout height="352" width="352" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(livetv)">
+                        <control type="group">
+							<width>352</width>
+							<height>352</height>
+							<include>SquarePosterPanelLayoutFocus</include>
 						</control>
-						<control type="image">
-							<left>1</left>
-							<top>235</top>
-							<width>300</width>
-							<height>75</height>
-							<texture colordiffuse="B0FFFFFF">globalsearch/globalsearch-black.png</texture>
-							<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-							<bordersize>5</bordersize>
-						</control>
-						<control type="textbox">
-							<left>15</left>
-							<top>235</top>
-							<width>270</width>
-							<height>70</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<visible>Container.Content(artists)</visible>
-						</control>
-						<control type="label">
-							<left>15</left>
-							<top>250</top>
-							<width>270</width>
-							<height>29</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-							<label>[B]$INFO[ListItem.Artist][/B]</label>
-							<visible>Container.Content(albums) | Container.Content(songs)</visible>
-						</control>
-						<control type="label">
-							<left>15</left>
-							<top>250</top>
-							<width>270</width>
-							<height>29</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-							<label>[B]$INFO[ListItem.Property(ChannelName)][/B]</label>
-							<visible>Container.Content(livetv)</visible>
-						</control>
-						<control type="label">
-							<left>15</left>
-							<top>276</top>
-							<width>280</width>
-							<height>29</height>
-							<font>font10</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<visible>!Container.Content(artists)</visible>
-						</control>
-						<control type="group">
-							<left>250</left>
-							<top>20</top>
-							<visible>!String.IsEmpty(ListItem.UserRating)</visible>
-							<control type="image">
-								<left>8</left>
-								<top>2</top>
-								<width>36</width>
-								<height>36</height>
-								<aspectratio>keep</aspectratio>
-								<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-list-circle.png</texture>
-							</control>
-							<control type="label">
-								<top>6</top>
-								<align>center</align>
-								<width>50</width>
-								<height>32</height>
-								<textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-								<font>font20_title</font>
-								<label>$INFO[ListItem.UserRating]</label>
-							</control>
-						</control>
-						<control type="image">
-							<left>1</left>
-							<top>11</top>
-							<width>300</width>
-							<height>300</height>
-							<texture border="8" colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-thumbnail-focus.png</texture>
-						</control>
-					</control>
-					<control type="image">
-						<left>268</left>
-						<top>12</top>
-						<width>70</width>
-						<height>300</height>
-						<fadetime>500</fadetime>
-						<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-white.png</texture>
-						<animation effect="zoom" start="0,100" end="100,100" time="250" center="auto">Focus</animation>
-						<animation effect="zoom" start="100,100" end="0,100" time="125" center="auto" delay="50">UnFocus</animation>
-					</control>
-					<control type="group">
-						<top>12</top>
-						<left>268</left>
-						<animation effect="fade" start="0" end="100" time="200" delay="250">Focus</animation>
-						<animation effect="fade" start="100" end="0" time="50">UnFocus</animation>
-						<control type="group">
-							<visible>Container.Content(artists)</visible>
-							<top>20</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-formed.png</texture>
-							</control>
-							<control type="textbox">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Property(Artist_Formed)]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(artists)</visible>
-							<top>140</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-disbanded.png</texture>
-							</control>
-							<control type="textbox">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Property(Artist_Disbanded)]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(albums) | Container.Content(songs)</visible>
-							<top>20</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-rating.png</texture>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Rating]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(albums) | Container.Content(songs)</visible>
-							<top>140</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-year.png</texture>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Year]</label>
-							</control>
-						</control>
-						<control type="group">
-							<top>240</top>
-							<visible>Container.Content(songs)</visible>
-							<control type="image">
-								<left>11</left>
-								<top>0</top>
-								<width>48</width>
-								<height>48</height>
-								<texture>globalsearch/globalsearch-list-watched.png</texture>
-								<visible>Integer.IsGreater(ListItem.Playcount,0)</visible>
-							</control>
-							<control type="image">
-								<left>11</left>
-								<top>0</top>
-								<width>48</width>
-								<height>48</height>
-								<texture>globalsearch/globalsearch-list-unwatched.png</texture>
-								<visible>!Integer.IsGreater(ListItem.Playcount,0)</visible>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(livetv)</visible>
-							<top>20</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-clock.png</texture>
-							</control>
-							<control type="textbox">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Property(Duration)]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(actors) | Container.Content(directors)</visible>
-							<top>20</top>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<width>70</width>
-								<height>32</height>
-								<fadetime>500</fadetime>
-								<aspectratio align="center">keep</aspectratio>
-								<texture>globalsearch/globalsearch-list-number.png</texture>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>35</top>
-								<width>70</width>
-								<height>32</height>
-								<align>center</align>
-								<font>Light36</font>
-								<selectedcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</selectedcolor>
-								<label fallback="-">$INFO[ListItem.Label2]</label>
-							</control>
-						</control>
-					</control>
-				</focusedlayout>
-			</control>
-
-			<control type="group">
-				<left>1500</left>
-				<top>0</top>
-				<visible>Control.IsVisible(51)</visible>
-				<control type="image">
-					<left>-5</left>
-					<top>-5</top>
-					<width>430</width>
-					<height>1080</height>
-					<texture>globalsearch/globalsearch-panel.png</texture>
-					<bordertexture border="6">globalsearch/globalsearch-panel-shadow.png</bordertexture>
-					<bordersize>5</bordersize>
-				</control>
-				<control type="image">
-					<left>20</left>
-					<top>100</top>
-					<width>380</width>
-					<height>380</height>
-					<texture background="true">$INFO[ListItem.Art(poster)]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
-				</control>
-				<control type="image">
-					<left>20</left>
-					<top>100</top>
-					<width>380</width>
-					<height>380</height>
-					<texture>$INFO[ListItem.Icon]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
-				</control>
-				<control type="textbox">
-					<left>10</left>
-					<top>500</top>
-					<height>498</height>
-					<width>400</width>
-					<aligny>center</aligny>
-					<font>Light36</font>
-					<label>$INFO[ListItem.Plot]</label>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
-				</control>
-				<control type="textbox">
-					<left>10</left>
-					<top>500</top>
-					<height>498</height>
-					<width>400</width>
-					<aligny>center</aligny>
-					<font>Light36</font>
-					<label>$INFO[ListItem.Property(Plot)]</label>
-					<visible>Container.Content(livetv)</visible>
-				</control>
-				<control type="textbox">
-					<left>10</left>
-					<top>500</top>
-					<height>498</height>
-					<width>400</width>
-					<aligny>center</aligny>
-					<font>Light36</font>
-					<label>$INFO[ListItem.Property(Artist_Description)]</label>
-					<visible>Container.Content(artists)</visible>
-				</control>
-				<control type="textbox">
-					<left>10</left>
-					<top>500</top>
-					<height>498</height>
-					<width>400</width>
-					<aligny>center</aligny>
-					<font>Light36</font>
-					<label>$INFO[ListItem.Property(Album_Description)]</label>
-					<visible>Container.Content(albums)</visible>
-				</control>
-				<control type="textbox">
-					<left>10</left>
-					<top>500</top>
-					<height>498</height>
-					<width>400</width>
-					<aligny>center</aligny>
-					<font>Light36</font>
-					<label>$INFO[ListItem.Comment]</label>
-					<visible>Container.Content(songs)</visible>
-				</control>
-			</control>
-			<control type="button">
-				<left>1171</left>
-				<top>154</top>
-				<width>48</width>
-				<height>24</height>
-				<texturefocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]" flipy="true">globalsearch/globalsearch-arrowdown.png</texturefocus>
-				<texturenofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]" flipy="true">globalsearch/globalsearch-arrowdown.png</texturenofocus>
-				<animation effect="zoom" start="100,0" end="100,100" center="auto" time="200" delay="10">VisibleChange</animation>
-				<animation effect="zoom" start="100,0" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
-				<animation effect="zoom" start="100,100" end="100,0" center="auto" time="200">WindowClose</animation>
-				<onclick>SetFocus(500)</onclick>
-				<onclick>PageUp</onclick>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<animation effect="slide" start ="0,0" end="-210,0" condition="Control.IsVisible(51)">Conditional</animation>
-				<visible>Container.HasPrevious</visible>
-			</control>
-			<control type="button">
-				<left>1171</left>
-				<top>930</top>
-				<width>48</width>
-				<height>24</height>
-				<texturefocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-arrowdown.png</texturefocus>
-				<texturenofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-arrowdown.png</texturenofocus>
-				<animation effect="zoom" start="100,0" end="100,100" center="auto" time="200" delay="10">VisibleChange</animation>
-				<animation effect="zoom" start="100,0" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
-				<animation effect="zoom" start="100,100" end="100,0" center="auto" time="200">WindowClose</animation>
-				<onclick>SetFocus(500)</onclick>
-				<onclick>PageDown</onclick>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<animation effect="slide" start ="0,0" end="-210,0" condition="Control.IsVisible(51)">Conditional</animation>
-				<visible>Container.HasNext</visible>
-			</control>
-			<control type="group">
-				<visible>!String.IsEqual(Skin.String(osdmediaflagsstyle),disabled)</visible>
-				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<left>512</left>
-				<top>907</top>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="grouplist">
-					<orientation>horizontal</orientation>
-					<left>0</left>
-					<itemgap>6</itemgap>
-					<width>1366</width>
-					<control type="image">
-						<width>110</width>
-						<height>60</height>
-						<fadetime>200</fadetime>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container.ListItem.AudioChannels,globalsearch/flags/audiochannel/,.png]</texture>
-					</control>
-					<control type="image">
-						<width>110</width>
-						<height>60</height>
-						<fadetime>200</fadetime>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container.ListItem.AudioCodec,globalsearch/flags/audiocodec/,.png]</texture>
-					</control>
-				</control>
-				<control type="grouplist">
-					<orientation>horizontal</orientation>
-					<left>0</left>
-					<itemgap>6</itemgap>
-					<width>1366</width>
-					<align>right</align>
-					<animation effect="slide" start ="0,0" end="-420,0" condition="Control.IsVisible(51)">Conditional</animation>
-					<control type="image">
-						<width>110</width>
-						<height>60</height>
-						<fadetime>200</fadetime>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container.ListItem.VideoAspect,globalsearch/flags/aspectratio/,.png]</texture>
-					</control>
-					<control type="image">
-						<width>110</width>
-						<height>60</height>
-						<fadetime>200</fadetime>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture>$INFO[Container.ListItem.VideoCodec,globalsearch/flags/videocodec/,.png]</texture>
-					</control>
-				</control>
+				</focusedlayout>				
 			</control>
 			<control type="label" id="999">
-				<left>436</left>
+				<left>0</left>
 				<top>0</top>
-				<width>1484</width>
+				<width>1920</width>
 				<height>1080</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<font>font_MainMenu</font>
+				<font>Reg42</font>
 				<label>$LOCALIZE[284]</label>
 			</control>
 		</control>
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>1920</width>
-			<height>115</height>
-			<texture>globalsearch/globalsearch-header.png</texture>
-		</control>
-		<control type="group">
-			<top>30</top>
-			<left>107</left>
-			<!-- default Logo image -->
-			<control type="image">
-				<width>272</width>
-				<height>153</height>
-				<aspectratio align="left">keep</aspectratio>
-				<colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-				<texture background="true">bingie_logo.png</texture>
-				<visible>!Skin.String(CustomLogoImage)</visible>
-			</control>
-			<!-- custom Logo image -->
-			<control type="image">
-				<height>80</height>
-				<width>275</width>
-				<aspectratio align="left">keep</aspectratio>
-				<texture background="true">$INFO[Skin.String(CustomLogoImage)]</texture>
-				<visible>Skin.String(CustomLogoImage)</visible>
-			</control>
-		</control>
-
-		<control type="image">
-			<left>0</left>
-			<top>965</top>
-			<width>1920</width>
-			<height>115</height>
-			<texture flipy="true">globalsearch/globalsearch-header.png</texture>
-		</control>
-		<control type="grouplist">
-			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-			<orientation>horizontal</orientation>
-			<align>right</align>
-			<top>1030</top>
-			<right>24</right>
-			<width>1200</width>
-			<itemgap>10</itemgap>
-			<animation effect="fade" time="200">VisibleChange</animation>
-			<control type="label">
-				<width>auto</width>
-				<height>48</height>
-				<aligny>center</aligny>
-				<align>right</align>
-				<shadowcolor>22000000</shadowcolor>
-				<label>$INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems]</label>
-			</control>
-			<control type="image">
-				<width>54</width>
-				<height>44</height>
-				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">globalsearch/globalsearch-itemcount.png</texture>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<visible>!String.IsEmpty(Container.NumItems)</visible>
-			</control>
-		</control>
+		<!-- Snow Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablesnow)">snow</include>
+        </control>
+		<!-- Halloween Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablepumpkins)">pumpkin</include>
+        </control>
 	</controls>
 </window>

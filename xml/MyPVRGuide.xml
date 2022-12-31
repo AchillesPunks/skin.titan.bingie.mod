@@ -17,7 +17,7 @@
                  <!--Footer-->
             <control type="group">
                 <visible>!Skin.HasSetting(GuideShowInfo)</visible>
-                <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+                <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
             </control>
 		</control>
          <include condition="!String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">NowPlayingBackground</include>
@@ -32,8 +32,8 @@
         <control type="group" id="5000">
 			<include>animation_window_open_close</include>
 			<posx>10</posx>
-			<posy>-30</posy>
-			<animation effect="slide" end="0,-80" time="0" condition="Skin.HasSetting(GuideShowInfo)">Conditional</animation>
+			<posy>-70</posy>
+			<animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(GuideShowInfo)">Conditional</animation>
             <control type="group">
                 <!--Panel-->
                 <include>animation_view_change_pvr</include>
@@ -56,7 +56,7 @@
 					<posx>-10</posx>
 					<width>1920</width>
 					<height>500</height>
-					<texture border="15">diffuse/bgpanel.png</texture>
+					<texture border="15">diffuse/panel2.png</texture>
 					<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 					<aspectratio>stretch</aspectratio>
 					<visible>!String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))</visible>
@@ -118,55 +118,55 @@
 				
 				<control type="image">
 					<!--Seperator-->
-					<posy>307</posy>
-					<posx>-68</posx>
-					<width>2040</width>
+					<posy>304</posy>
+					<posx>50</posx>
+					<width>1800</width>
 					<height>10</height>
 					<align>left</align>
-					<texture border="10">common/menu-separator.png</texture>
+					<texture border="10">common/menu-separator2.png</texture>
                     <visible>String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))</visible>
 				</control>
 				<control type="image">
 					<!--Seperator-->
 					<posy>940</posy>
-					<posx>-68</posx>
-					<width>2040</width>
+					<posx>50</posx>
+					<width>1800</width>
 					<height>10</height>
 					<align>left</align>
-					<texture border="10">common/menu-separator.png</texture>
+					<texture border="10">common/menu-separator2.png</texture>
                     <visible>String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))</visible>
 				</control>
 				
 				<!-- info panel -->
 				<control type="group">
-					<posx>60</posx>
+					<posx>50</posx>
 					<posy>965</posy>
 					<visible>Skin.HasSetting(GuideShowInfo) + String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))</visible>
 					<control type="image">
 						<!--Icon-->
 						<right>60</right>
-						<posy>0</posy>
-						<width>300</width>
-						<height>210</height>
-						<texture fallback="DefaultAddonTvInfo.png" diffuse="home/home_matte2.png">$VAR[PVRThumb]</texture>
-						<aspectratio align="right">keep</aspectratio>
+						<posy>-8</posy>
+						<width>308</width>
+						<height>218</height>
+						<texture fallback="DefaultAddonTvInfo.png">$VAR[PVRThumb]</texture>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
 						<visible>![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)]</visible>
 					</control>
                     <!-- black background behind video -->
                     <control type="image">
                         <texture>colors/color_black.png</texture>
                         <right>60</right>
-						<posy>0</posy>
-						<width>300</width>
-						<height>210</height>
+						<posy>-9</posy>
+						<width>308</width>
+						<height>218</height>
 						<visible>VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)</visible>
                     </control>
 					<!--Video Window -->
 					<control type="videowindow">
 						<right>60</right>
-						<posy>0</posy>
-						<width>300</width>
-						<height>210</height>
+						<posy>-9</posy>
+						<width>308</width>
+						<height>218</height>
 						<visible>VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)</visible>
 					</control>
 					<control type="label">
@@ -196,7 +196,7 @@
 						<!--Info Plot-->
 						<posx>0</posx>
 						<posy>85</posy>
-						<height>125</height>
+						<height>115</height>
 						<width>1460</width>
 						<font>Reg28</font>
 						<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
@@ -213,7 +213,7 @@
                     <include condition="!String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo)) + Skin.string(GuideRows, 7)">altEpgOnScreen7</include>
                     <include condition="!String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo)) + Skin.string(GuideRows, 9)">altEpgOnScreen9</include>
                     <include condition="!String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo)) + Skin.string(GuideRows, 10)">altEpgOnScreen10</include>
-                    <top>275</top>
+                    <top>276</top>
                     <height>665</height>
                     <left>50</left>
                     <width>1800</width>
@@ -235,6 +235,7 @@
                         <control type="label" id="2">
                             <!--Date, Time-->
                             <posx>0</posx>
+							<posy>-5</posy>
                             <width>60</width>
                             <height>30</height>
                             <align>left</align>
@@ -433,8 +434,8 @@
 	   </control>
     
 		<!--Sub Menu-->
-        <include condition="String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">SideBladeMenuTabLeft</include>
-		<include condition="String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">SideBladeMenuTabTop</include>
+        <include condition="!Skin.HasSetting(DisableSideBladeIndicator) + String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">SideBladeMenuTabLeft</include>
+		<include condition="!Skin.HasSetting(DisableSideBladeIndicator) + String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">SideBladeMenuTabTop</include>
 		<include condition="String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">PVRsideblade</include>
 		
 		<!--NowPlaying-->

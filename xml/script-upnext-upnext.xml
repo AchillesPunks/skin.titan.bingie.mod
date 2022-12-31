@@ -49,12 +49,12 @@
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                     <label>31021</label>
-                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturefocus>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]" border="10">bingie/border/slimframefo.png</texturefocus>
                     <texturenofocus/>
                     <onclick>SendClick(3013)</onclick>
                 </control>
                 <control type="radiobutton" id="3097">
-                    <width>420</width>
+                    <width>355</width>
                     <height>65</height>
                     <aligny>center</aligny>
                     <align>left</align>
@@ -64,15 +64,15 @@
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
                     <label>$INFO[Player.TimeRemaining(ss),$LOCALIZE[31212] ,]</label>
-                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturefocus>
+                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]" border="10">bingie/border/slimframefo.png</texturefocus>
                     <texturenofocus/>
                     <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioonfocus>
                     <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioofffocus>
                     <textureradioonnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioonnofocus>
                     <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradiooffnofocus>
-                    <radioposx>25</radioposx>
-                    <radiowidth>40</radiowidth>
-                    <radioheight>40</radioheight>
+                    <radioposx>26</radioposx>
+                    <radiowidth>34</radiowidth>
+                    <radioheight>34</radioheight>
                     <onclick>SendClick(3012)</onclick>
                 </control>
             </control>
@@ -85,8 +85,8 @@
                 <control type="image">
                     <bottom>0</bottom>
                     <width>100%</width>
-                    <height>820</height>
-                    <texture border="5">diffuse/gradient.png</texture>
+                    <height>100%</height>
+                    <texture border="5">special://home/addons/resource.images.backgroundoverlays.basic/resources/Grey.png</texture>
                     <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                 </control>
                 <!-- NextUp Info -->
@@ -99,7 +99,7 @@
                     <!-- TVshow Title -->
                     <control type="label">
                         <width>500</width>
-                        <height>40</height>
+                        <height>36</height>
                         <font>Bold36</font>
                         <textcolor>white</textcolor>
                         <align>left</align>
@@ -109,7 +109,7 @@
                     <!-- Starting in ... -->
                     <control type="label">
                         <width>auto</width>
-                        <height>33</height>
+                        <height>38</height>
                         <font>Bold32</font>
                         <aligny>center</aligny>
                         <textcolor>white</textcolor>
@@ -123,20 +123,10 @@
                         <control type="image">
                             <width>550</width>
                             <height>315</height>
-                            <bordersize>6</bordersize>
-                            <bordertexture>colors/color_white.png</bordertexture>
+                            <bordersize>4</bordersize>
+                            <bordertexture>diffuse/panel2.png</bordertexture>
                             <texture background="true">$VAR[NextUpThumb]</texture>
                             <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-                        </control>
-                        <!-- bottom gradient -->
-                        <control type="image">
-                            <bottom>7</bottom>
-                            <left>7</left>
-                            <width>536</width>
-                            <align>center</align>
-                            <height>55</height>
-                            <texture background="true" border="8">diffuse/gradient.png</texture>
-                            <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                         </control>
                         <control type="image">
                             <left>207</left>
@@ -144,7 +134,7 @@
                             <width>135</width>
                             <height>135</height>
                             <aspectratio>keep</aspectratio>
-                            <texture colordiffuse="ffeeeeee">$INFO[Player.TimeRemaining(ss),dialogs/nextup/,.png]</texture>
+                            <texture colordiffuse="ffffffff">$INFO[Player.TimeRemaining(ss),dialogs/nextup/,.png]</texture>
                             <visible>!Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
                         </control>
                         <!-- Sxx: Exx -->
@@ -190,13 +180,8 @@
                         <!-- MPAA -->
                         <control type="group" id="3098">
                             <visible>!String.IsEmpty(Control.GetLabel(30981))</visible>
-                            <width>90</width>
-                            <height>36</height>
-                            <control type="image">
-                                <height>100%</height>
-                                <width>100%</width>
-                                <texture colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]">bingie/flags/square-rounded.png</texture>
-                            </control>
+                            <width>auto</width>
+                            <height>44</height>
                             <control type="label" id="30981">
                                 <height>100%</height>
                                 <width>100%</width>
@@ -208,7 +193,7 @@
                                 <label>$INFO[VideoPlayer.MPAA]</label>
                             </control>
                         </control>
-
+                        
                         <!-- Resolution (currently not supported in up-next)
                         <control type="group">
                             <visible>!String.IsEmpty(Control.GetLabel(3099))</visible>
@@ -234,7 +219,7 @@
                     <!-- Plot -->
                     <control type="textbox">
                         <width>auto</width>
-                        <height max="100">auto</height>
+                        <height max="110">auto</height>
                         <align>justify</align>
                         <textcolor>white</textcolor>
                         <label>$INFO[Window.Property(plot)]</label>

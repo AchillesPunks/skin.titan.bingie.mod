@@ -182,7 +182,7 @@
                                     <height>90</height>
                                     <texture colordiffuse="$INFO[Skin.String(ButtonColor)]" border="5">diffuse/panel_trans.png</texture>
 									<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
-                                    <visible>!ListItem.IsSelected</visible>
+                                    <visible>ListItem.IsSelected</visible>
                                 </control>
                                 <control type="image">
                                     <posx>0</posx>
@@ -191,7 +191,7 @@
                                     <height>90</height>
                                     <texture border="5">diffuse/panel.png</texture>
 									<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
-                                    <visible>ListItem.IsSelected</visible>
+                                    <visible>!ListItem.IsSelected</visible>
                                 </control>
                                 <control type="group">
                                     <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
@@ -514,14 +514,14 @@
             </control>
 			
 			<control type="grouplist" id="8003">
-               <posx>350</posx>
+               <posx>345</posx>
                 <posy>900</posy>
 				<onup condition="!String.IsEmpty(Window.Property(Focus))">33</onup>
 				<onup condition="String.IsEmpty(Window.Property(Focus))">8000</onup>
 				<onup>ClearProperty(Focus)</onup>
 				<ondown condition="!String.IsEmpty(Window.Property(Focus))">7</ondown>
 				<ondown condition="String.IsEmpty(Window.Property(Focus))">8000</ondown>
-				<itemgap>15</itemgap>
+				<itemgap>90</itemgap>
 				<orientation>horizontal</orientation>
 
                 <control type="button" id="4">

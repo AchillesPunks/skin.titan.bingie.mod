@@ -49,7 +49,7 @@
 						<font>Reg34</font>
 						<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
 						<focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-						<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texturefocus>
+						<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]" border="10">bingie/border/slimframefo.png</texturefocus>
 						<texturenofocus/>
 					</control>
 					<!-- Cancel -->
@@ -63,7 +63,7 @@
 						<font>Reg34</font>
 						<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
 						<focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-						<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texturefocus>
+						<texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]" border="10">bingie/border/slimframefo.png</texturefocus>
 						<texturenofocus/>
 					</control>
 				</control>

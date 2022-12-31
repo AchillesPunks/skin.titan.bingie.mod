@@ -10,16 +10,17 @@
 			
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View58_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+				<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
@@ -38,8 +39,8 @@
 					<height>33</height>
 					<width>1100</width>
 					<font>Bold30</font>
-					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor><shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
-					
+					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
 					<label>[UPPERCASE]$VAR[mediatitle][/UPPERCASE]</label>
 				</control>
 					<control type="label">
@@ -66,17 +67,17 @@
             
 <!--CDART IMAGE-->
             <control type="image">
-                <width>506</width>
-                <height>506</height>
+                <width>540</width>
+                <height>540</height>
                 <bordersize>20</bordersize>
-                <bottom>390</bottom>
-                <right>1366</right>
+                <bottom>379</bottom>
+                <right>1349</right>
                 <texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$VAR[DiscArtImage]</texture>
                 <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-                <animation effect="slide" start="0" end="210" tween="cubic" easing="inout" time="1200" delay="1800">Visible</animation>
+                <animation effect="slide" start="0" end="207" tween="cubic" easing="inout" time="1200" delay="1800">Visible</animation>
                 <animation effect="fade" start="0" end="100" delay="1200" time="800" pulse="false">Visible</animation>
                 <animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-                <visible>Skin.HasSetting(View58_ShowCDart) + ![String.StartsWith(ListItem.Art(thumb),Default) | String.IsEmpty(ListItem.Art(thumb))] + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious</visible>
+                <visible>Skin.HasSetting(View58_ShowCDart) + Control.HasFocus(58) + !String.StartsWith(ListItem.Art(thumb),Default) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + $EXP[IsMovieDBType] | Control.HasFocus(58) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + Skin.HasSetting(View58_ShowCDart) + Skin.HasSetting(EnableFakeDiscArt)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
             </control>
 			
@@ -107,17 +108,19 @@
 							<width>602</width>
 							<height>870</height>
 							<bordersize>50</bordersize>
-							<texture background="true" diffuse="diffuse/poster.png" fallback="colors/color_keyboard.png">$VAR[PosterThumbList]</texture>
-							<aspectratio align="right" aligny="center">stretch</aspectratio>
+							<texture background="true" diffuse="diffuse/poster_big.png" fallback="colors/color_keyboard.png">$VAR[PosterThumbList]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="center">stretch</aspectratio>
+							<visible>[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))]</visible>
 						</control>
-						<control type="group">
-							<left>42</left>
-							<top>-42</top>
-							<width>518</width>
+						<control type="image">
+							<!--Poster-->
+							<width>602</width>
 							<height>870</height>
-                            <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
-							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-					    </control>
+							<bordersize>50</bordersize>
+							<texture background="true" diffuse="diffuse/poster_big.png" fallback="colors/color_keyboard.png">$VAR[PosterThumbList]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+							<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+						</control>
 						<control type="group">
 						<right>50</right>
 						<top>50</top>
@@ -134,17 +137,19 @@
 							<width>602</width>
 							<height>870</height>
 							<bordersize>50</bordersize>
-							<texture background="true" diffuse="diffuse/poster.png" fallback="colors/color_keyboard.png">$VAR[PosterThumbList]</texture>
-							<aspectratio align="right" aligny="center">stretch</aspectratio>
+							<texture background="true" diffuse="diffuse/poster_big.png" fallback="colors/color_keyboard.png">$VAR[PosterThumbList]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="center">stretch</aspectratio>
+							<visible>[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))]</visible>
 						</control>
-						<control type="group">
-							<left>42</left>
-							<top>-42</top>
-							<width>518</width>
+						<control type="image">
+							<!--Poster-->
+							<width>602</width>
 							<height>870</height>
-                            <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
-							<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-					    </control>
+							<bordersize>50</bordersize>
+							<texture background="true" diffuse="diffuse/poster_big.png" fallback="colors/color_keyboard.png">$VAR[PosterThumbList]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+							<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+						</control>
 						<control type="group">
 						<right>50</right>
 						<top>50</top>

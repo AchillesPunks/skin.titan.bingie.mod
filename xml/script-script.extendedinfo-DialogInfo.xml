@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <window>
-    <defaultcontrol always="true">113</defaultcontrol>
-	<onunload>ClearProperty(AdditionalInfo)</onunload>
-	
+    <defaultcontrol always="true">9000</defaultcontrol>
+	<onunload condition="!String.IsEmpty(Window.Property(AdditionalInfo))">ClearProperty(AdditionalInfo)</onunload>
+	<onunload condition="!String.IsEmpty(Window.Property(AdditionalInfo))">SetFocus(8000)</onunload>
     <controls>
 
 		<control type="group">
 	
 			<include>GlobalBackground</include>
 
-<!-- Background Panel-->
-				<control type="image">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>100%</width>
-					<height>100%</height>
-					<texture border="5">diffuse/bgpanel.png</texture>
-                    <colordiffuse>$VAR[BingiePanelColor]</colordiffuse>
-                    <visible>!Skin.HasSetting(DialogVideoInfoHidePanel)</visible>
-					<aspectratio>stretch</aspectratio>
-				</control>
+			<!-- panel background -->
+			<control type="image">
+				<posy>0</posy>
+				<posx>0</posx>
+				<width>100%</width>
+				<height>100%</height>
+				<texture border="5">diffuse/panel2.png</texture>
+				<colordiffuse>$VAR[BingiePanelColor]</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			
+			<control type="image">
+				<visible>!Skin.HasSetting(ExtendedInfoHidePanel)</visible>
+                <include>FullscreenDimensions</include>
+				<texture background="true" fallback="special://skin/resources/background.jpg">$INFO[ListItem.Art(fanart)]</texture>
+				<colordiffuse>33ffffff</colordiffuse>
+				<aspectratio>scale</aspectratio>
+				<fadetime>400</fadetime>
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			</control>
 			
 			<control type="label">
-
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
                 <!-- actor name -->
-				<include>animation_fade_visible_hidden</include>
-				<posx>61</posx>
-				<posy>10</posy>
+				<posx>63</posx>
+				<posy>14</posy>
 				<width min="80" max="1400">auto</width>
 				<height>100</height>
 				<font>Bold45</font>
@@ -37,10 +47,11 @@
 				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
 			 </control>
 			 <control type="label">
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
                 <!-- actor name -->
-				<include>animation_fade_visible_hidden</include>
-				<posx>61</posx>
-				<posy>10</posy>
+				<posx>63</posx>
+				<posy>14</posy>
 				<width min="80" max="1400">auto</width>
 				<height>100</height>
 				<font>Bold45</font>
@@ -51,10 +62,11 @@
 				<visible>String.IsEmpty(Window.Property(Title))</visible>
 			 </control>
             <control type="label">
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
                 <!-- additional info subtitle -->
-				<include>animation_fade_visible_hidden</include>
 				<right>63</right>
-				<posy>10</posy>
+				<posy>14</posy>
 				<width min="80" max="1400">auto</width>
 				<height>100</height>
 				<font>Bold45</font>
@@ -66,8 +78,10 @@
 			</control>
 				
 			<control type="group">
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 				<visible>!Window.IsVisible(FileBrowser)</visible>
-				<include>animation_window_open_close</include>				
+				<posy>-9</posy>				
 				
 				<control type="group">
 					<!--Info Stuff-->
@@ -76,27 +90,23 @@
 						<bottom>0</bottom>
 						<width>100%</width>
 						<height>90</height>
-						<texture border="5">diffuse/panel.png</texture>
+						<texture>diffuse/panel2.png</texture>
 						<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-					</control>
-					
-					<control type="scrollbar" id="60">
-						<left>0</left>
-						<width>100%</width>
+					</control>	
+					<control type="image">
+						<posx>0</posx>
 						<bottom>0</bottom>
-						<height>80</height>
-						<onup>502</onup>
-						<onleft>60</onleft>
-						<onright>60</onright>
-						<orientation>horizontal</orientation>
-						<animation effect="fade" start="100" end="0" time="10" condition="true">Conditional</animation>
-					</control>
+						<width>100%</width>
+						<height>90</height>
+						<texture>diffuse/panel2.png</texture>
+						<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					</control>					
 
 					<!--Butons 9000-->			
 					<control type="grouplist" id="9000">
-						<posx>65</posx>
+						<posx>63</posx>
 						<bottom>15</bottom>
-						<width>1800</width>
+						<width>1794</width>
 						<height>60</height>
 						<itemgap>15</itemgap>
                         <onup condition="Control.IsVisible(140)">SetFocus(140)</onup>
@@ -109,6 +119,7 @@
                         <onup condition="Control.IsVisible(750)">SetFocus(750)</onup>
 						<onleft>9000</onleft>
 						<onright>9000</onright>
+						<ondown>9000</ondown>
 						<pagecontrol>60</pagecontrol>
 						<orientation>horizontal</orientation>
 						
@@ -124,21 +135,7 @@
 							<onclick>ClearProperty(AdditionalInfo)</onclick>
                             <onclick>ClearProperty(subtitle)</onclick>
 							<visible>!String.IsEmpty(Window.Property(AdditionalInfo))</visible>
-						</control>
-                        <control type="button" id="113">
-							<!--local media-->
-							<label>31657</label>
-							<width>285</width>
-							<height>60</height>
-							<align>center</align>
-							<textoffsetx>0</textoffsetx>
-							<onclick>SetProperty(AdditionalInfo, localmedia)</onclick>
-                            <onclick>SetProperty(subtitle, Local Media)</onclick>
-							<onclick>SetFocus(140)</onclick>
-							<visible>!String.IsEqual(Window.Property(AdditionalInfo),localmedia)</visible>
-                            <visible allowhiddenfocus="String.IsEmpty(Window.Property(AdditionalInfo))">Integer.IsGreater(Container(140).NumItems,0)</visible>
-						</control>
-						
+						</control>						
 						<control type="button" id="114">
 							<!--actor movies-->
 							<label>$ADDON[script.extendedinfo 32120]</label>
@@ -191,6 +188,19 @@
 							<visible>!String.IsEqual(Window.Property(AdditionalInfo),actortvcrew)</visible>
                             <visible>Integer.IsGreater(Container(650).NumItems,0)</visible>
 						</control>
+						<!-- <control type="button" id="113"> -->
+							<!-- local media -->
+							<!-- <label>31657</label> -->
+							<!-- <width>285</width> -->
+							<!-- <height>60</height> -->
+							<!-- <align>center</align> -->
+							<!-- <textoffsetx>0</textoffsetx> -->
+							<!-- <onclick>SetProperty(AdditionalInfo, localmedia)</onclick> -->
+                            <!-- <onclick>SetProperty(subtitle, Local Media)</onclick> -->
+							<!-- <onclick>SetFocus(140)</onclick> -->
+							<!-- <visible>!String.IsEqual(Window.Property(AdditionalInfo),localmedia)</visible> -->
+                            <!-- <visible>Integer.IsGreater(Container(140).NumItems,0)</visible> -->
+						<!-- </control> -->
                         <control type="button" id="118">
 							<!--youtube-->
 							<label>$ADDON[script.extendedinfo 32118]</label>
@@ -216,24 +226,13 @@
 							<visible>!String.IsEqual(Window.Property(AdditionalInfo),posters)</visible>
                             <onclick>SetProperty(subtitle, $ADDON[script.extendedinfo 32119])</onclick>
                             <visible>Integer.IsGreater(Container(450).NumItems,0)</visible>
-						</control>
-                 						
-						
-                        <control type="radiobutton" id="3052">
-                            <!--Hide panel behind moviedetails-->
-                            <label>31155</label>
-                            <width>530</width>
-                            <textoffsetx>20</textoffsetx>
-                            <align>left</align>
-                            <onclick>Skin.ToggleSetting(DialogVideoInfoHidePanel)</onclick>
-                            <selected>Skin.HasSetting(DialogVideoInfoHidePanel)</selected>
-                        </control>
+						</control>                					
 					</control>
 									
 					<!--Arrow-->
 						<control type="image">
 							<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-							<left>1880</left>
+							<left>1878</left>
 							<bottom>16</bottom>
 							<posy>50</posy>
 							<width>20</width>
@@ -246,7 +245,7 @@
 						</control>
 						<control type="image">
 							<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-							<left>35</left>
+							<left>22</left>
 							<bottom>16</bottom>
 							<posy>50</posy>
 							<width>20</width>
@@ -259,32 +258,31 @@
 						</control>
 						
 					<control type="group" id="9010">
-						<include>animation_window_open_close</include>
 
 						<!--Info-->
 						<control type="grouplist">
-							<posx>65</posx>
-							<posy>180</posy>
-							<width>1200</width>
+							<posx>63</posx>
+							<posy>179</posy>
+							<width>1238</width>
 							<height>700</height>
 							<orientation>vertical</orientation>
 							<visible>String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 							<control type="textbox">
 								<posx>0</posx>
 								<posy>0</posy>
-								<width>1200</width>
+								<width>1238</width>
 								<height>500</height>
 								<label fallback="19055">$INFO[Window.Property(Biography)]</label>
 								<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 								<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-								<align>justify</align>
+								<align>left</align>
 								<font>Reg26</font>
 							</control>
 							<control type="image">
-								<width>1200</width>
+								<width>1238</width>
 								<height>1</height>
 								<posy>10</posy>
-								<texture>colors/color_white.png</texture>
+								<texture>diffuse/panel2.png</texture>
 							</control>
 							<control type="image">
 								<width>1150</width>
@@ -297,12 +295,12 @@
 								<width>950</width>
 								<height>40</height>
 								<control type="image">
-									<posx>0</posx>
-									<posy>3</posy>
-									<width>49</width>
-									<height>49</height>
+									<posx>15</posx>
+									<posy>14</posy>
+									<width>28</width>
+									<height>30</height>
                                     <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
-									<texture>dialogs/videoinfo/premiered-icon.png</texture>
+									<texture>dialogs/videoinfo/calendar.png</texture>
 								</control>
 								<control type="label">
 									<posx>60</posx>
@@ -329,13 +327,12 @@
                                     <visible>!String.IsEmpty(Window.Property(Deathday))</visible>
 								</control>
 								<control type="image">
-									<posx>550</posx>
-									<posy>3</posy>
-									<width>49</width>
-									<height>49</height>
+									<posx>565</posx>
+									<posy>16</posy>
+									<width>28</width>
+									<height>28</height>
                                     <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
 									<texture>dialogs/videoinfo/location.png</texture>
-                                    <bordersize>8</bordersize>
 								</control>
 								<control type="label">
 									<posx>610</posx>
@@ -354,12 +351,12 @@
 								<width>530</width>
 								<height>40</height>
 								<control type="image">
-									<posx>0</posx>
-									<posy>5</posy>
-									<width>49</width>
-									<height>49</height>
+									<posx>14</posx>
+									<posy>14</posy>
+									<width>30</width>
+									<height>30</height>
                                     <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
-									<texture>dialogs/videoinfo/tvstudio-icon.png</texture>
+									<texture>dialogs/videoinfo/studio.png</texture>
 								</control>
 								<control type="label">
 									<posx>60</posx>
@@ -373,13 +370,12 @@
 									<scroll>false</scroll>
 								</control>
 								<control type="image">
-									<posx>550</posx>
-									<posy>2</posy>
-									<width>49</width>
-									<height>49</height>
+									<posx>565</posx>
+									<posy>17</posy>
+									<width>28</width>
+									<height>28</height>
                                     <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
-									<texture>dialogs/videoinfo/home.png</texture>
-                                    <bordersize>8</bordersize>
+									<texture>dialogs/videoinfo/home-icon.png</texture>
 								</control>
 								<control type="label">
 									<posx>610</posx>
@@ -398,99 +394,98 @@
                         <control type="image">
 							<!--poster-->
 							<right>63</right>
-							<posy>180</posy>
-							<width>544</width>
-							<height>737</height>
-							<aspectratio align="right" aligny="top" scalediffuse="true">keep</aspectratio>
-							<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png" border="5">$INFO[Window.Property(thumb)]</texture>
+							<posy>179</posy>
+							<width>493</width>
+							<height>740</height>
+							<aspectratio align="center" aligny="center" scalediffuse="true">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/poster3.png" fallback="defaultactorposter.png" border="5">$INFO[Window.Property(thumb)]</texture>
 						</control>
                     </control>
 					
 					<!--Additional Info List-->
 					<control type="group">
-						<include>animation_window_open_close</include>
                         <!-- local media -->
-                        <control type="panel" id="140">
-                            <posx>55</posx>
-							<posy>172</posy>
-							<width>1200</width>
-							<height>760</height>
-							<ondown>9000</ondown>
-							<onleft>ClearProperty(AdditionalInfo)</onleft>
-							<onback>ClearProperty(AdditionalInfo)</onback>
-							<onleft>SetFocus(9000)</onleft>
-							<scrolltime>200</scrolltime>
-							<orientation>vertical</orientation>
-							<focusposition>0</focusposition>
-							<viewtype label="actor list">list</viewtype>
-                            <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),localmedia)</visible>
-                            <itemlayout height="380" width="240">
-                                <control type="group">
-                                    <width>232</width>
-                                    <height>322</height>
-                                    <include>PosterPanelLayout</include>
-                                  </control>
-								  <control type="group">
-									<left>0</left>
-									<top>302</top>
-									<control type="label">
-										<width>232</width>
-										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
-										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
-										<align>center</align>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-									</control>
-									<control type="label">
-										<top>25</top>
-										<width>232</width>
-										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
-										<textoffsetx>10</textoffsetx>
-										<scroll>false</scroll>
-										<align>center</align>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-									</control>
-								</control>
-                            </itemlayout>
-                            <focusedlayout height="380" width="240">
-                                <control type="group">
-                                    <width>232</width>
-                                    <height>322</height>
-                                    <include>PosterPanelLayoutFocus</include>
-                                  </control>
-								  <control type="group">
-									<left>0</left>
-									<top>302</top>
-									<control type="label">
-										<width>232</width>
-										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
-										<textoffsetx>10</textoffsetx>
-										<scroll>true</scroll>
-										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
-									</control>
-									<control type="label">
-										<top>25</top>
-										<width>232</width>
-										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
-										<textoffsetx>10</textoffsetx>
-										<scroll>true</scroll>
-										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
-									</control>
-								</control>
-                            </focusedlayout>
-                            <content>plugin://script.skin.helper.service/?action=getcastmedia&amp;name=$INFO[Window.Property(Title)]</content>
-                        </control>
+                        <!-- <control type="panel" id="140"> -->
+                            <!-- <posx>55</posx> -->
+							<!-- <posy>171</posy> -->
+							<!-- <width>1280</width> -->
+							<!-- <height>760</height> -->
+							<!-- <ondown>9000</ondown> -->
+							<!-- <onleft>ClearProperty(AdditionalInfo)</onleft> -->
+							<!-- <onback>ClearProperty(AdditionalInfo)</onback> -->
+							<!-- <onleft>SetFocus(9000)</onleft> -->
+							<!-- <scrolltime>200</scrolltime> -->
+							<!-- <orientation>vertical</orientation> -->
+							<!-- <focusposition>0</focusposition> -->
+							<!-- <viewtype label="actor list">list</viewtype> -->
+                            <!-- <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),localmedia)</visible> -->
+                            <!-- <itemlayout height="380" width="256"> -->
+                                <!-- <control type="group"> -->
+                                    <!-- <width>232</width> -->
+                                    <!-- <height>322</height> -->
+                                    <!-- <include>PosterPanelExtendedInfo</include> -->
+                                  <!-- </control> -->
+								  <!-- <control type="group"> -->
+									<!-- <left>-2</left> -->
+									<!-- <top>302</top> -->
+									<!-- <control type="label"> -->
+										<!-- <width>236</width> -->
+										<!-- <label>$INFO[ListItem.Label]</label> -->
+										<!-- <font>reg22</font> -->
+										<!-- <textoffsetx>10</textoffsetx> -->
+										<!-- <scroll>false</scroll> -->
+										<!-- <align>center</align> -->
+										<!-- <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor> -->
+									<!-- </control> -->
+									<!-- <control type="label"> -->
+										<!-- <top>27</top> -->
+										<!-- <width>236</width> -->
+										<!-- <label>$INFO[ListItem.Year]</label> -->
+										<!-- <font>reg22</font> -->
+										<!-- <textoffsetx>10</textoffsetx> -->
+										<!-- <scroll>false</scroll> -->
+										<!-- <align>center</align> -->
+										<!-- <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor> -->
+									<!-- </control> -->
+								<!-- </control> -->
+                            <!-- </itemlayout> -->
+                            <!-- <focusedlayout height="380" width="256"> -->
+                                <!-- <control type="group"> -->
+                                    <!-- <width>232</width> -->
+                                    <!-- <height>322</height> -->
+                                    <!-- <include>PosterPanelExtendedInfoFocus</include> -->
+                                  <!-- </control> -->
+								  <!-- <control type="group"> -->
+									<!-- <left>-2</left> -->
+									<!-- <top>302</top> -->
+									<!-- <control type="label"> -->
+										<!-- <width>236</width> -->
+										<!-- <label>$INFO[ListItem.Label]</label> -->
+										<!-- <font>reg22</font> -->
+										<!-- <textoffsetx>10</textoffsetx> -->
+										<!-- <scroll>true</scroll> -->
+										<!-- <align>center</align> -->
+										<!-- <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor> -->
+									<!-- </control> -->
+									<!-- <control type="label"> -->
+										<!-- <top>27</top> -->
+										<!-- <width>236</width> -->
+										<!-- <label>$INFO[ListItem.Year]</label> -->
+										<!-- <font>reg22</font> -->
+										<!-- <textoffsetx>10</textoffsetx> -->
+										<!-- <scroll>true</scroll> -->
+										<!-- <align>center</align> -->
+										<!-- <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor> -->
+									<!-- </control> -->
+								<!-- </control> -->
+                            <!-- </focusedlayout> -->
+                            <!-- <content>plugin://script.skin.helper.service/?action=getcastmedia&amp;name=$INFO[Window.Property(Label)]</content> -->
+                        <!-- </control> -->
                         <!-- actor movies -->
                         <control type="panel" id="150">
                             <posx>55</posx>
-							<posy>172</posy>
-							<width>1200</width>
+							<posy>171</posy>
+							<width>1280</width>
 							<height>760</height>
 							<ondown>9000</ondown>
 							<onleft>ClearProperty(AdditionalInfo)</onleft>
@@ -501,29 +496,29 @@
 							<focusposition>0</focusposition>
 							<viewtype label="actor list">list</viewtype>
                             <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),actormovies)</visible>
-                            <itemlayout height="380" width="240">
+                            <itemlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayout</include>
+                                    <include>PosterPanelExtendedInfo</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
 										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
@@ -531,42 +526,42 @@
 									</control>
 								</control>
                             </itemlayout>
-                            <focusedlayout height="380" width="240">
+                            <focusedlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayoutFocus</include>
+                                    <include>PosterPanelExtendedInfoFocus</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
                         </control>
-                                         <!-- actor shows -->
+                        <!-- actor shows -->
                         <control type="panel" id="250">
                             <posx>55</posx>
-							<posy>172</posy>
-							<width>1200</width>
+							<posy>171</posy>
+							<width>1280</width>
 							<height>760</height>
 							<ondown>9000</ondown>
 							<onleft>ClearProperty(AdditionalInfo)</onleft>
@@ -577,29 +572,29 @@
 							<focusposition>0</focusposition>
 							<viewtype label="actor list">list</viewtype>
                             <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),actorshows)</visible>
-                            <itemlayout height="380" width="240">
+                            <itemlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayout</include>
+                                    <include>PosterPanelExtendedInfo</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
 										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
@@ -607,42 +602,42 @@
 									</control>
 								</control>
                             </itemlayout>
-                            <focusedlayout height="380" width="240">
+                            <focusedlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayoutFocus</include>
+                                    <include>PosterPanelExtendedInfoFocus</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
                         </control>
-                                          <!-- actor movie crew -->
+                        <!-- actor movie crew -->
                         <control type="panel" id="550">
                             <posx>55</posx>
-							<posy>172</posy>
-							<width>1200</width>
+							<posy>171</posy>
+							<width>1280</width>
 							<height>760</height>
 							<ondown>9000</ondown>
 							<onleft>ClearProperty(AdditionalInfo)</onleft>
@@ -653,29 +648,29 @@
 							<focusposition>0</focusposition>
 							<viewtype label="actor list">list</viewtype>
                             <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),actorcrew)</visible>
-                            <itemlayout height="380" width="240">
+                            <itemlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayout</include>
+                                    <include>PosterPanelExtendedInfo</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
 										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
@@ -683,42 +678,42 @@
 									</control>
 								</control>
                             </itemlayout>
-                            <focusedlayout height="380" width="240">
+                            <focusedlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayoutFocus</include>
+                                    <include>PosterPanelExtendedInfoFocus</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
                         </control>
-                                          <!-- actor tv crew -->
+                        <!-- actor tv crew -->
                         <control type="panel" id="650">
                             <posx>55</posx>
-							<posy>172</posy>
-							<width>1200</width>
+							<posy>171</posy>
+							<width>1280</width>
 							<height>760</height>
 							<ondown>9000</ondown>
 							<onleft>ClearProperty(AdditionalInfo)</onleft>
@@ -729,29 +724,29 @@
 							<focusposition>0</focusposition>
 							<viewtype label="actor list">list</viewtype>
                             <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),actortvcrew)</visible>
-                            <itemlayout height="380" width="240">
+                            <itemlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayout</include>
+                                    <include>PosterPanelExtendedInfo</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
 										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
@@ -759,42 +754,42 @@
 									</control>
 								</control>
                             </itemlayout>
-                            <focusedlayout height="380" width="240">
+                            <focusedlayout height="380" width="256">
                                 <control type="group">
                                     <width>232</width>
                                     <height>322</height>
-                                    <include>PosterPanelLayoutFocus</include>
+                                    <include>PosterPanelExtendedInfoFocus</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
+									<left>-2</left>
 									<top>302</top>
 									<control type="label">
-										<width>232</width>
+										<width>236</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>232</width>
+										<top>27</top>
+										<width>236</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
                         </control>
  
-                                          <!-- posters -->
+                        <!-- posters -->
                         <control type="panel" id="450">
                             <posx>55</posx>
-							<posy>172</posy>
+							<posy>171</posy>
 							<width>1300</width>
 							<height>778</height>
 							<ondown>9000</ondown>
@@ -806,24 +801,23 @@
 							<focusposition>0</focusposition>
 							<viewtype label="actor list">list</viewtype>
                             <visible allowhiddenfocus="true">String.IsEqual(Window.Property(AdditionalInfo),posters)</visible>
-                            <itemlayout height="389" width="257">
+                            <itemlayout height="390" width="257">
                                 <control type="group">
-                                    <width>250</width>
-                                    <height>364</height>
-                                    <include>PosterPanelLayout</include>
+                                    <width>249</width>
+                                    <height>366</height>
+                                    <include>PosterPanelExtendedInfo</include>
                                   </control>
                             </itemlayout>
-                            <focusedlayout height="389" width="257">
+                            <focusedlayout height="390" width="257">
                                 <control type="group">
-                                    <width>250</width>
-                                    <height>364</height>
-                                    <include>PosterPanelLayoutFocus</include>
+                                    <width>249</width>
+                                    <height>366</height>
+                                    <include>PosterPanelExtendedInfoFocus</include>
                                   </control>
                             </focusedlayout>
                         </control>
-                                     </control>
-
-                                 				</control>
+                    </control>
+				</control>
 			</control>
 		</control>
 	</controls>

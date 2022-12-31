@@ -61,7 +61,7 @@
             <posy>0</posy>
             <width>1800</width>
             <height>120</height>
-            <texture border="15">diffuse/bgpanel.png</texture>
+            <texture border="15">diffuse/panel2.png</texture>
 			<colordiffuse>$INFO[Skin.String(FooterPanelColor)]</colordiffuse>
 			<visible>Skin.HasTheme(classic)</visible>
         </control>
@@ -70,7 +70,7 @@
             <posy>0</posy>
             <width>1800</width>
             <height>120</height>
-            <texture border="15">diffuse/bgpanel.png</texture>
+            <texture border="15">diffuse/panel2.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			<visible>Skin.HasTheme(modern_rounded)</visible>
         </control>
@@ -79,8 +79,8 @@
 			<posx>0</posx>
 			<bottom>0</bottom>
 			<width>100%</width>
-			<height>110</height>
-			<texture border="15">diffuse/bgpanel.png</texture>
+			<height>112</height>
+			<texture border="15">diffuse/panel2.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			<visible>Skin.HasTheme(skindefault)</visible>
 		</control>
@@ -88,20 +88,21 @@
 		
         <!--Menu-Label-->
 		<control type="label">
-			<posx>130</posx>
+			<posx>137</posx>
+			<posy>-2</posy>
 			<label>$INFO[Container(3110).ListItem.Label]</label>
 			<width>560</width>
 			<height>110</height>
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>Reg42</font>
-			<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+			<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
 			<animation effect="fade" time="250" delay="250">Visible</animation>
         </control>
         <!--Button Grouplist-->
         <control type="list" id="3110">
-            <posx>720</posx>
-            <posy>25</posy>
+            <posx>590</posx>
+            <posy>24</posy>
             <width>1130</width>
             <height>75</height>
             <align>center</align>
@@ -118,7 +119,7 @@
 					<width>64</width>
 					<height>64</height>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+					<colordiffuse>$INFO[Skin.String(MainMenuFocusButtonColor)]</colordiffuse>
                     <animation end="50" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
 				</control>
 			</itemlayout>
@@ -127,7 +128,7 @@
 					<width>64</width>
 					<height>64</height>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
+					<colordiffuse>$INFO[Skin.String(MainMenuFocusButtonColor)]</colordiffuse>
 				</control>
 			</focusedlayout>
 			<content>

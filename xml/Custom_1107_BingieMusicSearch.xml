@@ -25,16 +25,30 @@
         </control>
 
         <!-- ########## Left Layout ########## -->
+		<!-- VirtualKeyboardLabel -->
+		<control type="group">
+			<include>SearchSuggestionsAnim</include>		
+            <control type="label">
+				<top>11</top>
+				<left>137</left>
+                <width>auto</width>
+				<font>Reg32</font>
+                <label>Press up for full keyboard</label>
+				<visible>Skin.HasSetting(EnableBingieSearchFullKeyboard)</visible>				
+            </control>
+		</control>
         <!-- Pseudo-Keyboard Layout -->
         <control type="grouplist" id="9000">
             <include>SearchSuggestionsAnim</include>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
-            <top>65</top>
-            <left>90</left>
+            <top>80</top>
+            <left>130</left>
             <height>500</height>
             <orientation>vertical</orientation>
             <itemgap>-10</itemgap>
             <defaultcontrol>101</defaultcontrol>
+			<onup condition="Skin.HasSetting(EnableBingieSearchFullKeyboard)">Skin.SetString(CustomSearchTerm)</onup>
+			<onup condition="Skin.HasSetting(EnableBingieSearchFullKeyboard)">SetProperty(CustomSearch,1,home)</onup>
             <onup>9900</onup>
             <ondown>1007</ondown>
             <onright condition="!Integer.IsGreater(Container(77777).NumItems,0)">9900</onright>
@@ -93,21 +107,21 @@
         <include content="Search_Suggestions_Container">
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
-            <param name="top" value="590" />
-            <param name="left" value="90" />
-            <param name="width" value="420" />
-            <param name="height" value="894" />
+            <param name="top" value="605" />
+            <param name="left" value="130" />
+            <param name="width" value="421" />
+            <param name="height" value="910" />
             <param name="onitemfocus" value="" />
             <param name="onitemfocus2" value="" />
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
-            <content>$VAR[SearchAutoCompleteContentProvider]</content>
+            <content condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.program.autocompletion)">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
         </include>
 
         <!--- ########## Right Layout ########## -->
         <control type="grouplist" id="9900">
-            <left>620</left>
-            <top>33</top>
+            <left>648</left>
+            <top>32</top>
             <height>70</height>
             <width>1215</width>
             <orientation>horizontal</orientation>
@@ -117,21 +131,10 @@
             <onback>9000</onback>
             <ondown condition="Integer.IsGreater(Container(77777).NumItems,0)">77777</ondown>
             <ondown condition="!Integer.IsGreater(Container(77777).NumItems,0)">9000</ondown>
-            <!-- VirtualKeyboard -->
-            <control type="button" id="990">
-                <aligny>top</aligny>
-                <width>60</width>
-                <height>60</height>
-                <label/>
-                <onclick>Skin.SetString(CustomSearchTerm)</onclick>
-                <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">bingie/keyboard/keyboard.png</texturefocus>
-                <texturenofocus colordiffuse="$INFO[Skin.String(BingieSecondaryTextColor)]">bingie/keyboard/keyboard.png</texturenofocus>
-                <visible>Skin.HasSetting(EnableBingieSearchFullKeyboard)</visible>
-            </control>
             <!-- Search Term -->
             <control type="label">
                 <visible>!$EXP[IsActualKeyboardActive]</visible>
-                <top>7</top>
+                <top>5</top>
                 <width>1130</width>
                 <height>70</height>
                 <font>Reg42</font>
@@ -144,7 +147,7 @@
         <!-- Initial Msg / No Results Label -->
         <control type="label">
             <top>280</top>
-            <left>615</left>
+            <left>620</left>
             <width>1220</width>
             <height>auto</height>
             <font>Reg42</font>
@@ -156,10 +159,48 @@
             <visible>!Container(77777).IsUpdating + !Integer.IsGreater(Container(77777).NumItems,0)</visible>
         </control>
 
+<!-- Widget Top Label -->
+        <control type="group">
+            <top>107</top>
+            <left>643</left>
+            <width>1220</width>
+            <height>auto</height>			
+			<!-- Search Music Videos Widget -->
+			<include content="SearchResultWidgetTopLabel">
+				<param name="groupid" value="5900" />
+				<param name="id" value="590" />
+				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31580] &quot;,&quot;]" />
+				<visible>Control.HasFocus(590) + !Container(590).IsUpdating</visible>
+			</include>	
+			<!-- Search Albums Widget -->
+			<include content="SearchResultWidgetTopLabel">
+				<param name="groupid" value="6100" />
+				<param name="id" value="610" />
+				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31593] &quot;,&quot;]" />
+				<visible>Control.HasFocus(610) + !Container(610).IsUpdating</visible>
+			</include>	
+			<!-- Search Artists Widget -->
+			<include content="SearchResultWidgetTopLabel">
+				<param name="groupid" value="6200" />
+				<param name="id" value="620" />
+				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31081] &quot;,&quot;]" />
+				<visible>Control.HasFocus(620) + !Container(620).IsUpdating</visible>
+			</include>
+			<!-- Search Songs Widget -->
+			<include content="SearchResultWidgetTopLabel">
+				<param name="groupid" value="6300" />
+				<param name="id" value="630" />
+				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31082] &quot;,&quot;]" />
+				<visible>Control.HasFocus(630) + !Container(630).IsUpdating</visible>
+			</include>
+			</control>
+
         <!-- Results -->
-        <control type="grouplist" id="77777">
-            <top>125</top>
-            <left>615</left>
+        <control type="grouplist" id="77777">		
+			<animation effect="slide" start="0" end="0,-45" condition="!ControlGroup(77777).HasFocus() | [Control.HasFocus(900) + !String.IsEmpty(Window.Property(KeepSuggestions))]">Conditional</animation>
+            <top>152</top>
+            <left>641</left>
+			<height>975</height>
             <orientation>vertical</orientation>
             <pagecontrol>666</pagecontrol>
             <onright>666</onright>
@@ -169,21 +210,29 @@
             <ondown>SetProperty(BounceDown,1,Home)</ondown>
             <include>Bounce_Down</include>
             <!-- Search Music Videos By Name -->
-            <include content="MusicVideosSearchResultWidget" condition="Library.HasContent(musicvideos)">
+            <include content="MusicVideosSearchResultWidget" condition="Library.HasContent(musicvideos) + Skin.HasSetting(EnableBingieSearchMusicVideos)">
                 <param name="id" value="590" />
             </include>
             <!-- Search Music Albums By Name -->
-            <include content="AlbumsSearchResultWidget" condition="Library.HasContent(music)">
+            <include content="AlbumsSearchResultWidget" condition="Library.HasContent(music) + Skin.HasSetting(EnableBingieSearchMusic)">
                 <param name="id" value="610" />
             </include>
             <!-- Search Artists By Name -->
-            <include content="ArtistsSearchResultWidget" condition="Library.HasContent(music)">
+            <include content="ArtistsSearchResultWidget" condition="Library.HasContent(music) + Skin.HasSetting(EnableBingieSearchMusic)">
                 <param name="id" value="620" />
             </include>
             <!-- Search Songs By Name -->
-            <include content="SongsSearchResultWidget" condition="Library.HasContent(music)">
+            <include content="SongsSearchResultWidget" condition="Library.HasContent(music) + Skin.HasSetting(EnableBingieSearchMusic)">
                 <param name="id" value="630" />
             </include>
         </control>
+		
+		<!-- Loading Suggestions -->
+        <include content="Busy_Spinner">
+            <param name="centerleft" value="65%"/>
+            <param name="centertop" value="50%"/>
+            <param name="visibility" value="[Control.HasFocus(1007) + Container(500).IsUpdating] | [Container(590).IsUpdating | Container(610).IsUpdating | Container(620).IsUpdating | Container(630).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
+            <param name="size" value="100"/>
+        </include>
 	</controls>
 </window>

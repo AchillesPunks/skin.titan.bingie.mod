@@ -6,7 +6,6 @@
 		
         <control type="group">
             <!-- default animation -->
-			<include>animation_window_open_close</include>
             <visible>!Player.HasVideo</visible>
 			<include>GlobalBackground</include>
 			
@@ -16,14 +15,25 @@
 				<posx>0</posx>
 				<width>100%</width>
 				<height>100%</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="5">diffuse/panel2.png</texture>
 				<colordiffuse>$VAR[BingiePanelColor]</colordiffuse>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			
+			<control type="image">
+				<visible>!Skin.HasSetting(ExtendedInfoHidePanel)</visible>
+                <include>FullscreenDimensions</include>
+				<texture background="true" fallback="special://skin/resources/background.jpg">$INFO[ListItem.Art(fanart)]</texture>
+				<colordiffuse>33ffffff</colordiffuse>
+				<aspectratio>scale</aspectratio>
+				<fadetime>400</fadetime>
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			</control>
+			
 			<control type="label">
-				<posx>61</posx>
-				<posy>10</posy>
+				<posx>65</posx>
+				<posy>14</posy>
 				<width min="80" max="1400">auto</width>
 				<height>100</height>
 				<font>Bold45</font>
@@ -32,10 +42,12 @@
 				<label>$INFO[Window.Property(Filter_Label)]</label>
 				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
 				<visible>!String.IsEmpty(Window.Property(Filter_Label))</visible>
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 			</control>
 			<control type="label">
-				<posx>61</posx>
-				<posy>10</posy>
+				<posx>65</posx>
+				<posy>14</posy>
 				<width min="80" max="1400">auto</width>
 				<height>100</height>
 				<font>Bold45</font>
@@ -44,29 +56,30 @@
 				<label>$INFO[System.AddonTitle(script.extendedinfo)]</label>
 				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
 				<visible>String.IsEmpty(Window.Property(Filter_Label))</visible>
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 			</control>
 			 <control type="label">
-				<posy>85</posy>
-				<posx>61</posx>
+				<posy>89</posy>
+				<posx>65</posx>
 				<width min="0" max="1100">auto</width>
 				<height>50</height>
 				<label>$INFO[Window.Property(TotalItems),$ADDON[script.extendedinfo 32124]: ]$INFO[Window.Property(CurrentPage), - $ADDON[script.extendedinfo 32125]: ]$INFO[Window.Property(TotalPages), / ]</label>
 				<font>Reg30</font>
 				<textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
-				<include>animation_fade_visible_hidden</include>
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 			</control>
-			
-			<include condition="!String.IsEqual(Skin.String(general_header),disable)">TimeInfo</include>
-     			<include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
-			
-			
+						
 			<!-- movie items -->
             <control type="panel" id="500">
-                <posx>56</posx>
-                <posy>180</posy>
+				<animation effect="fade" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+                <posx>58</posx>
+                <posy>172</posy>
                 <width>1820</width>
-                <height>850</height>
+                <height>870</height>
                 <viewtype label="31234">icon</viewtype>
                 <pagecontrol>72</pagecontrol>
                 <preloaditems>2</preloaditems>
@@ -76,29 +89,29 @@
                 <onup>700</onup>
                 <ondown>600</ondown>
                 <orientation>vertical</orientation>
-                <itemlayout height="421" width="260">
+                <itemlayout height="434" width="260">
                                 <control type="group">
                                     <width>244</width>
-                                    <height>338</height>
-                                    <include>PosterPanelLayout</include>
+                                    <height>340</height>
+                                    <include>PosterPanelExtendedInfo</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
-									<top>318</top>
+									<left>-2</left>
+									<top>320</top>
 									<control type="label">
-										<width>244</width>
+										<width>248</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
 										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>244</width>
+										<top>27</top>
+										<width>248</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>false</scroll>
 										<align>center</align>
@@ -106,33 +119,33 @@
 									</control>
 								</control>
                             </itemlayout>
-                            <focusedlayout height="421" width="260">
+                            <focusedlayout height="434" width="260">
                                 <control type="group">
                                     <width>244</width>
-                                    <height>338</height>
-                                    <include>PosterPanelLayoutFocus</include>
+                                    <height>340</height>
+                                    <include>PosterPanelExtendedInfoFocus</include>
                                   </control>
 								  <control type="group">
-									<left>0</left>
-									<top>318</top>
+									<left>-2</left>
+									<top>320</top>
 									<control type="label">
-										<width>244</width>
+										<width>248</width>
 										<label>$INFO[ListItem.Label]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 									<control type="label">
-										<top>25</top>
-										<width>244</width>
+										<top>27</top>
+										<width>248</width>
 										<label>$INFO[ListItem.Year]</label>
-										<font>font10</font>
+										<font>reg22</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
 										<align>center</align>
-										<textcolor>FFE8E8E8</textcolor>
+										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 									</control>
 								</control>
                             </focusedlayout>
@@ -163,27 +176,8 @@
 			<visible>!Window.IsActive(virtualkeyboard)</visible>
 			<include condition="Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
 			<include condition="![Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)]">SideBladeModern</include>
-			<control type="image">
-				<!--Seperator-->
-				<posx>21</posx>
-				<posy>160</posy>
-				<width>458</width>
-				<height>20</height>
-				<align>left</align>
-				<texture>common/menu-separator.png</texture>
-			</control>
-			<control type="image">
-				<!--Seperator-->
-				<posx>21</posx>
-				<posy>980</posy>
-				<width>458</width>
-				<height>20</height>
-				<align>left</align>
-				<texture>common/menu-separator.png</texture>
-			</control>
             <!-- close dialog -->
             <control type="group">
-                <include>animation_fade_visible_hidden</include>
                 <posx>60</posx>
 				<posy>1005</posy>
                 <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
@@ -193,7 +187,7 @@
                 <posx>21</posx>
                 <posy>190</posy>
                 <width>458</width>
-                <height>750</height>
+                <height>755</height>
                 <itemgap>3</itemgap>
                 <onleft>500</onleft>
                 <onright>500</onright>
@@ -245,6 +239,10 @@
                     <label>$LOCALIZE[572]</label>
                     <include>SideBladeMenuButton</include>
                 </control>
+				<control type="button" id="5011">
+                    <label>$LOCALIZE[2050]</label>
+                    <include>SideBladeMenuButton</include>
+                </control>
                 <control type="button" id="5012">
                     <label>$ADDON[script.extendedinfo 32111]</label>
                     <include>SideBladeMenuButton</include>
@@ -256,10 +254,6 @@
 				<control type="button" id="6000">
 					<label>$LOCALIZE[19140]</label>
 					<include>SideBladeMenuButton</include>
-				</control>
-				<control type="radiobutton" id="7000">
-					<include>SideBladeMenuButton</include>
-					<label>$ADDON[script.extendedinfo 32024]</label>
 				</control>
 			</control>
 		</control>	

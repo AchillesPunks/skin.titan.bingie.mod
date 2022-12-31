@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol always="true">1297</defaultcontrol>
+    <controls>
+		<control type="image">
+            <texture background="true" colordiffuse="ff000000">diffuse/panel2.png</texture>
+        </control> 
+
+        <control type="list" id="1297">
+            <content sortby="random">$VAR[ScreensaverWidget]</content>
+            <autoscroll time="10000">true</autoscroll>
+            <orientation>horizontal</orientation>
+            <itemlayout />
+            <focusedlayout />
+        </control>
+
+        <control type="image">
+            <fadetime>1000</fadetime>
+            <width>2160</width>
+            <height>1215</height>
+            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>           
+            <animation effect="slide" start="-240,0" end="0,0" time="10000" tween="linear" easing="out" pulse="true" condition="!Container(1297).IsUpdating">Conditional</animation>
+        </control>
+
+        <control type="group">
+            <visible>Container(1297).IsUpdating</visible>
+            <include>Busy_Spinner</include>
+        </control>
+		
+		<control type="image">
+			<visible>!Container(1297).IsUpdating</visible>
+            <width>1920</width>
+            <height>1080</height>
+            <texture background="true">overlays/gradient_screensaver.png</texture>           
+        </control>
+
+        <control type="group">
+            <visible>!Container(1297).IsUpdating</visible> 						
+                <control type="image">
+                    <left>60</left>
+                    <bottom>60</bottom>
+                    <aspectratio align="left" aligny="center">keep</aspectratio>
+                    <height>310</height>
+					<width>800</width>
+                    <fadetime>1000</fadetime>
+                    <texture background="true">$VAR[ScreensaverWidgetClearlogo]</texture>
+                </control>
+        </control>				
+
+		<control type="group">
+            <visible>!Container(1297).IsUpdating</visible>
+			<control type="image">
+				<visible>Skin.HasSetting(EnableNetflixLogo)</visible>
+				<description>Netflix logo</description>
+				<left>1604</left>
+				<top>905</top>
+				<width>0</width>
+				<height>165</height>
+				<visible></visible>
+				<aspectratio align="left">keep</aspectratio>
+				<texture>home/netflix_logo.png</texture>
+				<colordiffuse></colordiffuse>
+			</control>
+		</control>
+
+		<control type="image" id="1298">
+            <fadetime>1000</fadetime>
+            <width>1</width>
+            <height>1</height>
+            <top>-1000</top>
+            <left>-1000</left>
+            <texture />
+        </control>
+		
+		<!-- Snow Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablesnow)">snow</include>
+        </control>
+		<!-- Halloween Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablepumpkins)">pumpkin</include>
+        </control>
+
+    </controls>
+</window>

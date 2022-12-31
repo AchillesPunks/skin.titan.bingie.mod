@@ -30,50 +30,40 @@
 				</control>
 				<!-- Background Panel TITLEBAR-->
 				<control type="image">
-					<posx>50</posx>
+					<posx>70</posx>
 					<posy>330</posy>
-					<width>1820</width>
+					<width>1780</width>
 					<height>60</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				</control>
-                <control type="image">
-					<posx>50</posx>
-					<posy>330</posy>
-					<width>1820</width>
-					<height>60</height>
-					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				</control>
-	
+					<colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>
+				</control>	
             </control>
             <control type="group">
-                <visible>!String.IsEmpty(ListItem.Date)</visible>
                 <posx>80</posx>
                 <posy>90</posy>
                 <control type="image">
                     <!--Background-->
-                    <posx>0</posx>
-                    <posy>0</posy>
+                    <posx>-10</posx>
+                    <posy>-1</posy>
                     <width>350</width>
                     <height>200</height>
-                    <texture fallback="DefaultAddonTvInfo.png" diffuse="home/home_matte2.png">$VAR[PVRThumb]</texture>
-                    <aspectratio align="left">keep</aspectratio>
+                    <texture fallback="DefaultAddonTvInfo.png">$VAR[PVRThumb]</texture>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
                     <visible>![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)]</visible>
                 </control>
             <!-- black background behind video -->
                 <control type="image">
                     <texture>colors/color_black.png</texture>
-                    <posx>0</posx>
-                    <posy>0</posy>
+                    <posx>-10</posx>
+                    <posy>-1</posy>
                     <width>350</width>
-                    <height>200</height>
+                    <height>196</height>
                     <visible>VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)</visible>
                 </control>
 				<!--Video Window -->
                 <control type="videowindow">
-                   <posx>0</posx>
-                    <posy>0</posy>
+                   <posx>-10</posx>
+                    <posy>-1</posy>
                     <width>350</width>
                     <height>200</height>
                     <visible>VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)</visible>
@@ -81,7 +71,7 @@
             </control>
             <control type="label">
                 <!--Title-->
-                <posx>450</posx>
+                <posx>440</posx>
                 <posy>90</posy>
                 <width>650</width>
                 <height>50</height>
@@ -92,7 +82,7 @@
             </control>
             <control type="grouplist">
                 <!--Start, End, Duration-->
-                <posx>450</posx>
+                <posx>440</posx>
                 <posy>145</posy>
                 <control type="group">
                     <!-- Ground 1 -->
@@ -183,9 +173,9 @@
             <control type="textbox">
                 <!--Info Plot-->
                 <posx>1150</posx>
-                <posy>100</posy>
+                <posy>102</posy>
                 <width>650</width>
-                <height>198</height>
+                <height>188</height>
                 <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                 <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                 <label fallback="195">$VAR[Plots]</label>
@@ -323,7 +313,7 @@
                         <posy>0</posy>
                         <width>100%</width>
                         <height>80</height>
-                        <texture diffuse="diffuse/panel.png" border="5" colordiffuse="$VAR[ViewDetailsFocusColor]">diffuse/panel.png</texture>
+                        <texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ViewDetailsFocusColor)]">diffuse/panel.png</texture>
                     </control>
                     <control type="label">
                         <!--Channel Number-->
@@ -398,9 +388,9 @@
             <!--vertical Scollbar-->
             <control type="scrollbar" id="60">
                 <visible>Control.IsVisible(10) + Integer.IsGreater(Container.NumItems,0)</visible>
-                <right>15</right>
-                <posy>440</posy>
-                <height>400</height>
+                <right>10</right>
+                <posy>410</posy>
+                <height>500</height>
                 <onup>60</onup>
                 <ondown>6000</ondown>
                 <onleft>10</onleft>

@@ -26,8 +26,8 @@
                 <posy>0</posy>
                 <width>1340</width>
                 <height>100%</height>
-				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<texture>diffuse/panel2.png</texture>
+				<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>
             </control>
             <!-- close dialog -->
             <control type="group">
@@ -41,7 +41,7 @@
            <!--Header-->
             <control type="label">
                 <description>Heading</description>
-                <posx>680</posx>
+                <posx>675</posx>
                 <posy>10</posy>
                 <width>1200</width>
 				<font>Bold40</font>
@@ -52,9 +52,9 @@
             </control>
             <control type="group" id="1000">
                 <description>Control Area</description>
-                <posx>680</posx>
+                <posx>675</posx>
                 <posy>120</posy>
-                <width>1180</width>
+                <width>1200</width>
                 <height>800</height>
                 <include>SkinSettings_Shortcuts</include>
                 <include>SkinSettings_Library</include>
@@ -70,7 +70,8 @@
             </control>
             <!--Button Group-->
             <control type="grouplist" id="2000">
-                <posx>670</posx>
+				<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!ControlGroup(2000).HasFocus()">Conditional</animation>
+                <posx>675</posx>
                 <posy>940</posy>
 				<orientation>horizontal</orientation>
 				<itemgap>0</itemgap>
@@ -92,8 +93,9 @@
             <!--Arrows-->
             <control type="image">
                 <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-                <right>10</right>
-                <bottom>72</bottom>
+				<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!ControlGroup(2000).HasFocus()">Conditional</animation>
+                <right>17</right>
+                <bottom>70</bottom>
                 <posy>50</posy>
                 <width>20</width>
                 <height>60</height>
@@ -105,8 +107,9 @@
             </control>
             <control type="image">
                 <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-                <right>1240</right>
-                <bottom>72</bottom>
+				<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!ControlGroup(2000).HasFocus()">Conditional</animation>
+                <right>1253</right>
+                <bottom>70</bottom>
                 <posy>50</posy>
                 <width>20</width>
                 <height>60</height>
@@ -114,7 +117,7 @@
                 <texture flipx="true">dialogs/videoinfo/arrow.png</texture>
                 <visible>!Control.HasFocus(51)</visible>
                 <colordiffuse>white</colordiffuse>
-                <visible>Container(9000).HasPrevious</visible>
+                <visible>Container(9000).HasNext</visible>
             </control>
         </control>
     </controls>

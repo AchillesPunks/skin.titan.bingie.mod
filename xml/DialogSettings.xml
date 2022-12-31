@@ -24,7 +24,7 @@
             <control type="image">
                 <width>1000</width>
                 <height>100%</height>
-                <texture background="true" colordiffuse="fa000000">colors/color_white.png</texture>
+                <texture background="true" colordiffuse="$INFO[Skin.String(SideBladePanelColor)]">diffuse/panel2.png</texture>
             </control>
             <!-- close dialog -->
             <control type="group">
@@ -58,7 +58,7 @@
                 <control type="grouplist" id="5">
                     <description>Control Area</description>
                     <width>800</width>
-                    <height>660</height>
+                    <height>670</height>
                     <orientation>vertical</orientation>
                     <itemgap>0</itemgap>
                     <onup>5</onup>
@@ -84,7 +84,7 @@
                     <align>left</align>
                     <textoffsetx>20</textoffsetx>
                     <include>DialogButton</include>
-                    <radioposx>700</radioposx>
+                    <radioposx>689</radioposx>
                 </control>
                 <control type="spincontrolex" id="9">
                     <description>spincontrol template</description>
@@ -93,6 +93,7 @@
                     <align>left</align>
                     <textoffsetx>20</textoffsetx>
                     <include>DialogButton</include>
+					<spinposx>17</spinposx>
                 </control>
                 <control type="image" id="11">
                     <description>separator image</description>

@@ -5,9 +5,28 @@
 	
 	<defaultcontrol always="true">5000</defaultcontrol>
     <controls>
-		<!-- Video Background -->
-        <include>GlobalBackground</include>
-
+			<!-- Background -->
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<colordiffuse>4dffffff</colordiffuse>
+				<texture>special://skin/resources/background.jpg</texture>
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+				<visible>String.IsEmpty(ListItem.Art(tvshow.fanart))</visible>
+				<visible>Skin.HasSetting(ShowNAFanartBackground)</visible>
+			</control>
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<aspectratio>scale</aspectratio>
+					<colordiffuse>31ffffff</colordiffuse>
+					<texture background="true">$INFO[ListItem.Art(tvshow.fanart)]</texture>
+					<fadetime>600</fadetime>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+					<visible>!String.IsEmpty(ListItem.Art(tvshow.fanart))</visible>
+					<visible>Skin.HasSetting(ShowNAFanartBackground)</visible>
+				</control>
 		<!--NowPlaying-->
         <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
         <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
@@ -15,24 +34,13 @@
          <!--Header-->
         <include>Header</include>
 		<control type="group">
-			<include>animation_window_open_close</include>
-			
-            <control type="image">
-				<posx>82</posx>
-				<bottom>145</bottom>
-				<width>400</width>
-				<height>630</height>
-				<texture border="5">diffuse/panel.png</texture>
-				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			
+			<include>animation_window_open_close</include>					
 			<!-- weekdays -->
 			<control type="list" id="5000">
-				<posx>82</posx>
-				<bottom>145</bottom>
+				<posx>69</posx>
+				<bottom>144</bottom>
 				<width>410</width>
-				<height>630</height>
+				<height>631</height>
 				<onleft>9000</onleft>
 				<onright condition="Container(5000).HasFocus(1)">200</onright>
 				<onright condition="Container(5000).HasFocus(2)">201</onright>
@@ -91,14 +99,21 @@
 						 <width>100%</width>
 						 <height>1</height>
 						 <bottom>0</bottom>
-						 <texture colordiffuse="$INFO[Skin.String(ViewDetailsListItemTextColor)]">colors/color_white.png</texture>
+						 <texture colordiffuse="$INFO[Skin.String(ViewDetailsListItemTextColor)]">diffuse/panel2.png</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout height="90" width="400">
 					<control type="image">
 						 <width>400</width>
-						 <texture diffuse="diffuse/panel.png" border="5" colordiffuse="$VAR[ViewDetailsFocusColor]">colors/color_white.png</texture>
+						 <height>89</height>
+						 <texture border="15" colordiffuse="$INFO[Skin.String(ViewDetailsFocusColor)]">diffuse/panel.png</texture>
 						 <aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						 <width>100%</width>
+						 <height>1</height>
+						 <bottom>0</bottom>
+						 <texture colordiffuse="$INFO[Skin.String(ViewDetailsListItemTextColor)]">diffuse/panel2.png</texture>
 					</control>
 					<control type="label">
 						<top>10</top>
@@ -234,7 +249,7 @@
 			</control>
 			<control type="group" id="9001">
 				<bottom>145</bottom>
-				<posx>535</posx>
+				<posx>529</posx>
                 <height>630</height>
 				<control type="scrollbar" id="60">
 					<left>0</left>
@@ -366,7 +381,7 @@
 		<control type="group">
 			<include>animation_window_open_close</include>
 			 <include>animation_fade_visible_hidden</include>
-			<include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+			<include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		</control>
 		
 		<!--clear logo -->
@@ -424,9 +439,9 @@
 				<control type="radiobutton" id="1004">
                     <!--Show Fanart Background-->
                     <include>SideBladeMenuButton</include>
-                    <label>31141</label>
-                    <onclick>Skin.ToggleSetting(ShowFanartBackground)</onclick>
-                    <selected>Skin.HasSetting(ShowFanartBackground)</selected>
+                    <label>31155</label>
+                    <onclick>Skin.ToggleSetting(ShowNAFanartBackground)</onclick>
+                    <selected>Skin.HasSetting(ShowNAFanartBackground)</selected>
 					<visible>!Control.IsVisible(507)</visible>
                 </control>
 

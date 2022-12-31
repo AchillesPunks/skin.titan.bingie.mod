@@ -39,9 +39,9 @@
 
 			
             <control type="image">
-                <posx>479</posx>
+                <posx>478</posx>
                 <posy>300</posy>
-                <width>590</width>
+                <width>582</width>
                 <height>481</height>
                 <texture border="5">dialogs/default/inner.png</texture>
             </control>
@@ -51,7 +51,7 @@
                 <posy>300</posy>
                 <width>319</width>
                 <height>481</height>
-                <texture border="5">dialogs/default/inner-dark.png</texture>
+                <texture border="5">dialogs/default/inner.png</texture>
             </control>
             <!--Header-->
             <control type="label" id="411">
@@ -123,7 +123,7 @@
                     <control type="label">
                         <posx>70</posx>
                         <posy>0</posy>
-                        <width>574</width>
+                        <width>500</width>
                         <height>60</height>
                         <info>ListItem.Label</info>
                         <align>left</align>
@@ -165,7 +165,7 @@
                         <control type="label">
                             <posx>70</posx>
                             <posy>0</posy>
-                            <width>574</width>
+                            <width>500</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
                             <align>left</align>
@@ -179,7 +179,7 @@
                         <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(450).Scrolling | Container(450).OnScrollNext | Container(450).OnScrollPrevious]">Visible</animation>
                         <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(450).Scrolling | Container(450).OnScrollNext | Container(450).OnScrollPrevious]">Hidden</animation>
                         <control type="image">
-                            <width>644</width>
+                            <width>580</width>
                             <height>60</height>
                             <texture border="5">diffuse/panel.png</texture>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
@@ -205,7 +205,7 @@
                         <control type="label">
                             <posx>70</posx>
                             <posy>0</posy>
-                            <width>574</width>
+                            <width>500</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
                             <include>DialogListFO</include>
@@ -257,7 +257,7 @@
                     <control type="label">
                         <posx>70</posx>
                         <posy>0</posy>
-                        <width>574</width>
+                        <width>500</width>
                         <height>60</height>
                         <info>ListItem.Label</info>
                         <align>left</align>
@@ -299,7 +299,7 @@
                         <control type="label">
                             <posx>70</posx>
                             <posy>0</posy>
-                            <width>574</width>
+                            <width>500</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
                             <align>left</align>
@@ -314,7 +314,7 @@
                         <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(451).Scrolling | Container(451).OnScrollNext | Container(451).OnScrollPrevious]">Visible</animation>
                         <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(451).Scrolling | Container(451).OnScrollNext | Container(451).OnScrollPrevious]">Hidden</animation>
                         <control type="image">
-                            <width>644</width>
+                            <width>580</width>
                             <height>60</height>
                             <texture border="5">diffuse/panel.png</texture>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
@@ -340,7 +340,7 @@
                         <control type="label">
                             <posx>70</posx>
                             <posy>0</posy>
-                            <width>574</width>
+                            <width>500</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
                             <include>DialogListFO</include>

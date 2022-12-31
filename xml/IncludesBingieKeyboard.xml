@@ -5,8 +5,8 @@
     <include name="BingieSearchMiniKeyboard">
         <!-- Keyboard Edit -->
         <control type="edit" id="312">
-            <left>705</left>
-            <top>33</top>
+            <left>648</left>
+            <top>29</top>
             <height>70</height>
             <width>1200</width>
             <textoffsetx>0</textoffsetx>
@@ -26,7 +26,7 @@
         <!-- keyboard  -->
         <control type="grouplist" id="9999">
             <animation effect="fade" time="300">WindowOpen</animation>
-            <top>65</top>
+            <top>80</top>
             <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <left>90</left>
             <orientation>vertical</orientation>
@@ -49,10 +49,10 @@
                     <radioposy>20</radioposy>
                     <radiowidth>100</radiowidth>
                     <radioheight>40</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/space.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/space.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/space.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/space.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradiooffnofocus>
                     <include>SearchKeyDefs</include>
                     <onup>312</onup>
                     <ondown>2000</ondown>
@@ -66,10 +66,10 @@
                     <radioposy>20</radioposy>
                     <radiowidth>160</radiowidth>
                     <radioheight>40</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/backspace.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">bingie/keyboard/backspace.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/backspace.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">bingie/keyboard/backspace.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradiooffnofocus>
                     <include>SearchKeyDefs</include>
                     <onup>312</onup>
                     <ondown>2000</ondown>
@@ -431,10 +431,10 @@
                     <radioposy>25</radioposy>
                     <radiowidth>30</radiowidth>
                     <radioheight>30</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/remove.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/remove.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/remove.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/remove.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradiooffnofocus>
                     <label/>
                     <onup>106</onup>
                     <include>SearchKeyDefs</include>
@@ -447,10 +447,10 @@
                     <radioposy>25</radioposy>
                     <radiowidth>30</radiowidth>
                     <radioheight>30</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/done.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">dialogs/keyboard/done.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/done.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingiePrimaryTextColor)]">dialogs/keyboard/done.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradiooffnofocus>
                     <label/>
                     <include>SearchKeyDefs</include>
                     <onclick>SetFocus(100)</onclick>
@@ -460,7 +460,7 @@
                 <control type="button" id="309">
                     <height>search_key_size</height>
                     <width>290</width>
-                    <include>SearchKeyDefs</include>
+                    <include>SearchKeyDefs2</include>
                     <label>20177</label>
                     <onup>9000</onup>
                 </control>
@@ -478,9 +478,9 @@
         </control>
         <!--autocompletion -->
         <control type="list" id="8000">
-            <posx>60</posx>
+            <posx>65</posx>
             <bottom>540</bottom>
-            <width>1790</width>
+            <width>1800</width>
             <height>60</height>
             <orientation>horizontal</orientation>
             <onleft>8000</onleft>
@@ -490,14 +490,14 @@
             <animation effect="slide" start="0,800" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">WindowOpen</animation>
             <animation effect="slide" start="0,0" end="0,800" tween="cubic" easing="out" delay="0" time="250" reversible="false">WindowClose</animation>
             <animation effect="slide" end="0,-97" time="0" condition="Skin.HasSetting(EnableTouchSupport)">Conditional</animation>
-            <itemlayout width="358" height="60">
+            <itemlayout width="360" height="60">
                 <control type="group">
                     <control type="button">
                         <label/>
-                        <width>348</width>
+                        <width>350</width>
                         <height>60</height>
                         <font>Reg24</font>
-                        <textcolor>blue</textcolor>
+                        <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
                         <align>center</align>
                         <aligny>center</aligny>
                     </control>
@@ -513,23 +513,23 @@
                     </control>
                 </control>
             </itemlayout>
-            <focusedlayout width="358" height="60">
+            <focusedlayout width="360" height="60">
                 <control type="group">
                     <control type="button">
                         <label/>
-                        <width>348</width>
+                        <width>350</width>
                         <height>60</height>
                         <font>Reg24</font>
-                        <textcolor>blue</textcolor>
+                        <textcolor>$INFO[Skin.String(ButtonFocusTextColor)]</textcolor>
                         <align>center</align>
                         <aligny>center</aligny>
-                        <visible>!Control.HasFocus(4444)</visible>
+                        <visible>!Control.HasFocus(8000)</visible>
                     </control>
                     <control type="image">
-                        <width>348</width>
+                        <width>350</width>
                         <height>60</height>
-                        <texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
-                        <visible>Control.HasFocus(4444)</visible>
+                        <texture border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</texture>
+                        <visible>Control.HasFocus(8000)</visible>
                     </control>
                     <control type="label">
                         <left>20</left>
@@ -539,7 +539,7 @@
                         <scroll>false</scroll>
                         <textcolor>$INFO[Skin.String(ButtonFocusTextColor)]</textcolor>
                         <selectedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</selectedcolor>
-                        <visible>Control.HasFocus(4444)</visible>
+                        <visible>Control.HasFocus(8000)</visible>
                     </control>
                     <control type="label"> <!--label-->
                         <left>20</left>
@@ -549,7 +549,7 @@
                         <scroll>false</scroll>
                         <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
                         <selectedcolor>$INFO[Skin.String(ButtonTextColor)]</selectedcolor>
-                        <visible>!Control.HasFocus(4444)</visible>
+                        <visible>!Control.HasFocus(8000)</visible>
                     </control>
                     <control type="button">
                         <label/>
@@ -573,7 +573,7 @@
                 <posy>0</posy>
                 <width>100%</width>
                 <height>100%</height>
-                <texture border="5">diffuse/panel.png</texture>
+                <texture>diffuse/panel2.png</texture>
                 <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
             </control>
@@ -582,7 +582,7 @@
                 <posy>10</posy>
                 <width>100%</width>
                 <height>100%</height>
-                <texture border="5">diffuse/panel.png</texture>
+                <texture>diffuse/panel2.png</texture>
                 <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
             </control>
@@ -594,7 +594,7 @@
 
             <!-- keyboard commands/options -->
             <control type="grouplist" id="9000">
-                <left>60</left>
+                <left>65</left>
                 <top>120</top>
                 <width>390</width>
                 <height>660</height>
@@ -659,7 +659,7 @@
             <!-- Keyboard Edit -->
             <control type="edit" id="312">
                 <top>20</top>
-                <left>60</left>
+                <left>65</left>
                 <right>280</right>
                 <width>1510</width>
                 <height>70</height>
@@ -674,9 +674,9 @@
             </control>
             <!-- keyboard keys -->
             <control type="group">
-                <right>60</right>
+                <right>65</right>
                 <top>120</top>
-                <width>1400</width>
+                <width>1390</width>
 
                 <!-- First row -->
                 <control type="grouplist" id="1000">
@@ -1056,7 +1056,7 @@
 
             <!-- Button grouplist -->
             <control type="grouplist" id="9001">
-                <right>60</right>
+                <right>55</right>
                 <top>20</top>
                 <width>280</width>
                 <itemgap>10</itemgap>

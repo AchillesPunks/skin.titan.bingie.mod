@@ -53,7 +53,7 @@
 	<color name="darkgrey2">FF666769</color>		
 	
 	<!--White-->
-	<color name="white">FFfffeff</color>
+	<color name="white">FFffffff</color>
 	<color name="77white">77FFFFFF</color>	
 	<color name="aawhite">AAFFFFFF</color>  
 	<color name="bbwhite">BBFFFFFF</color>  

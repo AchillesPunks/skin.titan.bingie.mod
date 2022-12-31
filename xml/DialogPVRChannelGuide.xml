@@ -29,16 +29,16 @@
 				<posx>-20</posx>
 				<width>695</width>
 				<height>1750</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="5">diffuse/panel2.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 				<aspectratio>stretch</aspectratio>
 			</control>
             <control type="image">
 				<posy>-250</posy>
 				<posx>-20</posx>
-				<width>690</width>
+				<width>695</width>
 				<height>1750</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="5">diffuse/panel2.png</texture>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 				<aspectratio>stretch</aspectratio>
 			</control>
@@ -57,7 +57,7 @@
 			<!-- header -->
 			<control type="label">
 				<posx>140</posx>
-				<posy>10</posy>
+				<posy>3</posy>
 				<width min="80" max="524">auto</width>
 				<height>100</height>
 				<font>Bold45</font>
@@ -65,19 +65,18 @@
 				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
 				<label>$LOCALIZE[19222]$INFO[VideoPlayer.ChannelName, • ,]</label>
 				<visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog)</visible>
-				<animation effect="slide" start="0" end="-130" time="0" reversible="false" condition="String.IsEmpty(ListItem.Art(poster))">Conditional</animation>
+				<animation effect="slide" end="0,19" time="0" reversible="false" condition="String.IsEmpty(ListItem.StartDate)">Conditional</animation>
 			</control>
 			
 			<control type="label">
 				<!--Info Time Date-->
 				<posx>140</posx>
-				<posy>80</posy>
+				<posy>73</posy>
 				<width>524</width>
 				<height>50</height>
 				<font>Reg28</font>
 				<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-				<label>$INFO[Container(11).ListItem.StartDate]</label>
-				<animation effect="slide" start="0" end="-130" time="0" reversible="false" condition="String.IsEmpty(ListItem.Art(poster))">Conditional</animation>
+				<label>$INFO[Container(11).ListItem.StartDate]</label>				
 			</control>
 			
 			<!--Label Menu: -->
@@ -85,10 +84,12 @@
 				<!--Seperator-->
 				<posx>-80</posx>
 				<posy>140</posy>
-				<width>790</width>
-				<height>20</height>
+				<width>740</width>
+				<height>10</height>
 				<align>left</align>
-				<texture>common/menu-separator.png</texture>
+				<texture border="10">common/menu-separator2.png</texture>
+				<visible>String.IsEmpty(ListItem.StartDate)</visible>
+				
 			</control>
             <!-- Scollbar behind panel for touch control-->
             <control type="scrollbar" id="60">
@@ -118,19 +119,18 @@
 					<control type="label">
 						<!--Time-->
 						<posx>10</posx>
-						<posy>10</posy>
+						<posy>17</posy>
 						<width>120</width>
 						<height>25</height>
 						<font>Reg26</font>
-						<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-						
+						<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>						
 						<align>left</align>
 						<info>ListItem.StartTime</info>
 					</control>
 					<control type="image">
 						<!--Rec-->
 						<posx>140</posx>
-						<posy>0</posy>
+						<posy>7</posy>
 						<width>55</width>
 						<height>55</height>
 						<texture>pvr/icons/pvr_record.png</texture>
@@ -139,7 +139,7 @@
 					<control type="image">
 						<!--Now Playing Icon-->
 						<posx>140</posx>
-						<posy>0</posy>
+						<posy>7</posy>
 						<width>55</width>
 						<height>55</height>
 						<fadetime>600</fadetime>
@@ -150,12 +150,11 @@
 						<!--Channel Name-->
 						<animation effect="slide" start="0" end="50" time="0" reversible="false" condition="ListItem.Isplaying | ListItem.IsRecording | ListItem.HasTimer">Conditional</animation>
 						<posx>140</posx>
-						<posy>10</posy>
+						<posy>17</posy>
 						<width>450</width>
 						<height>25</height>
 						<font>Reg28</font>
-						<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
-						
+						<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>						
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -163,20 +162,20 @@
 					<control type="image">
 						<!--Separator-->
 						<posx>0</posx>
-						<posy>105</posy>
-						<width>530</width>
+						<posy>0</posy>
+						<width>660</width>
 						<height>20</height>
 						<fadetime>400</fadetime>
 						<colordiffuse>list_separator</colordiffuse>
 						<texture>common/separator.png</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout height="185" width="667">
+				<focusedlayout height="175" width="667">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
 						<width>660</width>
-						<height>185</height>
+						<height>175</height>
 						<texture border="5">diffuse/panel.png</texture>
 						<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
 					</control>
@@ -228,7 +227,7 @@
 						<posx>10</posx>
 						<posy>38</posy>
 						<width>650</width>
-						<height>137</height>
+						<height>130</height>
 						<font>Reg24</font>
 						<align>left</align>
 						<label fallback="19055">$INFO[ListItem.Plot]</label>

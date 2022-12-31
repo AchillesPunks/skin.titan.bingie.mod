@@ -176,7 +176,9 @@
             <visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus() + !Control.IsVisible(77551)</visible>
 			<visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible>
-			<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
+			<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
+			<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Window.IsActive(1110) + !Window.IsActive(1111) + !Window.IsActive(1112) + !Window.IsActive(1113)
+			+ !Window.IsActive(1114) + !Window.IsActive(1115) + !Window.IsActive(1116) + !Window.IsActive(1117) + !Window.IsActive(1118) + !Window.IsActive(1109) + !Window.IsActive(1119) + ![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRGuide.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyPVRTimers.xml)]</visible>
 			<include>FullscreenDimensions</include>
 			<animation effect="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="250" reversible="false">Hidden</animation>
@@ -186,29 +188,35 @@
 				<posy>-5</posy>
 				<width>100%</width>
 				<height>145</height>
-				<texture border="5">diffuse/panel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<texture border="5">diffuse/panel2.png</texture>
+				<colordiffuse>$INFO[Skin.String(HeaderPanelColor)]</colordiffuse>
 			</control>
             <control type="label">
                 <!--Now Playing-->
-                <posx>310</posx>
-                <posy>15</posy>
+                <posx>267</posx>
+                <posy>7</posy>
                 <width>885</width>
                 <align>left</align>
-                <font>Reg28</font>
+                <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
                 <label>$VAR[NowPlayingLabel]</label>
+				<animation effect="slide" end="-47" condition="Player.HasAudio + Skin.HasSetting(DisableNowPlayingDiscArt)">Conditional</animation>
+				<animation effect="slide" end="-76" condition="Player.HasVideo + Skin.HasSetting(DisableNowPlayingDiscArt)">Conditional</animation>
+				<animation effect="slide" end="-27" condition="Player.HasVideo + !Skin.HasSetting(DisableNowPlayingDiscArt)">Conditional</animation>
             </control>
             <control type="label">
                 <!--Title-->
-                <posx>310</posx>
-                <posy>70</posy>
+                <posx>267</posx>
+                <posy>62</posy>
                 <width>1150</width>
                 <align>left</align>
-                <font>Bold45</font>
+                <font>Bold55</font>
                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
                 <label>$VAR[NowPlayingTitle]</label>
                 <scroll>false</scroll>
+				<animation effect="slide" end="-47" condition="Player.HasAudio + Skin.HasSetting(DisableNowPlayingDiscArt)">Conditional</animation>
+				<animation effect="slide" end="-76" condition="Player.HasVideo + Skin.HasSetting(DisableNowPlayingDiscArt)">Conditional</animation>
+				<animation effect="slide" end="-27" condition="Player.HasVideo + !Skin.HasSetting(DisableNowPlayingDiscArt)">Conditional</animation>
             </control>
             
             <!-- AUDIO COVER + DISCART -->
@@ -216,10 +224,10 @@
                 <visible>Player.HasAudio</visible>
                 <!-- cd cover -->
                 <control type="image">
-                    <posx>110</posx>
-                    <posy>10</posy>
-                    <width>123</width>
-                    <height>123</height>
+                    <posx>115</posx>
+                    <posy>13</posy>
+                    <width>114</width>
+                    <height>114</height>
                     <aligny>center</aligny>
                     <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
                     <fadetime>300</fadetime>
@@ -230,9 +238,9 @@
                 <control type="image">
                     <!--Music bg-->
                     <posx>60</posx>
-                    <posy>10</posy>
-                    <width>123</width>
-                    <height>123</height>
+                    <posy>9</posy>
+                    <width>122</width>
+                    <height>122</height>
                     <fadetime>200</fadetime>
                     <aspectratio scalediffuse="true" align="center" aligny="center">stretch</aspectratio>
                     <texture border="5">diffuse/music_cover_cd.png</texture>
@@ -241,19 +249,19 @@
                 <control type="image" id="13333">
                     <!--music cover-->
                     <posx>60</posx>
-                    <posy>10</posy>
-                    <width>123</width>
-                    <height>123</height>
+                    <posy>9</posy>
+                    <width>122</width>
+                    <height>122</height>
                     <fadetime>200</fadetime>
-                    <texture background="true" diffuse="diffuse/music_cover_cd.png" border="5" fallback="DefaultMusicSongs.png">$VAR[AudioPlayerCoverImage]</texture>
+                    <texture background="true" diffuse="diffuse/music_cover_cd.png" fallback="DefaultMusicSongs.png">$VAR[AudioPlayerCoverImage]</texture>
                     <visible>!Skin.HasSetting(DisableNowPlayingDiscArt)</visible>
                 </control>
                 <control type="image">
                     <!--music cover-->
                     <posx>60</posx>
-                    <posy>10</posy>
-                    <width>123</width>
-                    <height>123</height>
+                    <posy>9</posy>
+                    <width>122</width>
+                    <height>122</height>
                     <fadetime>200</fadetime>
                     <texture background="true" fallback="DefaultMusicSongs.png">$VAR[AudioPlayerCoverImage]</texture>
                     <visible>Skin.HasSetting(DisableNowPlayingDiscArt)</visible>
@@ -264,10 +272,10 @@
             <control type="group">
                 <visible>Player.HasVideo</visible>
                 <control type="image">
-                    <posx>85</posx>
-                    <posy>10</posy>
-                    <width>123</width>
-                    <height>123</height>
+                    <posx>81</posx>
+                    <posy>9</posy>
+                    <width>122</width>
+                    <height>122</height>
                     <aligny>center</aligny>
                     <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
                     <fadetime>300</fadetime>
@@ -279,11 +287,11 @@
                     <!--Cover image-->
                     <posx>60</posx>
                     <posy>5</posy>
-                    <width>240</width>
+                    <width>93</width>
                     <height>130</height>
                     <fadetime>200</fadetime>
                     <texture background="true">$VAR[VideoPlayerPoster]</texture>
-                    <aspectratio align="left" aligny="center">keep</aspectratio>
+                    <aspectratio scalediffuse="true" align="center" aligny="center">stretch</aspectratio>
                 </control>
             </control>
             
@@ -327,7 +335,7 @@
                 <control type="grouplist">
                     <!--Time Grouplist Line 1-->
                     <posx>1260</posx>
-                    <posy>10</posy>
+                    <posy>3</posy>
                     <width>600</width>
                     <height>100</height>
                     <align>right</align>
@@ -364,7 +372,7 @@
                 <control type="grouplist">
                     <!--Date Grouplist Line 2-->
                     <posx>1260</posx>
-                    <posy>85</posy>
+                    <posy>76</posy>
                     <width>600</width>
                     <height>50</height>
                     <align>right</align>
@@ -495,12 +503,13 @@
             <visible>!String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
             <visible>String.IsEmpty(Window(Home).Property(PlayingPVRPreview))</visible>
             <include condition="!Skin.HasSetting(DisableNowPlayingBackground) | !String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">NowPlayingVideoBackground</include>
-            <include condition="![Skin.HasSetting(DisableNowPlayingMusicBackground) + !Window.IsActive(visualisation)]">NowPlayingMusicBackground</include>
+            <include condition="Player.HasAudio">NowPlayingMusicBackground</include>
+			<include condition="Player.HasVideo">NowPlayingVideoBackground</include>
             
             <!--Background Overlay-->
             <control type="group">
                 <visible>![Window.IsActive(tvguide) + !String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))] + !Window.IsActive(visualisation)</visible>
-                <visible>[Player.HasAudio + !Skin.HasSetting(DisableNowPlayingMusicBackground)] | [Player.HasVideo + !Skin.HasSetting(DisableNowPlayingBackground)]</visible>
+                <visible>[Player.HasAudio + Skin.HasSetting(DisableNowPlayingMusicBackground)] | [Player.HasVideo + Skin.HasSetting(DisableNowPlayingBackground)]</visible>
                 <control type="image">
                     <description>panel diffuse bg</description>
                     <include>FullscreenDimensions</include>
@@ -519,7 +528,6 @@
     
     <include name="NowPlayingMusicBackground">
         <control type="group">
-            <visible>Player.HasAudio + String.IsEmpty(Window(Home).Property(PlayingBackgroundMedia))</visible>
             <control type="visualisation" id="2">
                 <description>visualisation</description>
                 <include>FullscreenDimensions</include>
@@ -527,6 +535,8 @@
             </control>
             <!-- music fanart -->
             <control type="multiimage" id="3333">
+				<visible>!Visualisation.Enabled</visible>
+				<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
                 <aspectratio>scale</aspectratio>
                 <include>FullscreenDimensions</include>
                 <timeperimage>20000</timeperimage>
@@ -565,7 +575,7 @@
     
     <variable name="music_fanart">
         <value condition="Skin.String(MusicArtistFanart,slideshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.ExtraFanArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.ExtraFanArt)]</value>
-        <value condition="!Skin.String(MusicArtistFanart,disabled) + !String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
+		<value condition="!Skin.String(MusicArtistFanart,disabled) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.FanArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.FanArt)]</value>
         <value condition="String.Contains(Skin.String(MusicBackground),VAR)">$VAR[MusicBackground]</value>
         <value condition="Skin.String(MusicBackground)">$INFO[Skin.String(MusicBackground)]</value>
         <value>colors/color_black.png</value>

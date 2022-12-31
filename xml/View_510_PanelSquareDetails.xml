@@ -9,9 +9,10 @@
 	  
 	  <!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View510_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -33,11 +34,15 @@
               <param name="viewtype" value="$LOCALIZE[31437]" />
           </include>
         <right>41</right>
-        <bottom>132</bottom>
+        <bottom>127</bottom>
         <height>744</height>
         <width>1200</width>
         <orientation>vertical</orientation>
         <onleft>9000</onleft>
+		<onleft>CancelAlarm(preview_delay,silent)</onleft>
+		<onleft condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onleft>
+		<onback>CancelAlarm(preview_delay,silent)</onback>
+		<onback condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onback>
         <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
         <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
         <onup>510</onup>
@@ -56,9 +61,10 @@
                 <width>238</width>
                 <height>238</height>
                 <include>SquarePosterPanelLayoutFocus</include>
-              <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
-                  <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
-              </include>
+              <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
+						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
             </control>
         </focusedlayout>
       </control>

@@ -9,9 +9,10 @@
 			
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View521_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -24,7 +25,7 @@
             </control>
 			
 			<control type="panel" id="521">
-                <posx>40</posx>
+                <posx>37</posx>
                 <bottom>13%</bottom>
                 <height>496</height>
                 <width>1860</width>
@@ -45,23 +46,41 @@
                 <!-- itemlayout movies -->
                 <itemlayout height="248" width="168">
                     <control type="group">
-                        <width>162</width>
+                        <width>166</width>
                         <height>240</height>
                         <include>SmallPosterPanelLayout</include>
+						<control type="group">
+            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay521</include>
+          </control>
+          <control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorSmall</include>
+			<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+				<effect type="slide" end="1,-1" time="0"  />
+			</animation>
+		</control>
                       </control>
                 </itemlayout>
                 <!-- focussed layout movies -->
-                <focusedlayout height="248" width="165">
+                <focusedlayout height="248" width="168">
                     <control type="group">
-                        <width>162</width>
+                        <width>166</width>
                         <height>240</height>
                         <include>SmallPosterPanelLayoutFocus</include>
-                        <animation type="focus">
-							<effect type="zoom" start="100" end="111" center="auto" time="150" />
-						</animation>
-						<animation type="unfocus">
-							<effect type="zoom" start="111" end="100" center="auto" time="150" />
-						</animation>
+						<control type="group">
+            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay521</include>
+          </control>
+          <control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorSmall</include>
+			<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+				<effect type="slide" end="1,-1" time="0"  />
+			</animation>
+		</control>
                       </control>
                 </focusedlayout>
 			</control>
@@ -78,8 +97,39 @@
 				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
 			</control>
-    
 		</control>
-
+    </include>
+	<!-- CASE OVERLAYS -->
+    <include name="PosterCaseOverlay521">
+        <control type="group">
+            <visible>
+                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
+                String.Contains(ListItem.FileNameAndPath,.3d) |
+                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
+                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
+                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
+                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
+            </visible>
+            <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                <control type="image">
+                <texture border="30" diffuse="diffuse/poster5.png">cases/default_top3.png</texture>
+                <!-- border left,top,right,bottom  -->
+                <bordersize>8</bordersize>
+				<width>168</width>
+                <height>242</height>
+				<posx>-1</posx>
+				<posy>-1</posy>
+                <colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
+            </control>
+            <control type="image">
+                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
+                <top>12</top>
+                <height>24</height>
+                <aspectratio aligny="top" align="center">keep</aspectratio>
+                <!-- border left,top,right,bottom  -->
+                <bordersize>0</bordersize>
+                <colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
+            </control>
+        </control>
     </include>
 </includes>

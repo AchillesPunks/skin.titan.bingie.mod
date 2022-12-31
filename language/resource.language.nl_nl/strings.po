@@ -118,7 +118,7 @@ msgstr "Banner"
 
 msgctxt "#31056"
 msgid "Landscape"
-msgstr "Landscape"
+msgstr "Liggend"
 
 msgctxt "#31057"
 msgid "ClearArt"
@@ -150,7 +150,7 @@ msgstr "Met het aanpassen van de skin modus ben je in staat om een standaard Kod
 
 msgctxt "#31080"
 msgid "Netflix integration"
-msgstr "Netflix integratie"
+msgstr "Netflix-integratie"
 
 msgctxt "#31081"
 msgid "Netflix Mode"
@@ -158,7 +158,7 @@ msgstr "Netflix Modus"
 
 msgctxt "#31082"
 msgid "Use Netflix Mode for"
-msgstr "Gebruik Netflix modus voor"
+msgstr "Gebruik Netflix-modus voor"
 
 msgctxt "#31083"
 msgid "REC"
@@ -182,7 +182,7 @@ msgstr "Lyrics inschakelen tijdens het afspelen van muziek"
 
 msgctxt "#31088"
 msgid "Live-TV"
-msgstr "Live TV"
+msgstr "Live-TV"
 
 msgctxt "#31089"
 msgid "XBMB3C add-on"
@@ -374,7 +374,7 @@ msgstr "Alle afleveringen opnemen (serie opname)"
 
 msgctxt "#31137"
 msgid "Settings for recordings"
-msgstr "Opname instellingen"
+msgstr "Opname-instellingen"
 
 msgctxt "#31138"
 msgid "Cancel recording of this episode only"
@@ -518,11 +518,11 @@ msgstr "Plex Media Server integratie"
 
 msgctxt "#31182"
 msgid "Use Plex mode for"
-msgstr "Gebruik Plex modus voor"
+msgstr "Gebruik Plex-modus voor"
 
 msgctxt "#31183"
 msgid "Enhanced all-in-one homescreen"
-msgstr "Vergroot alles in een startscherm"
+msgstr "Vergroot alles-in-een startscherm"
 
 msgctxt "#31184"
 msgid "Submenu"
@@ -566,15 +566,15 @@ msgstr "Aanpassen powermenu"
 
 msgctxt "#31205"
 msgid "Addon not installed - please install this addon first"
-msgstr "Addon niet geïnstalleerd - Installeer deze add-on eerst"
+msgstr "Add-on niet geïnstalleerd - Installeer deze add-on eerst"
 
 msgctxt "#31206"
 msgid "Hide widget panel background"
-msgstr "Verberg widget paneelachtergrond"
+msgstr "Verberg widget-paneelachtergrond"
 
 msgctxt "#31207"
 msgid "Use Extra Fanart"
-msgstr "Gebruik Extra fanart"
+msgstr "Gebruik Extra fan-art"
 
 msgctxt "#31208"
 msgid "Disable shadow on home tiles"
@@ -586,7 +586,7 @@ msgstr "Inschakelen muis- en touchscreen ondersteuning"
 
 msgctxt "#31210"
 msgid "Prefer fanart in landscape views"
-msgstr "Voorkeur voor fanart in landscape weergave"
+msgstr "Voorkeur voor fanart in liggend-weergave"
 
 msgctxt "#31211"
 msgid "Disable splash screen (not recommended for slow systems)"
@@ -1178,7 +1178,7 @@ msgstr "Paneel details"
 
 msgctxt "#31423"
 msgid "Panel Wall"
-msgstr "Panel Wall"
+msgstr "Paneel muur"
 
 msgctxt "#31424"
 msgid "Banner list"
@@ -1206,15 +1206,15 @@ msgstr "Showcase"
 
 msgctxt "#31430"
 msgid "Landscape"
-msgstr "Landscape"
+msgstr "Liggend"
 
 msgctxt "#31431"
 msgid "Landscape Single Row"
-msgstr "Landscape enkele rij"
+msgstr "Liggend enkele rij"
 
 msgctxt "#31432"
 msgid "Landscape details"
-msgstr "Landscape details"
+msgstr "Liggend details"
 
 msgctxt "#31433"
 msgid "Extended"
@@ -1270,7 +1270,7 @@ msgstr "Horizontaal paneel"
 
 msgctxt "#31446"
 msgid "    - Show Current Weather Conditions (instead of Today's Forecast) for Weather on Home"
-msgstr "    - Toon huidige weer conditie`s (in plaats van de voorspeling van vandaag) voor weer op start"
+msgstr "- Toon huidige weer conditie`s (in plaats van de voorspeling van vandaag) voor weer op start"
 
 msgctxt "#31447"
 msgid "Prefer ClearArt"
@@ -1330,7 +1330,7 @@ msgstr "Algemene tekstkleur"
 
 msgctxt "#31461"
 msgid "Logos"
-msgstr "Logos"
+msgstr "Logo`s"
 
 msgctxt "#31462"
 msgid "Color themes"
@@ -2442,7 +2442,7 @@ msgstr "Gebruik fanart van Spotlight widget als achtergrond"
 
 msgctxt "#31760"
 msgid "Align menu items to the left"
-msgstr "Menu items aan de linkerzijde uitlijnen"
+msgstr "Menu-items aan de linkerzijde uitlijnen"
 
 msgctxt "#31761"
 msgid "Use large widget area"
@@ -2454,7 +2454,7 @@ msgstr "Houd widget gefocust bij het starten van de weergave vanaf de start widg
 
 msgctxt "#31763"
 msgid "Enable zoom effect on focused widget"
-msgstr "Activeer zoom effect op gefocuste widget"
+msgstr "Activeer zoom-effect op gefocuste widget"
 
 msgctxt "#31764"
 msgid "Disable all scroll bars (instead of hiding them)"
@@ -2462,7 +2462,7 @@ msgstr "De-activeer alle schuifbalken (in plaats van ze te verbergen)"
 
 msgctxt "#31765"
 msgid "Enable Emby coverart plugin compatability"
-msgstr "Schakel de compatibiliteit van de coverart plugin van Emby in"
+msgstr "Schakel de compatibiliteit van de coverart-plug-in van Emby in"
 
 msgctxt "#31766"
 msgid "Do not display the IMDB rating icon and studio logo"
@@ -2514,11 +2514,11 @@ msgstr "PVR-gids onscherpe artikelkleur "
 
 msgctxt "#31778"
 msgid "PVR Guide focused item color"
-msgstr "PVR Guide gefocuste itemkleur "
+msgstr "PVR Gids scherpe item kleur "
 
 msgctxt "#31781"
 msgid "Video process information"
-msgstr "Video verwerkings informatie"
+msgstr "Videoverwerkingsinformatie"
 
 msgctxt "#31782"
 msgid "Hardware decoding"

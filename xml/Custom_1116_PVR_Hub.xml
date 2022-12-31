@@ -13,6 +13,7 @@
     <onunload>ClearProperty(AllowPVRPreview,Home)</onunload>
 
     <controls>
+		<include>Defs_TMDbHelper_Loader</include>
         <include>GlobalBackground</include>
         <include>NowPlayingBackground</include>
         <include>NowPlayingInfoBar</include>
@@ -35,7 +36,7 @@
             <height>600</height>
             <include content="BingieSpotlightCornerImage">
                 <param name="visibility" value="!Player.HasVideo" />
-                <param name="image" value="$VAR[bingieThumb]" />
+                <param name="image" value="$VAR[bingiePVRThumb]" />
             </include>
 
             <!-- Details -->
@@ -46,7 +47,7 @@
                 <orientation>vertical</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
                 <itemgap>10</itemgap>
-                <animation effect="slide" start="0" end="0,150" time="0" condition="Control.HasFocus(1510) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1510)">Conditional</animation>
+                <animation effect="slide" start="0" end="0,130" time="0" condition="Control.HasFocus(1510) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1510)">Conditional</animation>
                 <include content="Bingie_Headline_Item">
                     <param name="id" value="11602" />
                     <param name="image" value="$VAR[BingieInfoClearlogo]" />
@@ -58,7 +59,7 @@
                 <control type="group">
                     <visible>![Control.HasFocus(1510) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1510)]</visible>
                     <width>1000</width>
-                    <height>40</height>
+                    <height>50</height>
                     <include>Default_Visible_Fade</include>
                     <include>SpotlightRowDetails</include>
                 </control>
@@ -66,7 +67,7 @@
                 <control type="label" id="823">
                     <visible>!String.IsEmpty(Control.GetLabel(823))</visible>
                     <width>800</width>
-                    <font>Reg32</font>
+                    <font>Bold29</font>
                     <align>left</align>
                     <aligny>center</aligny>
                     <textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
@@ -89,13 +90,14 @@
                         <visible>Integer.IsGreater(ListItem.Progress,0) + Integer.IsLess(ListItem.Progress,100)</visible>
                         <width>250</width>
                         <height>8</height>
-                        <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
+                        <texturebg colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="0">diffuse/panel2.png</texturebg>
                         <lefttexture/>
-                        <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">colors/color_white.png</midtexture>
+                        <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">diffuse/panel2.png</midtexture>
                         <righttexture/>
                         <info>ListItem.Progress</info>
                     </control>
                     <control type="label">
+						<top>2</top>
                         <height>25</height>
                         <width>450</width>
                         <font>Reg22</font>
@@ -107,11 +109,12 @@
                 <!-- Plot -->
                 <control type="textbox">
                     <visible>![Control.HasFocus(1510) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1510)]</visible>
-                    <height min="30" max="138">auto</height>
-                    <width>650</width>
-                    <textcolor>$VAR[BingiePlotTextColor]</textcolor>
-                    <align>justify</align>
-                    <font>Reg28</font>
+					<top>-5</top>
+                    <height min="30" max="121">auto</height>
+                    <width max="820">auto</width> 
+                    <textcolor>$INFO[Skin.String(BingiePlotTextColor)]</textcolor>
+                    <align>left</align>
+                    <font>Plots</font>
                     <label>$VAR[BingiePlot]</label>
                     <include>Default_Visible_Fade</include>
                 </control>
@@ -126,17 +129,13 @@
                     <label>$LOCALIZE[31065]: $VAR[BingiePVRUpNextlabel]</label>
                     <include>Default_Visible_Fade</include>
                 </control>
-                <!-- Additional Info -->
-                <include condition="!Skin.HasSetting(DisableBingieMoreDetails)" content="Bingie_Additional_Info">
-                    <param name="visibility" value="![Control.HasFocus(1510) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1510)]" />
-                </include>
             </control>
         </control>
 
         <control type="grouplist" id="77777">
             <usecontrolcoords>true</usecontrolcoords>
             <left>0</left>
-            <top>605</top>
+            <top>575</top>
             <include condition="Skin.HasSetting(EnableFixedFocusWidgets)">Fixed_Focus_Bottom</include>
             <bottom>0</bottom>
             <include condition="Skin.HasSetting(EnableFixedFocusWidgets)">Fixed_Focus_Itemgap</include>
@@ -167,16 +166,18 @@
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="Skin.HasSetting(EnableFixedFrameWidgets)">
             <visible>[Control.HasFocus(1510) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1510)] | [Control.HasFocus(1520) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1520)]</visible>
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label)"/>
+			<top>615</top>
             <param name="width" value="210"/>
             <param name="height" value="210"/>
-            <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
+            <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="Skin.HasSetting(EnableFixedFrameWidgets)">
             <visible>[Control.HasFocus(1530) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1530)] | [Control.HasFocus(1540) | String.IsEqual(Window(Home).Property(CurrentWidgetID),1540)]</visible>
+			<top>615</top>
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label)"/>
             <param name="width" value="landscape_width"/>
             <param name="height" value="210"/>
-            <param name="texture" value="$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]" />
+            <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
 
         <include content="Dim_Overlay">

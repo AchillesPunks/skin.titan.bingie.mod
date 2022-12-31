@@ -11,11 +11,11 @@
 		<!--Header-->
         <include>Header</include>
  
-		<!--NowPlaying-->
-		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingModern</include>
- 
 		<!-- all Views -->
         <include>allViews</include>
+		
+		<!--NowPlaying-->
+		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingModern</include>
 		
         <!--Hidden Button-->
         <control type="radiobutton" id="19">

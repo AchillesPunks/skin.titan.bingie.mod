@@ -18,15 +18,15 @@
 		<height>75%</height>
        <!--Panel-->
 		<control type="image">
-			<posx>50</posx>
-			<width>1820</width>
+			<posx>60</posx>
+			<width>1800</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 		</control>
 		
 		<control type="image">
-			<posx>50</posx>
-			<width>520</width>
+			<posx>60</posx>
+			<width>510</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 		</control>
@@ -54,7 +54,7 @@
             <description>Control Area</description>
             <posx>605</posx>
             <posy>20</posy>
-            <width>1230</width>
+            <width>1240</width>
             <height>96%</height>
             <itemgap>5</itemgap>
             <onleft>3</onleft>
@@ -71,14 +71,15 @@
             <align>left</align>
             <height>47</height>
 			<width>450</width>
-            
+            <textoffsetx>40</textoffsetx>
         </control>
         <control type="radiobutton" id="8">
             <description>Default Radio Button</description>
             <font>Reg28</font>
             <align>left</align>
             <height>47</height>
-            <radioposx>1075</radioposx>
+            <radioposx>1109</radioposx>
+			<textoffsetx>40</textoffsetx>
         </control>
         <control type="label" id="14">
             <include>SkinSettings_Header</include>
@@ -89,16 +90,17 @@
             <font>Reg28</font>
             <align>left</align>
             <height>47</height>
+			<spinposx>37</spinposx>
+			<textoffsetx>40</textoffsetx>
         </control>
 		<control type="sliderex" id="13">
 			<description>Default Slider</description>
 			<posx>0</posx>
 			<posy>0</posy>
-			<include>DialogButton</include>
 			<textwidth>352</textwidth>
-			<textoffsetx>20</textoffsetx>
-			<sliderwidth>140</sliderwidth>
-			<sliderheight>20</sliderheight>
+			<textoffsetx>40</textoffsetx>
+			<sliderwidth>160</sliderwidth>
+			<sliderheight>60</sliderheight>
 			<align>left</align>
 		</control>
 
@@ -108,6 +110,7 @@
             <align>left</align>
             <height>47</height>
 			<width>450</width>
+			<textoffsetx>40</textoffsetx>
         </control>
         <control type="grouplist" id="9000">
             <posx>90</posx>
@@ -150,7 +153,7 @@
 		 </control>
 
 		<!--Footer-->
-        <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+        <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 
         <control type="group">
             <control type="textbox" id="6">

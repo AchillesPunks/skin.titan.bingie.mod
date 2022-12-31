@@ -14,6 +14,7 @@
     <onunload condition="!String.IsEmpty(Window(Home).Property(KeepTVShowID))">ClearProperty(KeepTVShowID,Home)</onunload>
 
     <controls>
+		<include>Defs_TMDbHelper_Loader</include>
         <!-- Video Background -->
         <include>GlobalBackground</include>
 		<!--Header-->
@@ -80,7 +81,7 @@
 				<control type="togglebutton" id="4">
 					<description>Sort asc</description>
 					<include>SideBladeMenuButton</include>
-					<alttexturefocus border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</alttexturefocus>
+					<alttexturefocus border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</alttexturefocus>
 					<alttexturenofocus/>
 					<label>584</label>
 					<altlabel>585</altlabel>
@@ -161,8 +162,11 @@
             <visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
             <visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
             <animation time="300" effect="fade" delay="0">Visible</animation>
-            <include>DialogOverlayExtra</include>
-            <include>DialogOverlayExtra</include>
+            <control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>diffuse/panel2.png</texture>
+				<colordiffuse>F2000000</colordiffuse>
+			</control>
             <width>100%</width>
             <height>100%</height>
             <control type="label">

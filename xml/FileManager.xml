@@ -16,7 +16,7 @@
         <!-- footer bar -->
 		<control type="group">
 			<visible>!Control.IsVisible(514)</visible>
-			<include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+			<include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		</control>
 		
 		<control type="group">
@@ -118,6 +118,7 @@
 						</control>
 						<control type="label">
 							<posx>210</posx>
+							<posy>2</posy>
 							<width>670</width>
 							<align>right</align>
 							<font>Reg24</font>
@@ -183,6 +184,7 @@
 						</control>
 						<control type="label">
 							<posx>210</posx>
+							<posy>2</posy>
 							<width>670</width>
 							<align>right</align>
 							<font>Reg24</font>

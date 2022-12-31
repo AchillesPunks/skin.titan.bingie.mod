@@ -34,21 +34,21 @@
             </control>
 			
 			
-			 <control type="label" id="1">
+			 <control type="label">
                 <description>Heading</description>
                 <posx>473</posx>
-                <posy>170</posy>
+                <posy>172</posy>
                 <width>974</width>
-                <label/>
+                <label>$LOCALIZE[320211]</label>
                 <include>DialogHeader</include>
                 <align>center</align>
             </control>
 			
             <control type="image">
                 <posx>479</posx>
-                <posy>265</posy>
+                <posy>245</posy>
                 <width>962</width>
-                <height>548</height>
+                <height>561</height>
                 <texture border="5">dialogs/default/inner.png</texture>
             </control>
 			
@@ -57,9 +57,9 @@
             <control type="textbox" id="5">
                 <description>textarea</description>
                 <posx>495</posx>
-                <posy>275</posy>
+                <posy>255</posy>
                 <width>930</width>
-                <height>530</height>
+                <height>545</height>
                 <label/>
                 <include condition="!Skin.HasTheme(classic)">DialogLabel</include>
                 <include condition="Skin.HasTheme(classic)">DialogLabel</include>
@@ -80,7 +80,8 @@
                 <posx>466</posx>
                 <posy>809</posy>
                 <control type="button" id="7">
-                    <posx>0</posx>
+                    <posx>5</posx>
+					<posy>9</posy>
                     <description>Close</description>
                     <label>$LOCALIZE[222]</label>
                     <include>DialogButtonOther</include>

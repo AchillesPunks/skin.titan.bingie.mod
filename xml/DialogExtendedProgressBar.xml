@@ -16,7 +16,8 @@
 				<top>10</top>
 				<width>60</width>
 				<height>60</height>
-				<texture>dialogs/extendedprogress/loading-back.png</texture>
+				<texture>dialogs/extendedprogress/progress/p100.png</texture>
+				<animation effect="fade" end="30" time="0" condition="true">Conditional</animation>
 			</control>
 			<control type="group">
 				<visible>!Window.IsActive(volumebar)</visible>
@@ -51,12 +52,14 @@
 					<width min="0" max="680">auto</width>
 					<height>120</height>
 					<font>font12</font>
+					<shadowcolor>B2000000</shadowcolor>
 				</control>
 				<control type="label">
 					<width min="0" max="120">auto</width>
 					<height>120</height>
 					<font>font12</font>
 					<label>$INFO[Control.GetLabel(32),: ,%]</label>
+					<shadowcolor>B2000000</shadowcolor>
 				</control>
 			</control>
 			<control type="label" id="31">
@@ -66,8 +69,8 @@
 				<width>750</width>
 				<height>120</height>
 				<font>font12</font>
-				<textcolor>80FFFFFF</textcolor>
-				<shadowcolor>black</shadowcolor>
+				<textcolor>FFFFFFFF</textcolor>
+				<shadowcolor>B2000000</shadowcolor>
 				<align>right</align>
 			</control>
 			<control type="progress" id="32">

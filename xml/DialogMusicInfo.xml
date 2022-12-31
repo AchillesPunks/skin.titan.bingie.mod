@@ -25,8 +25,15 @@
         <posy>0</posy>
         <width>1340</width>
         <height>100%</height>
-        <texture border="15">diffuse/bgpanel.png</texture>
-
+        <texture>diffuse/panel2.png</texture>
+        <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+      </control>
+	  <control type="image">
+        <posx>630</posx>
+        <posy>0</posy>
+        <width>1340</width>
+        <height>100%</height>
+        <texture>diffuse/panel2.png</texture>
         <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
       </control>
       <!-- close dialog -->
@@ -41,7 +48,7 @@
       <!--Header-->
       <control type="label">
         <description>Heading</description>
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>10</posy>
         <width>1200</width>
         <font>Bold45</font>
@@ -53,7 +60,7 @@
       </control>
       <control type="label">
         <description>Heading</description>
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>10</posy>
         <width>1200</width>
         <font>Bold45</font>
@@ -65,7 +72,7 @@
       </control>
       <control type="label">
         <description>Heading</description>
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>10</posy>
         <width>1200</width>
         <font>Bold45</font>
@@ -78,7 +85,7 @@
 
       <!-- title -->
       <control type="label">
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>150</posy>
         <width>800</width>
         <font>Reg36</font>
@@ -87,7 +94,7 @@
         <visible>Container.Content(Albums)</visible>
       </control>
       <control type="label">
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>150</posy>
         <width>800</width>
         <font>Reg36</font>
@@ -96,7 +103,7 @@
         <visible>Container.Content(Artists)</visible>
       </control>
       <control type="label">
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>150</posy>
         <width>800</width>
         <font>Reg36</font>
@@ -106,7 +113,7 @@
       </control>
 
       <control type="image">
-        <posx>680</posx>
+        <posx>675</posx>
         <posy>220</posy>
         <width>1200</width>
         <height>250</height>
@@ -115,17 +122,17 @@
 
       <!--Icon-->
       <control type="image">
-        <right>-5</right>
+        <right>0</right>
         <posy>235</posy>
         <width>350</width>
         <height>220</height>
         <fadetime>800</fadetime>
         <aspectratio align="center" aligny="center">keep</aspectratio>
-        <texture background="true" diffuse="diffuse/panel.png">$INFO[ListItem.Icon]</texture>
+        <texture background="true" diffuse="diffuse/panel2.png">$INFO[ListItem.Icon]</texture>
       </control>
 
       <control type="grouplist">
-        <posx>680</posx>
+        <posx>675</posx>
         <posy>220</posy>
 
         <control type="button">
@@ -172,11 +179,11 @@
           <orientation>horizontal</orientation>
           <control type="label">
             <description>blank space</description>
-            <width>20</width>
+            <width>15</width>
           </control>
           <control type="label">
             <description>Rating</description>
-            <width>555</width>
+            <width>559</width>
             <height>60</height>
             <align>left</align>
             <label>$LOCALIZE[563]:</label>
@@ -187,12 +194,12 @@
             <height>60</height>
             <aspectratio aligny="center" align="center">keep</aspectratio>
             <colordiffuse>$INFO[Skin.String(GeneralTextColor)]</colordiffuse>
-            <texture fallback="ratings/star_rating_simple/rating0.png">$VAR[musicrating_stars]</texture>
+            <texture fallback="ratings/star_rating/empty.png">$VAR[musicrating_stars]</texture>
           </control>
         </control>
       </control>
       <control type="image">
-        <posx>680</posx>
+        <posx>675</posx>
         <posy>486</posy>
         <width>1200</width>
         <height>430</height>
@@ -200,20 +207,20 @@
       </control>
       <control type="textbox" id="4">
         <description>Plot value</description>
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>506</posy>
         <width>1160</width>
-        <height>388</height>
+        <height>400</height>
         <align>justify</align>
         <pagecontrol>60</pagecontrol>
         <label>$INFO[ListItem.Plot]</label>
       </control>
       <control type="textbox" id="55">
         <description>Plot value fallback</description>
-        <posx>700</posx>
+        <posx>695</posx>
         <posy>506</posy>
         <width>1160</width>
-        <height>388</height>
+        <height>400</height>
         <align>justify</align>
         <pagecontrol>60</pagecontrol>
         <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</label>
@@ -234,16 +241,16 @@
 
       <!--Button Group-->
       <control type="grouplist" id="9000">
-        <posx>680</posx>
+        <posx>675</posx>
         <posy>940</posy>
         <orientation>horizontal</orientation>
-        <itemgap>10</itemgap>
+        <itemgap>5</itemgap>
         <defaultcontrol>5</defaultcontrol>
         <onup condition="Control.IsVisible(60)">60</onup>
         <width>1200</width>
         <control type="button" id="11">
           <!--Cancel-->
-          <width>290</width>
+          <width>296</width>
           <height>80</height>
           <align>center</align>
           <label>222</label>
@@ -252,7 +259,7 @@
         </control>
         <control type="button" id="12">
           <!--Album Info button-->
-          <width>290</width>
+          <width>296</width>
           <height>80</height>
           <align>center</align>
           <include>DialogButtonOther</include>
@@ -260,7 +267,7 @@
         </control>
         <control type="button" id="10">
           <!--Get Thumb button-->
-          <width>290</width>
+          <width>296</width>
           <height>80</height>
           <align>center</align>
           <include>DialogButtonOther</include>
@@ -269,16 +276,27 @@
         </control>
         <control type="button" id="7">
           <!--set personal rating-->
-          <width>290</width>
+          <width>296</width>
           <height>80</height>
           <align>center</align>
           <include>DialogButtonOther</include>
           <label>38023</label>
           <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
         </control>
+		<control type="button" id="3102">
+		  <!--Youtube-->
+		  <width>296</width>
+          <height>80</height>
+          <align>center</align>
+          <include>DialogButtonOther</include>
+          <label>31797</label>
+          <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+          <onclick>Close</onclick>
+          <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/search/?q=$INFO[ListItem.Artist],return)</onclick>
+		</control>
         <control type="button" id="6">
           <!--update-->
-          <width>290</width>
+          <width>296</width>
           <height>80</height>
           <align>center</align>
           <include>DialogButtonOther</include>
@@ -289,8 +307,8 @@
       <!--Arrows-->
       <control type="image">
         <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-        <right>10</right>
-        <bottom>72</bottom>
+        <right>15</right>
+        <bottom>70</bottom>
         <posy>50</posy>
         <width>20</width>
         <height>60</height>
@@ -302,8 +320,8 @@
       </control>
       <control type="image">
         <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-        <right>1240</right>
-        <bottom>72</bottom>
+        <right>1255</right>
+        <bottom>70</bottom>
         <posy>50</posy>
         <width>20</width>
         <height>60</height>

@@ -7,7 +7,7 @@
         <control type="group">
             <depth>0.54</depth>
             <top>40</top>
-            <right>-17</right>
+            <right>-20</right>
             <width>700</width>
             <animation type="WindowOpen" reversible="false">
                 <effect type="slide" start="160" end="0" tween="cubic" easing="out" time="500" />
@@ -22,15 +22,15 @@
                 <left>0</left>
                 <top>0</top>
                 <width>700</width>
-                <height>250</height>
+                <height>230</height>
                 <texture colordiffuse="bf5d5d5d">colors/color_trans_40%white.png</texture>
-                <bordertexture border="21">overlays/shadow.png</bordertexture>
+                <!--<bordertexture border="21">overlays/shadow.png</bordertexture>-->
                 <bordersize>20</bordersize>
             </control>
             <control type="image" id="400">
                 <description>avatar</description>
-                <left>30</left>
-                <top>50</top>
+                <left>40</left>
+                <top>40</top>
                 <width>150</width>
                 <height>150</height>
                 <aspectratio>stretch</aspectratio>
@@ -41,27 +41,28 @@
                 <usecontrolcoords>true</usecontrolcoords>
                 <width>470</width>
                 <height>190</height>
-                <left>200</left>
-                <top>30</top>
+                <left>208</left>
+                <top>51</top>
                 <itemgap>5</itemgap>
                 <control type="fadelabel" id="401">
                     <description>Line 1 Label</description>
-                    <width>470</width>
-                    <height>25</height>
+                    <width>452</width>
+                    <height>38</height>
                     <font>Bold34</font>
                     <aligny>center</aligny>
                     <scrollout>false</scrollout>
                     <pauseatend>2000</pauseatend>
                     <visible>!String.IsEmpty(Control.GetLabel(401))</visible>
                 </control>
-                <control type="textbox" id="402">
+                <control type="fadelabel" id="402">
                     <description>Line 2 Label</description>
-                    <left>1</left>
-                    <width>469</width>
-                    <height>158</height>
+					<top>46</top>
+                    <width>452</width>
+                    <height>35</height>
                     <font>Reg30</font>
                     <aligny>center</aligny>
-                    <autoscroll>false</autoscroll>
+                    <scrollout>false</scrollout>
+                    <pauseatend>2000</pauseatend>
                 </control>
             </control>
         </control>

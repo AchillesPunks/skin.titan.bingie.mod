@@ -2,6 +2,23 @@
 <includes>
 
 	<include name="SimpleWeather">
+	<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+				<visible>!Skin.HasSetting(MyWeatherDisableFanArt)</visible>
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[weatherbackground]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
+			
  		<!--Hidden Button for sideblade menu-->
         <control type="radiobutton" id="50">
             <description>Filter (hidden)</description>
@@ -11,8 +28,8 @@
 
 		<!-- weather provider logo -->
         <control type="image">
-            <posx>80</posx>
-            <bottom>20</bottom>
+            <posx>65</posx>
+            <bottom>65</bottom>
             <width>480</width>
             <height>112</height>
             <texture background="true">$INFO[Window.Property(WeatherProviderLogo)]</texture>
@@ -34,9 +51,9 @@
 				<posx>830</posx>
                 <posy>130</posy>
                 <width>1030</width>
-                <height>310</height>
+                <height>315</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
-                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 			</control>
 			
@@ -46,13 +63,13 @@
                 <width>1030</width>
                 <height>325</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
-                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 			</control>
             
             <control type="image">
                 <posx>830</posx>
-                <posy>400</posy>
+                <posy>398</posy>
                 <width>1030</width>
                 <height>60</height>
                 <texture border="1">dialogs/default/separator.png</texture>
@@ -120,7 +137,7 @@
                     <visible>Weather.IsFetched</visible>
                 </control>
                 <control type="label">
-                    <label>$LOCALIZE[402]:</label>
+                    <label>$LOCALIZE[402]</label>
                     <posx>0</posx>
                     <posy>40</posy>
                     <!--60-->
@@ -169,7 +186,7 @@
                 <control type="label">
                     <label>406</label>
                     <posx>0</posx>
-                    <posy>120</posy>
+                    <posy>122</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -180,7 +197,7 @@
                 <control type="label">
                     <label>$INFO[Window.Property(Current.Humidity)]</label>
                     <posx>200</posx>
-                    <posy>120</posy>
+                    <posy>122</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -191,7 +208,7 @@
                 <control type="label">
                     <label>403</label>
                     <posx>0</posx>
-                    <posy>150</posy>
+                    <posy>154</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -202,7 +219,7 @@
                 <control type="label">
                     <label>$INFO[Window.Property(Current.UVIndex)]</label>
                     <posx>200</posx>
-                    <posy>150</posy>
+                    <posy>154</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -213,7 +230,7 @@
                 <control type="label">
                     <label>405</label>
                     <posx>0</posx>
-                    <posy>180</posy>
+                    <posy>186</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -224,7 +241,7 @@
                 <control type="label">
                     <label>$INFO[Window.Property(Current.DewPoint)]</label>
                     <posx>200</posx>
-                    <posy>180</posy>
+                    <posy>186</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -232,9 +249,9 @@
                     <align>left</align>
                 </control>
                 <control type="label">
-                    <label>$LOCALIZE[383]:</label>
+                    <label>$LOCALIZE[383]</label>
                     <posx>0</posx>
-                    <posy>210</posy>
+                    <posy>218</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -245,7 +262,7 @@
                 <control type="label">
                     <label>$INFO[Window.Property(Current.Wind)]</label>
                     <posx>200</posx>
-                    <posy>210</posy>
+                    <posy>218</posy>
                     <width>400</width>
                     <height>50</height>
                     <font>Light29</font>
@@ -438,6 +455,23 @@
      </include>
 
 	<include name="ExtendedWeather">
+	
+	<!-- Fanart Image Added to View-->
+            <control type="multiimage">
+				<visible>!Skin.HasSetting(MyWeatherDisableFanArt)</visible>
+                <include>FullscreenDimensions</include>
+                <texture border="15">diffuse/bgpanel.png</texture>
+			    <colordiffuse>31ffffff</colordiffuse>
+				<imagepath background="true">$VAR[weatherbackground]</imagepath>
+                <aspectratio>scale</aspectratio>
+                <fadetime>350</fadetime>
+                <include>fanartSpeed</include>
+                <randomize>true</randomize>
+                <loop>yes</loop>
+<!-- Background Animation -->
+                <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+                <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
+            </control>
 
 		<control type="group">
 			<left>0</left>
@@ -452,7 +486,7 @@
 				<height>910</height>
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 			</control>
 			<control type="panel" id="50">
 				<left>82</left>
@@ -474,17 +508,17 @@
 					</control>
 					<control type="label">
 						<width>356</width>
-						<height>90</height>
+						<height>89</height>
 						<font>Reg26</font>
 						<textoffsetx>20</textoffsetx>
 						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
-						<selectedcolor>$VAR[ViewDetailsFocusColor]</selectedcolor>
+						<selectedcolor>$INFO[Skin.String(ViewDetailsFocusColor)]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="90" width="356">
+				<focusedlayout height="89" width="356">
 					<control type="image">
 						<top>30</top>
 						<width>356</width>
@@ -493,13 +527,13 @@
 					</control>
 					<control type="image">
 						<width>356</width>
-						<height>90</height>
-						<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+						<height>89</height>
+						<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
                         <texture border="5">diffuse/panel.png</texture>
 					</control>
 					<control type="label">
 						<width>356</width>
-						<height>90</height>
+						<height>89</height>
 						<font>Reg26</font>
 						<textoffsetx>20</textoffsetx>
 						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
@@ -574,7 +608,7 @@
 				<height>910</height>
 				<texture border="5">diffuse/panel.png</texture>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 			</control>
 			<control type="group">
 				<control type="group">
@@ -584,7 +618,7 @@
 					<width>1316</width>
 					<height>840</height>
 					<control type="image">
-						<left>0</left>
+						<left>17</left>
 						<top>0</top>
 						<width>540</width>
 						<height>135</height>
@@ -669,7 +703,7 @@
 						<height>160</height>
 						<texture border="5">diffuse/panel.png</texture>
 						<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                        <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                        <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 						<bordersize>10</bordersize>
 					</control>
 					<control type="image">
@@ -743,7 +777,7 @@
 								<width>329</width>
 								<height>310</height>
 								<texture border="5">diffuse/panel.png</texture>
-                                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>10</bordersize>
 							</control>
@@ -753,7 +787,7 @@
 								<texture border="5">diffuse/panel.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>10</bordersize>
-                                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 							</control>
 							<control type="multiimage">
 								<description>current weather icon</description>
@@ -803,7 +837,7 @@
 								<texture border="5">diffuse/panel.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>0</bordersize>
-                                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 							</control>
 							<control type="image">
 								<width>329</width>
@@ -811,13 +845,13 @@
 								<texture border="5">diffuse/panel.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>10</bordersize>
-                                <visible>!Skin.HasSetting(MyWeatherHidepanel)</visible>
+                                <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 							</control>
 							<control type="image">
 								<width>329</width>
 								<height>310</height>
-								<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-								<texture>diffuse/cover_panel_fo.png</texture>
+								<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
+								<texture border="5">diffuse/cover_panel_fo.png</texture>
 								<bordersize>0</bordersize>
 							</control>
 							<control type="multiimage">
@@ -937,7 +971,7 @@
 						<itemlayout height="168" width="658">
 							<control type="image">
 								<top>108</top>
-								<width>658</width>
+								<width>650</width>
 								<height>60</height>
 								<texture border="1">dialogs/default/separator.png</texture>
 							</control>
@@ -973,7 +1007,7 @@
 								<textoffsetx>15</textoffsetx>
 							</control>
 							<control type="label">
-								<left>183</left>
+								<left>175</left>
 								<top>0</top>
 								<width>475</width>
 								<height>70</height>
@@ -996,7 +1030,7 @@
 								<textoffsetx>15</textoffsetx>
 							</control>
 							<control type="label">
-								<left>183</left>
+								<left>175</left>
 								<top>98</top>
 								<width>475</width>
 								<height>70</height>
@@ -1011,7 +1045,7 @@
 						<focusedlayout height="168" width="658">
 							<control type="image">
 								<top>108</top>
-								<width>658</width>
+								<width>650</width>
 								<height>60</height>
 								<texture border="1">dialogs/default/separator.png</texture>
 							</control>
@@ -1047,7 +1081,7 @@
 								<textoffsetx>15</textoffsetx>
 							</control>
 							<control type="label">
-								<left>183</left>
+								<left>175</left>
 								<top>0</top>
 								<width>475</width>
 								<height>70</height>
@@ -1070,7 +1104,7 @@
 								<textoffsetx>15</textoffsetx>
 							</control>
 							<control type="label">
-								<left>183</left>
+								<left>175</left>
 								<top>98</top>
 								<width>475</width>
 								<height>70</height>
@@ -1585,7 +1619,7 @@
 						<itemlayout height="168" width="658">
 							<control type="image">
 								<top>108</top>
-								<width>658</width>
+								<width>650</width>
 								<height>60</height>
 								<texture border="1">dialogs/default/separator.png</texture>
 							</control>
@@ -1621,7 +1655,7 @@
 								<textoffsetx>15</textoffsetx>
 							</control>
 							<control type="label">
-								<left>183</left>
+								<left>175</left>
 								<width>475</width>
 								<height>70</height>
 								<font>Reg26</font>
@@ -1658,20 +1692,14 @@
 						<focusedlayout height="168" width="658">
 							<control type="image">
 								<top>108</top>
-								<width>658</width>
+								<width>650</width>
 								<height>60</height>
 								<texture border="1">dialogs/default/separator.png</texture>
 							</control>
-							<control type="image">
-								<width>658</width>
-								<height>168</height>
-								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-								<texture border="5">diffuse/panel.png</texture>
-							</control>
                             <control type="image">
-								<width>658</width>
-								<height>168</height>
-								<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+								<width>650</width>
+								<height>167</height>
+								<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 								<texture border="5">diffuse/cover_panel_fo.png</texture>
 								<bordersize>0</bordersize>
 							</control>
@@ -1689,8 +1717,8 @@
 								<width>475</width>
 								<height>70</height>
 								<font>Reg26</font>
-								<textcolor>$VAR[ViewDetailsFocusColor]</textcolor>
-								<selectedcolor>$VAR[ViewDetailsFocusColor]</selectedcolor>
+								<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+								<selectedcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</selectedcolor>
 								<label>$INFO[ListItem.Label]</label>
 								<textoffsetx>15</textoffsetx>
 							</control>
@@ -1706,7 +1734,7 @@
 								<textoffsetx>15</textoffsetx>
 							</control>
 							<control type="label">
-								<left>183</left>
+								<left>175</left>
 								<width>475</width>
 								<height>70</height>
 								<font>Reg26</font>

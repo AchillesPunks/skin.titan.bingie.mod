@@ -3,8 +3,8 @@
 <includes>
     
     <include name="Header">
-        <include condition="!Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)">Header_Normal</include>
-        <include condition="Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)">Header_Compact</include>
+        <include condition="!Skin.HasSetting(CompactHeader) + Skin.String(home_header,disable) | !Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)">Header_Normal</include>
+        <include condition="Skin.HasSetting(CompactHeader) + Skin.String(home_header,disable) | Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)">Header_Compact</include>
     </include>
     
     <include name="Header_Normal">
@@ -12,14 +12,14 @@
         <control type="group">
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(77551) + !Control.IsVisible(88888) + !Control.IsVisible(88883)</visible>
             <visible>![[String.Contains(Skin.String(HomeLayout), 2) | String.Contains(Skin.String(HomeLayout), 1)] + !Skin.HasSetting(AutoShowWidgets) + !String.IsEmpty(Window(Home).Property(ShowWidget)) + Skin.HasSetting(HideWidgetDetailsPanel)]</visible>
-            
+            <visible>!Control.IsVisible(525) | !Control.IsVisible(527)</visible>
             <!-- header panel -->
             <control type="image">
 				<posx>0</posx>
 				<posy>-5</posy>
 				<width>100%</width>
 				<height>145</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="5">diffuse/panel2.png</texture>
 				<colordiffuse>$INFO[Skin.String(HeaderPanelColor)]</colordiffuse>
                 <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
                 <animation effect="slide" end="434" time="0" tween="cubic" easing="inout" delay="0" condition="Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),verticalbig)">Conditional</animation>
@@ -98,14 +98,14 @@
             <visible>Skin.HasSetting(CompactHeader)</visible>
             <include condition="!Skin.HasSetting(LowPerformanceMode)">animation_fade_visible</include>
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Control.IsVisible(77551) + !Control.IsVisible(88888) + !Control.IsVisible(88883)</visible>
-            
+            <visible>!Control.IsVisible(525) | !Control.IsVisible(527)</visible>
             <!-- header panel -->
             <control type="image">
 				<posx>0</posx>
 				<posy>-5</posy>
 				<width>100%</width>
-				<height>110</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<height>112</height>
+				<texture border="5">diffuse/panel2.png</texture>
 				<colordiffuse>$INFO[Skin.String(HeaderPanelColor)]</colordiffuse>
                 <visible>Skin.String(HeaderPanelColor) + !Skin.String(HeaderPanelColor,none)</visible>
                 <visible>![Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]</visible>
@@ -142,7 +142,7 @@
                 <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
                 <orientation>horizontal</orientation>
                 <itemgap>25</itemgap>
-                <posx>50</posx>
+                <posx>-10</posx>
                 <top>25</top>
                 <onright>890</onright>
                 <ondown>9000</ondown>
@@ -154,7 +154,7 @@
                 <control type="group" id="99226">
                     <visible>[!Window.IsActive(Home) + String.Contains(Skin.String(general_header),title)] | [Window.IsActive(Home) + String.Contains(Skin.String(home_header),title)]</visible>
                     <control type="label">
-                        <top>-15</top>
+                        <top>-13</top>
                         <align>left</align>
                         <width>800</width>
                         <label>$VAR[value_header]</label>
@@ -163,7 +163,7 @@
                         <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                     </control>
                     <control type="label">
-                        <top>15</top>
+                        <top>17</top>
                         <align>left</align>
                         <width>800</width>
                         <label>$VAR[value_subheader]</label>
@@ -310,7 +310,7 @@
         <control type="group">
             <control type="image">
                 <visible>Skin.HasTheme(classic)</visible>
-                <posx>61</posx>
+                <posx>60</posx>
                 <posy>31</posy>
                 <height>64</height>
                 <width>64</width>
@@ -329,7 +329,7 @@
                 <texture background="true">$VAR[value_header_icon]</texture>
             </control>
             <control type="label">
-                <posx>61</posx>
+                <posx>60</posx>
                 <posy>0</posy>
                 <width min="80" max="1400">auto</width>
                 <height>100</height>
@@ -343,7 +343,7 @@
              <control type="label">
                 <visible>!Skin.HasTheme(classic)</visible>
                 <posy>75</posy>
-                <posx>61</posx>
+                <posx>60</posx>
                 <width min="0" max="1400">auto</width>
                 <height>50</height>
                 <label>$VAR[value_subheader]</label>
@@ -360,7 +360,7 @@
 		<control type="image" id="881">
 			<right>60</right>
 			<top>10</top>
-			<width>550</width>
+			<width>335</width>
 			<height>130</height>
 			<fadetime>600</fadetime>
 			<aspectratio align="right" aligny="center">keep</aspectratio>
@@ -376,7 +376,7 @@
 		<control type="image" id="882">
 			<left>60</left>
 			<top>10</top>
-			<width>550</width>
+			<width>335</width>
 			<height>130</height>
 			<fadetime>600</fadetime>
 			<aspectratio align="left" aligny="center">keep</aspectratio>
@@ -387,9 +387,9 @@
 		
 		<!--clearlogo top center-->
 		<control type="image" id="883">
-			<left>760</left>
+			<left>792</left>
 			<top>10</top>
-			<width>400</width>
+			<width>335</width>
 			<height>130</height>
 			<fadetime>600</fadetime>
 			<aspectratio align="center" aligny="center">keep</aspectratio>
@@ -401,37 +401,37 @@
 		</control>
 		
 		<!--clearlogo footer (not touch mode or large icons-->
-		<control type="image" id="884">
-			<left>810</left>
-			<bottom>10</bottom>
-			<width>300</width>
-			<height>80</height>
-			<fadetime>600</fadetime>
-			<aspectratio>keep</aspectratio>
-			<texture background="true">$VAR[ListItemClearLogo]</texture>
-            <visible>!Skin.HasSetting(nofooterbar)</visible>
-            <visible>![[Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,large) | Skin.HasSetting(EnableTouchSupport)] + !String.IsEmpty(ListItem.VideoResolution)]</visible>
-			<visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !Skin.HasTheme(classic) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible>
-		</control>
+		<!-- <control type="image" id="884"> -->
+			<!-- <left>810</left> -->
+			<!-- <bottom>10</bottom> -->
+			<!-- <width>300</width> -->
+			<!-- <height>80</height> -->
+			<!-- <fadetime>600</fadetime> -->
+			<!-- <aspectratio>keep</aspectratio> -->
+			<!-- <texture background="true">$VAR[ListItemClearLogo]</texture> -->
+            <!-- <visible>!Skin.HasSetting(EnableFooterBar)</visible> -->
+            <!-- <visible>![[Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,large) | Skin.HasSetting(EnableTouchSupport)] + !String.IsEmpty(ListItem.VideoResolution)]</visible> -->
+			<!-- <visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !Skin.HasTheme(classic) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible> -->
+		<!-- </control> -->
         <!--clearlogo footer (with touch mode or large icons-->
-        <control type="image" id="884">
-			<right>350</right>
-			<bottom>10</bottom>
-			<width>280</width>
-			<height>80</height>
-			<fadetime>600</fadetime>
-			<aspectratio align="right">keep</aspectratio>
-			<texture background="true">$VAR[ListItemClearLogo]</texture>
-            <visible>!Skin.HasSetting(nofooterbar)</visible>
-            <visible>[[Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,large) | Skin.HasSetting(EnableTouchSupport)] + !String.IsEmpty(ListItem.VideoResolution)]</visible>
-			<visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !Skin.HasTheme(classic) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible>
-            <animation effect="slide" start="0,0" end="150,0" time="0" condition="[Skin.HasSetting(EnableStudioLogo) | Skin.HasSetting(EnableIMDBRating)] + ![Skin.HasSetting(EnableStudioLogo) + Skin.HasSetting(EnableIMDBRating)]">Conditional</animation>
-            <animation effect="slide" start="0,0" end="60,0" time="0" condition="Skin.HasSetting(EnableStudioLogo) + Skin.HasSetting(EnableIMDBRating)">Conditional</animation>
-            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) + Skin.HasSetting(EnableIMDBRating)">Conditional</animation>
-            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
-            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
-            <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation>
-        </control>
+        <!-- <control type="image" id="884"> -->
+			<!-- <right>350</right> -->
+			<!-- <bottom>10</bottom> -->
+			<!-- <width>280</width> -->
+			<!-- <height>80</height> -->
+			<!-- <fadetime>600</fadetime> -->
+			<!-- <aspectratio align="right">keep</aspectratio> -->
+			<!-- <texture background="true">$VAR[ListItemClearLogo]</texture> -->
+            <!-- <visible>!Skin.HasSetting(EnableFooterBar)</visible> -->
+            <!-- <visible>[[Skin.String(mediaflagsstyle,large_color) | Skin.String(mediaflagsstyle,large) | Skin.HasSetting(EnableTouchSupport)] + !String.IsEmpty(ListItem.VideoResolution)]</visible> -->
+			<!-- <visible>!String.IsEmpty(Control.GetLabel(884)) + Skin.String(ClearLogoLocation, footer) + !Skin.HasTheme(classic) + !String.IsEqual(Window(Home).Property(showinfopanel),show)</visible> -->
+            <!-- <animation effect="slide" start="0,0" end="150,0" time="0" condition="[Skin.HasSetting(EnableStudioLogo) | Skin.HasSetting(EnableIMDBRating)] + ![Skin.HasSetting(EnableStudioLogo) + Skin.HasSetting(EnableIMDBRating)]">Conditional</animation> -->
+            <!-- <animation effect="slide" start="0,0" end="60,0" time="0" condition="Skin.HasSetting(EnableStudioLogo) + Skin.HasSetting(EnableIMDBRating)">Conditional</animation> -->
+            <!-- <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)) + Skin.HasSetting(EnableIMDBRating)">Conditional</animation> -->
+            <!-- <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation> -->
+            <!-- <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation> -->
+            <!-- <animation effect="slide" end="-100" time="0" condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating)) + Skin.HasSetting(EnableRTAndMetaCriticRating)">Conditional</animation> -->
+        <!-- </control> -->
 		
 	</include>
 	
@@ -500,8 +500,8 @@
     <include name="TimeInfoCompact">
         <control type="group">
             <control type="label">
-                <right>50</right>
-                <top>10</top>
+                <right>60</right>
+                <top>12</top>
                 <align>right</align>
                 <width>300</width>
                 <info>System.Time</info>
@@ -510,8 +510,8 @@
                 <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
             </control>
             <control type="label">
-                <right>50</right>
-                <top>40</top>
+                <right>60</right>
+                <top>42</top>
                 <align>right</align>
                 <width>500</width>
                 <info>System.Date</info>
@@ -608,7 +608,7 @@
 	<include name="WeatherInfoLeft">
         <!-- weather info -->
         <control type="group" id="667711">
-            <posx>30</posx>
+            <posx>40</posx>
             <posy>10</posy>
             <width>350</width>
             <height>300</height>
@@ -617,16 +617,20 @@
             <control type="multiimage">
                 <!--Icon-->
                 <imagepath>$INFO[Skin.String(WeatherIconPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(WeatherIconPack.ext)]</imagepath>
-                <width>125</width>
-                <height>125</height>
+                <width>136</width>
+                <height>136</height>
+				<posy>-6</posy>
+				<posx>-4</posx>
                 <aspectratio align="left" aligny="bottom">keep</aspectratio>
                 <visible>!String.IsEmpty(Window(Weather).Property(Current.FanartCode))</visible>
             </control>
 			<!-- active weather alert icon overlay -->
             <control type="image">
                 <texture>special://skin/extras/media/weather-alert.png</texture>
-                <width>125</width>
-                <height>125</height>
+                <width>136</width>
+                <height>136</height>
+				<posy>-6</posy>
+				<posx>-4</posx>
                 <aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>!String.IsEmpty(Window(Weather).Property(Alerts)) + !String.IsEmpty(Window(Weather).Property(Alerts.IsFetched)) + Skin.HasSetting(EnableWeatherAlertOverlay)</visible>
             </control>
@@ -634,9 +638,9 @@
                 <!--Temp-->
                 <width>160</width>
                 <height>40</height>
-                <posx>140</posx>
-                <posy>25</posy>
-                <font>Bold38</font>
+                <posx>137</posx>
+                <posy>24</posy>
+                <font>Bold55</font>
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
                 <align>left</align>
                 <label>$INFO[Window(Weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits]</label>
@@ -646,9 +650,9 @@
                 <!--Temp-->
                 <width>400</width>
                 <height>40</height>
-                <posx>140</posx>
-                <posy>70</posy>
-                <font>Reg28</font>
+                <posx>137</posx>
+                <posy>69</posy>
+                <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                 <align>left</align>
@@ -660,7 +664,7 @@
     <include name="WeatherInfoRight">
         <!-- weather info -->
         <control type="group" id="667711">
-            <right>30</right>
+            <right>40</right>
             <posy>0</posy>
             <width>350</width>
             <height>300</height>
@@ -669,19 +673,19 @@
             <control type="multiimage">
                 <!--Icon-->
                 <imagepath>$INFO[Skin.String(WeatherIconPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(WeatherIconPack.ext)]</imagepath>
-                <width>125</width>
-                <height>125</height>
-                <right>0</right>
-                <posy>10</posy>
+                <width>136</width>
+                <height>136</height>
+                <right>-6</right>
+                <posy>0</posy>
                 <aspectratio align="right" aligny="bottom">keep</aspectratio>
             </control>
 			<!-- active weather alert icon overlay -->
             <control type="image">
                 <texture>special://skin/extras/media/weather-alert.png</texture>
-                <width>125</width>
-                <height>125</height>
-                <right>0</right>
-                <posy>10</posy>
+                <width>136</width>
+                <height>136</height>
+                <right>-6</right>
+                <posy>0</posy>
                 <aspectratio align="right" aligny="bottom">keep</aspectratio>
 				<visible>!String.IsEmpty(Window(Weather).Property(Alerts)) + !String.IsEmpty(Window(Weather).Property(Alerts.IsFetched)) + Skin.HasSetting(EnableWeatherAlertOverlay)</visible>
             </control>
@@ -689,9 +693,9 @@
                 <!--Temp-->
                 <width>160</width>
                 <height>40</height>
-                <right>140</right>
-                <posy>25</posy>
-                <font>Bold38</font>
+                <right>139</right>
+                <posy>30</posy>
+                <font>Bold55</font>
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
                 <align>right</align>
                 <label>$INFO[Window(Weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits]</label>
@@ -701,9 +705,9 @@
                 <!--Temp-->
                 <width>400</width>
                 <height>40</height>
-                <right>140</right>
-                <posy>70</posy>
-                <font>Reg28</font>
+                <right>139</right>
+                <posy>75</posy>
+                <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
 				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
                 <align>right</align>
@@ -716,39 +720,39 @@
         <control type="group">
             <visible>!String.IsEmpty(Window(Weather).Property(Current.FanartCode)) + Skin.String(WeatherIconPack.path)</visible>
             <control type="multiimage">
-                <right>20</right>
-                <top>5</top>
+                <right>43</right>
+                <top>10</top>
                 <imagepath>$INFO[Skin.String(WeatherIconPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(WeatherIconPack.ext)]</imagepath>
-                <width>100</width>
-                <height>100</height>
+                <width>92</width>
+                <height>92</height>
                 <aspectratio>keep</aspectratio>
                 <visible>!String.IsEmpty(Window(Weather).Property(Current.FanartCode)) + Skin.String(WeatherIconPack.path)</visible> 
             </control>
 		<!-- active weather alert icon overlay -->
             <control type="image">
                 <texture>special://skin/extras/media/weather-alert.png</texture>
-                <right>20</right>
-                <top>5</top>
-                <width>100</width>
-                <height>100</height>
+                <right>43</right>
+                <top>10</top>
+                <width>92</width>
+                <height>92</height>
                 <aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(Window(Weather).Property(Alerts)) + !String.IsEmpty(Window(Weather).Property(Alerts.IsFetched)) + Skin.HasSetting(EnableWeatherAlertOverlay)</visible>
             </control>
             <!-- current temp -->
             <control type="label">
-                <right>130</right>
-                <top>10</top>
+                <right>145</right>
+                <top>11</top>
                 <align>right</align>
                 <width>500</width>
                 <label>[B]$INFO[Window(Weather).Property(Current.Temperature)]  $INFO[System.TemperatureUnits][/B]</label>
-                <font>Reg26</font>
+                <font>Reg30</font>
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
             </control>
             <!-- weather conditions -->
             <control type="label">
-                <right>130</right>
-                <top>40</top>
+                <right>145</right>
+                <top>42</top>
                 <align>right</align>
                 <width>400</width>
                 <label>$INFO[Window(Weather).Property(Current.Condition)]</label>
@@ -762,41 +766,41 @@
     <include name="WeatherClockInfoRightCompact">
         <control type="group">
             <control type="multiimage">
-                <right>20</right>
-                <top>5</top>
+                <right>43</right>
+                <top>10</top>
                 <imagepath>$INFO[Skin.String(WeatherIconPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(WeatherIconPack.ext)]</imagepath>
-                <width>100</width>
-                <height>100</height>
+                <width>92</width>
+                <height>92</height>
                 <aspectratio>keep</aspectratio>
             </control>
 		<!-- active weather alert icon overlay -->
             <control type="image">
                 <texture>special://skin/extras/media/weather-alert.png</texture>
-                <right>20</right>
-                <top>5</top>
-                <width>100</width>
-                <height>100</height>
+                <right>43</right>
+                <top>10</top>
+                <width>92</width>
+                <height>92</height>
                 <aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(Window(Weather).Property(Alerts)) + !String.IsEmpty(Window(Weather).Property(Alerts.IsFetched)) + Skin.HasSetting(EnableWeatherAlertOverlay)</visible>
             </control>
             <!-- time + date -->
             <control type="label">
-                <right>130</right>
-                <top>10</top>
+                <right>145</right>
+                <top>12</top>
                 <align>right</align>
                 <width>550</width>
                 <label>[B]$INFO[System.Time][/B]</label>
-                <font>Reg26</font>
+                <font>Bold30</font>
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
             </control>
             <!-- weather conditions -->
             <control type="label">
-                <right>130</right>
-                <top>40</top>
+                <right>145</right>
+                <top>42</top>
                 <align>right</align>
                 <width>600</width>
-                <label>$INFO[Window(Weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits], $INFO[Window(Weather).Property(Current.Condition)]</label>
+                <label>$INFO[Window(Weather).Property(Current.Temperature)] $INFO[System.TemperatureUnits] $INFO[Window(Weather).Property(Current.Condition)]</label>
                 <font>Reg26</font>
                 <textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
                 <shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
@@ -808,7 +812,7 @@
         <control type="group">
             <control type="grouplist">
                 <!--Time Grouplist Line 1-->
-                <right>190</right>
+                <right>184</right>
                 <posy>0</posy>
                 <width>600</width>
                 <height>100</height>
@@ -848,8 +852,8 @@
             </control>
             <control type="label">
                 <!--weather info-->
-                <right>190</right>
-                <posy>75</posy>
+                <right>185</right>
+                <posy>70</posy>
                 <width>600</width>
                 <height>50</height>
                 <align>right</align>
@@ -863,20 +867,20 @@
         <control type="multiimage">
             <!--Icon-->
             <imagepath>$INFO[Skin.String(WeatherIconPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(WeatherIconPack.ext)]</imagepath>
-            <width>125</width>
-            <height>125</height>
-            <right>40</right>
-            <posy>10</posy>
+            <width>136</width>
+            <height>136</height>
+            <right>34</right>
+            <posy>0</posy>
             <aspectratio align="right" aligny="bottom">keep</aspectratio>
             <visible>!String.IsEmpty(Window(Weather).Property(Current.FanartCode)) + Skin.String(WeatherIconPack.path)</visible>
         </control>
 		<!-- active weather alert icon overlay -->
 		<control type="image">
 			<texture>special://skin/extras/media/weather-alert.png</texture>
-			<width>125</width>
-			<height>125</height>
-			<right>40</right>
-			<posy>10</posy>
+			<width>136</width>
+			<height>136</height>
+			<right>34</right>
+			<posy>0</posy>
 			<aspectratio align="right" aligny="bottom">keep</aspectratio>
 			<visible>!String.IsEmpty(Window(Weather).Property(Alerts)) + !String.IsEmpty(Window(Weather).Property(Alerts.IsFetched)) + Skin.HasSetting(EnableWeatherAlertOverlay)</visible>
 		</control>    
@@ -898,25 +902,50 @@
         <!-- Kodi Logo image -->
         <control type="image">
             <posx>35</posx>
-            <posy>10</posy>
-            <height>110</height>
-            <width>375</width>
+            <posy>-34</posy>
+            <height>196</height>
+            <width></width>
             <aspectratio align="left">keep</aspectratio>
             <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-            <texture>home/kodi_logo_light.png</texture>
+            <texture>bingie_logo.png</texture>
+			<visible>!$EXP[IsBingieHubsActive]</visible>
             <visible>!Skin.String(CustomLogoImage) + String.IsEmpty(Control.GetLabel(198754))</visible>
-            <visible>![Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),simplever)]</visible>
+            <visible>![Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),simplever) | Skin.HasSetting(CompactHeader)]</visible>
+        </control>
+		<control type="image">
+            <posx>43</posx>
+            <posy>-13</posy>
+            <height>132</height>
+            <width></width>
+            <aspectratio align="left">keep</aspectratio>
+            <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
+            <texture>home/netflix_logo.png</texture>
+			<visible>!$EXP[IsBingieHubsActive]</visible>
+            <visible>!Skin.String(CustomLogoImage) + String.IsEmpty(Control.GetLabel(198754))</visible>
+            <visible>![Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),simplever) | !Skin.HasSetting(CompactHeader)]</visible>
         </control>
         <!-- custom Logo image -->
         <control type="image">
-            <posx>35</posx>
-            <posy>10</posy>
-            <height>110</height>
-            <width>375</width>
-            <aspectratio align="left">keep</aspectratio>
+            <posx>60</posx>
+            <posy>31</posy>
+            <height>76</height>
+            <width>284</width>
+            <aspectratio align="left">scale</aspectratio>
             <texture background="true">$INFO[Skin.String(CustomLogoImage)]</texture>
+			<visible>!$EXP[IsBingieHubsActive]</visible>
             <visible>Skin.String(CustomLogoImage) + String.IsEmpty(Control.GetLabel(198754))</visible>
-            <visible>![Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),simplever)]</visible>
+            <visible>![Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),simplever) | Skin.HasSetting(CompactHeader)]</visible>
+        </control>
+		<control type="image">
+            <posx>60</posx>
+            <posy>31</posy>
+            <height>51</height>
+            <width>191</width>
+            <aspectratio align="left">scale</aspectratio>
+            <texture background="true">$INFO[Skin.String(CustomLogoImage)]</texture>
+			<visible>!$EXP[IsBingieHubsActive]</visible>
+            <visible>Skin.String(CustomLogoImage) + String.IsEmpty(Control.GetLabel(198754))</visible>
+            <visible>![Window.IsActive(Home) + String.Contains(Skin.String(HomeLayout),simplever) | !Skin.HasSetting(CompactHeader)]</visible>
         </control>
         <!-- background Logo image -->
         <include condition="Window.IsActive(Home) + Skin.HasSetting(Home_ShowBackgroundLogo)">BackgroundLogo</include>

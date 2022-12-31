@@ -8,9 +8,10 @@
       <include>animation_view_change</include>
 	  <!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View511_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -26,10 +27,10 @@
           <include content="View_Forced">
               <param name="viewtype" value="$LOCALIZE[31438]" />
           </include>
-        <posx>60</posx>
-        <bottom>13%</bottom>
+        <posx>69</posx>
+        <bottom>96</bottom>
         <width>1820</width>
-        <height>768</height>
+        <height>840</height>
         <orientation>vertical</orientation>
         <onleft>9000</onleft>
         <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
@@ -38,23 +39,17 @@
         <ondown>511</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-          <itemlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+          <itemlayout height="210" width="358" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 			<control type="group">
-                <width>354</width>
-                <height>185</height>
+                <width>350</width>
+                <height>202</height>
                 <include>ThumbsViewLayout</include>
             </control>
         </itemlayout>
-        <focusedlayout height="192" width="364" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <focusedlayout height="210" width="358" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 			<control type="group">
-				<animation type="focus">
-					<effect type="zoom" start="100" end="107" center="auto" time="150" />
-				</animation>
-				<animation type="unfocus">
-					<effect type="zoom" start="107" end="100" center="auto" time="150" />
-				</animation>
-                <width>354</width>
-                <height>185</height>
+                <width>350</width>
+                <height>202</height>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
         </focusedlayout>
@@ -68,12 +63,6 @@
         </itemlayout>
         <focusedlayout height="256" width="455" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 			<control type="group">
-				<animation type="focus">
-					<effect type="zoom" start="100" end="105" center="auto" time="150" />
-				</animation>
-				<animation type="unfocus">
-					<effect type="zoom" start="105" end="100" center="auto" time="150" />
-				</animation>
                 <width>356</width>
                 <height>246</height>
                 <left>40</left>

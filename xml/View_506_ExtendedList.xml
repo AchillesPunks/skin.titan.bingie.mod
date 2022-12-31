@@ -16,9 +16,10 @@
 			
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View506_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -31,7 +32,7 @@
             </control>
 
 			<control type="panel" id="506">
-							<bottom>110</bottom>
+							<bottom>104</bottom>
 			<height>840</height>	
 				<posx>50</posx>
 				<posy>-30</posy>
@@ -60,16 +61,38 @@
 						<width>460</width>
 						<height>905</height>
 
-
+						<control type="image">
+							<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+							<posx>8</posx>
+							<posy>8</posy>
+							<width>443</width>
+							<height>752</height>
+							<texture border="5">diffuse/poster.png</texture>
+							<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+						</control>
 						
 						<control type="image">
 							<!--Panel icon image-->
 							<posx>18</posx>
 							<posy>18</posy>
 							<width>423</width>
-							<height>250</height>
+							<height>238</height>
 							<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$VAR[LandscapeImage]</texture>
-							<aspectratio scalediffuse="true" align="center" aligny="center">stretch</aspectratio>
+							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+						</control>
+						
+						<control type="image">
+							<!-- fallback logo image -->
+							<width>460</width>
+							<height>238</height>
+							<bottom>592</bottom>
+							<left>0</left>
+							<bordersize>57</bordersize>
+							<texture background="true">$VAR[ClearLogoFallback]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+							<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
+							<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
+							<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
 						</control>
                                   						
 						<control type="group">
@@ -81,7 +104,7 @@
 						
 						<control type="label">
 							<posx>18</posx>
-							<posy>360</posy>
+							<posy>348</posy>
 							<width>423</width>
 							<height>80</height>
 							<label>$INFO[ListItem.Genre,,[CR]]$VAR[ListDetails]</label>
@@ -91,7 +114,7 @@
 						
 						<control type="textbox">
 							<posx>18</posx>
-							<posy>280</posy>
+							<posy>268</posy>
 							<width>423</width>
 							<height>80</height>
 							<label>$VAR[View_Item_Header]</label>
@@ -103,7 +126,7 @@
 						
 						<control type="textbox">
 							<posx>18</posx>
-							<posy>440</posy>
+							<posy>428</posy>
 							<width>423</width>
 							<height>310</height>
 							<label>$VAR[Plots]</label>
@@ -129,9 +152,9 @@
 							<posx>8</posx>
 							<posy>8</posy>
 							<width>443</width>
-							<height>765</height>
-							<texture border="15">diffuse/bgpanel.png</texture>
-							<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
+							<height>752</height>
+							<texture border="5">diffuse/poster.png</texture>
+							<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 						</control>
 						
 						<control type="image">
@@ -139,9 +162,23 @@
 							<posx>18</posx>
 							<posy>18</posy>
 							<width>423</width>
-							<height>250</height>
+							<height>238</height>
 							<texture background="true" diffuse="home/home_matte2.png" fallback="resource://resource.images.skinicons.wide/video.png">$VAR[LandscapeImage]</texture>
-							<aspectratio scalediffuse="true" align="center" aligny="center">stretch</aspectratio>
+							<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+						</control>
+						
+						<control type="image">
+							<!-- fallback logo image -->
+							<width>460</width>
+							<height>238</height>
+							<bottom>593</bottom>
+							<left>0</left>
+							<bordersize>57</bordersize>
+							<texture background="true">$VAR[ClearLogoFallback]</texture>
+							<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+							<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
+							<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
+							<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
 						</control>
 						
 						<control type="group">
@@ -153,7 +190,7 @@
 					
 						<control type="textbox">
 							<posx>18</posx>
-							<posy>280</posy>
+							<posy>268</posy>
 							<width>423</width>
 							<height>80</height>
 							<label>$VAR[View_Item_Header]</label>
@@ -165,7 +202,7 @@
 						
 						<control type="label">
 							<posx>18</posx>
-							<posy>360</posy>
+							<posy>348</posy>
 							<width>423</width>
 							<height>80</height>
 							<label>$INFO[ListItem.Genre,,[CR]]$VAR[ListDetails]</label>
@@ -175,7 +212,7 @@
 						
 						<control type="textbox">
 							<posx>18</posx>
-							<posy>440</posy>
+							<posy>428</posy>
 							<width>423</width>
 							<height>309</height>
 							<label>$VAR[Plots]</label>

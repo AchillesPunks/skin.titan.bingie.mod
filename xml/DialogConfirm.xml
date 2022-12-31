@@ -22,7 +22,17 @@
 				<posy>-40</posy>
 				<width>2000</width>
 				<height>410</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture>diffuse/panel2.png</texture>
+				
+				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			</control>
+			
+			<control type="image">
+				<posx>-460</posx>
+				<posy>-40</posy>
+				<width>2000</width>
+				<height>410</height>
+				<texture>diffuse/panel2.png</texture>
 				
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			</control>
@@ -40,8 +50,8 @@
 			</control>
 			
 			<control type="label">
-				<posx>-5</posx>
-				<posy>-10</posy>
+				<posx>-9</posx>
+				<posy>-8</posy>
 				<width>200</width>
 				<height>200</height>
 				<align>center</align>
@@ -75,8 +85,9 @@
 			
 		
 			<control type="grouplist">
-                <posx>15</posx>
+                <posx>8</posx>
                 <posy>220</posy>
+				<width>920</width>
                 <orientation>horizontal</orientation>
                 <itemgap>10</itemgap>
                 <control type="button" id="11">
@@ -85,6 +96,7 @@
                     <height>90</height>
 					<label>107</label>
                     <font>Reg36</font>
+                    <textwidth>262</textwidth>
                     <include>DialogButtonOther</include>
                 </control>
                 <control type="button" id="10">
@@ -92,6 +104,7 @@
                     <width>300</width>
                     <height>90</height>
                     <font>Reg36</font>
+					<textwidth>262</textwidth>
                     <label>106</label>
                     <include>DialogButtonOther</include>
                 </control>
@@ -100,6 +113,7 @@
                     <width>300</width>
                     <height>90</height>
                     <font>Reg36</font>
+					<textwidth>262</textwidth>
                     <label>106</label>
                     <include>DialogButtonOther</include>
                 </control>

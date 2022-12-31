@@ -12,7 +12,7 @@
         <!--Header-->
         <include>Header</include>
          <!--Footer-->
-        <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+        <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
         <include>BingieVersion</include>
 		
@@ -23,14 +23,14 @@
 		
         <!--Panel-->
 		<control type="image">
-			<posx>50</posx>
-			<width>1820</width>
+			<posx>60</posx>
+			<width>1800</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 		</control>
 		
 		<control type="image">
-			<posx>50</posx>
+			<posx>60</posx>
 			<width>560</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
@@ -47,6 +47,7 @@
             </control>
 			
             <control type="radiobutton" id="4">
+				<visible>!Skin.HasSetting(EnableNetflixIcons)</visible>
                 <posx>80</posx>
                 <posy>41</posy>
                 <width>520</width>
@@ -56,6 +57,19 @@
 				<align>left</align>
                 <ondown>444</ondown>
             </control>
+			
+			<control type="button">
+				<visible>Skin.HasSetting(EnableNetflixIcons)</visible>
+                <posx>80</posx>
+                <posy>41</posy>
+                <width>520</width>
+                <label>General</label>
+                <onup>2</onup>
+				<onright>2</onright>
+				<align>left</align>
+                <ondown>444</ondown>
+            </control>
+			
 			<control type="radiobutton" id="444">
                 <posx>80</posx>
                 <posy>105</posy>
@@ -109,7 +123,7 @@
                         <posy>10</posy>
                         <width>56</width>
                         <height>56</height>
-                        <texture background="true" fallback="common/profil/avatar.png">$INFO[ListItem.Icon]</texture>
+                        <texture background="true" fallback="defaultactor.png">$INFO[ListItem.Icon]</texture>
                         <visible>!String.IsEmpty(ListItem.Icon)</visible>
                     </control>
                     <control type="label">
@@ -120,7 +134,7 @@
                         <align>left</align>
                         <aligny>center</aligny>
                         <info>ListItem.Label</info>
-                        <textcolor>96FFFFFF</textcolor>
+                        <textcolor>FFFFFFFF</textcolor>
                         <font>Light28</font>
                         <animation effect="slide" start="0" end="80" time="0" condition="!String.IsEmpty(ListItem.Icon)">Conditional</animation>
                     </control>
@@ -132,7 +146,7 @@
                         <align>right</align>
                         <aligny>center</aligny>
                         <info>ListItem.Label2</info>
-                        <textcolor>96FFFFFF</textcolor>
+                        <textcolor>FFFFFFFF</textcolor>
                         <font>Light28</font>
                     </control>
                 </itemlayout>
@@ -141,8 +155,8 @@
                         <visible>Control.HasFocus(2)</visible>
                         <control type="image">
                             <height>77</height>
-                            <width>1210</width>
-                            <texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
+                            <width>1100</width>
+                            <texture border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</texture>
                         </control>
                         <control type="image">
                             <posx>35</posx>
@@ -182,7 +196,7 @@
                             <description>List separator</description>
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>1210</width>
+                            <width>1100</width>
                             <height>77</height>
                             <texture border="90,3,90,3">common/profil/separator.png</texture>
                         </control>
@@ -191,7 +205,7 @@
                             <posy>10</posy>
                             <width>56</width>
                             <height>56</height>
-                            <texture background="true" fallback="common/profil/avatar.png">$INFO[ListItem.Icon]</texture>
+                            <texture background="true" fallback="defaultactor.png">$INFO[ListItem.Icon]</texture>
                             <visible>!String.IsEmpty(ListItem.Icon)</visible>
                         </control>
                         <control type="label">
@@ -202,7 +216,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <info>ListItem.Label</info>
-                            <textcolor>96FFFFFF</textcolor>
+                            <textcolor>FFFFFFFF</textcolor>
                             <font>Light28</font>
                             <animation effect="slide" start="0" end="80" time="0" condition="!String.IsEmpty(ListItem.Icon)">Conditional</animation>
                         </control>
@@ -214,7 +228,7 @@
                             <align>right</align>
                             <aligny>center</aligny>
                             <info>ListItem.Label2</info>
-                            <textcolor>96FFFFFF</textcolor>
+                            <textcolor>FFFFFFFF</textcolor>
                             <font>Light28</font>
                         </control>
                     </control>

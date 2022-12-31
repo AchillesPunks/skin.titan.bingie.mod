@@ -11,6 +11,7 @@
             <include>animation_view_change</include>
             <!-- fanart image -->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View507_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -61,7 +62,7 @@
 					<posx>50</posx>
 					<height>298</height>
 					<width>1820</width>
-					<texture border="15">diffuse/bgpanel.png</texture>
+					<texture>diffuse/panel2.png</texture>
 					<colordiffuse>bb0f0f0f</colordiffuse>
 				</control>
 				
@@ -78,16 +79,14 @@
 						<height>70</height>
 						<width>1775</width>
 						<font>Bold74</font>
-						<textcolor>ff00ff00</textcolor>
-                        <shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 						<label>[UPPERCASE]$VAR[mediatitle][/UPPERCASE]</label>
 					</control>
                     <control type="label">
 						  <height>40</height>
 						  <width>1775</width>
 						  <font>bold40</font>
-						  <textcolor>ffcc0000</textcolor>
-						  <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						  <textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 						  <label>$VAR[Details]</label>
 					</control>
 					<control type="textbox">
@@ -96,8 +95,7 @@
 						<width>1775</width>
 						<height>115</height>
 						<label>$VAR[Plots]</label>
-						<textcolor>ffffffff</textcolor>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+						<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 						<align>justify</align>
 						<font>Reg30</font>
 					</control>

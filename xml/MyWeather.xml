@@ -119,6 +119,12 @@
                     <onclick>Skin.ToggleSetting(MyWeatherHidepanel)</onclick>
                     <selected>Skin.HasSetting(MyWeatherHidepanel)</selected>
                 </control>
+				<control type="radiobutton" id="88552200">
+				<include>SideBladeMenuButton</include>
+                <label>31268</label>
+                <onclick>Skin.ToggleSetting(MyWeatherDisableFanArt)</onclick>
+                <selected>Skin.HasSetting(MyWeatherDisableFanArt)</selected>
+				</control>
                          <control type="button" id="84403">
                     <!--Open Skin settings-->
                     <include>SideBladeMenuButton</include>

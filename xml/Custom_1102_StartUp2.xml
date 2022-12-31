@@ -34,7 +34,7 @@
 					<width>320</width>
 					<height>180</height>
 					<control type="image">
-						<left>238</left>
+						<left>290</left>
 						<align>left</align>
 						<width>100%</width>
 						<height>100%</height>
@@ -75,10 +75,10 @@
 						<textoffsetx>20</textoffsetx>
 						<aligny>center</aligny>
 						<align>center</align>
-						<texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
-						<texturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
-						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
-						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
+						<texturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</alttexturenofocus>
 						<label>31396</label>
 						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
 						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
@@ -98,10 +98,10 @@
 						<textoffsetx>20</textoffsetx>
 						<aligny>center</aligny>
 						<align>center</align>
-						<texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</texturefocus>
-						<texturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</texturenofocus>
-						<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframefo.png</alttexturefocus>
-						<alttexturenofocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/slimframenf.png</alttexturenofocus>
+						<texturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</texturefocus>
+						<texturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</texturenofocus>
+						<alttexturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</alttexturefocus>
+						<alttexturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</alttexturenofocus>
 						<label>$LOCALIZE[31397]</label>
 						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
 						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
@@ -114,7 +114,7 @@
 
 				<!-- fake progress -->
 				<control type="group">
-					<width>800</width>
+					<width>901</width>
 					<height>10</height>
 					<control type="image">
 						<width>100%</width>
@@ -124,7 +124,7 @@
 					<control type="image">
 						<width>50%</width>
 						<height>100%</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">colors/color_white.png</texture>
+						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">diffuse/panel2.png</texture>
 						<animation effect="zoom" end="200,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup2))">Conditional</animation>
 					</control>
 				</control>

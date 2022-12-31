@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <fonts>
-
-	<fontset id="default" unicode="true"> <!--Netflix sans font now default-->
-	
-		
+	<fontset id="Default" unicode="true"> <!--Netflix sans font now default-->	
+		<font>
+            <name>IBold30</name>
+            <filename>Impact.ttf</filename>
+            <size>30</size>
+        </font>
         <font>
             <name>arial26</name>
             <filename>arial.ttf</filename>
@@ -530,6 +532,12 @@
 			<style>lighten</style>
             <size>18</size>
         </font>
+		<font>
+            <name>Reg19</name>
+            <filename>Netflix-sans-medium.ttf</filename>
+			<style>lighten</style>
+            <size>19</size>
+        </font>
         <font>
             <name>Reg20</name>
             <filename>Netflix-sans-medium.ttf</filename>
@@ -570,7 +578,7 @@
             <name>Reg27</name>
             <filename>Netflix-sans-medium.ttf</filename>
 			<style>lighten</style>
-            <size>28</size>
+            <size>27</size>
         </font>
 		<font>
             <name>Reg28</name>
@@ -1047,7 +1055,7 @@
             <filename>Netflix-sans-medium.ttf</filename>
 			<style>lighten</style>
 			<linespacing>0.8</linespacing>
-            <size>65</size>
+            <size>80</size>
         </font>
 		<font>
             <name>Title2</name> <!--Clearlogo Spotlight content fallback-->
@@ -1080,6 +1088,11 @@
             <name>Bold75</name>
             <filename>Netflix-sans-Bold.ttf</filename>
             <size>75</size>
+        </font>
+		<font>
+            <name>Bold86</name>
+            <filename>Netflix-sans-Bold.ttf</filename>
+            <size>86</size>
         </font>
         <font>
             <name>Bold100</name>
@@ -1422,9 +1435,14 @@
 			<style>bold</style>
 			<size>270</size>
         </font>
+		<font>
+            <name>BigLight50</name>
+            <filename>Netflix-sans-Light.ttf</filename>
+			<size>50</size>
+        </font>
 	</fontset>
 	
-	<fontset id="Original" unicode="true"> <!--Original Bingie font-->
+	<fontset id="Roboto" unicode="true"> <!--Original Bingie font-->
 		<font>
             <name>arial26</name>
             <filename>arial.ttf</filename> 
@@ -2036,6 +2054,13 @@
  <linespacing>1.15</linespacing>
 			
             <size>18</size>
+        </font>
+		<font>
+            <name>Reg19</name>
+            <filename>Regular-new.ttf</filename> 
+ <linespacing>1.15</linespacing>
+			
+            <size>19</size>
         </font>
         <font>
             <name>Reg20</name>
@@ -3077,7 +3102,5 @@
 			<style>bold</style>
 			<size>270</size>
         </font>
-	</fontset>
-	
-		
+	</fontset>			
 </fonts>

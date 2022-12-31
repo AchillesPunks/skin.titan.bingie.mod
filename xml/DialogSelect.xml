@@ -39,24 +39,24 @@
 			<!--Header-->
 			<control type="label" id="1">
 				<description>Heading</description>
-				<posx>415</posx>
+				<posx>419</posx>
 				<posy>225</posy>
-				<width>1100</width>
+				<width>1080</width>
 				<height>100</height>
 				<label/>
 				<include>DialogHeader_Alt</include>
 				<align>center</align>
-				<wrapmultiline>true</wrapmultiline>
+				<scroll>true</scroll>
 			</control>
 			
             <control type="group">
                 <!--Container 3 Small-->
                 <visible>Control.IsVisible(3)</visible>
                 <control type="image">
-                    <posx>415</posx>
-					<posy>315</posy>
-                    <width>1100</width>
-                    <height>481</height>
+                    <posx>422</posx>
+					<posy>314</posy>
+                    <width>1080</width>
+                    <height>483</height>
                     <texture border="5">dialogs/default/inner.png</texture>
                 </control>
             </control>
@@ -64,21 +64,21 @@
                 <!--Container 6 Big-->
                 <visible>!Control.IsVisible(3)</visible>
                 <control type="image">
-                    <posx>421</posx>
-                    <posy>315</posy>
-                    <width>610</width>
-                    <height>481</height>
+                    <posx>422</posx>
+                    <posy>314</posy>
+                    <width>612</width>
+                    <height>483</height>
                     <texture border="5">dialogs/default/inner.png</texture>
                 </control>
                 <control type="image">
-                    <posx>1079</posx>
-                    <posy>315</posy>
-                    <width>420</width>
-                    <height>481</height>
-                    <texture border="5">dialogs/default/inner-dark.png</texture>
+                    <posx>1080</posx>
+                    <posy>314</posy>
+                    <width>422</width>
+                    <height>483</height>
+                    <texture border="5">dialogs/default/inner.png</texture>
                 </control>
                 <control type="multiimage">
-                    <posx>1089</posx>
+                    <posx>1091</posx>
                     <posy>325</posy>
                     <width>400</width>
                     <height>300</height>
@@ -89,7 +89,7 @@
                     <visible>String.Contains(Container(6).ListItem.FileNameAndPath,spinner)</visible>
                 </control>
                 <control type="multiimage">
-                    <posx>1089</posx>
+                    <posx>1091</posx>
                     <posy>325</posy>
                     <width>400</width>
                     <height>300</height>
@@ -97,11 +97,11 @@
 					<timeperimage>5000</timeperimage>
 					<fadetime>150</fadetime>
                     <randomize>true</randomize>
-                    <imagepath>$VAR[VideoInfoPosterImage]</imagepath>
+                    <imagepath>$INFO[Container(6).ListItem.Icon]</imagepath>
                     <visible>!String.Contains(Container(6).ListItem.FileNameAndPath,spinner)</visible>
                 </control>
 				<control type="textbox">
-					<posx>1089</posx>
+					<posx>1091</posx>
                     <posy>630</posy>
                     <width>400</width>
                     <height>140</height>
@@ -114,7 +114,7 @@
                     <visible>!String.IsEmpty(Container(6).ListItem.label2)</visible>
 				</control>
                 <control type="textbox">
-					<posx>1089</posx>
+					<posx>1091</posx>
                     <posy>630</posy>
                     <width>400</width>
                     <height>140</height>
@@ -130,7 +130,7 @@
             <!--List-->
             <control type="list" id="3">
                 <!--Container 3 Small-->
-                <posx>415</posx>
+                <posx>412</posx>
 				<posy>315</posy>
 				<width>1100</width>
                 <height>480</height>
@@ -142,15 +142,15 @@
                 <scrolltime tween="cubic" easing="out">500</scrolltime>
                 <itemlayout height="60" width="1100">
                     <control type="image">
-                        <posx>0</posx>
+                        <posx>11</posx>
                         <posy>1</posy>
-                        <width>1100</width>
+                        <width>1078</width>
                         <height>60</height>
-                        <texture>dialogs/default/separator.png</texture>
+                        <texture border="10">dialogs/default/separator.png</texture>
                     </control>
                     <control type="label">
-                        <posx>20</posx>
-                        <posy>0</posy>
+                        <posx>30</posx>
+                        <posy>-1</posy>
                         <width>1020</width>
                         <height>60</height>
                         <include condition="String.IsEqual(System.Language,Arabic) | String.IsEqual(System.Language,Hebrew)">align_right</include>
@@ -161,7 +161,7 @@
                         <scroll>false</scroll>
                     </control>
                     <control type="image">
-                        <right>5</right>
+                        <right>30</right>
                         <posy>10</posy>
                         <width>40</width>
                         <height>40</height>
@@ -170,18 +170,18 @@
                         <visible>ListItem.IsSelected</visible>
                     </control>
                 </itemlayout>
-                <focusedlayout height="60" width="1100">
+                <focusedlayout height="60" width="1100" condition="Control.HasFocus(3)">
                     <control type="group">
-                        <animation effect="fade" start="100" end="30" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(3)">Conditional</animation>
                         <control type="image">
-                            <width>1100</width>
+							<posx>11</posx>
+                            <width>1078</width>
                             <height>60</height>
                             <texture border="5">diffuse/panel.png</texture>
                             <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                         </control>
                         <control type="label">
-                            <posx>20</posx>
-                            <posy>0</posy>
+                            <posx>30</posx>
+                            <posy>-1</posy>
                             <width>1020</width>
                             <height>60</height>
                             <include condition="String.IsEqual(System.Language,Arabic) | String.IsEqual(System.Language,Hebrew)">align_right</include>
@@ -192,7 +192,40 @@
                             <include>DialogListFO</include>
                         </control>
                         <control type="image">
-                            <right>5</right>
+                            <right>30</right>
+                            <posy>10</posy>
+                            <width>40</width>
+                            <height>40</height>
+                            <texture>common/checkbox.png</texture>
+                            <colordiffuse>$INFO[Skin.String(ButtonFocusTextColor)]</colordiffuse>
+                            <visible>ListItem.IsSelected</visible>
+                        </control>
+                    </control>
+                </focusedlayout>
+				<focusedlayout height="60" width="1100" condition="!Control.HasFocus(3)">
+                    <control type="group">                       
+                        <control type="image">
+							<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(3)">Conditional</animation>
+							<posx>11</posx>
+                            <width>1078</width>
+                            <height>60</height>
+                            <texture border="5">diffuse/panel.png</texture>
+                            <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
+                        </control>
+                        <control type="label">
+                            <posx>30</posx>
+                            <posy>-1</posy>
+                            <width>1020</width>
+                            <height>60</height>
+                            <include condition="String.IsEqual(System.Language,Arabic) | String.IsEqual(System.Language,Hebrew)">align_right</include>
+                            <label>$INFO[ListItem.Label]</label>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <scroll>true</scroll>
+                            <include>DialogListFO</include>
+                        </control>
+                        <control type="image">
+                            <right>30</right>
                             <posy>10</posy>
                             <width>40</width>
                             <height>40</height>
@@ -207,8 +240,8 @@
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(3)</visible>
 				<posx>1520</posx>
-				<posy>315</posy>
-				<height>480</height>
+				<posy>317</posy>
+				<height>478</height>
 				<onup>60</onup>
 				<ondown>60</ondown>
 				<onleft>3</onleft>
@@ -219,7 +252,7 @@
 			
             <control type="list" id="6">
                 <!--Container 6 Big-->
-                <posx>421</posx>
+                <posx>423</posx>
                 <posy>315</posy>
                 <width>610</width>
                 <height>480</height>
@@ -231,11 +264,11 @@
                 <scrolltime tween="cubic" easing="out">500</scrolltime>
                 <itemlayout height="120" width="610">
                     <control type="image">
-                        <posx>0</posx>
+                        <posx>1</posx>
                         <posy>1</posy>
-                        <width>644</width>
+                        <width>608</width>
                         <height>120</height>
-                        <texture>dialogs/default/separator.png</texture>
+                        <texture border="10">dialogs/default/separator.png</texture>
                     </control>
                     <control type="image">
                         <posx>10</posx>
@@ -243,22 +276,22 @@
                         <width>100</width>
                         <height>100</height>
                         <aspectratio>scale</aspectratio>
-                        <texture fallback="DefaultVideo.png">$VAR[VideoInfoPosterImage]</texture>
+                        <texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
                     </control>
                     <control type="label">
                         <posx>120</posx>
-                        <posy>0</posy>
+                        <posy>12</posy>
                         <width>480</width>
                         <height>60</height>
                         <label>[B]$INFO[ListItem.Label][/B]</label>
                         <align>left</align>
-                        <aligny>center</aligny>
+                        <aligny>bottom</aligny>
                         <include>DialogListNF</include>
                         <scroll>false</scroll>
                     </control>
                     <control type="label">
                         <posx>120</posx>
-                        <bottom>10</bottom>
+                        <bottom>9</bottom>
                         <width>480</width>
                         <height>50</height>
                         <label>$INFO[ListItem.Label2,, ]$INFO[ListItem.AddonVersion,$LOCALIZE[24051] ]</label>
@@ -271,7 +304,7 @@
                     </control>
                     <control type="label">
                         <posx>120</posx>
-                        <bottom>10</bottom>
+                        <bottom>9</bottom>
                         <width>480</width>
                         <height>50</height>
                         <label>$INFO[ListItem.AddonSummary,, ]$INFO[ListItem.AddonVersion,$LOCALIZE[24051] ]</label>
@@ -283,7 +316,7 @@
                         <visible>String.IsEmpty(ListItem.Label2)</visible>
                     </control>
                     <control type="image">
-                        <right>5</right>
+                        <right>10</right>
                         <posy>10</posy>
                         <width>40</width>
                         <height>40</height>
@@ -292,15 +325,13 @@
                         <visible>ListItem.IsSelected</visible>
                     </control>
                 </itemlayout>
-                <focusedlayout height="120" width="610">
-                    <control type="group">
-                        <animation effect="fade" start="100" end="30" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(6)">Conditional</animation>
+                <focusedlayout height="120" width="610" condition="Control.HasFocus(6)">
+                    <control type="group">                      
                         <control type="image">
                             <width>610</width>
                             <height>120</height>
                             <texture border="5">diffuse/panel.png</texture>
                             <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
-<visible>Control.HasFocus(6)</visible>
                         </control>
                             <control type="image">
                             <posx>10</posx>
@@ -308,22 +339,22 @@
                             <width>100</width>
                             <height>100</height>
                             <aspectratio>scale</aspectratio>
-                            <texture fallback="DefaultVideo.png">$VAR[VideoInfoPosterImage]</texture>
+                            <texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
                         </control>
                         <control type="label">
                             <posx>120</posx>
-                            <posy>0</posy>
+                            <posy>12</posy>
                             <width>480</width>
                             <height>60</height>
                             <label>[B]$INFO[ListItem.Label][/B]</label>
                             <align>left</align>
-                            <aligny>center</aligny>
+                            <aligny>bottom</aligny>
                             <include>DialogListFO</include>
                             <scroll>true</scroll>
                         </control>
                         <control type="label">
                             <posx>120</posx>
-                            <bottom>10</bottom>
+                            <bottom>9</bottom>
                             <width>480</width>
                             <height>50</height>
                             <label>$INFO[ListItem.Label2,, ]$INFO[ListItem.AddonVersion,$LOCALIZE[24051] ]</label>
@@ -348,8 +379,73 @@
                             <visible>String.IsEmpty(ListItem.Label2)</visible>
                         </control>
                         <control type="image">
-                            <right>5</right>
+                            <right>10</right>
+                            <posy>9</posy>
+                            <width>40</width>
+                            <height>40</height>
+                            <texture>common/checkbox.png</texture>
+                            <colordiffuse>$INFO[Skin.String(ButtonFocusTextColor)]</colordiffuse>
+                            <visible>ListItem.IsSelected</visible>
+                        </control>
+                    </control>
+                </focusedlayout>
+				<focusedlayout height="120" width="610" condition="!Control.HasFocus(6)">
+                    <control type="group">
+                        <control type="image">
+							<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(6)">Conditional</animation>
+                            <width>610</width>
+                            <height>120</height>
+                            <texture border="5">diffuse/panel.png</texture>
+                            <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
+                        </control>
+                            <control type="image">
+                            <posx>10</posx>
                             <posy>10</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="label">
+                            <posx>120</posx>
+                            <posy>12</posy>
+                            <width>480</width>
+                            <height>60</height>
+                            <label>[B]$INFO[ListItem.Label][/B]</label>
+                            <align>left</align>
+                            <aligny>bottom</aligny>
+                            <include>DialogListFO</include>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <posx>120</posx>
+                            <bottom>9</bottom>
+                            <width>480</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.Label2,, ]$INFO[ListItem.AddonVersion,$LOCALIZE[24051] ]</label>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <font>Reg22</font>
+                            <include>DialogListFO</include>
+                            <scroll>true</scroll>
+                            <visible>!String.IsEmpty(ListItem.Label2)</visible>
+                        </control>
+                        <control type="label">
+                            <posx>120</posx>
+                            <bottom>10</bottom>
+                            <width>480</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.AddonSummary,, ]$INFO[ListItem.AddonVersion,$LOCALIZE[24051] ]</label>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <font>Reg22</font>
+                            <include>DialogListFO</include>
+                            <scroll>true</scroll>
+                            <visible>String.IsEmpty(ListItem.Label2)</visible>
+                        </control>
+                        <control type="image">
+                            <right>10</right>
+                            <posy>9</posy>
                             <width>40</width>
                             <height>40</height>
                             <texture>common/checkbox.png</texture>
@@ -362,8 +458,8 @@
 			<control type="scrollbar" id="1661">
 				<visible>Control.IsVisible(6)</visible>
 				<posx>1040</posx>
-				<posy>315</posy>
-				<height>480</height>
+				<posy>316</posy>
+				<height>479</height>
 				<onleft>6</onleft>
                 <onup>661</onup>
                 <ondown>661</ondown>
@@ -373,8 +469,8 @@
             
             <!--description -->
 			<control type="label">
-                <posx>415</posx>
-				<posy>800</posy>
+                <posx>423</posx>
+				<posy>805</posy>
                 <width>1100</width>
                 <height>20</height>
                 <include condition="String.IsEqual(System.Language,Arabic) | String.IsEqual(System.Language,Hebrew)">align_right</include>
@@ -387,10 +483,11 @@
             
 			<!--Buttons-->
             <control type="grouplist" id="8000">
-				<posx>410</posx>
+				<posx>414</posx>
 				<posy>830</posy>
 				<width>1050</width>
 				<height>690</height>
+				<itemgap>20</itemgap>
 				<orientation>horizontal</orientation>
 				<onup condition="Control.IsVisible(6)">6</onup>
 				<ondown condition="Control.IsVisible(6)">6</ondown>
@@ -400,7 +497,7 @@
                     <description>OK</description>
 					<left>0</left>
                     <label>186</label>
-                    <width>500</width>
+                    <width>400</width>
                     <include>DialogButtonOther</include>
                     <height>80</height>
 					<onright>7</onright>
@@ -409,7 +506,7 @@
                     <right>0</right>
                     <description>Close</description>
                     <label></label>
-                    <width>500</width>
+                    <width>400</width>
                     <include>DialogButtonOther</include>
                     <height>80</height>
                     <visible>!String.IsEmpty(Control.GetLabel(7))</visible>

@@ -38,7 +38,7 @@
                     <posy>345</posy>
                     <width>420</width>
                     <height>555</height>
-                    <texture border="5">dialogs/default/inner-dark.png</texture>
+                    <texture border="5">dialogs/default/inner.png</texture>
                 </control>
 
                 <control type="image">

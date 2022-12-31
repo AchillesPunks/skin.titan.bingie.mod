@@ -10,9 +10,10 @@
             <include>animation_view_change</include>
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View508_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -31,13 +32,14 @@
 				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
-				<posx>60</posx>
+				<posx>50</posx>
 				<posy>10</posy>
 				<control type="label">
 					<height>33</height>
 					<width>1100</width>
 					<font>Bold30</font>
-					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor><shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
+					<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
 					<label>[UPPERCASE]$VAR[mediatitle][/UPPERCASE]</label>
 				</control>
 					<control type="label">
@@ -52,7 +54,7 @@
 				<control type="textbox">
 					<posx>0</posx>
 					<posy>0</posy>
-					<width>1520</width>
+					<width>1493</width>
 					<height>145</height>
 					<label>$VAR[Plots]</label>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -64,7 +66,7 @@
 				<control type="textbox">
 					<posx>0</posx>
 					<posy>0</posy>
-					<width>1420</width>
+					<width>1392</width>
 					<height>145</height>
 					<label>$VAR[Plots]</label>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -77,16 +79,16 @@
             
             <!--cdart image-->
             <control type="image">
-                <right>60</right>
-                <bottom>217</bottom>
-                <width>250</width>
-                <height>250</height>
+                <right>52</right>
+                <bottom>205</bottom>
+                <width>274</width>
+                <height>274</height>
                 <texture background="true" diffuse="diffuse/cdmask_medium_new.png" fallback="defaultcovers/cd_medium.png">$VAR[DiscArtImage]</texture>
                 <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-                <animation effect="slide" start="0,0" end="-130,0" tween="cubic" easing="inout" time="1200" delay="1800">Visible</animation>
+                <animation effect="slide" start="0,0" end="-114,0" tween="cubic" easing="inout" time="1200" delay="1800">Visible</animation>
                 <animation effect="fade" start="0" end="100" delay="1200" time="800" pulse="false">Visible</animation>
                 <animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-                <visible>Skin.HasSetting(View508_ShowCDart) + !String.StartsWith(ListItem.Art(thumb),Default) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious</visible>
+                <visible>Skin.HasSetting(View508_ShowCDart) + Control.HasFocus(508) + !String.StartsWith(ListItem.Art(thumb),Default) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + $EXP[IsMovieDBType] |Control.HasFocus(508) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + Skin.HasSetting(View508_ShowCDart) + Skin.HasSetting(EnableFakeDiscArt)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
             </control>
 			
@@ -97,7 +99,7 @@
 				<include content="View_Forced">
 					<param name="viewtype" value="$LOCALIZE[31435]" />
 				</include>
-                <right>53</right>
+                <right>43</right>
                 <bottom>0</bottom>
                 <width>292</width>
                 <height>404</height>
@@ -116,6 +118,15 @@
                         <width>292</width>
                         <height>404</height>
                         <include>PosterPanelLayout</include>
+						<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorNormal</include>
+			<animation type="Conditional" condition="Skin.HasTheme(classic)">
+				<effect type="slide" end="3,-3" time="0"  />
+			</animation>
+		</control>
                     </control>
 				</itemlayout>
 				<focusedlayout height="404" width="292">
@@ -123,8 +134,16 @@
                         <width>292</width>
                         <height>404</height>
                         <include>PosterPanelLayout</include>
+						<control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorNormal</include>
+			<animation type="Conditional" condition="Skin.HasTheme(classic)">
+				<effect type="slide" end="3,-3" time="0"  />
+			</animation>
+		</control>
                     </control>
-				
 				</focusedlayout>
             </control>
         </control>

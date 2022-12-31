@@ -4,10 +4,10 @@
 
     <!-- SQUARE LAYOUT -->
     <include name="SquarePosterPanelLayout">
-        <control type="image">
-            <include>SquareThumbBG</include>
-            <include>thumbsborder_unfocused</include>
-        </control>
+        <!-- <control type="image"> -->
+            <!-- <include>SquareThumbBG</include> -->
+            <!-- <include>thumbsborder_unfocused</include> -->
+        <!-- </control> -->
         <control type="image">
             <include>SquareThumb</include>
             <visible>!String.StartsWith(ListItem.FileNameAndPath, pvr://) + ![!String.IsEmpty(ListItem.Art(thumb)) + String.IsEqual(ListItem.Art(thumb),ListItem.Property(channellogo))]</visible>
@@ -27,7 +27,7 @@
             </animation>
         </control>
         <!--Label Overlay-->
-        <include condition="!Window.IsActive(Home)">SquarePosterTagOverlay</include>
+        <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1107) + !Window.IsActive(DialogVideoInfo.xml)">SquarePosterTagOverlay</include>
     </include>
     <include name="SquarePosterPanelLayoutFocus">
         <control type="image">
@@ -53,7 +53,7 @@
             </animation>
         </control>
         <!--Label Overlay-->
-        <include condition="!Window.IsActive(Home)">SquarePosterTagOverlay</include>
+        <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1107) + !Window.IsActive(DialogVideoInfo.xml)">SquarePosterTagOverlay</include>
 
     </include>
 
@@ -62,15 +62,15 @@
         <texture background="true" diffuse="diffuse/music_cover.png" fallback="defaultmusicrecentlyplayed.png" border="0">$VAR[SquarePosterThumb]</texture>
         <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
     </include>
-    <include name="SquareThumbBG">
-        <aspectratio aligny="top" scalediffuse="false">stretch</aspectratio>
-        <texture>diffuse/music_cover.png</texture>
-        <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-    </include>
+    <!-- <include name="SquareThumbBG"> -->
+        <!-- <aspectratio aligny="top" scalediffuse="false">stretch</aspectratio> -->
+        <!-- <texture>diffuse/music_cover.png</texture> -->
+        <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
+    <!-- </include> -->
     <include name="SquareThumbFO">
         <aspectratio aligny="top">stretch</aspectratio>
         <texture>diffuse/music_cover.png</texture>
-        <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+        <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
     </include>
 
     <include name="SquarePosterTagOverlayVisibility">
@@ -87,23 +87,23 @@
             !String.IsEmpty(ListItem.Property(defaultID)) | 
             [Control.IsVisible(509) + !Skin.String(View509.Tags) + !String.Contains(ListItem.Art(thumb),icon.png)] |
             [Control.IsVisible(510) + !Skin.String(View510.Tags) + !String.Contains(ListItem.Art(thumb),icon.png)] |
-            Window.IsActive(settings) | Window.IsActive(1109)
+            Window.IsActive(settings) | Window.IsActive(1109) | Window.IsActive(1107) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)
         </visible>
     </include>
     <include name="SquarePosterTagOverlay">
         <control type="group">
-            <include condition="!Window.IsActive(Home)">SquarePosterTagOverlayVisibility</include>
+            <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1107) + !Window.IsActive(DialogVideoInfo.xml) + !Window.IsActive(script-globalsearch.xml)">SquarePosterTagOverlayVisibility</include>
             <control type="image">
                 <bottom>0</bottom>
                 <height>74</height>
                 <bordersize>8</bordersize>
-                <texture>diffuse/poster_tag.png</texture>
+                <texture>diffuse/poster_tag2.png</texture>
                 <colordiffuse>$INFO[Skin.String(TagOverlaysPanelColor)]</colordiffuse>
             </control>
             <control type="textbox">
                 <left>15</left>
                 <right>15</right>
-                <bottom>10</bottom>
+                <bottom>14</bottom>
                 <height>48</height>
                 <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">align_center</include>
                 <align>left</align>
@@ -117,7 +117,7 @@
             <control type="textbox">
                 <left>15</left>
                 <right>15</right>
-                <bottom>10</bottom>
+                <bottom>14</bottom>
                 <height>48</height>
                 <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">align_center</include>
                 <align>left</align>

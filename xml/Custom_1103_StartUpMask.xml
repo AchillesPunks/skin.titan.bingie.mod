@@ -3,21 +3,27 @@
 <window type="dialog" id="1103">
 	<defaultcontrol always="true">10</defaultcontrol>
 	<zorder>999</zorder>
-	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(UseAltDefaultIntro)">PlayMedia($INFO[Skin.String(SplashAnimationResolution),special://skin/extras/media/bingie_intro_,.mp4],1)</onload>
-	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultIntro)">PlayMedia($INFO[Skin.String(SplashAnimationResolution),special://skin/extras/media/matrix_intro2_,.mp4],1)</onload>
+	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(AltBingieAnimation) + !Skin.HasSetting(ExtBingieAnimation)">PlayMedia($INFO[Skin.String(SplashAnimationResolution),special://skin/extras/media/bingie_intro_2_,.mp4],1)</onload>
+	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(AltBingieAnimation) + !Skin.HasSetting(ExtBingieAnimation)">PlayMedia($INFO[Skin.String(SplashAnimationResolution),special://skin/extras/media/bingie_intro_,.mp4],1)</onload>
+	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(AltBingieAnimation) + Skin.HasSetting(ExtBingieAnimation)">PlayMedia($INFO[Skin.String(SplashAnimationResolution),special://skin/extras/media/bingie_intro_extended_,.mp4],1)</onload>
 
-	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(UseAltDefaultIntro)">AlarmClock(startup,ClearProperty(StartupMask,home),00:10,silent)</onload>
-	<onload condition="Skin.HasSetting(DisableAnimatedIntro) | [!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultIntro)]">AlarmClock(startup,ClearProperty(StartupMask,home),00:16,silent)</onload>
+	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(AltBingieAnimation) + !Skin.HasSetting(ExtBingieAnimation)">AlarmClock(startup,ClearProperty(StartupMask,home),00:10,silent)</onload>
+	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(AltBingieAnimation) + !Skin.HasSetting(ExtBingieAnimation)">AlarmClock(startup,ClearProperty(StartupMask,home),00:09,silent)</onload>
+	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(AltBingieAnimation) + Skin.HasSetting(ExtBingieAnimation)">AlarmClock(startup,ClearProperty(StartupMask,home),00:22,silent)</onload>
+	<onload condition="Skin.HasSetting(DisableAnimatedIntro)">AlarmClock(startup,ClearProperty(StartupMask,home),00:05,silent)</onload>
 
-	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
-	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
-
-	<visible>!String.IsEmpty(Window(Home).Property(StartupMask))</visible>
+	<onunload condition="Skin.HasSetting(EnableNetflixIcons) + String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[Skin.String(user_picture),userpictures/startup/defaultuser_,.png])</onunload>
+	<onunload condition="!Skin.HasSetting(EnableNetflixIcons) + String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
+	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
+	
+	<visible>!String.IsEmpty(Window(Home).Property(StartupMask))</visible>	
 	<controls>
         <!-- image -->
         <control type="image">
-			<visible>!Player.HasVideo</visible>
-			<animation effect="fade" end="0" time="250">WindowClose</animation>
+		    <visible>!Player.HasVideo</visible>
+			<visible>Skin.HasSetting(DisableAnimatedIntro) | Skin.HasSetting(AltBingieAnimation) | Skin.HasSetting(ExtBingieAnimation)</visible>
+			<animation effect="fade" end="100" time="300">visible</animation>
+			<animation effect="fade" end="0" time="300">WindowClose</animation>
             <include>FullscreenDimensions</include>
             <aspectratio>stretch</aspectratio>
             <texture background="true">$VAR[SplashImage]</texture>
@@ -42,10 +48,16 @@
 		</control>
 		<!-- busy spinner -->
 		<include content="Busy_Spinner">
-			<animation effect="slide" end="0,100" time="0" condition="Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultSplashImage)">Conditional</animation>
 			<param name="centerleft" value="50%" />
-			<param name="centertop" value="75%"/>
-			<param name="visibility" value="System.HasAlarm(startup) + [!Player.HasVideo | [Player.HasVideo + Integer.IsLess(Player.TimeRemaining(ss),4)]]"/>
+			<param name="centertop" value="85%"/>
+			<param name="visibility" value="System.HasAlarm(startup) + [!Player.HasVideo | [Player.HasVideo + Integer.IsLess(Player.TimeRemaining(ss),0)]] + [Skin.HasSetting(DisableAnimatedIntro) | Skin.HasSetting(AltBingieAnimation) | Skin.HasSetting(ExtBingieAnimation)]"/>
+			<param name="size" value="80"/>
+		</include>
+		<!-- busy spinner -->
+		<include content="Busy_Spinner">
+			<param name="centerleft" value="50%" />
+			<param name="centertop" value="85%"/>
+			<param name="visibility" value="System.HasAlarm(startup) + [Player.HasVideo + !Integer.IsLess(Player.TimeRemaining(ss),4)] + !Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(AltBingieAnimation) + !Skin.HasSetting(ExtBingieAnimation)"/>
 			<param name="size" value="80"/>
 		</include>
 	</controls>

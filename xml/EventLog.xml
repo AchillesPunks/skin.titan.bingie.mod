@@ -205,7 +205,7 @@
             </control>
         </control>
 		<!--Footer-->
-        <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+        <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
         <include>BingieVersion</include>
 		

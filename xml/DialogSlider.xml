@@ -9,8 +9,8 @@
                 <posx>0</posx>
                 <posy>-70</posy>
                 <control type="image">
-                    <posx>-100</posx>
-                    <posy>0</posy>
+                    <posx>-140</posx>
+                    <posy>5</posy>
                     <width>2200</width>
                     <height>148</height>
                     <texture border="5">diffuse/panel.png</texture>
@@ -28,20 +28,20 @@
 
                 <control type="label" id="10">
                     <description>Option Name</description>
-                    <posx>100</posx>
-                    <posy>80</posy>
+                    <posx>440</posx>
+                    <posy>89</posy>
                     <width>380</width>
                     <height>34</height>
                     <label/>
-                    <align>left</align>
+                    <align>right</align>
                     <font>Reg30</font>
                     <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
                     <scroll>false</scroll>
                 </control>
                 <control type="label" id="12">
                     <description>Slider Value</description>
-                    <posx>1520</posx>
-                    <posy>80</posy>
+                    <posx>1480</posx>
+                    <posy>86</posy>
                     <label/>
                     <width>330</width>
                     <height>40</height>
@@ -52,8 +52,8 @@
                 </control>
                 <control type="slider" id="11">
                     <description>Slider</description>
-                    <posx>500</posx>
-                    <posy>86</posy>
+                    <posx>460</posx>
+                    <posy>91</posy>
                     <width>1000</width>
                     <height>35</height>
                     <onup>11</onup>

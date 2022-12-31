@@ -33,7 +33,7 @@
             <control type="group">
                 <control type="label" id="100">
                     <!--textarea-->
-                    <posx>305</posx>
+                    <posx>303</posx>
                     <posy>130</posy>
                     <width>880</width>
                     <height>50</height>
@@ -44,7 +44,7 @@
                 </control>
 				<control type="label" id="140">
 					<description>textarea</description>
-					<posx>305</posx>
+					<posx>303</posx>
                     <posy>180</posy>
                     <width>780</width>
                     <height>50</height>
@@ -65,21 +65,21 @@
             <control type="group">
                 <control type="image">
                     <!--Inner-->
-                    <posx>275</posx>
+                    <posx>273</posx>
                     <posy>240</posy>
                     <width>1050</width>
-                    <height>400</height>
+                    <height>404</height>
                     <texture border="5">dialogs/default/inner.png</texture>
                 </control>
                 <control type="list" id="120">
                     <!--List 120-->
-                    <posx>275</posx>
-                    <posy>240</posy>
+                    <posx>273</posx>
+                    <posy>242</posy>
                     <width>1050</width>
                     <height>400</height>
 					<itemgap>15</itemgap>
-                    <!--onleft>121</onleft-->
-                    <onright>150</onright>
+                    <onleft>150</onleft>
+                    <onright>121</onright>
                     <onup>120</onup>
                     <ondown>120</ondown>
                     <viewtype label="535">list</viewtype>
@@ -110,6 +110,7 @@
 							<aligny>center</aligny>
 							<wrapmultiline>true</wrapmultiline>
 							<label>$INFO[ListItem.Label]</label>
+							<autoscroll>false</autoscroll>
 						</control>
 						
                         <!--Rating-->
@@ -140,8 +141,8 @@
                                 <!--Label 2-->
                                 <posx>255</posx>
                                 <posy>10</posy>
-                                <width>800</width>
-                                <height>80</height>
+                                <width>785</width>
+                                <height>64</height>
                                 <font>font12</font>
                                 <aligny>top</aligny>
                                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
@@ -149,6 +150,7 @@
                                 <align>left</align>
 								<label>$INFO[ListItem.Label2]</label>
 								<wrapmultiline>true</wrapmultiline>
+								<autoscroll>false</autoscroll>
                             </control>
 						 <!-- sync image - ON -->
                             <control type="image">
@@ -179,9 +181,9 @@
                             <visible>Control.HasFocus(120)</visible>
                             <control type="image">
                                 <!--Slider-->
-                                <posx>0</posx>
+                                <posx>1</posx>
                                 <posy>0</posy>
-                                <width>1165</width>
+                                <width>1048</width>
                                 <height>100</height>
                                 <texture border="5" colordiffuse="black">diffuse/panel.png</texture>
                                 <!--colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse-->
@@ -236,7 +238,7 @@
                                 <!--Label 2-->
                                 <posx>255</posx>
                                 <posy>10</posy>
-                                <width>800</width>
+                                <width>780</width>
                                 <height>80</height>
                                 <font>font12</font>
                                 <aligny>top</aligny>
@@ -325,7 +327,7 @@
                                 <posx>255</posx>
                                 <posy>10</posy>
                                 <width>800</width>
-                                <height>80</height>
+                                <height>64</height>
                                 <font>font12</font>
                                 <aligny>top</aligny>
                                 <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
@@ -362,19 +364,18 @@
                 </control>
                 
                 <control type="scrollbar" id="121">
-                    <posx>1335</posx>
+                    <posx>1333</posx>
                     <posy>240</posy>
-                    <height>400</height>
-                    <onup>60</onup>
-                    <ondown>60</ondown>
-                    <onleft>3</onleft>
-                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <height>404</height>
+                    <onleft>120</onleft>
+					<onright>150</onright>
+                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(121) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(121) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 </control>
                 
 				<control type="label">
                     <!--filename-->
-                    <posx>295</posx>
+                    <posx>303</posx>
                     <posy>655</posy>
                     <width>910</width>
                     <height>50</height>
@@ -391,9 +392,9 @@
             <control type="group">
                 <control type="image">
                     <!--Inner-->
-                    <posx>1370</posx>
+                    <posx>1368</posx>
                     <posy>240</posy>
-                    <height>400</height>
+                    <height>404</height>
                     <width>330</width>
                     <texture border="5">dialogs/default/inner.png</texture>
                 </control>
@@ -402,7 +403,7 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <textoffsetx>10</textoffsetx>
-                    <left>1370</left>
+                    <left>1368</left>
                     <top>120</top>
                     <width>330</width>
                     <height>60</height>
@@ -414,7 +415,7 @@
                 </control>
                 <control type="list" id="150">
                     <!--List 150-->
-                    <posx>1370</posx>
+                    <posx>1368</posx>
                     <posy>240</posy>
                     <height>400</height>
                     <width>330</width>
@@ -425,7 +426,7 @@
                     <viewtype label="535">list</viewtype>
                     <scrolltime>200</scrolltime>
                     <pagecontrol>151</pagecontrol>
-                    <itemlayout width="450" height="60">
+                    <itemlayout width="330" height="60">
                         <control type="label">
                             <posx>40</posx>
                             <posy>0</posy>
@@ -453,19 +454,19 @@
                             <visible>ListItem.property(man)</visible>
                         </control>
 						<control type="image">
-							<posx>20</posx>
-                            <posy>0</posy>
-                            <width>320</width>
+							<posx>1</posx>
+                            <posy>2</posy>
+                            <width>328</width>
                             <height>60</height>
 							<texture>dialogs/default/separator.png</texture>
 						</control>
                     </itemlayout>
-                    <focusedlayout width="350" height="60">
+                    <focusedlayout width="330" height="60">
                         <control type="image">
                             <!--Button-->
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>450</width>
+                            <width>330</width>
                             <height>60</height>
                             <texture border="5">diffuse/panel.png</texture>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
@@ -531,25 +532,14 @@
 							<scroll>true</scroll>
                         </control>
 						<control type="image">
-							<posx>20</posx>
-                            <posy>0</posy>
-                            <width>420</width>
+							<posx>1</posx>
+                            <posy>2</posy>
+                            <width>328</width>
                             <height>60</height>
 							<texture>dialogs/default/separator.png</texture>
 							<visible>!Control.HasFocus(150)</visible>
 						</control>
                     </focusedlayout>
-                </control>
-                <control type="scrollbar" id="151">
-                    <posx>1705</posx>
-                    <posy>240</posy>
-                    <height>400</height>
-                    <onup>60</onup>
-                    <ondown>60</ondown>
-                    <onleft>3</onleft>
-                    <showonepage>true</showonepage>
-                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
                 </control>
                 
             </control>

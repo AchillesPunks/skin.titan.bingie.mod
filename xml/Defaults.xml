@@ -177,8 +177,8 @@
         <posy>0</posy>
         <height>60</height>
         <width>450</width>
-        <sliderwidth>220</sliderwidth>
-        <sliderheight>50</sliderheight>
+        <sliderwidth>210</sliderwidth>
+        <sliderheight>60</sliderheight>
         <orientation>horizontal</orientation>
         <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
         <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="5">diffuse/panel.png</texturenofocus>
@@ -214,17 +214,17 @@
         <orientation>horizontal</orientation>
         <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
         <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="5">diffuse/panel.png</texturenofocus>
-        <texturesliderbar border="5" colordiffuse="$INFO[Skin.String(ButtonColor)]">common/modern/slider/slider.png</texturesliderbar>
-        <textureslidernib border="5" colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/modern/slider/nib.png</textureslidernib>
+        <texturesliderbar border="5" colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/modern/slider/slider.png</texturesliderbar>
+        <textureslidernib border="5" colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/modern/slider/nib_focus.png</textureslidernib>
         <textureslidernibfocus border="5" colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/modern/slider/nib_focus.png</textureslidernibfocus>
     </default>
     <default type="scrollbar">
         <width>25</width>
         <texturesliderbackground border="5" colordiffuse="$INFO[Skin.String(ScrollbarBackgroundColor)]">diffuse/panel.png</texturesliderbackground>
 		<texturesliderbar colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">diffuse/panel.png</texturesliderbar>
-		<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="2">diffuse/panel.png</texturesliderbarfocus>
-		<textureslidernib colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">diffuse/panel.png</textureslidernib>
-		<textureslidernibfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">diffuse/panel.png</textureslidernibfocus>
+		<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">diffuse/panel.png</texturesliderbarfocus>
+		<textureslidernib colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">scrollbar/texturesliderbar_nib.png</textureslidernib>
+		<textureslidernibfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">scrollbar/texturesliderbar_nib.png</textureslidernibfocus>
 		<showonepage>false</showonepage>
         <orientation>vertical</orientation>
         <visible>!Skin.HasSetting(DisableScrollbars)</visible>

@@ -19,23 +19,23 @@
             <height>75%</height>
             <!--Panel-->
             <control type="image">
-                <posx>50</posx>
-                <width>1820</width>
+                <posx>60</posx>
+                <width>1800</width>
                 <texture border="15">diffuse/bgpanel.png</texture>
             <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
             
             <control type="image">
-                <posx>50</posx>
-                <width>560</width>
+                <posx>60</posx>
+                <width>556</width>
                 <texture border="15">diffuse/bgpanel.png</texture>
                 <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
             
             <!--Picture	(Fanart)-->
             <control type="image">
-                <posx>80</posx>
-                <posy>30</posy>
+                <posx>88</posx>
+                <posy>28</posy>
                 <width>500</width>
                 <height>300</height>
                 <texture background="true">$INFO[Container(9000).ListItem.ActualIcon]</texture>
@@ -44,10 +44,10 @@
             
             <!--InfoText-->
             <control type="textbox">
-                <posx>80</posx>
+                <posx>88</posx>
                 <posy>360</posy>
                 <width>500</width>
-                <height>250</height>
+                <height>270</height>
                 <font>Light30</font>
                 <align>left</align>
                 <label>$INFO[Container(9000).ListItem.Label2]</label>
@@ -183,7 +183,7 @@
         </control>
 		
 		<!--Footer-->
-        <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+        <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
         <include>BingieVersion</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>

@@ -50,13 +50,13 @@
             <control type="group" id="8003">
                 <!-- left group -->
                 <control type="group">
-                    <posx>318</posx>
+                    <posx>329</posx>
                     <posy>303</posy>
                     <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>310</width>
-                        <height>473</height>
+                        <posx>-1</posx>
+                        <posy>-1</posy>
+                        <width>312</width>
+                        <height>475</height>
                         <texture border="5">dialogs/default/inner.png</texture>
                     </control>
                     <control type="grouplist" id="3">
@@ -82,25 +82,25 @@
                 </control>
                 <!-- right group -->
                 <control type="group">
-                    <posx>642</posx>
+                    <posx>661</posx>
                     <posy>303</posy>
                     <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>920</width>
-                        <height>473</height>
+                        <posx>-1</posx>
+                        <posy>-1</posy>
+                        <width>932</width>
+                        <height>475</height>
                         <texture border="5">dialogs/default/inner.png</texture>
                     </control>
                     <control type="grouplist" id="5">
                         <description>control area</description>
                         <posx>0</posx>
-                        <posy>0</posy>
+                        <posy>1</posy>
                         <width>930</width>
-                        <height>473</height>
-                        <itemgap>3</itemgap>
-                        <pagecontrol>30</pagecontrol>
+                        <height>471</height>
+                        <itemgap>2</itemgap>
+                        <pagecontrol>60</pagecontrol>
                         <onleft>3</onleft>
-                        <onright>30</onright>
+                        <onright>60</onright>
                         <onup>5</onup>
                         <ondown>5</ondown>
                         <scrolltime tween="cubic" easing="out">500</scrolltime>
@@ -109,44 +109,45 @@
             </control>
             <control type="button" id="7">
                 <description>default</description>
-                <height>60</height>
+                <height>68</height>
                 <align>left</align>
                 <textoffsetx>20</textoffsetx>
             </control>
             <control type="edit" id="12">
                 <description>default</description>
-                <height>60</height>
+                <height>68</height>
                 <align>left</align>
                 <textoffsetx>20</textoffsetx>
             </control>
             <control type="radiobutton" id="8">
                 <description>radioButton</description>
-                <height>60</height>
+                <height>68</height>
                 <align>left</align>
 				<textwidth>700</textwidth>
                 <textoffsetx>20</textoffsetx>
+				<radioposx>819</radioposx>
             </control>
             <control type="spincontrolex" id="9">
                 <description>Directory Content</description>
-                <height>60</height>
+                <height>68</height>
                 <align>left</align>
-                <spinposx>5</spinposx>
+                <spinposx>17</spinposx>
                 <textoffsetx>20</textoffsetx>
                 
             </control>
             <control type="label" id="14">
                 <description>Default Label</description>
-                <height>60</height>
+                <height>54</height>
                 <align>left</align>
                 <aligny>top</aligny>
                 <textoffsetx>20</textoffsetx>
-                <textoffsety>14</textoffsety>
+                <textoffsety>11</textoffsety>
             </control>
             <control type="sliderex" id="13">
                 <description>Default Slider</description>
                 <posx>0</posx>
                 <posy>0</posy>
-                <height>60</height>
+                <height>68</height>
                 <align>left</align>
                 <textoffsetx>20</textoffsetx>
                 <pulseonselect>false</pulseonselect>
@@ -158,22 +159,22 @@
                 <visible>false</visible>
             </control>
 
-			<control type="scrollbar" id="30">
-				<posx>1589</posx>
-                <posy>305</posy>
-                <height>467</height>
+			<control type="scrollbar" id="60">
+				<posx>1596</posx>
+                <posy>304</posy>
+                <height>471</height>
 				<onright>8004</onright>
 				<onleft>5</onleft>
 				<showonepage>false</showonepage>
-				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(30) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling  | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(30) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling  | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling  | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling  | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
 			</control>
 			
 			<control type="grouplist" id="8002">
-                <posx>318</posx>
+                <posx>320</posx>
                 <posy>800</posy>
 				<onup>5</onup>
-				<itemgap>60</itemgap>
+				<itemgap>40</itemgap>
 				<onup>8003</onup>
 				<orientation>horizontal</orientation>
 
@@ -181,13 +182,13 @@
                     <description>OK</description>
                     <label>186</label>
                     <align>center</align>
-                    <width>385</width>
+                    <width>400</width>
                     <include>DialogButtonOther</include>
                     <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(10)">Conditional</animation>
                 </control>
                 <control type="button" id="29">
                     <align>center</align>
-                    <width>385</width>
+                    <width>400</width>
                     <include>DialogButtonOther</include>
                     <description>Cancel</description>
                     <label>$LOCALIZE[222]</label>
@@ -195,7 +196,7 @@
                 </control>
                 <control type="button" id="30">
                     <align>center</align>
-                    <width>390</width>
+                    <width>400</width>
                     <include>DialogButtonOther</include>
                     <description>Defaults</description>
                     <label>$LOCALIZE[409]</label>

@@ -16,9 +16,9 @@
 			<control type="image">
                 <posy>0</posy>
                 <posx>0</posx>
-                <width>555</width>
+                <width>550</width>
                 <height>100%</height>
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="5">diffuse/panel2.png</texture>
                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
             </control>
@@ -27,7 +27,7 @@
                 <posx>0</posx>
                 <width>550</width>
                 <height>100%</height>
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="5">diffuse/panel2.png</texture>
                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
             </control>
@@ -74,10 +74,10 @@
                 <!--Seperator-->
                 <posx>0</posx>
                 <posy>140</posy>
-                <width>500</width>
-                <height>20</height>
+                <width>530</width>
+                <height>10</height>
                 <align>left</align>
-                <texture>common/menu-separator.png</texture>
+                <texture border="10">common/menu-separator2.png</texture>
             </control>
              <!-- Scollbar behind panel for touch control-->
             <control type="scrollbar" id="60">
@@ -139,8 +139,8 @@
                     </control>
                     <control type="image">
                         <!--Channel Icon-->
-                        <posx>10</posx>
-                        <posy>10</posy>
+                        <posx>15</posx>
+                        <posy>17</posy>
                         <width>80</width>
                         <height>90</height>
                         <texture fallback="defaulttvshows.png">$INFO[ListItem.Icon]</texture>
@@ -148,10 +148,9 @@
                     </control>
                     <control type="label">
                         <!--Channel Name-->
-                        <animation effect="slide" start="0" end="50" time="0" reversible="false" condition="ListItem.Isplaying | ListItem.IsRecording">Conditional</animation>
                         <posx>110</posx>
                         <posy>10</posy>
-                        <width>450</width>
+                        <width>410</width>
                         <height>25</height>
                         <font>Reg28</font>
                         <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
@@ -159,6 +158,21 @@
                         <align>left</align>
                         <aligny>center</aligny>
                         <label>$INFO[ListItem.Label]</label>
+						<visible>!ListItem.Isplaying + !ListItem.IsRecording</visible>
+                    </control>
+					<control type="label">
+                        <!--Channel Name-->
+                        <posx>160</posx>
+                        <posy>10</posy>
+                        <width>360</width>
+                        <height>25</height>
+                        <font>Reg28</font>
+                        <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
+                        <selectedcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</selectedcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Label]</label>
+						<visible>ListItem.Isplaying | ListItem.IsRecording</visible>
                     </control>
                     <control type="label">
                         <!--Channel Now Playing (LEFT)-->
@@ -232,7 +246,7 @@
                     <control type="image">
                         <!--Separator-->
                         <posx>0</posx>
-                        <posy>125</posy>
+                        <posy>129</posy>
                         <width>530</width>
                         <height>20</height>
                         <fadetime>400</fadetime>
@@ -244,7 +258,7 @@
                     <control type="image">
                         <posx>0</posx>
                         <posy>0</posy>
-                        <width>970</width>
+                        <width>530</width>
                         <height>125</height>
                         <texture border="5">diffuse/panel.png</texture>
                         <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
@@ -283,8 +297,8 @@
                     </control>
                     <control type="image">
                         <!--Channel Icon-->
-                        <posx>10</posx>
-                        <posy>10</posy>
+                        <posx>15</posx>
+                        <posy>17</posy>
                         <width>80</width>
                         <height>90</height>
                         <texture fallback="defaulttvshows.png">$INFO[ListItem.Icon]</texture>
@@ -292,16 +306,29 @@
                     </control>
                     <control type="label">
                         <!--Channel Name-->
-                        <animation effect="slide" start="0" end="50" time="0" reversible="false" condition="ListItem.Isplaying | ListItem.IsRecording">Conditional</animation>
                         <posx>110</posx>
                         <posy>10</posy>
-                        <width>450</width>
+                        <width>410</width>
                         <height>25</height>
                         <font>Reg28</font>
                         <textcolor>$INFO[Skin.String(ButtonFocusTextColor)]</textcolor>
                         <align>left</align>
                         <aligny>center</aligny>
                         <label>$INFO[ListItem.Label]</label>
+						<visible>!ListItem.Isplaying + !ListItem.IsRecording</visible>
+                    </control>
+					<control type="label">
+                        <!--Channel Name-->
+                        <posx>160</posx>
+                        <posy>10</posy>
+                        <width>360</width>
+                        <height>25</height>
+                        <font>Reg28</font>
+                        <textcolor>$INFO[Skin.String(ButtonFocusTextColor)]</textcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Label]</label>
+						<visible>ListItem.Isplaying | ListItem.IsRecording</visible>
                     </control>
                     <control type="label">
                         <!--Channel Now Playing (LEFT)-->
@@ -395,12 +422,12 @@
             
             <!-- background panel -->
             <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="5">diffuse/panel2.png</texture>
                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
             </control>
             <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="5">diffuse/panel2.png</texture>
                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
             </control>
@@ -565,7 +592,7 @@
                     
                     <!--Channel Icon-->
                     <control type="image">
-                        <right>-8</right>
+                        <right>-4</right>
                         <width>100</width>
                         <texture fallback="defaulttvshows.png">$INFO[ListItem.Icon]</texture>
                         <aspectratio>keep</aspectratio>
@@ -576,7 +603,7 @@
                     <control type="image">
                         <!--Separator-->
                         <posx>0</posx>
-                        <posy>56</posy>
+                        <posy>59</posy>
                         <height>20</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
@@ -643,7 +670,7 @@
                     
                     <!--Channel Icon-->
                     <control type="image">
-                        <right>-8</right>
+                        <right>-4</right>
                         <width>100</width>
                         <texture fallback="defaulttvshows.png">$INFO[ListItem.Icon]</texture>
                         <aspectratio>keep</aspectratio>

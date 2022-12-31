@@ -10,9 +10,10 @@
 			
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View520_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -43,13 +44,25 @@
                 <focusposition>0</focusposition>
                 <orientation>vertical</orientation>
                 <preloaditems>2</preloaditems>
-                <animation effect="slide" end="0,80" time="0" condition="Skin.HasSetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
+                <animation effect="slide" end="0,80" time="0" condition="Skin.HasSetting(EnableFooterBar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
                 <!-- itemlayout movies -->
                 <itemlayout height="260" width="171">
                     <control type="group">
                         <width>169</width>
                         <height>258</height>
                         <include>SmallPosterPanelLayout</include>
+						<control type="group">
+            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay520</include>
+          </control>
+          <control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorSmall</include>
+			<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+				<effect type="slide" end="1,-1" time="0"  />
+			</animation>
+		</control>
                       </control>
                 </itemlayout>
                 <!-- focussed layout movies -->
@@ -58,6 +71,18 @@
                         <width>169</width>
                         <height>258</height>
                         <include>SmallPosterPanelLayoutFocus</include>
+						<control type="group">
+            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay520</include>
+          </control>
+          <control type="group">
+			<!--Watched Overlay-->
+			<right>8</right>
+			<top>8</top>
+			<include>WatchedIndicatorSmall</include>
+			<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+				<effect type="slide" end="1,-1" time="0"  />
+			</animation>
+		</control>
                       </control>
                 </focusedlayout>
 			</control>
@@ -71,12 +96,44 @@
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>520</onleft>
-                <animation effect="slide" end="0,80" time="0" condition="Skin.HasSetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
+                <animation effect="slide" end="0,80" time="0" condition="Skin.HasSetting(EnableFooterBar) + String.IsEqual(Skin.AspectRatio,16:10)">Conditional</animation>
 				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
 			</control>
-            <include condition="!Skin.HasSetting(nofooterbar) + String.IsEqual(Skin.AspectRatio,16:10)">Footer</include>
+            <include condition="!Skin.HasSetting(EnableFooterBar) + String.IsEqual(Skin.AspectRatio,16:10)">Footer</include>
 		</control>
-
+    </include>
+	<!-- CASE OVERLAYS -->
+    <include name="PosterCaseOverlay520">
+        <control type="group">
+            <visible>
+                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
+                String.Contains(ListItem.FileNameAndPath,.3d) |
+                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
+                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
+                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
+                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
+            </visible>
+            <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                <control type="image">
+                <texture border="29" diffuse="diffuse/poster5.png">cases/default_top3.png</texture>
+                <!-- border left,top,right,bottom  -->
+                <bordersize>8</bordersize>
+				<width>171</width>
+                <height>260</height>
+				<posx>-1</posx>
+				<posy>-1</posy>
+                <colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
+            </control>
+            <control type="image">
+                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
+                <top>12</top>
+                <height>24</height>
+                <aspectratio aligny="top" align="center">keep</aspectratio>
+                <!-- border left,top,right,bottom  -->
+                <bordersize>0</bordersize>
+                <colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
+            </control>
+        </control>
     </include>
 </includes>

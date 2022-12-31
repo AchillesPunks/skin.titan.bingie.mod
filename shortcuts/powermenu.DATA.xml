@@ -10,7 +10,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>31714</defaultID>
-		<label>Reload</label>
+		<label>31714</label>
 		<label2>Kodi Command</label2>
 		<icon>common/reload-skin.png</icon>
 		<thumb />
@@ -18,7 +18,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>13012</defaultID>
-		<label>Exit Netflix</label>
+		<label>320029</label>
 		<label2>Kodi Command</label2>
 		<icon>common/exit1.png</icon>
 		<thumb />
@@ -26,7 +26,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>13013</defaultID>
-		<label>Reboot</label>
+		<label>320030</label>
 		<label2>Kodi Command</label2>
 		<icon>common/reboot1.png</icon>
 		<thumb />
@@ -34,7 +34,7 @@
 	</shortcut>
 	<shortcut>
 		<defaultID>13016</defaultID>
-		<label>Power Off System</label>
+		<label>320031</label>
 		<label2>Kodi Command</label2>
 		<icon>common/shutdown1.png</icon>
 		<thumb />

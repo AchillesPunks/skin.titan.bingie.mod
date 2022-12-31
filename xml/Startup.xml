@@ -11,6 +11,11 @@
     <onload condition="!String.IsEmpty(Skin.String(SplashScreen)) + String.IsEmpty(Skin.String(AutoStartPlayList))">RunScript(script.skin.helper.service,action=splashscreen,file=$INFO[Skin.String(SplashScreen)])</onload>
     <onload condition="String.IsEmpty(Skin.String(SplashScreen)) + !String.IsEmpty(Skin.String(AutoStartPlayList))">PlayMedia($INFO[Skin.String(AutoStartPlayList)])</onload>
     <onunload condition="Player.HasVideo + String.IsEmpty(Skin.String(AutoStartPlayList))">PlayerControl(Stop)</onunload>
+	
+	<!-- Start TMDbH service -->
+    <onload>Skin.SetBool(TMDbHelper.Service)</onload>
+	<onload>Skin.SetString(TMDbHelper.MonitorContainer,99950)</onload>
+	
     <controls>
         <!-- block input button -->
         <control type="button">

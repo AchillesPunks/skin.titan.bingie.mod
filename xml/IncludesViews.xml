@@ -3,9 +3,9 @@
 <includes>
 
     <include name="allViewIds">
-        <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526</views>
+        <views>10,50,51,52,501,502,503,504,505,53,54,55,506,56,57,58,59,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526,527</views>
         <menucontrol>9000</menucontrol>
-        <onunload condition="Skin.HasSetting(DetailsAutoTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onunload>
+        <onunload condition="[$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(PlayTrailerOnUp) + [String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)] | [$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)]">PlayerControl(Stop)</onunload>
     </include>
 
     <include name="playlistViewId">
@@ -27,18 +27,12 @@
 
     <include name="allViews">
         
-        <!-- footer bar (in back) -->
-        <control type="group">
-            <visible>![Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(525) |  Control.IsVisible(523) |  Control.IsVisible(526)]</visible>
-            <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
-        </control>
-        
         <!--Views-->
         <control type="group" id="5000">
             <visible>!Window.IsActive(virtualkeyboard)</visible>
             <include>animation_window_open_close</include>
-            <animation effect="slide" end="0,100" time="0" condition="Skin.HasSetting(nofooterbar) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525)]">Conditional</animation>
-            <animation effect="slide" end="0,-80" time="0" condition="Skin.String(general_header,disable) + String.IsEqual(Skin.AspectRatio,16:10) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(515) | Control.IsVisible(521) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525)]">Conditional</animation>
+            <animation effect="slide" end="0,0" time="0" condition="Skin.HasSetting(EnableFooterBar) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525) | Control.IsVisible(527)]">Conditional</animation>
+            <animation effect="slide" end="0,-80" time="0" condition="Skin.String(general_header,disable) + String.IsEqual(Skin.AspectRatio,16:10) + ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(507) | Control.IsVisible(515) | Control.IsVisible(521) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(523) |  Control.IsVisible(526) | Control.IsVisible(525) | Control.IsVisible(527)]">Conditional</animation>
             
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.50)">View_50_List</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.10) + [Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyPVRTimers.xml)]">View_10_SimplePVR</include>
@@ -85,22 +79,33 @@
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.523) + Window.IsActive(MyVideoNav.xml)">View_523_Bingie_Main_Landscape</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.526) + Window.IsActive(MyVideoNav.xml)">View_526_Bingie_Main_Poster</include>
             <include condition="!Skin.HasSetting(SkinHelper.View.Disabled.525) + Window.IsActive(MyVideoNav.xml)">View_525_Episodes</include>
+			<include condition="!Skin.HasSetting(SkinHelper.View.Disabled.527) + Window.IsActive(MyVideoNav.xml)">View_527_Seasons</include>
         </control>
         
         <!-- footer bar (in front) -->
         <control type="group">
-            <visible>control.IsVisible(52) | Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(53) | Control.IsVisible(57) | 
+            <visible>Control.IsVisible(52) | Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(53) | Control.IsVisible(57) | 
 			Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(59) | Control.IsVisible(501) | Control.IsVisible(506) | Control.IsVisible(521) |
 			Control.IsVisible(502) | Control.IsVisible(505) | Control.IsVisible(509) | Control.IsVisible(510) | Control.IsVisible(511) | Control.IsVisible(518) |
 			Control.IsVisible(512) | Control.IsVisible(524) | Control.IsVisible(51) | Control.IsVisible(504) | Control.IsVisible(522) | Control.IsVisible(517) | 
-			Control.IsVisible(503) | Control.IsVisible(50) | Control.IsVisible(515) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(516)</visible>
-            <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+			Control.IsVisible(503) | Control.IsVisible(50) | Control.IsVisible(515) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(516) | ![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(527) | Control.IsVisible(525) | Control.IsVisible(526)]</visible>
+            <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
+        </control>
+		
+		<!-- footer bar (in front) -->
+        <control type="group">
+            <visible>Control.IsVisible(523) | Control.IsVisible(526) | ![Control.IsVisible(52) | Control.IsVisible(507) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(53) | Control.IsVisible(57) | 
+			Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(59) | Control.IsVisible(501) | Control.IsVisible(506) | Control.IsVisible(521) |
+			Control.IsVisible(502) | Control.IsVisible(505) | Control.IsVisible(509) | Control.IsVisible(510) | Control.IsVisible(511) | Control.IsVisible(518) |
+			Control.IsVisible(512) | Control.IsVisible(524) | Control.IsVisible(51) | Control.IsVisible(504) | Control.IsVisible(522) | Control.IsVisible(517) | 
+			Control.IsVisible(503) | Control.IsVisible(50) | Control.IsVisible(515) | Control.IsVisible(508) | Control.IsVisible(58) | Control.IsVisible(516) | Control.IsVisible(527) | Control.IsVisible(525) | Control.IsVisible(519) | Control.IsVisible(520)]</visible>
+            <include condition="!Skin.HasSetting(EnableFooterBarOnHome)">Footer2</include>
         </control>
             
         <!-- clearlogo -->
         <control type="group">
-            <visible>![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]</visible>
-            <include condition="Skin.String(ClearLogoLocation) + ![Skin.HasSetting(nofooterbar) + Skin.String(ClearLogoLocation,footer)]">ClearLogo</include>
+            <visible>![Control.IsVisible(519) | Control.IsVisible(520) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525) | Control.IsVisible(527)]</visible>
+            <include condition="Skin.String(ClearLogoLocation) + ![Skin.HasSetting(EnableFooterBar) + Skin.String(ClearLogoLocation,footer)]">ClearLogo</include>
         </control>
             
         <!--Scrolling Letter-->
@@ -142,6 +147,15 @@
         
         <!-- alphabet scrollbar -->
         <include condition="Skin.HasSetting(EnableQuickJump)">AlphabetScrollbar</include>
+		
+		<!-- Snow Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablesnow)">snow</include>
+        </control>
+		<!-- Halloween Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablepumpkins)">pumpkin</include>
+        </control>
     
     </include>
     
@@ -347,7 +361,8 @@
 				<height>630</height>
 				
 				<control type="image">
-					<texture border="5">diffuse/panel.png</texture>
+					<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+					<texture border="5">diffuse/poster.png</texture>
 					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 				</control>
 				
@@ -361,7 +376,7 @@
 				
 				<control type="label">
 					<posx>15</posx>
-					<posy>280</posy>
+					<posy>260</posy>
 					<width>400</width>
 					<height>80</height>
 					<label>$INFO[ListItem.Label]</label>
@@ -372,9 +387,9 @@
 								
 				<control type="textbox">
 					<posx>15</posx>
-					<posy>360</posy>
+					<posy>330</posy>
 					<width>400</width>
-					<height>270</height>
+					<height>290</height>
 					<label>[B]$LOCALIZE[31212]:[/B][CR]$INFO[ListItem.Property(NextNumber),,. ]$INFO[ListItem.Property(NextTitle)][CR][CR][B]$LOCALIZE[31213]:[/B][CR]$INFO[ListItem.Property(NextDate)] $INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(Network), @ ][CR][CR][B]$LOCALIZE[126]:[/B][CR]$INFO[ListItem.Property(Status)]</label>
 					<font>Reg24</font>
 					<textcolor>$VAR[ViewDetailsTextColor]</textcolor>
@@ -389,14 +404,8 @@
 				<height>630</height>
 				
 				<control type="image">
-					<texture border="4">diffuse/cover_panel_matte_fo.png</texture>
-					<colordiffuse>$VAR[ViewDetailsFocusColor]</colordiffuse>
-				</control>
-				
-				<control type="image">
-					<bordersize>8</bordersize>
-					<texture border="5">diffuse/panel.png</texture>
-					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
+					<texture border="5">diffuse/poster.png</texture>
+					<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 				</control>
 				
 				<control type="image">
@@ -409,7 +418,7 @@
 				
 				<control type="label">
 					<posx>15</posx>
-					<posy>280</posy>
+					<posy>260</posy>
 					<width>400</width>
 					<height>80</height>
 					<label>$INFO[ListItem.Label]</label>
@@ -420,9 +429,9 @@
 								
 				<control type="textbox">
 					<posx>15</posx>
-					<posy>360</posy>
+					<posy>330</posy>
 					<width>400</width>
-					<height>270</height>
+					<height>290</height>
 					<label>[B]$LOCALIZE[31212]:[/B][CR]$INFO[ListItem.Property(NextNumber),,. ]$INFO[ListItem.Property(NextTitle)][CR][CR][B]$LOCALIZE[31213]:[/B][CR]$INFO[ListItem.Property(NextDate)] $INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(Network), @ ][CR][CR][B]$LOCALIZE[126]:[/B][CR]$INFO[ListItem.Property(Status)]</label>
 					<font>Reg24</font>
 					<textcolor>$VAR[ViewDetailsTextColor]</textcolor>
@@ -436,7 +445,7 @@
 	</include>
 
     <include name="EpgProgressIndicatorNormal">
-        <progresstexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="0,48,18,14">pvr/PVR-EpgProgressIndicator.png</progresstexture>
+        <progresstexture colordiffuse="$INFO[Skin.String(ViewDetailsHighlightTextColor)]" border="0,48,18,15">pvr/PVR-EpgProgressIndicator.png</progresstexture>
     </include>
    
     <include name="EpgProgressIndicatorAlt">
@@ -554,7 +563,7 @@
                     <!--Runtime: Movie, Episodes-->
                     <width>600</width>
                     <height>40</height>
-                    <visible>!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Runtime))</visible>
+                    <visible>!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))</visible>
                     <control type="image">
                         <posx>9</posx>
                         <posy>17</posy>
@@ -571,6 +580,17 @@
 						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                         <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                         <scroll>false</scroll>
+						<visible>!String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
+                    </control>
+					<control type="label">
+                        <posx>60</posx>
+                        <posy>0</posy>
+                        <width>600</width>
+                        <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m ]</label>
+						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                        <scroll>false</scroll>
+						<visible>String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
                     </control>
                 </control>
                 <control type="group">
@@ -579,11 +599,11 @@
                     <height>40</height>
                     <visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
                     <control type="image">
-                        <posx>0</posx>
-                        <posy>8</posy>
-                        <width>46</width>
-                        <height>46</height>
-                        <texture>dialogs/videoinfo/genre-icon.png</texture>
+                        <posx>7</posx>
+						<posy>14</posy>
+						<width>32</width>
+						<height>32</height>
+                        <texture>dialogs/videoinfo/genre-icon2.png</texture>
                         <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
                     </control>
                     <control type="label">
@@ -616,10 +636,10 @@
                     <visible>!Container.Content(tvshows)</visible>
                     <visible>!String.IsEmpty(ListItem.Director) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Director))</visible>
                     <control type="image">
-                        <posx>11</posx>
-                        <posy>15</posy>
-                        <width>24</width>
-                        <height>30</height>
+                        <posx>8</posx>
+                        <posy>16</posy>
+                        <width>31</width>
+                        <height>31</height>
                         <texture>dialogs/videoinfo/director.png</texture>
                         <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
                     </control>
@@ -721,22 +741,22 @@
                     </control>
 
 				</control>
-				<control type="group">
-					<!--Total: Episodes-->
-					<width>950</width>
-					<height>40</height>
-					<visible>Container.Content(TVShows) + !String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
-					<control type="label">
-						<posx>8</posx>
-						<posy>0</posy>
-						<width>950</width>
-						<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                        <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-						<align>left</align>
-						<label>$INFO[ListItem.Property(TotalEpisodes),[B]$LOCALIZE[20360]:[/B] ,  •  ]$INFO[ListItem.Property(unWatchedepisodes),[B]$LOCALIZE[31092]:[/B] ,]</label>
-						<scroll>false</scroll>
-					</control>
-				</control>
+				<!-- <control type="group"> -->
+					<!-- Total: Episodes -->
+					<!-- <width>950</width> -->
+					<!-- <height>40</height> -->
+					<!-- <visible>Container.Content(TVShows) + !String.IsEmpty(ListItem.Property(TotalEpisodes))</visible> -->
+					<!-- <control type="label"> -->
+						<!-- <posx>8</posx> -->
+						<!-- <posy>0</posy> -->
+						<!-- <width>950</width> -->
+						<!-- <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor> -->
+                        <!-- <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor> -->
+						<!-- <align>left</align> -->
+						<!-- <label>$INFO[ListItem.Property(TotalEpisodes),[B]$LOCALIZE[20360]:[/B] ,  •  ]$INFO[ListItem.Property(unWatchedepisodes),[B]$LOCALIZE[31092]:[/B] ,]</label> -->
+						<!-- <scroll>false</scroll> -->
+					<!-- </control> -->
+				<!-- </control> -->
 				<control type="group">
 					<!--NextAired Status-->
 					<width>1300</width>
@@ -877,18 +897,22 @@
         [Control.IsVisible(53) + Skin.HasSetting(View53_DetailsShowFanart)]]
         </visible>
         <visible>![!String.IsEmpty(Window(Home).Property(TrailerPlaying)) + Skin.HasSetting(DetailsAutoTrailer)]</visible>
-        <animation effect="slide" end="0,-8" time="0" condition="[Skin.HasSetting(DetailsLeftHidepanel) + !Control.IsVisible(516) + !Control.IsVisible(51) + !Control.IsVisible(504)] | [Skin.HasSetting(View516_HidePanel) + Control.IsVisible(516)] | [Skin.HasSetting(View51_HidePanel) + Control.IsVisible(51)] | [Skin.HasSetting(View504_HidePanel) + Control.IsVisible(504)]">Conditional</animation>
+        
         <posx>50</posx>
         <bottom>13%</bottom>
         <height>736</height>
         <control type="image">
 		    <height>720</height>
-			<posy>16</posy>
+			<posy>8</posy>
             <texture border="15">diffuse/bgpanel.png</texture>
             <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
             <visible>[Skin.HasSetting(DetailsLeftHidepanel) + !Control.IsVisible(516) + !Control.IsVisible(51) + !Control.IsVisible(504)] | [Skin.HasSetting(View516_HidePanel) + Control.IsVisible(516)] | [Skin.HasSetting(View51_HidePanel) + Control.IsVisible(51)] | [Skin.HasSetting(View504_HidePanel) + Control.IsVisible(504)]</visible>
         </control>
         <control type="grouplist">
+		<animation effect="slide" end="0,-3" time="0" condition="Control.IsVisible(516)">Conditional</animation>
+		<animation effect="slide" end="0,-4" time="0" condition="Control.IsVisible(522)">Conditional</animation>
+		<animation effect="slide" end="0,1" time="0" condition="Control.IsVisible(51)">Conditional</animation>
+		<animation effect="slide" end="0,1" time="0" condition="Control.IsVisible(504)">Conditional</animation>
             <left>8</left>
             <top>10</top>
             <width>97%</width>
@@ -991,6 +1015,17 @@
                     <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <scroll>false</scroll>
+					<visible>!String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
+                </control>
+				<control type="label">
+                    <posx>60</posx>
+                    <posy>0</posy>
+                    <align>left</align>
+                    <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m ]</label>
+                    <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                    <scroll>false</scroll>
+					<visible>String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
                 </control>
             </control>
             <control type="group">
@@ -999,11 +1034,11 @@
                 <height>40</height>
                 <visible>!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
                 <control type="image">
-                    <posx>0</posx>
-                    <posy>8</posy>
-                    <width>46</width>
-                    <height>46</height>
-                    <texture>dialogs/videoinfo/genre-icon.png</texture>
+                    <posx>7</posx>
+                    <posy>14</posy>
+                    <width>32</width>
+                    <height>32</height>
+                    <texture>dialogs/videoinfo/genre-icon2.png</texture>
                     <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
                 </control>
                 <control type="label">
@@ -1022,10 +1057,10 @@
                 <height>40</height>
                 <visible>[Container.Content(Movies) | Container.Content(episodes) | [Container.Content(sets) | String.IsEqual(Container.Folderpath,videodb://movies/sets/)]] + [!String.IsEmpty(ListItem.Director) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Director))]</visible>
                 <control type="image">
-                    <posx>11</posx>
-                    <posy>15</posy>
-                    <width>24</width>
-                    <height>30</height>
+                    <posx>8</posx>
+                    <posy>16</posy>
+                    <width>31</width>
+                    <height>31</height>
                     <texture>dialogs/videoinfo/director.png</texture>
                     <colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
                 </control>
@@ -1088,7 +1123,7 @@
                 <!--Studio: TV-Shows-->
                 <width>100%</width>
                 <height>40</height>
-                <visible>!String.IsEmpty(ListItem.Studio)</visible>
+                <visible>!String.IsEmpty(ListItem.Studio) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Studio))</visible>
                 <control type="image">
                     <posx>8</posx>
                     <posy>10</posy>
@@ -1105,6 +1140,17 @@
                     <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
                     <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
                     <scroll>false</scroll>
+					<visible>!String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
+                </control>
+				<control type="label">
+                    <posx>60</posx>
+                    <posy>0</posy>
+                    <align>left</align>
+                    <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Studio)]</label>
+                    <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                    <scroll>false</scroll>
+					<visible>String.Contains(ListItem.Path,videodb://movies/sets/)</visible>
                 </control>
             </control>
             <control type="group">
@@ -1160,19 +1206,19 @@
         </control>
         <!-- horizontal line -->
         <control type="image">
-            <top>350</top>
+            <top>345</top>
             <height>1</height>
 			<left>30</left>
 			<posx>15</posx>
             <texture>diffuse/panel.png</texture>
-            <colordiffuse>grey</colordiffuse>
+            <colordiffuse>white</colordiffuse>
         </control>
         <!-- plot -->
         <control type="textbox">
-            <top>360</top>
+            <top>355</top>
             <left>15</left>
             <right>15</right>
-            <bottom>10</bottom>
+            <bottom>15</bottom>
             <label>$VAR[Plots]</label>
             <font>Light28</font>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
@@ -1193,9 +1239,11 @@
         [Control.IsVisible(53) + Skin.HasSetting(View53_DetailsShowFanart)] | 
         [!String.IsEmpty(Window(Home).Property(TrailerPlaying)) + Skin.HasSetting(DetailsAutoTrailer)]
         </visible>
-
+		<animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+				<effect type="slide" end="0,-1" time="0"  />
+			</animation>
         <posx>50</posx>
-        <bottom>13%</bottom>
+        <top>209</top>
         <height>736</height>
         <control type="image">
 			<height>736</height>
@@ -1207,7 +1255,7 @@
         <control type="image">
             <height>360</height>
             <bordersize>8</bordersize>
-            <aspectratio align="center" aligny="top" scalediffuse="true">keep</aspectratio>
+            <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
             <texture background="true" diffuse="diffuse/bgpanel.png" border="0" fallback="DefaultVideo.png">$VAR[DetailsFanArtImage]</texture>
             <visible>!Window.IsActive(Music)</visible>
             <visible>!Skin.HasTheme(skindefault)</visible>
@@ -1215,45 +1263,55 @@
         <control type="image">
             <height>360</height>
             <bordersize>8</bordersize>
-            <aspectratio align="center" aligny="top" scalediffuse="true">keep</aspectratio>
-            <texture background="true" diffuse="diffuse/landscape.png" fallback="DefaultVideo.png">$VAR[DetailsFanArtImage]</texture>
+            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+            <texture background="true" diffuse="home/home_matte2.png" fallback="DefaultVideo.png">$VAR[DetailsFanArtImage]</texture>
             <visible>!Window.IsActive(Music)</visible>
             <visible>Skin.HasTheme(skindefault)</visible>
         </control>
-         <control type="image">
-            <!--cdart image music-->
-            <width>360</width>
-            <height>360</height>
-            <left>180</left>
-            <bordersize>10</bordersize>
-            <texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$VAR[DiscArtImage]</texture>
-            <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-            <animation effect="rotate" end="-90" center="auto" time="20000" loop="false" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-            <visible>!String.IsEmpty(ListItem.Art(thumb)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb))</visible>
+		<control type="group">		    
             <visible>Window.IsActive(Music)</visible>
             <visible>
                 [Control.IsVisible(51) + Skin.HasSetting(View51_ShowCDart)] | 
-                [Control.IsVisible(52) + Skin.HasSetting(View52_ShowCDart)] | 
-                [Control.IsVisible(58) + Skin.HasSetting(View58_ShowCDart)] | 
-                [Control.IsVisible(502) + Skin.HasSetting(View502_ShowCDart)] | 
-                [Control.IsVisible(504) + Skin.HasSetting(View504_ShowCDart)] | 
-                [Control.IsVisible(508) + Skin.HasSetting(View508_ShowCDart)] | 
-                [Control.IsVisible(513) + Skin.HasSetting(View513_ShowCDart)] | 
-                [Control.IsVisible(514) + Skin.HasSetting(View514_ShowCDart)] | 
-                [Control.IsVisible(522) + Skin.HasSetting(View522_ShowCDart)] |
-                [Control.IsVisible(523) + Skin.HasSetting(View523_ShowCDart)]
+                [Control.IsVisible(504) + Skin.HasSetting(View504_ShowCDart)] |
+				[Control.IsVisible(510) + Skin.HasSetting(View510_ShowCDart)] |
+				[Control.IsVisible(516) + Skin.HasSetting(View516_ShowCDart)]
             </visible>
+         <control type="image">
+            <!--cdart image music-->
+            <width>350</width>
+            <height>350</height>
+            <left>152</left>
+			<top>5</top>
+            <bordersize>10</bordersize>
+            <texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_medium.png">$VAR[DiscArtImage]</texture>
+            <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+            <animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
         </control>
-
-        <!-- music cover -->
+        <!-- music cover with cd art -->
         <control type="image">
             <height>360</height>
             <width>360</width>
             <bordersize>8</bordersize>
             <aspectratio align="center" aligny="center" scalediffuse="true">scale</aspectratio>
-            <texture background="true" diffuse="diffuse/landscape.png" fallback="DefaultAddonArtistInfo.png" border="0">$VAR[MusicCoverImage]</texture>
-            <visible>Window.IsActive(Music)</visible>
+            <texture background="true" diffuse="diffuse/music_cover_cd.png" fallback="DefaultAddonArtistInfo.png">$VAR[MusicCoverImage]</texture>
         </control>
+		</control>
+		<!-- music cover without cd art -->
+        <control type="image">
+            <visible>Window.IsActive(Music)</visible>
+            <visible>
+                [Control.IsVisible(51) + !Skin.HasSetting(View51_ShowCDart)] | 
+                [Control.IsVisible(504) + !Skin.HasSetting(View504_ShowCDart)] |
+				[Control.IsVisible(510) + !Skin.HasSetting(View510_ShowCDart)] |
+				[Control.IsVisible(516) + !Skin.HasSetting(View516_ShowCDart)]
+            </visible>
+            <height>360</height>
+            <width>360</width>
+            <bordersize>8</bordersize>
+            <aspectratio align="center" aligny="center" scalediffuse="true">scale</aspectratio>
+            <texture background="true" diffuse="diffuse/panel2.png" fallback="DefaultAddonArtistInfo.png">$VAR[MusicCoverImage]</texture>
+        </control>
+		
         <!--Video Window -->
         <control type="group">
             <posx>8</posx>
@@ -1262,7 +1320,7 @@
             <height>344</height>
             <visible>
                     [Window.IsActive(tvchannels) + VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)] | 
-                    [Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerPlaying)) + Skin.HasSetting(DetailsAutoTrailer)]
+                    [$EXP[IsPlayingUnrecognizedContent] + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + Skin.HasSetting(DetailsAutoTrailer)]
             </visible>
             <visible>!Skin.HasTheme(classic)</visible>
             <control type="image">
@@ -1320,27 +1378,27 @@
      </control>
   </include>
 
-    <include name="thumbsborder_unfocused">
-        <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),0)">thumbborder_0</include>
-        <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),2)">thumbborder_2</include>
-        <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),4)">thumbborder_4</include>
-        <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),6)">thumbborder_6</include>
-    </include>
+    <!-- <include name="thumbsborder_unfocused"> -->
+        <!-- <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),0)">thumbborder_0</include> -->
+        <!-- <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),2)">thumbborder_2</include> -->
+        <!-- <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),4)">thumbborder_4</include> -->
+        <!-- <include condition="String.IsEqual(Skin.String(thumbsborder_unfocused),6)">thumbborder_6</include> -->
+    <!-- </include> -->
 
     <include name="thumbsborder_focused">
-        <include condition="String.IsEqual(Skin.String(thumbsborder_focused),2)">thumbborder_2</include>
         <include condition="String.IsEqual(Skin.String(thumbsborder_focused),4)">thumbborder_4</include>
+        <include condition="String.IsEqual(Skin.String(thumbsborder_focused),5)">thumbborder_5</include>
         <include condition="String.IsEqual(Skin.String(thumbsborder_focused),6)">thumbborder_6</include>
     </include>
 
-    <include name="thumbborder_0">
-        <bordersize>9</bordersize>   
-    </include>
-    <include name="thumbborder_2">
-        <bordersize>6</bordersize>   
-    </include>
+    <!-- <include name="thumbborder_0"> -->
+        <!-- <bordersize>9</bordersize>    -->
+    <!-- </include> -->
     <include name="thumbborder_4">
         <bordersize>4</bordersize>   
+    </include>
+	<include name="thumbborder_5">
+        <bordersize>3</bordersize>   
     </include>
     <include name="thumbborder_6">
         <bordersize>2</bordersize>   
@@ -1388,6 +1446,20 @@
             </control>
             <control type="group">
                 <description>In progress Overlay</description>
+				<visible>!Skin.HasSetting(MovieDetailsHome) | 
+				[Control.IsVisible(50) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(51) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(52) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(53) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(54) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(55) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(56) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(57) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(58) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(59) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(501) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(502) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(503) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(504) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(505) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(506) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(507) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(508) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(509) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(510) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(511) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(512) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(513) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(514) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(515) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(516) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(517) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(518) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(519) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(520) + Skin.HasSetting(MovieDetailsHome)] |
+				[Control.IsVisible(521) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(522) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(524) + Skin.HasSetting(MovieDetailsHome)] | 
+				[Window.IsActive(1108) + Skin.HasSetting(MovieDetailsHome)] | [Window.IsActive(1109) + Skin.HasSetting(MovieDetailsHome)]
+				</visible>
                 <visible>ListItem$PARAM[listitem].IsResumable + Skin.HasSetting(WatchedIndicator.Progress)</visible>
                 <visible>!ListItem$PARAM[listitem].IsPlaying + !ListItem$PARAM[listitem].IsRecording</visible>
                 <control type="image">
@@ -1651,7 +1723,7 @@
             <!--Button NF-->
             <posx>1</posx>
             <posy>0</posy>
-            <width>50</width>
+            <width>59</width>
             <height>92%</height>
             <texture colordiffuse="$INFO[Skin.String(PVRGuideItemColorUnfocus)]" border="5">diffuse/panel.png</texture>
             <visible>!Skin.HasSetting(ShowEpgGenreColors)</visible>
@@ -1717,7 +1789,7 @@
             <!--Button FO-->
             <posx>1</posx>
             <posy>0</posy>
-            <width>50</width>
+            <width>59</width>
             <height>92%</height>
             <texture border="5" colordiffuse="$INFO[Skin.String(PVRGuideItemColorFocus)]">diffuse/panel.png</texture>
         </control>
@@ -1814,7 +1886,7 @@
             </control>
             <control type="label">
                 <description>Channel Number with logo disabled and channelname present</description>
-                <left>2%</left>
+                <left>0</left>
                 <width>20%</width>
                 <height>100%</height>
                 <font>$PARAM[font]</font>
@@ -1826,7 +1898,7 @@
             </control>
             <control type="label">
                 <description>Channel Number with logo enabled and channelname not present</description>
-                <left>50%</left>
+                <left>49%</left>
                 <width>50%</width>
                 <height>100%</height>
                 <font>$PARAM[font]</font>
@@ -1851,7 +1923,7 @@
             <control type="label">
                 <description>Channel Name with logo and channel number enabled</description>
                 <left>46%</left>
-                <width>54%</width>
+                <width>53%</width>
                 <height>100%</height>
                 <font>$PARAM[font]</font>
                 <textcolor>$PARAM[textcolor]</textcolor>
@@ -1861,8 +1933,8 @@
             </control>
             <control type="label">
                 <description>Channel Name with logo disabled and channel number enabled</description>
-                <left>26%</left>
-                <width>74%</width>
+                <left>20%</left>
+                <width>78%</width>
                 <height>100%</height>
                 <font>$PARAM[font]</font>
                 <textcolor>$PARAM[textcolor]</textcolor>
@@ -1872,7 +1944,7 @@
             </control>
             <control type="label">
                 <description>Channel Name with logo enabled and channel number disabled</description>
-                <left>26%</left>
+                <left>24%</left>
                 <width>74%</width>
                 <height>100%</height>
                 <font>$PARAM[font]</font>
@@ -1883,8 +1955,8 @@
             </control>
             <control type="label">
                 <description>Channel Name with logo disabled and channel number disabled</description>
-                <left>2%</left>
-                <width>98%</width>
+                <left>4%</left>
+                <width>95%</width>
                 <height>100%</height>
                 <font>$PARAM[font]</font>
                 <textcolor>$PARAM[textcolor]</textcolor>
@@ -1982,6 +2054,31 @@
         <onclick condition="[Container.Content(unknown) + String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
         <onclick condition="[Container.Content(videos) + String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
     </include>
-
+	
+	<!--Top 250 Indicator-->
+	<include name="Top250Indicator">
+		<control type="image">
+		<visible>!$EXP[IsEpisodeDBType] + !String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(DisableTop250Indicator) + !$EXP[IsCategoryDBType]</visible>
+		<posy>8</posy>
+		<left>8</left>
+        <height>60</height>
+        <width>50</width>
+        <aspectratio>keep</aspectratio>
+        <texture>bingie/top250p.png</texture>
+		</control>
+    </include>
+	
+	<!--Top 250 Indicator-->
+	<include name="Top250Indicator2">
+		<control type="image">
+		<visible>!$EXP[IsEpisodeDBType] + Control.IsVisible(1719) + !Skin.HasSetting(DisableTop250Indicator) + !$EXP[IsCategoryDBType]</visible>
+		<posy>8</posy>
+		<left>8</left>
+        <height>60</height>
+        <width>50</width>
+        <aspectratio>keep</aspectratio>
+        <texture>bingie/top250p.png</texture>
+		</control>
+    </include>
 
 </includes>

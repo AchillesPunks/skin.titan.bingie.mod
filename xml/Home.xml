@@ -12,7 +12,8 @@
 	<!-- BINGIE -->
     <onload condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.Reset(CustomSearchTerm)</onload>
     <onload condition="String.IsEqual(Skin.String(HomeLayout),bingie)">SetProperty(bingieviews,1,Home)</onload>
-    
+    <onload>Skin.SetString(TMDbHelper.MonitorContainer,99950)</onload>
+	
 	<!-- Build Menu -->
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;group=mainmenu|powermenu)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle,$INFO[Skin.String(widgetstyle)])</onload>
@@ -24,14 +25,13 @@
     <onunload>ClearProperty(submenu,Home)</onunload>
     <onunload>ClearProperty(ShowWidget,Home)</onunload>
     <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
-    <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     <onunload>ClearProperty(bingieviews,Home)</onunload>
     <include condition="Skin.String(widgets_rotate) + !String.IsEqual(Skin.String(widgets_rotate),disabled)">WidgetsAutoRotateUnload</include>
     <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieViews_WindowOpen_Fade</include>
 
-
-    <!-- Global Background -->
 	<controls>
+		<include>Defs_TMDbHelper_Loader</include>
+		<!-- Global Background -->
         <include>GlobalBackground</include>
         <control type="button" id="1000">
             <include>HiddenObject</include>
@@ -61,18 +61,17 @@
         <!-- NowPlaying Info Bar  -->
 		<include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
 		<include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(DisableNowPlayingInfoBar)">NowPlayingInfoBar</include>
         
         <!-- PVR recording icon -->
         <include condition="Skin.HasSetting(Home_RecordingIndicator)">NowRecordingIcon</include>
 	
 		<!-- Home Screen -->
         <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">HomeBingie</include>
-        <include condition="$EXP[IsTilesLayout]">HomeTitanTiles</include>
-        <include condition="$EXP[IsHorizontalLayout]">HorizontalHome</include>
-        <include condition="$EXP[IsVerticalLayout]">VerticalHome</include>
-        <include condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">EnhancedHome</include>
-        <include condition="String.IsEqual(Skin.String(HomeLayout),win10)">HomeWin10</include>
+        <!-- <include condition="$EXP[IsTilesLayout]">HomeTitanTiles</include> -->
+        <!-- <include condition="$EXP[IsHorizontalLayout]">HorizontalHome</include> -->
+        <!-- <include condition="$EXP[IsVerticalLayout]">VerticalHome</include> -->
+        <!-- <include condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">EnhancedHome</include> -->
+        <!-- <include condition="String.IsEqual(Skin.String(HomeLayout),win10)">HomeWin10</include> -->
 
 		<!-- Debug -->
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>

@@ -4,73 +4,49 @@
         <control type="group">
             <posx>-45</posx>
             <posy>95</posy>
-            <width>395</width>
+            <width>385</width>
             <height>545</height>
             <control type="image">
-                <aspectratio scalediffuse="false">stretch</aspectratio>
+                <aspectratio scalediffuse="true" aligny="center" align="center">stretch</aspectratio>
                 <texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
                 <include condition="!Skin.HasSetting(EmbyCovertArtEnabled)">poster_shadow</include>
                 <bordersize>20</bordersize>
+				<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
             </control>
-            <!--Label overlay-->
-            <control type="group">
-                <include>PosterTagOverlayVisibility</include>
-                <control type="image">
-                    <bottom>-1</bottom>
-                    <height>130</height>
-                    <bordersize>20</bordersize>
-                    <texture diffuse="diffuse/poster.png">colors/color_white.png</texture>
-                    <colordiffuse>$INFO[Skin.String(TagOverlaysPanelColor)]</colordiffuse>
-                </control>
-                <control type="textbox">
-                    <left>30</left>
-                    <bottom>30</bottom>
-                    <width>280</width>
-                    <height>70</height>
-                    <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">align_center</include>
-                    <align>left</align>
-                    <label>$VAR[ThumbListDetails]</label>
-                    <font>Reg28</font>
-                    <autoscroll delay="0" time="2000" repeat="2000">false</autoscroll>
-                    <textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-                    <visible>!String.IsEqual(Container.ListItem.Label,ListItem.Label)</visible>
-                </control>
-                <control type="textbox">
-                    <left>30</left>
-                    <bottom>30</bottom>
-                    <width>280</width>
-                    <height>70</height>
-                    <include condition="Skin.HasSetting(ThumbsLabelAlignmentCenter)">align_center</include>
-                    <align>left</align>
-                    <label>$VAR[ThumbListDetails]</label>
-                    <font>Reg28</font>
-                    <autoscroll delay="0" time="2000" repeat="2000">true</autoscroll>
-                    <textcolor>$INFO[Skin.String(TagOverlaysTextColor)]</textcolor>
-                    <visible>String.IsEqual(Container.ListItem.Label,ListItem.Label)</visible>
-                </control>
+			<control type="image">
+                <aspectratio scalediffuse="false" aligny="center" align="center">scale</aspectratio>
+                <texture background="false" diffuse="diffuse/poster.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+                <include condition="!Skin.HasSetting(EmbyCovertArtEnabled)">poster_shadow</include>
+                <bordersize>20</bordersize>
+				<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
             </control>
 
         </control>
- 		<control type="group">
-			<posx>-2</posx>
-			<posy>141</posy>
-			<width>318</width>
-			<height>468</height>
-			<include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay</include>
-		</control>
         <control type="image">
             <posx>-25</posx>
             <posy>620</posy>
-            <width>355</width>
+            <width>345</width>
             <height>505</height>
             <aspectratio aligny="top" scalediffuse="false">stretch</aspectratio>
             <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
             <animation effect="fade" start="100" end="30" time="160">Focus</animation>
             <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
+			<visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+        </control>
+		<control type="image">
+            <posx>-25</posx>
+            <posy>620</posy>
+            <width>345</width>
+            <height>505</height>
+            <aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+            <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png" fallback="DefaultVideo.png">$VAR[PosterThumbList]</texture>
+            <animation effect="fade" start="100" end="30" time="160">Focus</animation>
+            <animation effect="fade" start="30" end="100" time="160">UnFocus</animation>
+			<visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
         </control>
 		<control type="group">
 			<!--Watched Overlay-->
-			<right>-15</right>
+			<right>-5</right>
 			<top>115</top>
 			<include>WatchedIndicatorNormal</include>
 		</control>
@@ -84,9 +60,10 @@
 
 	<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View514_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -99,46 +76,46 @@
 			 </control>					
 			
 <!-- Movie Information Details Normal -->
-			<control type="group" id="88882">
-				<include>MovieDetailsTop</include>
-                <top>-100</top>
-				<height>1220</height>
-				<visible>Control.IsVisible(514)</visible>
-                <visible>Skin.String(View514_DisplayInfo,normal) | [Skin.String(View514_DisplayInfo,normal_delayed) + System.IdleTime(4)]</visible>
-				<animation effect="slide" start="0,2000" end="0" time="1500" tween="cubic" easing="inout">Visible</animation>
-			</control>
+			<!-- <control type="group" id="88882"> -->
+				<!-- <include>MovieDetailsTop</include> -->
+                <!-- <top>-100</top> -->
+				<!-- <height>1220</height> -->
+				<!-- <visible>Control.IsVisible(514)</visible> -->
+                <!-- <visible>Skin.String(View514_DisplayInfo,normal) | [Skin.String(View514_DisplayInfo,normal_delayed) + System.IdleTime(4)]</visible> -->
+				<!-- <animation effect="slide" start="0,2000" end="0" time="1500" tween="cubic" easing="inout">Visible</animation> -->
+			<!-- </control> -->
             
             <!-- movie details small -->
 			<control type="group" id="88883">
 				<include>MovieDetailsTop2</include>
                 <visible>Control.IsVisible(514)</visible>
-                <visible>Skin.String(View514_DisplayInfo,small) | [Skin.String(View514_DisplayInfo,small_delayed) + System.IdleTime(4)]</visible>
+                <visible>Skin.String(View514_DisplayInfo,small) | [Skin.String(View514_DisplayInfo,small_delayed) + System.IdleTime(3)]</visible>
 				<animation effect="slide" start="0,-350" end="0" time="350" tween="cubic" easing="inout">Visible</animation>
 			</control>
             
 			<control type="group">
-				<animation type="Conditional" condition="Control.IsVisible(88882)">
-					<effect type="slide" start="0,0" end="0,400" time="800" tween="cubic" easing="inout" />
-				</animation>
+				<!-- <animation type="Conditional" condition="Control.IsVisible(88882)"> -->
+					<!-- <effect type="slide" start="0,0" end="0,400" time="800" tween="cubic" easing="inout" /> -->
+				<!-- </animation> -->
 				<visible>!Window.IsActive(addoninformation)</visible>
                 
                 <control type="image">
                     <!--cdart image-->
-                    <width>435</width>
-                    <height>435</height>
-                    <posx>738</posx>
-					<bottom>480</bottom>
+                    <width>396</width>
+                    <height>396</height>
+                    <posx>763</posx>
+					<bottom>501</bottom>
                     <texture background="true" diffuse="diffuse/cdmask_new.png" fallback="defaultcovers/cd_big.png">$VAR[DiscArtImage]</texture>
                     <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
                     <animation effect="slide" start="0,200" end="0" tween="cubic" easing="inout" time="1200" delay="800">Visible</animation>
                     <animation effect="fade" start="0" end="100" delay="800" time="800" pulse="false">Visible</animation>
                     <animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-                    <visible>Skin.HasSetting(View514_ShowCDart) + Control.HasFocus(514) + !Skin.HasSetting(PosterShiftViewShowInfo) + ![String.StartsWith(ListItem.Art(thumb),Default) | String.IsEmpty(ListItem.Art(thumb))]  + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious</visible>
+                    <visible>Skin.HasSetting(View514_ShowCDart) + Control.HasFocus(514) + !Control.IsVisible(88883) + !Skin.HasSetting(PosterShiftViewShowInfo) + !String.StartsWith(ListItem.Art(thumb),Default) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + $EXP[IsMovieDBType] | Control.HasFocus(514) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + Skin.HasSetting(View514_ShowCDart) + Skin.HasSetting(EnableFakeDiscArt)</visible>
                 </control>
                 
-				<control type="fixedlist" id="514">
-					<posx>-140</posx>
-					<bottom>40</bottom>
+				<control type="fixedlist" id="514">					
+					<posx>-130</posx>
+					<bottom>60</bottom>
 					<width>2100</width>
 					<height>750</height>
 					<onup>9000</onup>
@@ -158,8 +135,8 @@
 					</itemlayout>
 					<focusedlayout width="315" height="750">
 						<control type="group">
-							<animation effect="zoom" center="auto" start="100" end="130" time="160" tween="quadratic">Focus</animation>
-							<animation effect="zoom" center="auto" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
+							<animation effect="zoom" center="auto" start="100" end="120" time="160" tween="quadratic">Focus</animation>
+							<animation effect="zoom" center="auto" start="120" end="100" time="160" tween="quadratic">Unfocus</animation>
 							<include>ShiftPosterThumbs</include>
 						</control>
 					</focusedlayout>

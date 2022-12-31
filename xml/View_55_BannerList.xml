@@ -9,9 +9,10 @@
             <include>animation_view_change</include>
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View55_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -35,6 +36,10 @@
                 <onup>55</onup>
                 <ondown>55</ondown>
                 <onleft>9000</onleft>
+				<onleft>CancelAlarm(preview_delay,silent)</onleft>
+				<onleft condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onleft>
+				<onback>CancelAlarm(preview_delay,silent)</onback>
+				<onback condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onback>
                 <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
                 <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
                 <pagecontrol>60</pagecontrol>
@@ -51,12 +56,12 @@
                     <control type="group">
                         <width>585</width>
                         <height>119</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include>thumbsborder_unfocused</include>
-                        </control>
+                        <!-- <control type="image"> -->
+                            <!-- <texture border="5">diffuse/banner.png</texture> -->
+                            <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
+                            <!-- <aspectratio scalediffuse="false" align="left">stretch</aspectratio> -->
+                            <!-- <include>thumbsborder_unfocused</include> -->
+                        <!-- </control> -->
                         <include>BannerLayout</include>
 					</control>
                 </itemlayout>
@@ -66,26 +71,27 @@
                         <height>119</height>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                            <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
                             <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
                             <include>thumbsborder_focused</include>
                         </control>
                         <include>BannerLayout</include>
-                        <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
-                            <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
-                        </include>
+                        <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
+						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
 					</control>
                 </focusedlayout>
                 <itemlayout height="252" width="1180" condition="Skin.HasSetting(View55_LargeBanners)">
                     <control type="group">
                         <width>1180</width>
                         <height>238</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include>thumbsborder_unfocused</include>
-                        </control>
+                        <!-- <control type="image"> -->
+                            <!-- <texture border="5">diffuse/banner.png</texture> -->
+                            <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
+                            <!-- <aspectratio scalediffuse="false" align="left">stretch</aspectratio> -->
+                            <!-- <include>thumbsborder_unfocused</include> -->
+                        <!-- </control> -->
                         <include>BannerLayout</include>
 					</control>
                 </itemlayout>
@@ -95,14 +101,15 @@
                         <height>238</height>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+                            <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
                             <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
                             <include>thumbsborder_focused</include>
                         </control>
                         <include>BannerLayout</include>
-                        <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
-                            <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
-                        </include>
+                        <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
+						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
 					</control>
                 </focusedlayout>
      			</control>

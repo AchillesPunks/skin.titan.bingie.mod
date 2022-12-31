@@ -7,16 +7,17 @@
 		<visible>Control.IsVisible(505)</visible>
 		<!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View505_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+				<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
@@ -25,13 +26,17 @@
 		<left>2</left>
 	</control>
 		<control type="panel" id="505">
-            <animation effect="slide" end="-625" time="250" condition="Skin.HasSetting(View505_ShowInfoRight)">Conditional</animation>
-			<right>41</right>
-            <bottom>120</bottom>
-            <height>756</height>
-            <width>1190</width>
+            <animation effect="slide" end="-627" time="250" condition="Skin.HasSetting(View505_ShowInfoRight)">Conditional</animation>
+			<right>21</right>
+            <bottom>141</bottom>
+            <height>730</height>
+            <width>1210</width>
 			<orientation>vertical</orientation>
 			<onleft>9000</onleft>
+			<onleft>CancelAlarm(preview_delay,silent)</onleft>
+			<onleft condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onleft>
+			<onback>CancelAlarm(preview_delay,silent)</onback>
+			<onback condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onback>
 			<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
         <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
 			<onup>505</onup>
@@ -44,21 +49,22 @@
             </include>
             <visible>!Container.Content(files)</visible>
 			<scrolltime tween="cubic" easing="inout">500</scrolltime>
-			<itemlayout width="595" height="378" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+			<itemlayout width="605" height="365" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 				<control type="group">
-                    <width>575</width>
-                    <height>358</height>
-                    <include>ThumbsViewLayout</include>
+                    <width>565</width>
+                    <height>325</height>
+                    <include>LandscapeLayout</include>
                 </control>
 			</itemlayout>
-			<focusedlayout width="595" height="378" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+			<focusedlayout width="605" height="365" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
 				<control type="group">
-                    <width>575</width>
-                    <height>358</height>
-                    <include>ThumbsViewLayoutFocus</include>
-                    <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
-                        <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
-                    </include>
+                    <width>565</width>
+                    <height>325</height>
+                    <include>LandscapeLayoutFocus</include>
+                    <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
+						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
                 </control>
 			</focusedlayout>
             <itemlayout width="595" height="378" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -66,7 +72,7 @@
                     <width>493</width>
                     <height>368</height>
                     <left>60</left>
-                    <include>ThumbsViewLayout</include>
+                    <include>LandscapeLayout</include>
                 </control>
             </itemlayout>
             <focusedlayout width="595" height="378" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
@@ -74,7 +80,7 @@
                     <width>493</width>
                     <height>368</height>
                     <left>60</left>
-                    <include>ThumbsViewLayoutFocus</include>
+                    <include>LandscapeLayoutFocus</include>
                 </control>
             </focusedlayout>
 		</control>

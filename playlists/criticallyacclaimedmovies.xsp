@@ -12,6 +12,6 @@
     <rule field="top250" operator="isnot">
         <value>0</value>
     </rule>
-    <order direction="ascending">random</order>
+    <order direction="ascending">dateadded</order>
     <limit>200</limit>
 </smartplaylist>

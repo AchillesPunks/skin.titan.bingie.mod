@@ -43,6 +43,28 @@
             <visible>Skin.String(BackgroundDiffuseColor.base)</visible>
         </control>
     </include>
+	
+	<include name="DialogOverlayExtraBusy">
+        <!-- dim screen overlay used in certain dialogs -->
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>diffuse/panel2.png</texture>
+            <colordiffuse>86000000</colordiffuse>
+            <visible>String.IsEmpty(Skin.String(BackgroundDiffuseColor.base))</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>diffuse/panel2.png</texture>
+            <colordiffuse>860f0f0f</colordiffuse>
+            <visible>String.IsEmpty(Skin.String(BackgroundDiffuseColor.base))</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>diffuse/panel2.png</texture>
+            <colordiffuse>$INFO[Skin.String(BackgroundDiffuseColor.base)]</colordiffuse>
+            <visible>Skin.String(BackgroundDiffuseColor.base)</visible>
+        </control>
+    </include>
 
 <!-- Side Menu Background Panel Color -->
     <include name="Dim_Overlay">
@@ -62,12 +84,6 @@
     <include name="fanartSpeed5">
         <timeperimage>5000</timeperimage>
     </include>
-    <include name="fanartSpeed6">
-        <timeperimage>6000</timeperimage>
-    </include>
-    <include name="fanartSpeed8">
-        <timeperimage>8000</timeperimage>
-    </include>
     <include name="fanartSpeed10">
         <timeperimage>10000</timeperimage>
     </include>
@@ -80,20 +96,26 @@
     <include name="fanartSpeed30">
         <timeperimage>30000</timeperimage>
     </include>
+    <include name="fanartSpeed40">
+        <timeperimage>40000</timeperimage>
+    </include>
+    <include name="fanartSpeed50">
+        <timeperimage>50000</timeperimage>
+    </include>
     <include name="fanartSpeed60">
         <timeperimage>60000</timeperimage>
     </include>
 
     <include name="fanartSpeed">
-        <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),6)">fanartSpeed6</include>
-        <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),5)">fanartSpeed5</include>
-        <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),8)">fanartSpeed8</include>
+	    <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),5)">fanartSpeed5</include>
         <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),10)">fanartSpeed10</include>
         <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),15)">fanartSpeed15</include>
         <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),20)">fanartSpeed20</include>
         <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),30)">fanartSpeed30</include>
+        <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),40)">fanartSpeed40</include>
+        <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),50)">fanartSpeed50</include>
         <include condition="String.IsEqual(Skin.String(SkinHelper.RandomFanartDelay),60)">fanartSpeed60</include>
-        <include condition="String.IsEmpty(Skin.String(SkinHelper.RandomFanartDelay))">fanartSpeed30</include>
+		<include condition="String.IsEmpty(Skin.String(SkinHelper.RandomFanartDelay))">fanartSpeed30</include>
     </include>
 
     <include name="randomizeImages">
@@ -142,7 +164,9 @@
             <content limit="3" sortby="random">$VAR[ItemArtContentRandomizer]</content>
         </control>
 
-        <include condition="Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">extraFanartBackground</include>
+        <!-- <include condition="Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">extraFanartBackground</include> -->
+		
+		<include condition="Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(EnableNativeExtraFanart)">Native_extraFanartBackground</include>
 
         <include>DialogOverlay</include>
 
@@ -150,39 +174,171 @@
         <control type="group">
             <include condition="Skin.HasSetting(enablesnow)">snow</include>
         </control>
+		 <!-- Halloween Effect -->
+        <control type="group">
+            <include condition="Skin.HasSetting(enablepumpkins)">pumpkin</include>
+        </control>
 		
         <!-- touchscreen workaround for windows tablets -->
         <include condition="Skin.HasSetting(EnableTouchSupport)">TouchScreenWorkaround</include>
 
     </include>
 
-    <include name="extraFanartBackground">
-        <control type="multiimage" id="99005">
-            <left>-1</left>
+    <!-- <include name="extraFanartBackground"> -->
+        <!-- <control type="multiimage" id="99005"> -->
+            <!-- <left>-1</left> -->
+            <!-- <top>-1</top> -->
+            <!-- <width>1</width> -->
+            <!-- <height>1</height> -->
+            <!-- <imagepath background="true">$VAR[extraFanartBackground]</imagepath> -->
+            <!-- <aspectratio>scale</aspectratio>            -->
+            <!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),5)">fanartSpeed5</include> -->
+			<!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),6)">fanartSpeed6</include> -->
+            <!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),8)">fanartSpeed8</include> -->
+            <!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),10)">fanartSpeed10</include> -->
+            <!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),15)">fanartSpeed15</include> -->
+            <!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),20)">fanartSpeed20</include> -->
+            <!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),30)">fanartSpeed30</include> -->
+            <!-- <include condition="String.IsEqual(Skin.String(extrafanartdelay),60)">fanartSpeed60</include> -->
+            <!-- <include condition="Window.IsMedia">disabledFanart</include> -->
+            <!-- <include condition="Window.IsMedia">disabledExtraFanart</include> -->
+            <!-- <randomize>true</randomize> -->
+            <!-- <loop>yes</loop> -->
+            <!-- general visibility conditions -->
+            <!-- <visible>Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible> -->
+			<!-- <visible>!Skin.HasSetting(EnableNativeExtraFanart)</visible> -->
+            <!-- <visible> -->
+                <!-- [$EXP[IsBingieViewsActive] + [Control.HasFocus(77777) | ControlGroup(77777).HasFocus()] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))] | -->
+				<!-- [$EXP[IsBingieCategoriesActive] + [Control.HasFocus(117) | ControlGroup(117).HasFocus()] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))] | -->
+                <!-- [Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)] |  -->
+                <!-- [Window.IsMedia + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))] -->
+            <!-- </visible> -->
+        <!-- </control> -->
+    <!-- </include> -->
+	
+	<!-- Extra Fanart -->
+	<include name="Native_extraFanartBackground">
+		<control type="fadelabel" id="99008">
+			<left>-1</left>
             <top>-1</top>
             <width>1</width>
             <height>1</height>
-            <imagepath background="true">$VAR[extraFanartBackground]</imagepath>
-            <aspectratio>scale</aspectratio>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),6)">fanartSpeed6</include>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),5)">fanartSpeed5</include>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),8)">fanartSpeed8</include>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),10)">fanartSpeed10</include>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),15)">fanartSpeed15</include>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),20)">fanartSpeed20</include>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),30)">fanartSpeed30</include>
-            <include condition="String.IsEqual(Skin.String(extrafanartdelay),60)">fanartSpeed60</include>
-            <include condition="Window.IsMedia">disabledFanart</include>
-            <include condition="Window.IsMedia">disabledExtraFanart</include>
-            <randomize>true</randomize>
-            <loop>yes</loop>
-            <!-- general visibility conditions -->
-            <visible>Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible>
-            <visible>
-                Window.IsMedia + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))
+			<!-- common visibility conditions -->
+			<visible>Skin.HasSetting(EnableNativeExtraFanart)</visible>
+			<visible>
+                [Window.IsActive(Home) + [Control.HasFocus(77777) | ControlGroup(77777).HasFocus() | Window.IsActive(DialogVideoInfo.xml)]] |
+				[$EXP[IsBingieCategoriesActive] + [Control.HasFocus(117) | ControlGroup(117).HasFocus()]] |
+                [Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)] | 
+                [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists)]
             </visible>
-        </control>
-    </include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),5)">FadelabelPauseAtEnd5</include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),10)">FadelabelPauseAtEnd10</include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),15)">FadelabelPauseAtEnd15</include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),20)">FadelabelPauseAtEnd20</include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),30)">FadelabelPauseAtEnd30</include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),40)">FadelabelPauseAtEnd40</include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),50)">FadelabelPauseAtEnd50</include>
+			<include condition="String.IsEqual(Skin.String(extrafanartdelay),60)">FadelabelPauseAtEnd60</include>
+			<include condition="Window.IsMedia">disabledFanart</include>
+            <include condition="Window.IsMedia">disabledExtraFanart</include>
+			<!-- common movie,show,artists -->
+			<info>Container.ListItem.Art(fanart)</info>
+			<info>Container.ListItem.Art(fanart1)</info>
+			<info>Container.ListItem.Art(fanart2)</info>
+			<info>Container.ListItem.Art(fanart3)</info>
+			<info>Container.ListItem.Art(fanart4)</info>
+			<info>Container.ListItem.Art(fanart5)</info>
+			<info>Container.ListItem.Art(fanart6)</info>
+			<info>Container.ListItem.Art(fanart7)</info>
+			<info>Container.ListItem.Art(fanart8)</info>
+			<info>Container.ListItem.Art(fanart9)</info>
+			<info>Container.ListItem.Art(fanart10)</info>
+			<info>Container.ListItem.Art(fanart11)</info>
+			<info>Container.ListItem.Art(fanart12)</info>
+			<info>Container.ListItem.Art(fanart13)</info>
+			<info>Container.ListItem.Art(fanart14)</info>
+			<info>Container.ListItem.Art(fanart15)</info>
+			<info>Container.ListItem.Art(fanart16)</info>
+			<info>Container.ListItem.Art(fanart17)</info>
+			<info>Container.ListItem.Art(fanart18)</info>
+			<info>Container.ListItem.Art(fanart19)</info>
+			<info>Container.ListItem.Art(fanart20)</info>
+			<!-- variabel - tvshow for seasons,episodes -->
+			<info>Container.ListItem.Art(tvshow.fanart)</info>
+			<info>Container.ListItem.Art(tvshow.fanart1)</info>
+			<info>Container.ListItem.Art(tvshow.fanart2)</info>
+			<info>Container.ListItem.Art(tvshow.fanart3)</info>
+			<info>Container.ListItem.Art(tvshow.fanart4)</info>
+			<info>Container.ListItem.Art(tvshow.fanart5)</info>
+			<info>Container.ListItem.Art(tvshow.fanart6)</info>
+			<info>Container.ListItem.Art(tvshow.fanart7)</info>
+			<info>Container.ListItem.Art(tvshow.fanart8)</info>
+			<info>Container.ListItem.Art(tvshow.fanart9)</info>
+			<info>Container.ListItem.Art(tvshow.fanart10)</info>
+			<info>Container.ListItem.Art(tvshow.fanart11)</info>
+			<info>Container.ListItem.Art(tvshow.fanart12)</info>
+			<info>Container.ListItem.Art(tvshow.fanart13)</info>
+			<info>Container.ListItem.Art(tvshow.fanart14)</info>
+			<info>Container.ListItem.Art(tvshow.fanart15)</info>
+			<info>Container.ListItem.Art(tvshow.fanart16)</info>
+			<info>Container.ListItem.Art(tvshow.fanart17)</info>
+			<info>Container.ListItem.Art(tvshow.fanart18)</info>
+			<info>Container.ListItem.Art(tvshow.fanart19)</info>
+			<info>Container.ListItem.Art(tvshow.fanart20)</info>
+			<!-- variabel - artistfanart for album, song, musicvideos -->
+			<info>Container.ListItem.Art(artist.fanart)</info>
+			<info>Container.ListItem.Art(artist.fanart1)</info>
+			<info>Container.ListItem.Art(artist.fanart2)</info>
+			<info>Container.ListItem.Art(artist.fanart3)</info>
+			<info>Container.ListItem.Art(artist.fanart4)</info>
+			<info>Container.ListItem.Art(artist.fanart5)</info>
+			<info>Container.ListItem.Art(artist.fanart6)</info>
+			<info>Container.ListItem.Art(artist.fanart7)</info>
+			<info>Container.ListItem.Art(artist.fanart8)</info>
+			<info>Container.ListItem.Art(artist.fanart9)</info>
+			<info>Container.ListItem.Art(artist.fanart10)</info>
+			<info>Container.ListItem.Art(artist.fanart11)</info>
+			<info>Container.ListItem.Art(artist.fanart12)</info>
+			<info>Container.ListItem.Art(artist.fanart13)</info>
+			<info>Container.ListItem.Art(artist.fanart14)</info>
+			<info>Container.ListItem.Art(artist.fanart15)</info>
+			<info>Container.ListItem.Art(artist.fanart16)</info>
+			<info>Container.ListItem.Art(artist.fanart17)</info>
+			<info>Container.ListItem.Art(artist.fanart18)</info>
+			<info>Container.ListItem.Art(artist.fanart19)</info>
+			<info>Container.ListItem.Art(artist.fanart20)</info>
+			<randomize>false</randomize>
+			<scroll>false</scroll>
+			<scrollout>false</scrollout>
+			<resetonlabelchange>true</resetonlabelchange>
+		</control>
+	</include>
+	
+	<!-- Extrafanart Fadelabel Pause -->
+	<include name="FadelabelPauseAtEnd5">
+		<pauseatend>5000</pauseatend>
+	</include>
+	<include name="FadelabelPauseAtEnd10">
+		<pauseatend>10000</pauseatend>
+	</include>
+	<include name="FadelabelPauseAtEnd15">
+		<pauseatend>15000</pauseatend>
+	</include>
+	<include name="FadelabelPauseAtEnd20">
+		<pauseatend>20000</pauseatend>
+	</include>
+	<include name="FadelabelPauseAtEnd30">
+		<pauseatend>30000</pauseatend>
+	</include>
+	<include name="FadelabelPauseAtEnd40">
+		<pauseatend>40000</pauseatend>
+	</include>
+	<include name="FadelabelPauseAtEnd50">
+		<pauseatend>50000</pauseatend>
+	</include>
+	<include name="FadelabelPauseAtEnd60">
+		<pauseatend>60000</pauseatend>
+	</include>
 
     <include name="disabledFanart">
         <!-- disabled fanart per view -->
@@ -221,7 +377,8 @@
             ![Control.IsVisible(521) + Skin.HasSetting(View521_DisableFanArt)] + 
             ![Control.IsVisible(522) + Skin.HasSetting(View522_DisableFanArt)] +
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableFanArt)] +
-            ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableFanArt)]
+            ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableFanArt)] +
+			![Control.IsVisible(527) + Skin.HasSetting(View527_DisableFanArt)]
         </visible>
     </include>
 
@@ -264,6 +421,7 @@
             ![Control.IsVisible(523) + Skin.HasSetting(View523_DisableExtraFanArt)] + 
             ![Control.IsVisible(524) + Skin.HasSetting(View524_DisableExtraFanArt)] +
             ![Control.IsVisible(525) + Skin.HasSetting(View525_DisableExtraFanArt)] +
+			![Control.IsVisible(527) + Skin.HasSetting(View527_DisableExtraFanArt)] +
             ![Control.IsVisible(526) + Skin.HasSetting(View526_DisableExtraFanArt)]
         </visible>
     </include>
@@ -271,10 +429,24 @@
     <variable name="CategoriesRandomArt">
         <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(fanart)]</value>
-        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(1).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(1).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(1).Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(1).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(1).Art(fanart)]</value>
-        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(2).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(0).Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(2).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(2).Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(2).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(2).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(3).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(3).Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(3).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(3).Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(3).Art(tvshow.fanart))">$INFO[Container(99007).ListItemAbsolute(4).Art(tvshow.fanart)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(3).Art(fanart))">$INFO[Container(99007).ListItemAbsolute(4).Art(fanart)]</value>
+    </variable>
+	
+	<variable name="CategoriesRandomClearLogo">
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).Art(tvshow.clearlogo))">$INFO[Container(99007).ListItemAbsolute(0).Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).Art(clearlogo))">$INFO[Container(99007).ListItemAbsolute(0).Art(clearlogo)]</value>
+    </variable>
+	
+	<variable name="CategoriesRandomTitle">
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).tvshow.title)">$INFO[Container(99007).ListItemAbsolute(0).tvshow.title]</value>
+        <value condition="!String.IsEmpty(Container(99007).ListItemAbsolute(0).title)">$INFO[Container(99007).ListItemAbsolute(0).title]</value>
     </variable>
 
     <variable name="ItemArtContentRandomizer">
@@ -295,15 +467,13 @@
         <value condition="$EXP[IsCategoryDBType]">$VAR[CategoriesRandomArt]</value>
         <!-- normal fanart backgrounds -->
         <value condition="!String.IsEmpty(ListItem.PicturePath)">$INFO[ListItem.PicturePath]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(season.fanart))">$INFO[ListItem.Art(season.fanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(season.fanart))">$INFO[Container.ListItem.Art(season.fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.fanart))">$INFO[Container.ListItem.Art(tvshow.fanart)]</value>
-        <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(artist.fanart))">$INFO[Container.ListItem.Art(artist.fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(albumartist.fanart))">$INFO[Container.ListItem.Art(albumartist.fanart)]</value>
-
+		<value condition="!String.IsEmpty(ListItem.Property(fanart)) + !String.IsEmpty(Window(Weather).Property(Current.FanartCode)) + Skin.String(WeatherIconPack.path)">$INFO[ListItem.Property(fanart)]</value>
         <!-- spotlight fanart backgrounds
         <value condition="Control.HasFocus(1508) + !String.IsEmpty(Container(1508).ListItem.PicturePath)">$INFO[Container(1508).ListItem.PicturePath]</value>
         <value condition="Control.HasFocus(1508) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>
@@ -317,7 +487,7 @@
 
         <!-- fallback for bingie in menu / skinhelper provided art in media windows -->
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.fanart)) + String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsBingieViewsActive] + !Skin.HasSetting(UseSectionBackground)">$INFO[Window(Home).Property(ListItem.Art.fanart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + [String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsBingieViewsActive] + !Skin.HasSetting(UseSectionBackground)] | !Window.IsActive(Home)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + [String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsBingieViewsActive] + !Skin.HasSetting(UseSectionBackground)]">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
     </variable>
 
     <variable name="fanartBackground_extendedinfo">
@@ -357,18 +527,25 @@
         <value condition="Control.IsVisible(215) + !String.IsEmpty(Container(215).ListItem.Property(Fanart))">$INFO[Container(215).ListItem.Property(Fanart)]</value>
     </variable>
     
-    <variable name="backgroundVar">
+    <variable name="backgroundVar">	
+		<!-- music background -->
+		<value condition="!String.IsEmpty(ListItem.Art(landscape)) + Window.IsActive(Music)">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Landscape)) + Window.IsActive(Music)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(fanart)) + Window.IsActive(Music)">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + Window.IsActive(Music)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb)) + Window.IsActive(Music)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
+		
         <value condition="[Window.IsActive(LoginScreen.xml) | Window.IsActive(StartUp.xml)] + Skin.String(LoginBackground)">$INFO[Skin.String(LoginBackground)]</value>
         <!-- animated fanart background -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>
-        <!-- extrafanart background -->
-        <value condition="Control.IsVisible(99005) + !String.IsEmpty(Control.GetLabel(99005))">$INFO[Control.GetLabel(99005)]</value>
+        <!-- nativ extrafanart background -->
+		<value condition="Control.IsVisible(99008) + !String.IsEmpty(Control.GetLabel(99008))">$INFO[Control.GetLabel(99008)]</value>
+		<!-- extrafanart background -->
+        <!-- <value condition="Control.IsVisible(99005) + !String.IsEmpty(Control.GetLabel(99005))">$INFO[Control.GetLabel(99005)]</value> -->
         <!-- normal fanart background -->
         <value condition="Control.IsVisible(99006) + !String.IsEmpty(Control.GetLabel(99006))">$INFO[Control.GetLabel(99006)]</value>
         <!-- Conditional background override -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ConditionalBackground))">$INFO[Window(Home).Property(SkinHelper.ConditionalBackground)]</value>
-        <!-- weather fanart -->
-        <value condition="Window.IsActive(MyWeather.xml)">$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]</value>
         <!-- section backgrounds when skinshortcuts dialog active -->
         <value condition="Skin.HasSetting(UseSectionBackground) + !String.IsEmpty(Container(211).ListItem.Property(Background))">$INFO[Container(211).ListItem.Property(Background)]</value>
 
@@ -382,25 +559,40 @@
         <!-- global background -->
         <value condition="String.Contains(Skin.String(CustomBackgroundSetting),VAR)">$VAR[CustomBackgroundSetting]</value>
         <value condition="Skin.String(CustomBackgroundSetting)">$INFO[Skin.String(CustomBackgroundSetting)]</value>
+				
+    </variable>
+	
+	<variable name="weatherbackground">
+        <!-- weather fanart -->
+        <value condition="Window.IsActive(MyWeather.xml)">$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]</value>
     </variable>
 
-    <variable name="extraFanartBackground">
+    <!-- <variable name="extraFanartBackground"> -->
         <!-- extra fanart backgrounds -->
+		<!-- <value condition="Control.IsVisible(99008) + !String.IsEmpty(Control.GetLabel(99008))">$INFO[Control.GetLabel(99008)]</value>	 -->
         <!-- genre fanart -->
-        <value condition="Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">$INFO[Skin.String(moviegenrefanart.path)]$INFO[ListItem.Label].jpg</value>
+        <!-- <value condition="Container.Content(Genres) + Skin.String(moviegenrefanart.path) + !String.IsEmpty(ListItem.label) + !String.IsEqual(ListItem.label,..)">$INFO[Skin.String(moviegenrefanart.path)]$INFO[ListItem.Label].jpg</value> -->
         <!-- normal extrafanart -->
-        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)]</value>
-        <value>colors/color_black.png</value>
-    </variable>
+        <!-- <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)]</value> -->
+        <!-- <value>colors/color_black.png</value> -->
+    <!-- </variable> -->
     
     <variable name="bingieThumb">
         <!-- animated fanart background -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)) + Skin.HasSetting(AnimatedFanart)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedFanArt)]</value>
-        <!-- extrafanart background -->
-        <value condition="Control.IsVisible(99005) + !String.IsEmpty(Control.GetLabel(99005))">$INFO[Control.GetLabel(99005)]</value>
+		<!-- native extrafanart background -->
+        <value condition="Control.IsVisible(99008) + !String.IsEmpty(Control.GetLabel(99008))">$INFO[Control.GetLabel(99008)]</value>
+		<!-- extrafanart background -->
+        <!-- <value condition="Control.IsVisible(99005) + !String.IsEmpty(Control.GetLabel(99005))">$INFO[Control.GetLabel(99005)]</value> -->
         <!-- normal fanart background -->
         <value condition="Control.IsVisible(99006) + !String.IsEmpty(Control.GetLabel(99006))">$INFO[Control.GetLabel(99006)]</value>
-    </variable>
-   
+		
 
+    </variable>
+	
+   <variable name="bingiePVRThumb">
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.fanart)]</value>    
+		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.Icon))">resource://resource.images.skinbackgrounds.titanium/hover_my tv.jpg</value>
+	</variable>
+	
 </includes>

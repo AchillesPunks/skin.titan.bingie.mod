@@ -162,12 +162,12 @@
     <setting id="widgetstyle" value="poster" label="$LOCALIZE[31053]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_poster.jpg" description=""/>
     <setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_landscape.jpg" description=""/>
     <setting id="widgetstyle" value="landscapesmall" label="$LOCALIZE[31932]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_landscapesmall.jpg" description=""/>
-    <setting id="widgetstyle" value="singlebox" label="$LOCALIZE[31933]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_singlebox.jpg" description=""/>
-    <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_square.jpg" description=""/>
-    <setting id="widgetstyle" value="minisquare" label="$LOCALIZE[31935]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_minisquare.jpg" description=""/>
+    <!-- <setting id="widgetstyle" value="singlebox" label="$LOCALIZE[31933]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_hor_singlebox.jpg" description=""/> -->
+    <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_hor_square.jpg" description=""/>
+    <setting id="widgetstyle" value="minisquare" label="$LOCALIZE[31935]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_hor_minisquare.jpg" description=""/>
     <setting id="widgetstyle" value="smallposter" label="$LOCALIZE[31936]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_smallposter.jpg" description=""/>
-    <setting id="widgetstyle" value="widebox" label="$LOCALIZE[31413]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_hor_widebox.jpg" description=""/>
-    <setting id="widgetstyle" value="banner" label="$LOCALIZE[31055]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_win10_banner.jpg" description=""/>
+    <setting id="widgetstyle" value="widebox" label="$LOCALIZE[31413]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_hor_widebox.jpg" description=""/>
+    <setting id="widgetstyle" value="banner" label="$LOCALIZE[31055]" condition="!String.Contains(Skin.String(HomeLayout),ver) + !String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_win10_banner.jpg" description=""/>
 
     <!-- widget style: win10 -->
     <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" condition="String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_win10_square.jpg" description=""/>
@@ -179,7 +179,7 @@
     <setting id="widgetstyle" value="poster" label="$LOCALIZE[31053]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_poster.jpg" description=""/>
     <setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_landscape.jpg" description=""/>
     <setting id="widgetstyle" value="landscapesmall" label="$LOCALIZE[31932]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_landscape.jpg" description=""/>
-    <setting id="widgetstyle" value="singlebox" label="$LOCALIZE[31933]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_singlebox.jpg" description=""/>
+    <!-- <setting id="widgetstyle" value="singlebox" label="$LOCALIZE[31933]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_singlebox.jpg" description=""/> -->
     <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_square.jpg" description=""/>
     <setting id="widgetstyle" value="minisquare" label="$LOCALIZE[31935]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_square.jpg" description=""/>
     <setting id="widgetstyle" value="smallposter" label="$LOCALIZE[31936]" condition="String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)" icon="special://skin/extras/viewthumbs/widget_ver_smallposter.jpg" description=""/>
@@ -188,12 +188,13 @@
 
     <!-- widgetstyle: bingie -->
     <setting id="widgetstyle" value="landscapelarge" label="$LOCALIZE[31937]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapelarge.jpg" description=""/>
-    <setting id="widgetstyle" value="landscapedetails" label="$LOCALIZE[31938]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_landscapedetails.jpg" description=""/>
-    <setting id="widgetstyle" value="posterdetails" label="$LOCALIZE[31939]" condition="!String.IsEqual(Skin.String(HomeLayout),win10)" icon="special://skin/extras/viewthumbs/widget_posterdetails.jpg" description=""/>
+    <setting id="widgetstyle" value="landscapedetails" label="$LOCALIZE[31938]" condition="!String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_landscapedetails.jpg" description=""/>
+    <setting id="widgetstyle" value="posterdetails" label="$LOCALIZE[31939]" condition="!String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_posterdetails.jpg" description=""/>
 
-<!-- Highlight Layout-->
-	<!--<setting id="widgetstyle" value="highlight" label="$LOCALIZE[31061]" condition="String.IsEqual(Skin.String(HomeLayout),bingie)" icon="special://skin/extras/viewthumbs/widget_highlight.jpg" description=""/>-->
-
+	<!-- Highlight Layout-->
+	<setting id="widgetstyle1" value="highlight" label="$LOCALIZE[320045]" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableHighlightWidget)" icon="special://skin/extras/viewthumbs/widget_highlight.jpg" description=""/>
+	<setting id="widgetstyle1" value="None" label="$LOCALIZE[320046]" condition="!String.IsEmpty(Window.Property(widgetcontrols)) + !String.IsEqual(Skin.String(HomeLayout),win10) + !Skin.HasSetting(EnableHighlightWidget)" icon="DefaultAddonNone.png" description="$INFO[Skin.String(widgetstyle)]"/>
+	
     <!-- widgetsortby -->
     <setting id="widgetsortby" value="" label="$LOCALIZE[16018]"/>
     <setting id="widgetsortby" value="random" label="$LOCALIZE[590]"/>
@@ -225,44 +226,44 @@
     <setting id="widgetlimit" value="$NUMBER[200]" label="$NUMBER[200]"/>
 
     <!-- media flags -->
-    <setting id="mediaflagsstyle" value="classic" label="$LOCALIZE[31941]" condition="" icon="special://skin/extras/viewthumbs/flags_classic.jpg" description="">
+<!--<setting id="mediaflagsstyle" value="classic" label="$LOCALIZE[31941]" condition="" icon="special://skin/extras/viewthumbs/flags_classic.jpg" description="">
+        <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
+    </setting>-->
+	<setting id="mediaflagsstyle" value="large_color" label="$LOCALIZE[31945]" condition="!Skin.HasTheme(classic)" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description="" default="true">
+        <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
+    </setting>
+	<setting id="mediaflagsstyle" value="large" label="$LOCALIZE[31944]" condition="!Skin.HasTheme(classic)" icon="special://skin/extras/viewthumbs/flags_large.jpg" description="">
+        <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
+    </setting>
+	<setting id="mediaflagsstyle" value="textbased - full info" label="$LOCALIZE[31943]" condition="" icon="special://skin/extras/viewthumbs/flags_text.jpg" description="">
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
     </setting>
     <setting id="mediaflagsstyle" value="boxed" label="$LOCALIZE[31942]" condition="" icon="special://skin/extras/viewthumbs/flags_boxed.jpg" description="">
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
     </setting>
-    <setting id="mediaflagsstyle" value="textbased - full info" label="$LOCALIZE[31943]" condition="" icon="special://skin/extras/viewthumbs/flags_text.jpg" description="">
-        <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
-    </setting>
-    <setting id="mediaflagsstyle" value="large" label="$LOCALIZE[31944]" condition="!Skin.HasTheme(classic)" icon="special://skin/extras/viewthumbs/flags_large.jpg" description="">
-        <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
-    </setting>
-    <setting id="mediaflagsstyle" value="large_color" label="$LOCALIZE[31945]" condition="!Skin.HasTheme(classic)" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description="">
-        <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
-    </setting>
-    <setting id="mediaflagsstyle" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description="" default="true">
+    <setting id="mediaflagsstyle" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description="">
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
     </setting>
 
     <!-- OSD media flags -->
-    <setting id="osdmediaflagsstyle" value="classic" label="$LOCALIZE[31941]" condition="" icon="special://skin/extras/viewthumbs/flags_classic.jpg" description=""/>
+<!--<setting id="osdmediaflagsstyle" value="classic" label="$LOCALIZE[31941]" condition="" icon="special://skin/extras/viewthumbs/flags_classic.jpg" description=""/>-->
+	<setting id="osdmediaflagsstyle" value="large_color" label="$LOCALIZE[31945]" condition="" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description=""/>
+	<setting id="osdmediaflagsstyle" value="large" label="$LOCALIZE[31944]" condition="" icon="special://skin/extras/viewthumbs/flags_large.jpg" description=""/>
+	<setting id="osdmediaflagsstyle" value="textbased - full info" label="$LOCALIZE[31943]" condition="" icon="special://skin/extras/viewthumbs/flags_text.jpg" description=""/>
     <setting id="osdmediaflagsstyle" value="boxed" label="$LOCALIZE[31942]" condition="" icon="special://skin/extras/viewthumbs/flags_boxed.jpg" description=""/>
-    <setting id="osdmediaflagsstyle" value="textbased - full info" label="$LOCALIZE[31943]" condition="" icon="special://skin/extras/viewthumbs/flags_text.jpg" description=""/>
-    <setting id="osdmediaflagsstyle" value="large" label="$LOCALIZE[31944]" condition="" icon="special://skin/extras/viewthumbs/flags_large.jpg" description=""/>
-    <setting id="osdmediaflagsstyle" value="large_color" label="$LOCALIZE[31945]" condition="" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description=""/>
     <setting id="osdmediaflagsstyle" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description="" default="true"/>
 
     <!-- Guide rows -->
-    <setting id="GuideRows" value="7" label="7 $LOCALIZE[455]" condition="" icon="special://skin/extras/viewthumbs/guide_7.jpg" description="">
+    <setting id="GuideRows" value="7" label="7 $LOCALIZE[455]" condition="" icon="" description="">
         <onselect condition="Window.IsActive(MyPVRGuide.xml)">ReloadSkin()</onselect>
     </setting>
-    <setting id="GuideRows" value="8" label="8 $LOCALIZE[455]" condition="" icon="special://skin/extras/viewthumbs/guide_9.jpg" description="">
+    <setting id="GuideRows" value="8" label="8 $LOCALIZE[455]" condition="" icon="" description="">
         <onselect condition="Window.IsActive(MyPVRGuide.xml)">ReloadSkin()</onselect>
     </setting>
-    <setting id="GuideRows" value="9" label="9 $LOCALIZE[455]" condition="" icon="special://skin/extras/viewthumbs/guide_9.jpg" description="" default="true">
+    <setting id="GuideRows" value="9" label="9 $LOCALIZE[455]" condition="" icon="" description="" default="true">
         <onselect condition="Window.IsActive(MyPVRGuide.xml)">ReloadSkin()</onselect>
     </setting>
-    <setting id="GuideRows" value="10" label="10 $LOCALIZE[455]" condition="" icon="special://skin/extras/viewthumbs/guide_10.jpg" description="">
+    <setting id="GuideRows" value="10" label="10 $LOCALIZE[455]" condition="" icon="" description="">
         <onselect condition="Window.IsActive(MyPVRGuide.xml)">ReloadSkin()</onselect>
     </setting>
 
@@ -275,7 +276,6 @@
 
 
     <!--Home Screens Auto Trailer Interval-->
-    <setting id="main_auto_trailer_interval" value="2" label="2 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="main_auto_trailer_interval" value="3" label="3 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="main_auto_trailer_interval" value="4" label="4 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="main_auto_trailer_interval" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description="" default="true"/>
@@ -286,8 +286,6 @@
     <setting id="main_auto_trailer_interval" value="10" label="10 $LOCALIZE[31231]" condition="" icon="" description=""/>
 
     <!-- Video Library Auto-Trailer Interval -->
-    <setting id="details_auto_trailer_interval" value="1" label="1" condition="" icon="" description=""/>
-    <setting id="details_auto_trailer_interval" value="2" label="2 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="details_auto_trailer_interval" value="3" label="3 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="details_auto_trailer_interval" value="4" label="4 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="details_auto_trailer_interval" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description="" default="true"/>
@@ -338,13 +336,13 @@
     <setting id="SkinHelper.RandomFanartDelay" value="60" label="60 $LOCALIZE[31231]" condition="" icon="" description=""/>
 
     <!-- Extra fanart delay -->
-    <setting id="extrafanartdelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description=""/>
-    <setting id="extrafanartdelay" value="6" label="6 $LOCALIZE[31231]" condition="" icon="" description="" default="true"/>
-    <setting id="extrafanartdelay" value="8" label="8 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="extrafanartdelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description="" default="true"/>
     <setting id="extrafanartdelay" value="10" label="10 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="extrafanartdelay" value="15" label="15 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="extrafanartdelay" value="20" label="20 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="extrafanartdelay" value="30" label="30 $LOCALIZE[31231]" condition="" icon="" description=""/>
+	<setting id="extrafanartdelay" value="40" label="40 $LOCALIZE[31231]" condition="" icon="" description=""/>
+	<setting id="extrafanartdelay" value="50" label="50 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="extrafanartdelay" value="60" label="60 $LOCALIZE[31231]" condition="" icon="" description=""/>
 
     <!-- win10 home show infopanel -->
@@ -367,7 +365,7 @@
     <setting id="ClearLogoLocation" value="topleft" label="$LOCALIZE[31329]" condition="" icon="" description=""/>
     <setting id="ClearLogoLocation" value="topcenter" label="$LOCALIZE[31330]" condition="!Skin.HasSetting(ShowMovieTitleHeader)" icon="" description="" default="true"/>
     <setting id="ClearLogoLocation" value="topright" label="$LOCALIZE[31331]" condition="" icon="" description=""/>
-    <setting id="ClearLogoLocation" value="footer" label="$LOCALIZE[31328]" condition="!skin.hastheme(classic)" icon="" description=""/>
+    <!-- <setting id="ClearLogoLocation" value="footer" label="$LOCALIZE[31328]" condition="!skin.hastheme(classic)" icon="" description=""/> -->
     <setting id="ClearLogoLocation" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description=""/>
 
     <!-- default osd button -->
@@ -417,22 +415,21 @@
     <!-- case overlay fallback -->
     <setting id="CaseOverlays.Fallback" value="None" label="$LOCALIZE[16018]" condition="" icon="" description=""/>
     <setting id="CaseOverlays.Fallback" value="DVD" label="$LOCALIZE[446]" condition="" icon="" description=""/>
-    <setting id="CaseOverlays.Fallback" value="Bluray" label="$LOCALIZE[31963]" condition="" icon="" description="" default="true"/>
-    <setting id="CaseOverlays.Fallback" value="HD1080" label="$LOCALIZE[31964]" condition="" icon="" description=""/>
+    <setting id="CaseOverlays.Fallback" value="UHD" label="$LOCALIZE[31963]" condition="" icon="" description="" default="true"/>
+    <setting id="CaseOverlays.Fallback" value="FHD" label="$LOCALIZE[31964]" condition="" icon="" description=""/>
     <setting id="CaseOverlays.Fallback" value="Clear" label="$LOCALIZE[192]" condition="" icon="" description=""/>
 
     <!--Thumbs Border UnFocused Size-->
-    <setting id="thumbsborder_unfocused" value="0" label="$LOCALIZE[1223]" condition="" icon="" description="" default="true" />
-    <setting id="thumbsborder_unfocused" value="2" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-    <setting id="thumbsborder_unfocused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-    <setting id="thumbsborder_unfocused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-	<setting id="thumbsborder_unfocused" value="8" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
+    <!-- <setting id="thumbsborder_unfocused" value="0" label="$LOCALIZE[1223]" condition="" icon="" description="" default="true" /> -->
+    <!-- <setting id="thumbsborder_unfocused" value="2" label="$LOCALIZE[31729]" condition="" icon="" description=""/> -->
+    <!-- <setting id="thumbsborder_unfocused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description=""/> -->
+    <!-- <setting id="thumbsborder_unfocused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/> -->
+	<!-- <setting id="thumbsborder_unfocused" value="8" label="$LOCALIZE[31729]" condition="" icon="" description=""/> -->
 
     <!--Thumbs Border Focused Size-->
-    <setting id="thumbsborder_focused" value="2" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
     <setting id="thumbsborder_focused" value="4" label="$LOCALIZE[31729]" condition="" icon="" description="" default="true" />
-    <setting id="thumbsborder_focused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
-	<setting id="thumbsborder_focused" value="8" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
+    <setting id="thumbsborder_focused" value="5" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
+	<setting id="thumbsborder_focused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
 
     <!-- default focus position for home -->
     <setting id="home.defaultfocus" value="" label="$LOCALIZE[231]" condition="" icon="" description="" default="true"/>
@@ -471,8 +468,8 @@
     <setting id="widgets_rotate" value="override" label="$LOCALIZE[31731]" condition="!String.IsEqual(Skin.String(HomeLayout),bingie)" icon="" description="$LOCALIZE[31364]"/>
 
     <!-- display tags on widgets -->
-    <setting id="Widgets_DisplayTags" value="auto" label="$LOCALIZE[15109]" condition="" icon="" description="$LOCALIZE[31351]" default="true"/>
-    <setting id="Widgets_DisplayTags" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="$LOCALIZE[31355]"/>
+    <setting id="Widgets_DisplayTags" value="auto" label="$LOCALIZE[15109]" condition="" icon="" description="$LOCALIZE[31351]"/>
+    <setting id="Widgets_DisplayTags" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="$LOCALIZE[31355]" default="true"/>
     <setting id="Widgets_DisplayTags" value="enable" label="$LOCALIZE[305]" condition="" icon="" description="$LOCALIZE[31356]"/>
     <setting id="Widgets_DisplayTags" value="override" label="$LOCALIZE[31731]" condition="!Window.IsActive(script-skinshortcuts.xml)" icon="" description=""/>
 
@@ -484,9 +481,9 @@
     <!-- display info in Poster Row View -->
     <setting id="View_DisplayInfo" value="disable" label="$LOCALIZE[1223]" condition="" icon="" description="$LOCALIZE[31351]"/>
     <setting id="View_DisplayInfo" value="small" label="$LOCALIZE[31969]" condition="" icon="" description="$LOCALIZE[31352]"/>
-    <setting id="View_DisplayInfo" value="normal" label="$LOCALIZE[31970]" condition="" icon="" description="$LOCALIZE[31353]"/>
+    <!-- <setting id="View_DisplayInfo" value="normal" label="$LOCALIZE[31970]" condition="" icon="" description="$LOCALIZE[31353]"/> -->
     <setting id="View_DisplayInfo" value="small_delayed" label="$LOCALIZE[31969] $LOCALIZE[31971]" condition="" icon="" description="$LOCALIZE[31354]"/>
-    <setting id="View_DisplayInfo" value="normal_delayed" label="$LOCALIZE[31970] $LOCALIZE[31971]" condition="" icon="" description="$LOCALIZE[31355]"/>
+    <!-- <setting id="View_DisplayInfo" value="normal_delayed" label="$LOCALIZE[31970] $LOCALIZE[31971]" condition="" icon="" description="$LOCALIZE[31355]"/> -->
 
     <!-- pvr genre color type -->
     <setting id="pvrgenretype" value="genre" label="$LOCALIZE[515]" condition="" icon="" description="$LOCALIZE[31349]"/>
@@ -514,6 +511,12 @@
     <setting id="widgets_rotate_delay" value="180" label="3 $LOCALIZE[12391]" condition="" icon="" description=""/>
     <setting id="widgets_rotate_delay" value="240" label="4 $LOCALIZE[12391]" condition="" icon="" description=""/>
     <setting id="widgets_rotate_delay" value="300" label="5 $LOCALIZE[12391]" condition="" icon="" description=""/>
+	
+	<!-- number of roles in cast info -->
+    <setting id="cast_number" value="20" label="20 $LOCALIZE[320219]" condition="" icon="" description="" default="true"/>
+    <setting id="cast_number" value="30" label="30 $LOCALIZE[320219]" condition="" icon="" description=""/>
+    <setting id="cast_number" value="40" label="40 $LOCALIZE[320219]" condition="" icon="" description=""/>
+    <setting id="cast_number" value="50" label="50 $LOCALIZE[320219]" condition="" icon="" description=""/>
 
     <!-- infoline select -->
     <setting id="infoline" value="none" label="$LOCALIZE[231] - $LOCALIZE[13305]" condition="[Window.IsActive(script-skinshortcuts.xml) + system.getbool(lookandfeel.enablerssfeeds)]" icon="" description=""/>
@@ -535,41 +538,157 @@
 
     <!-- cast select action in videoinfo -->
     <setting id="videoinfo_castaction" value="library" label="$LOCALIZE[31690]" condition="" icon="" description=""/>
-    <setting id="videoinfo_castaction" value="extendedinfo" label="$LOCALIZE[31691]" condition="" icon="" description="" default="true"/>
+	<setting id="videoinfo_castaction" value="tmdb_cast" label="$LOCALIZE[320066]" condition="" icon="" description="" default="true"/>
+    <!-- <setting id="videoinfo_castaction" value="extendedinfo" label="$LOCALIZE[31691]" condition="" icon="" description=""/> -->
+	
+	<!-- List filter -->
+    <setting id="list_filter" value="library_filter" label="$LOCALIZE[320096]" condition="" icon="" description=""/>
+	<setting id="list_filter" value="digital_filter" label="$LOCALIZE[320097]" condition="" icon="" description=""/>
+	<setting id="list_filter" value="none" label="$LOCALIZE[231]" condition="" icon="" description="" default="true"/>
 
     <!-- trailer action in videoinfo -->
-    <setting id="videoinfo_traileraction" value="fullscreen" label="$LOCALIZE[244]" condition="" icon="" description=""/>
-    <setting id="videoinfo_traileraction" value="windowed" label="$LOCALIZE[242]" condition="" icon="" description="" default="true"/>
-    <setting id="videoinfo_traileraction" value="auto_windowed" label="$LOCALIZE[31974]" condition="" icon="" description=""/>
-    <setting id="videoinfo_traileraction" value="auto_fullscreen" label="$LOCALIZE[31975]" condition="" icon="" description=""/>
+    <setting id="videoinfo_traileraction" value="fullscreen" label="$LOCALIZE[244]" condition="" icon="" description="" default="true"/>
+    <setting id="videoinfo_traileraction" value="windowed" label="$LOCALIZE[242]" condition="Skin.HasSetting(UseBingieInfoDialog)" icon="" description=""/>
+	<setting id="videoinfo_traileraction" value="auto_fullscreen" label="$LOCALIZE[31975]" condition="" icon="" description=""/>
+    <setting id="videoinfo_traileraction" value="auto_windowed" label="$LOCALIZE[31974]" condition="Skin.HasSetting(UseBingieInfoDialog)" icon="" description=""/>
+	
+	<!-- ratings to show on home - multiselect -->
+    <setting id="home_ratings" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="home_ratings_IMDB" label="$LOCALIZE[31906]" condition="" default="true"/>
+        <option id="home_ratings_Top250" label="$LOCALIZE[320042]" condition="" default="true"/>
+        <option id="home_ratings_RT" label="$LOCALIZE[31775]" condition="" default="true"/>
+        <option id="home_ratings_RTAudience" label="$LOCALIZE[320044]" condition="" default="true"/>
+        <!-- <option id="home_ratings_RTCertified" label="$LOCALIZE[320043]" condition="" default="true"/> -->
+        <option id="home_ratings_TMdb" label="$LOCALIZE[31907]" condition="" default="true"/>
+        <option id="home_ratings_TVdb" label="$LOCALIZE[320041]" condition="" default="true"/>
+		<option id="home_ratings_Trakt" label="$LOCALIZE[320039]" condition="" default="true"/>
+        <option id="home_ratings_Metacritic" label="$LOCALIZE[320038]" condition="" default="true"/>
+        <option id="home_ratings_Oscar" label="$LOCALIZE[320040]" condition="" default="true"/>
+		<option id="home_ratings_GoldenGlobe" label="$LOCALIZE[320087]" condition="" default="true"/>
+		<option id="home_ratings_Emmy" label="$LOCALIZE[320088]" condition="" default="true"/>
+    </setting>
+	
+	<!-- ratings to show on home - multiselect -->
+    <setting id="more_info_buttons" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="more_info_buttons_cast" label="$LOCALIZE[206]" condition="" default="true"/>
+        <option id="more_info_buttons_crew" label="$LOCALIZE[31089]" condition="" default="true"/>
+        <option id="more_info_buttons_director" label="$LOCALIZE[320070]" condition="" default="true"/>
+        <option id="more_info_buttons_writer" label="$LOCALIZE[320089]" condition="" default="true"/>
+        <option id="more_info_buttons_creator" label="$LOCALIZE[320079]" condition="" default="true"/>
+        <option id="more_info_buttons_studio" label="$LOCALIZE[320074]" condition="" default="true"/>
+		<option id="more_info_buttons_network" label="$LOCALIZE[320075]" condition="" default="true"/>
+        <option id="more_info_buttons_genre" label="$LOCALIZE[320068]" condition="" default="true"/>
+        <option id="more_info_buttons_year" label="$LOCALIZE[320077]" condition="" default="true"/>
+		<option id="more_info_buttons_recommended" label="$LOCALIZE[320069]" condition="" default="true"/>
+    </setting>
+	
+	<!-- ratings to show in views - multiselect -->
+    <setting id="views_ratings" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="views_ratings_IMDB" label="$LOCALIZE[31906]" condition="" default="true"/>
+        <option id="views_ratings_Top250" label="$LOCALIZE[320042]" condition="" default="true"/>
+        <option id="views_ratings_RT" label="$LOCALIZE[31775]" condition="" default="true"/>
+        <option id="views_ratings_RTAudience" label="$LOCALIZE[320044]" condition="" default="true"/>
+        <!-- <option id="views_ratings_RTCertified" label="$LOCALIZE[320043]" condition="" default="true"/> -->
+        <option id="views_ratings_TMdb" label="$LOCALIZE[31907]" condition="" default="true"/>
+        <option id="views_ratings_TVdb" label="$LOCALIZE[320041]" condition="" default="true"/>
+		<option id="views_ratings_Trakt" label="$LOCALIZE[320039]" condition="" default="true"/>
+        <option id="views_ratings_Metacritic" label="$LOCALIZE[320038]" condition="" default="true"/>
+        <option id="views_ratings_Oscar" label="$LOCALIZE[320040]" condition="" default="true"/>
+		<option id="views_ratings_GoldenGlobe" label="$LOCALIZE[320087]" condition="" default="true"/>
+		<option id="views_ratings_Emmy" label="$LOCALIZE[320088]" condition="" default="true"/>
+    </setting>
 
     <!-- options to show in videoinfo - multiselect -->
     <setting id="videoinfo_buttons" value="||MULTISELECT||" label="" condition="" icon="" description="">
         <option id="videoinfo_button_play" label="$LOCALIZE[208]" condition="" default="true"/>
-        <option id="videoinfo_button_trailer" label="$LOCALIZE[20410]" condition="" default="true"/>
-        <option id="videoinfo_button_mylist" label="$LOCALIZE[31534]" condition="Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
-        <option id="videoinfo_button_myrating" label="$LOCALIZE[38018]" condition="" default="true"/>
-        <option id="videoinfo_button_plot" label="$LOCALIZE[207]" condition="" default="true"/>
-        <option id="videoinfo_button_cast" label="$LOCALIZE[206]" condition="" default="true"/>
+		<option id="videoinfo_button_play_next" label="$LOCALIZE[320063]" condition="" default="true"/>
+		<option id="videoinfo_button_more_episodes" label="$LOCALIZE[31853]" condition="" default="true"/>
+        <option id="videoinfo_button_trailer" label="$LOCALIZE[31868]" condition="" default="true"/>
+		<option id="videoinfo_button_trailersandmore" label="$LOCALIZE[320192]" condition="Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+        <option id="videoinfo_button_mylist" label="$LOCALIZE[320221]" condition="!Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+		<option id="videoinfo_button_mylist" label="$LOCALIZE[31534]" condition="Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+		<option id="videoinfo_button_trakt" label="$LOCALIZE[320217]" condition="!Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+		<option id="videoinfo_button_trakt" label="$LOCALIZE[320216]" condition="Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+        <option id="videoinfo_button_myrating" label="$LOCALIZE[31854]" condition="Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+        <option id="videoinfo_button_plot" label="$LOCALIZE[207] &amp; $LOCALIZE[31608]" condition="Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+        <option id="videoinfo_button_cast" label="$LOCALIZE[320067]" condition="Skin.HasSetting(UseBingieInfoDialog) + !Skin.HasSetting(TMDBExtendedInfo)" default="true"/>
         <option id="videoinfo_button_similar" label="$LOCALIZE[31622]" condition="" default="true"/>
-        <option id="videoinfo_button_artwork" label="$LOCALIZE[13511]"  condition="!Skin.HasSetting(KioskMode.Enabled)" default="true"/>
+		<option id="videoinfo_button_extendedinfo" label="$LOCALIZE[31838]" condition="!Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
+		<option id="videoinfo_button_extendedinfo" label="$LOCALIZE[31269]" condition="Skin.HasSetting(UseBingieInfoDialog) + Skin.HasSetting(TMDBExtendedInfo)" default="true"/>
+        <option id="videoinfo_button_artwork" label="$LOCALIZE[320002]"  condition="!Skin.HasSetting(KioskMode.Enabled)" default="true"/>
         <option id="videoinfo_button_refresh" label="$LOCALIZE[184]" condition="!Skin.HasSetting(KioskMode.Enabled)" default="true"/>
-        <option id="videoinfo_button_discart" label="$LOCALIZE[31200]" condition="!Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
-        <option id="videoinfo_button_youtubevideos" label="$LOCALIZE[31797]" condition="!Skin.HasSetting(UseBingieInfoDialog)" default="true"/>
-        <option id="videoinfo_button_extendedinfo" label="$LOCALIZE[31269]" condition="" default="true"/>
-        <option id="videoinfo_button_cinemavision" label="$INFO[System.AddonTitle(script.cinemavision)]" condition="System.HasAddon(script.cinemavision)" default="true"/>
-        <option id="videoinfo_button_cinemaexperience" label="$INFO[System.AddonTitle(script.cinema.experience)]" condition="System.HasAddon(script.cinema.experience)" default="true"/>
     </setting>
 
     <!-- details to show in videoinfo - multiselect -->
     <setting id="videoinfo_details" value="||MULTISELECT||" label="" condition="" icon="" description="">
         <option id="videoinfo_details_cast" label="$LOCALIZE[206]" condition="" default="true"/>
         <option id="videoinfo_details_director" label="$LOCALIZE[20348]" condition="" default="true"/>
-        <option id="videoinfo_details_writer" label="$LOCALIZE[20418]" condition="" default="true"/>
+        <option id="videoinfo_details_creator" label="$LOCALIZE[320064]" condition="" default="true"/>
         <option id="videoinfo_details_genre" label="$LOCALIZE[135]" condition="" default="true"/>
-        <option id="videoinfo_details_subtitles" label="$LOCALIZE[287]" condition="" default="true"/>
-        <option id="videoinfo_details_audiolanguages" label="$LOCALIZE[21447]" condition="" default="true"/>
+        <!-- <option id="videoinfo_details_subtitles" label="$LOCALIZE[287]" condition=""/> -->
+        <!-- <option id="videoinfo_details_audiolanguages" label="$LOCALIZE[21447]" condition=""/> -->
         <option id="videoinfo_details_awards" label="$LOCALIZE[31976]" condition="" default="true"/>
+    </setting>
+	
+	<!-- details to show in videoinfo - multiselect -->
+    <setting id="tmdbhelper_search" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="tmdbhelper_search_movies" label="$LOCALIZE[320057]" condition="" default="true"/>
+		<option id="tmdbhelper_search_collections" label="$LOCALIZE[320201]" condition="" default="true"/>
+        <option id="tmdbhelper_search_tvshows" label="$LOCALIZE[320058]" condition="" default="true"/>
+        <option id="tmdbhelper_search_people" label="$LOCALIZE[320059]" condition="" default="true"/>
+    </setting>
+	
+	<!-- details to show in extendedinfo - multiselect -->
+    <setting id="extendedinfo_details" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="extendedinfo_details_cast" label="$LOCALIZE[206]" condition="" default="true"/>
+        <option id="extendedinfo_details_crew" label="$LOCALIZE[31089]" condition="" default="true"/>
+		<option id="extendedinfo_details_director" label="$LOCALIZE[320070]" condition="" default="true"/>
+		<option id="extendedinfo_details_writer" label="$LOCALIZE[320089]" condition="" default="true"/>
+		<option id="extendedinfo_details_creator" label="$LOCALIZE[320079]" condition="" default="true"/>
+        <option id="extendedinfo_details_seasons" label="$LOCALIZE[33054]" condition="" default="true"/>
+		<option id="extendedinfo_details_upnext" label="$LOCALIZE[31065]" condition="" default="true"/>
+		<option id="extendedinfo_details_collection" label="$LOCALIZE[320065]" condition="" default="true"/>
+		<option id="extendedinfo_details_studios" label="$LOCALIZE[20388]" condition="" default="true"/>
+		<option id="extendedinfo_details_genres" label="$LOCALIZE[135]" condition="" default="true"/>
+		<option id="extendedinfo_details_year" label="$LOCALIZE[320077]" condition="" default="true"/>
+        <option id="extendedinfo_details_videos" label="$LOCALIZE[320081]" condition="" default="true"/>
+        <!-- <option id="extendedinfo_details_youtube" label="$LOCALIZE[31797]" condition="" default="true"/> -->
+        <option id="extendedinfo_details_reviews" label="$LOCALIZE[31120]" condition="" default="true"/>
+		<option id="extendedinfo_details_recommended" label="$LOCALIZE[320069]" condition="" default="true"/>
+        <option id="extendedinfo_details_posters" label="$LOCALIZE[320078]" condition="" default="true"/>
+        <option id="extendedinfo_details_fanart" label="$LOCALIZE[320210]" condition="" default="true"/>
+    </setting>
+	
+	<!-- categories -->
+    <setting id="categories_list" value="||MULTISELECT||" label="" condition="" icon="" description="">
+        <option id="categories_list_action" label="$LOCALIZE[320101]" condition="" default="true"/>
+        <option id="categories_list_dramas" label="$LOCALIZE[320102]" condition="" default="true"/>
+        <option id="categories_list_comedies" label="$LOCALIZE[320103]" condition="" default="true"/>
+        <option id="categories_list_family" label="$LOCALIZE[320104]" condition="" default="true"/>
+        <option id="categories_list_horror" label="$LOCALIZE[320105]" condition="" default="true"/>
+        <option id="categories_list_documentaries" label="$LOCALIZE[320106]" condition="" default="true"/>
+        <option id="categories_list_anime" label="$LOCALIZE[320107]" condition="" default="true"/>
+		<option id="categories_list_crime" label="$LOCALIZE[320108]" condition="" default="true"/>
+        <option id="categories_list_fantasy" label="$LOCALIZE[320109]" condition="" default="true"/>
+        <option id="categories_list_history" label="$LOCALIZE[320110]" condition="" default="true"/>
+        <option id="categories_list_animations" label="$LOCALIZE[320111]" condition="" default="true"/>
+		<option id="categories_list_musicals" label="$LOCALIZE[320112]" condition="" default="true"/>
+		<option id="categories_list_romance" label="$LOCALIZE[320113]" condition="" default="true"/>
+		<option id="categories_list_sci-fi" label="$LOCALIZE[320114]" condition="" default="true"/>
+        <option id="categories_list_mysteries" label="$LOCALIZE[320115]" condition="" default="true"/>
+        <option id="categories_list_thriller" label="$LOCALIZE[320116]" condition="" default="true"/>
+        <option id="categories_list_westerns" label="$LOCALIZE[320117]" condition="" default="true"/>
+        <option id="categories_list_tvaction" label="$LOCALIZE[320118]" condition="" default="true"/>
+        <option id="categories_list_tvdramas" label="$LOCALIZE[320119]" condition="" default="true"/>
+        <option id="categories_list_tvcomedies" label="$LOCALIZE[320120]" condition="" default="true"/>
+		<option id="categories_list_tvfamily" label="$LOCALIZE[320121]" condition="" default="true"/>
+        <option id="categories_list_tvdocumentaries" label="$LOCALIZE[320122]" condition="" default="true"/>
+        <option id="categories_list_tvcrime" label="$LOCALIZE[320123]" condition="" default="true"/>
+        <option id="categories_list_tvfantasy" label="$LOCALIZE[320124]" condition="" default="true"/>
+		<option id="categories_list_tvwar" label="$LOCALIZE[320125]" condition="" default="true"/>
+		<option id="categories_list_tvanimations" label="$LOCALIZE[320126]" condition="" default="true"/>
+		<option id="categories_list_tvmysteries" label="$LOCALIZE[320127]" condition="" default="true"/>
+        <option id="categories_list_tvwesterns" label="$LOCALIZE[320128]" condition="" default="true"/>
     </setting>
 
     <!-- Show/Hide OSD Buttons -->
@@ -639,6 +758,28 @@
     <!-- skinshortcuts background -->
     <setting id="skinshortcuts-$INFO[Container(211).ListItem.Property(submenuVisibility)]" label="$LOCALIZE[31804]" value="widgetfanart" condition="!String.IsEmpty(Container(211).ListItem.Property(widget))"/>
 
-    <setting id="MusicBackground" value="resource://resource.images.skinbackgrounds.titanium/hover_my radio.jpg" label="$LOCALIZE[571]" condition="" default="true" />
+    <setting id="MusicBackground" value="special://skin/resources/fanart.jpg" label="$LOCALIZE[571]" condition="" default="true"/>
+	
+	<!--User Picture-->
+    <setting id="user_picture" value="1" label="Profile Icon 1" condition="" icon="special://skin/extras/userpicture/defaultuser_1.png" description=""/>
+    <setting id="user_picture" value="2" label="Profile Icon 2" condition="" icon="special://skin/extras/userpicture/defaultuser_2.png" description=""/>
+	<setting id="user_picture" value="3" label="Profile Icon 3" condition="" icon="special://skin/extras/userpicture/defaultuser_3.png" description=""/>
+	<setting id="user_picture" value="4" label="Profile Icon 4" condition="" icon="special://skin/extras/userpicture/defaultuser_4.png" description=""/>
+    <setting id="user_picture" value="5" label="Profile Icon 5" condition="" icon="special://skin/extras/userpicture/defaultuser_5.png" description=""/>
+	<setting id="user_picture" value="6" label="Profile Icon 6" condition="" icon="special://skin/extras/userpicture/defaultuser_6.png" description=""/>
+	<setting id="user_picture" value="7" label="Profile Icon 7" condition="" icon="special://skin/extras/userpicture/defaultuser_7.png" description=""/>
+    <setting id="user_picture" value="8" label="Profile Icon 8" condition="" icon="special://skin/extras/userpicture/defaultuser_8.png" description=""/>
+	<setting id="user_picture" value="9" label="Profile Icon 9" condition="" icon="special://skin/extras/userpicture/defaultuser_9.png" description=""/>
+	<setting id="user_picture" value="10" label="Profile Icon 10" condition="" icon="special://skin/extras/userpicture/defaultuser_10.png" description=""/>
+    <setting id="user_picture" value="11" label="Profile Icon 11" condition="" icon="special://skin/extras/userpicture/defaultuser_11.png" description=""/>
+	<setting id="user_picture" value="12" label="Profile Icon 12" condition="" icon="special://skin/extras/userpicture/defaultuser_12.png" description=""/>
+	<setting id="user_picture" value="13" label="Profile Icon 13" condition="" icon="special://skin/extras/userpicture/defaultuser_13.png" description=""/>
+	<setting id="user_picture" value="14" label="Profile Icon 14" condition="" icon="special://skin/extras/userpicture/defaultuser_14.png" description=""/>
+    <setting id="user_picture" value="15" label="Profile Icon 15" condition="" icon="special://skin/extras/userpicture/defaultuser_15.png" description=""/>
+	<setting id="user_picture" value="16" label="Profile Icon 16" condition="" icon="special://skin/extras/userpicture/defaultuser_16.png" description=""/>
+	<setting id="user_picture" value="17" label="Profile Icon 17" condition="" icon="special://skin/extras/userpicture/defaultuser_17.png" description="" default="true" />
+    <setting id="user_picture" value="18" label="Profile Icon 18" condition="" icon="special://skin/extras/userpicture/defaultuser_18.png" description=""/>
+	<setting id="user_picture" value="19" label="Profile Icon 19" condition="" icon="special://skin/extras/userpicture/defaultuser_19.png" description=""/>
+	<setting id="user_picture" value="20" label="Profile Icon 20" condition="" icon="special://skin/extras/userpicture/defaultuser_20.png" description=""/>
 
 </settings>

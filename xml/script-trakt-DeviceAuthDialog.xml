@@ -15,7 +15,7 @@
 					<width>1240</width>
 					<height>550</height>
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-					<texture border="5">diffuse/panel.png</texture>
+					<texture>diffuse/panel2.png</texture>
 				</control>
 				<control type="image">
 					<description>Background Image</description>
@@ -27,8 +27,8 @@
 				</control>
 				<control type="label">
 					<description>header label</description>
-					<posx>1170</posx>
-					<posy>22</posy>
+					<posx>1183</posx>
+					<posy>20</posy>
 					<width>735</width>
 					<height>40</height>
 					<label>$ADDON[script.trakt 32153]</label>
@@ -36,7 +36,6 @@
 					<aligny>center</aligny>
 					<font>Bold38</font>
 					<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="button">
 					<description>Close Window button</description>
@@ -55,13 +54,12 @@
 			<control type="group">
 				<control type="label" id="203">
 					<description>Instructions Label</description>
-					<posx>400</posx>
+					<posx>391</posx>
 					<posy>110</posy>
 					<width>360</width>
 					<height>80</height>
 					<font>Bold32</font>
 					<textcolor>black</textcolor>
-					<shadowcolor>lightgrey</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>
 					<label/><!-- this is set from the code -->
 					<align>center</align>
@@ -69,20 +67,19 @@
 				</control>
 				<control type="label" id="204">
 					<description>Code Label</description>
-					<posx>400</posx>
+					<posx>391</posx>
 					<posy>200</posy>
 					<width>360</width>
 					<height>80</height>
 					<font>Bold34</font>
 					<label/><!-- this is set from the code -->
-					<textcolor>red</textcolor>
-					<shadowcolor>black</shadowcolor>
+					<textcolor>FFED2224</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 				</control>
 				<control type="label" id="205">
 					<description>Warning Label</description>
-					<posx>400</posx>
+					<posx>391</posx>
 					<posy>300</posy>
 					<width>360</width>
 					<height>80</height>
@@ -90,15 +87,14 @@
 					<wrapmultiline>true</wrapmultiline>
 					<label/><!-- this is set from the code -->
 					<textcolor>black</textcolor>
-					<shadowcolor>lightgrey</shadowcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 				</control>
 			</control>
 			<control type="image">
 				<description>QR Code</description>
-				<posx>861</posx>
-				<posy>95</posy>
+				<posx>859</posx>
+				<posy>87</posy>
 				<width>336</width>
 				<height>336</height>
 				<texture>dialogs/trakt/qr_code.png</texture>

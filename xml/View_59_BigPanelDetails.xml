@@ -10,9 +10,10 @@
 	  
 	  <!-- Fanart Image Added to View-->
             <control type="multiimage">
+				<visible>!Skin.HasSetting(View59_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
                 <texture border="15">diffuse/bgpanel.png</texture>
-			    <colordiffuse>31ffffff</colordiffuse>
+			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
                 <fadetime>350</fadetime>
@@ -38,12 +39,16 @@
           </include>
         <!-- Right Group Panel -->
 		<right>-11</right>
-        <bottom>106</bottom>
+        <bottom>101</bottom>
         <height>820</height>
         <width>1245</width>
         <orientation>vertical</orientation>
         <itemgap>0</itemgap>
         <onleft>9000</onleft>
+		<onleft>CancelAlarm(preview_delay,silent)</onleft>
+		<onleft condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onleft>
+		<onback>CancelAlarm(preview_delay,silent)</onback>
+		<onback condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(DetailsAutoTrailer) + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + !String.IsEqual(Window(Home).Property(TrailerPlaying),fullscreen)">PlayerControl(Stop)</onback>
         <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
         <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
         <onup>59</onup>
@@ -56,6 +61,18 @@
             <width>280</width>
             <height>390</height>
             <include>PosterPanelLayout</include>
+			<control type="group">
+            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay59</include>
+        </control>
+        <control type="group">
+            <!--Watched Overlay-->
+            <right>8</right>
+            <top>8</top>
+            <include>WatchedIndicatorNormal</include>
+            <animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+                <effect type="slide" end="1,-1" time="0"  />
+            </animation>
+        </control>
           </control>
         </itemlayout>
         <!-- Poster Main Panel Layout -->
@@ -64,9 +81,22 @@
             <width>280</width>
             <height>390</height>
             <include>PosterPanelLayoutFocus</include>
-              <include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
-                  <param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
-              </include>
+			<control type="group">
+            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay59</include>
+        </control>
+        <control type="group">
+            <!--Watched Overlay-->
+            <right>8</right>
+            <top>8</top>
+            <include>WatchedIndicatorNormal</include>
+            <animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
+                <effect type="slide" end="1,-1" time="0"  />
+            </animation>
+        </control>
+              <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
+						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
+							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
+						</include>
           </control>
         </focusedlayout>
       </control>
@@ -85,4 +115,37 @@
 		</control>
      </control>
   </include>
+  <!-- CASE OVERLAYS -->
+    <include name="PosterCaseOverlay59">
+        <control type="group">
+            <visible>
+                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
+                String.Contains(ListItem.FileNameAndPath,.3d) |
+                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
+                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
+                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
+                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
+            </visible>
+            <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                <control type="image">
+                <texture border="20" diffuse="diffuse/poster5.png">cases/default_top3.png</texture>
+                <!-- border left,top,right,bottom  -->
+                <bordersize>8</bordersize>
+				<width>282</width>
+                <height>392</height>
+				<posx>-1</posx>
+				<posy>-1</posy>
+                <colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
+            </control>
+            <control type="image">
+                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
+                <top>12</top>
+                <height>24</height>
+                <aspectratio aligny="top" align="center">keep</aspectratio>
+                <!-- border left,top,right,bottom  -->
+                <bordersize>0</bordersize>
+                <colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
+            </control>
+        </control>
+    </include>
 </includes>

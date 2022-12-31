@@ -18,7 +18,7 @@
 			<width>1820</width>
 			<height>84</height>
 			<texture colordiffuse="$INFO[Skin.String(FooterPanelColor)]">dialogs/footer_classic.png</texture>
-			<visible>[!Skin.HasSetting(NoFooterBar) + Skin.HasTheme(classic)]</visible>
+			<visible>[!Skin.HasSetting(EnableFooterBar) + Skin.HasTheme(classic)]</visible>
 			<include>animation_fade_visible_hidden</include>				
 		</control>
 		<control type="image">
@@ -28,7 +28,7 @@
 			<height>110</height>
 			<texture border="5">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-			<visible>!Skin.HasTheme(classic) + !Skin.HasSetting(nofooterbar)</visible>
+			<visible>!Skin.HasTheme(classic) + !Skin.HasSetting(EnableFooterBar)</visible>
 			<include>animation_fade_visible_hidden</include>
 		</control>
 

@@ -26,7 +26,15 @@
                 <posy>0</posy>
                 <width>1340</width>
                 <height>100%</height>
-				<texture border="15">diffuse/bgpanel.png</texture>
+				<texture>diffuse/panel2.png</texture>
+				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+            </control>
+			<control type="image">
+                <posx>630</posx>
+                <posy>0</posy>
+                <width>1340</width>
+                <height>100%</height>
+				<texture>diffuse/panel2.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
             <!-- close dialog -->
@@ -41,7 +49,7 @@
            <!--Header-->
             <control type="label">
                 <description>Heading</description>
-                <posx>700</posx>
+                <posx>695</posx>
                 <posy>10</posy>
                 <width>1200</width>
 				<font>Bold45</font>
@@ -53,7 +61,7 @@
             </control>
 			<!-- title -->
 			<control type="label">
-				<posx>700</posx>
+				<posx>695</posx>
 				<posy>150</posy>
 				<width>800</width>
 				<font>Reg36</font>
@@ -63,7 +71,7 @@
 
 			
 			<control type="image">
-				<posx>680</posx>
+				<posx>675</posx>
                 <posy>220</posy>
 				<width>1200</width>
 				<height>250</height>
@@ -72,17 +80,17 @@
 			
 			<!--Icon-->
             <control type="image">
-                <right>60</right>
+                <right>65</right>
                 <posy>235</posy>
                 <width>350</width>
                 <height>220</height>
                 <fadetime>800</fadetime>
 				<aspectratio align="right" aligny="center" scalediffuse="true">keep</aspectratio>
-				<texture background="true" diffuse="diffuse/poster.png" fallback="DefaultVideo.png" border="5">$INFO[ListItem.Icon]</texture>
+				<texture background="true" diffuse="diffuse/panel2.png" fallback="DefaultVideo.png" border="5">$INFO[ListItem.Icon]</texture>
             </control>
 			
             <control type="grouplist">
-                <posx>680</posx>
+                <posx>675</posx>
                 <posy>220</posy>
 
                 <control type="button">
@@ -124,19 +132,19 @@
                     <enable>false</enable>
 					<disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
                 </control>
-                <control type="fadelabel">
+                <control type="label">
                     <!--Disclaimer-->
-                    <width>800</width>
-                    <height>60</height>
+                    <width>780</width>
+                    <height>51</height>
                     <align>left</align>
-					<autoscroll>true</autoscroll>
+					<scroll>true</scroll>
                     <label>   $INFO[ListItem.AddonDisclaimer]</label>
 					<textcolor>red</textcolor>
 					<visible>!String.IsEmpty(ListItem.AddonDisclaimer)</visible>
                 </control>
             </control>
             <control type="image">
-                <posx>680</posx>
+                <posx>675</posx>
                 <posy>486</posy>
                 <width>1200</width>
                 <height>430</height>
@@ -144,10 +152,10 @@
             </control>
             <control type="textbox">
                 <description>Plot value</description>
-                <posx>700</posx>
+                <posx>695</posx>
                 <posy>506</posy>
                 <width>1160</width>
-                <height>388</height>
+                <height>400</height>
                 <align>justify</align>
                 <pagecontrol>60</pagecontrol>
                 <label fallback="19055">$INFO[ListItem.AddonSummary][CR]$INFO[ListItem.AddonDescription]</label>
@@ -155,10 +163,10 @@
             </control>
             <control type="textbox">
                 <description>News value</description>
-                <posx>700</posx>
+                <posx>695</posx>
                 <posy>506</posy>
                 <width>1160</width>
-                <height>388</height>
+                <height>400</height>
                 <align>justify</align>
                 <pagecontrol>60</pagecontrol>
                 <label fallback="19055">$INFO[ListItem.AddonNews]</label>
@@ -167,7 +175,7 @@
             
             <!-- screenshots -->
             <control type="panel" id="50">
-                <posx>680</posx>
+                <posx>676</posx>
                 <posy>520</posy>
                 <width>1200</width>
                 <height>340</height>
@@ -176,20 +184,20 @@
                 <ondown>9000</ondown>
                 <preloaditems>4</preloaditems>
                 <visible>String.IsEqual(Window.Property(showinfo),screenshots)</visible>
-                <itemlayout height="340" width="600">
+                <itemlayout height="340" width="599">
                     <control type="image">
-                        <bordersize>8</bordersize>
+                        <bordersize>4</bordersize>
                         <texture background="true" diffuse="home/home_matte2.png">$INFO[ListItem.Icon]</texture>
                     </control>
                 </itemlayout>
-                <focusedlayout height="340" width="600">
+                <focusedlayout height="340" width="599">
                     <control type="image">
                         <!--focus image-->
-                        <texture diffuse="home/home_matte2.png">colors/color_white.png</texture>
+                        <texture diffuse="home/home_matte2.png">diffuse/panel2.png</texture>
                         <colordiffuse>$INFO[Skin.String(GeneralHighlightTextColor)]</colordiffuse>
                     </control>
                     <control type="image">
-                        <bordersize>8</bordersize>
+                        <bordersize>4</bordersize>
                         <texture background="true" diffuse="home/home_matte2.png">$INFO[ListItem.Icon]</texture>
                     </control>
                 </focusedlayout>
@@ -197,7 +205,7 @@
       
 			<!--Button Group-->
             <control type="grouplist" id="9000">
-                <posx>680</posx>
+                <posx>675</posx>
                 <posy>940</posy>
 				<orientation>horizontal</orientation>
 				<itemgap>5</itemgap>
@@ -206,7 +214,7 @@
 				
                 <control type="button" id="11111">
                     <!--Close-->
-                    <width>290</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>222</label>
@@ -217,7 +225,7 @@
                 
                 <control type="togglebutton" id="22111">
                     <!--screenshots-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>20008</label>
@@ -231,7 +239,7 @@
                 
                 <control type="togglebutton" id="22112">
                     <!--news-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>29916</label>
@@ -244,7 +252,7 @@
                 
                 <control type="button" id="12">
                   <!--Launch Addon button-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>518</label>
@@ -254,7 +262,7 @@
 				
 				<control type="button" id="8">
                   <!--Update Addon button-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>24069</label>
@@ -263,7 +271,7 @@
                 </control>
 				<control type="button" id="6">
                     <!--Install/Uninstall Addon button-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>24022</label>
@@ -272,7 +280,7 @@
                 </control>
                 <control type="button" id="7">
                     <!--Enable/Disable Addon button-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>24021</label>
@@ -282,7 +290,7 @@
 
                 <control type="button" id="9">
                    <!--Addon Settings-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>24020</label>
@@ -292,7 +300,7 @@
 
                 <control type="button" id="10">
                     <!--Addon Dependencies-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>39024</label>
@@ -306,6 +314,7 @@
                     <textoffsetx>30</textoffsetx>
                     <height>80</height>
                     <align>left</align>
+					<radioposx>278</radioposx>
                     <label>21340</label>
 					<include>DialogButtonOther</include>
                     <visible>Control.IsEnabled(13)</visible>
@@ -313,7 +322,7 @@
 				
 				<control type="button" id="14">
                     <!--version-->
-                    <width>300</width>
+                    <width>296</width>
                     <height>80</height>
                     <align>center</align>
                     <label>24069</label>
@@ -325,8 +334,8 @@
             <!--Arrows-->
             <control type="image">
                 <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-                <right>10</right>
-                <bottom>72</bottom>
+                <right>15</right>
+                <bottom>70</bottom>
                 <posy>50</posy>
                 <width>20</width>
                 <height>60</height>
@@ -338,8 +347,8 @@
             </control>
             <control type="image">
                 <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="800" pulse="true" reversible="false" condition="true">Conditional</animation>
-                <right>1250</right>
-                <bottom>72</bottom>
+                <right>1255</right>
+                <bottom>70</bottom>
                 <posy>50</posy>
                 <width>20</width>
                 <height>60</height>

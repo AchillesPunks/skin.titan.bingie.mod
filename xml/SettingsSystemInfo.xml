@@ -17,15 +17,15 @@
 		
         <!--Panel-->
 		<control type="image">
-			<posx>50</posx>
-			<width>1820</width>
+			<posx>60</posx>
+			<width>1800</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 		</control>
 		
 		<control type="image">
-			<posx>50</posx>
-			<width>520</width>
+			<posx>60</posx>
+			<width>510</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 		</control>
@@ -212,8 +212,8 @@
         </control>
 			<control type="textbox" id="30">
 				<left>670</left>
-				<top>350</top>
-				<height>500</height>
+				<top>330</top>
+				<height>460</height>
 				<width>1100</width>
 				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 				<font>Reg30</font>
@@ -221,10 +221,10 @@
 				<autoscroll delay="5000" repeat="7500" time="5000">true</autoscroll>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>1800</left>
-				<top>340</top>
+				<left>1805</left>
+				<top>330</top>
 				<width>20</width>
-				<height>520</height>
+				<height>460</height>
 				<onleft>9000</onleft>
 				<orientation>vertical</orientation>
 				<visible>Control.IsVisible(30)</visible>
@@ -232,7 +232,7 @@
 		</control>
     
 		<!--Footer-->
-        <include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
+        <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
         <include>BingieVersion</include>
 	</controls>

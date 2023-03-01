@@ -1447,6 +1447,7 @@
             <control type="group">
                 <description>In progress Overlay</description>
 				<visible>!Skin.HasSetting(MovieDetailsHome) | 
+				[Control.IsVisible(10) + Skin.HasSetting(MovieDetailsHome)] |
 				[Control.IsVisible(50) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(51) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(52) + Skin.HasSetting(MovieDetailsHome)] |
 				[Control.IsVisible(53) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(54) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(55) + Skin.HasSetting(MovieDetailsHome)] |
 				[Control.IsVisible(56) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(57) + Skin.HasSetting(MovieDetailsHome)] | [Control.IsVisible(58) + Skin.HasSetting(MovieDetailsHome)] |

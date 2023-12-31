@@ -26,14 +26,6 @@
                 <height>100%</height>
                 <texture background="true" colordiffuse="$INFO[Skin.String(SideBladePanelColor)]">diffuse/panel2.png</texture>
             </control>
-            <!-- close dialog -->
-            <control type="group">
-                <include>animation_fade_visible_hidden</include>
-                <top>20</top>
-                <right>20</right>
-                <width>60</width>
-                <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
-            </control>
 
             <control type="grouplist">
                 <left>50</left>

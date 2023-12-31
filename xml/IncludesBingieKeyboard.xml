@@ -27,7 +27,7 @@
         <control type="grouplist" id="9999">
             <animation effect="fade" time="300">WindowOpen</animation>
             <top>80</top>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">No_Circular_Left</include>
             <left>90</left>
             <orientation>vertical</orientation>
             <itemgap>-10</itemgap>
@@ -49,10 +49,10 @@
                     <radioposy>20</radioposy>
                     <radiowidth>100</radiowidth>
                     <radioheight>40</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/space.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">bingie/keyboard/space.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">bingie/keyboard/space.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">bingie/keyboard/space.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">bingie/keyboard/space.png</textureradiooffnofocus>
                     <include>SearchKeyDefs</include>
                     <onup>312</onup>
                     <ondown>2000</ondown>
@@ -66,10 +66,10 @@
                     <radioposy>20</radioposy>
                     <radiowidth>160</radiowidth>
                     <radioheight>40</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">bingie/keyboard/backspace.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">bingie/keyboard/backspace.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">bingie/keyboard/backspace.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">bingie/keyboard/backspace.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">bingie/keyboard/backspace.png</textureradiooffnofocus>
                     <include>SearchKeyDefs</include>
                     <onup>312</onup>
                     <ondown>2000</ondown>
@@ -431,10 +431,10 @@
                     <radioposy>25</radioposy>
                     <radiowidth>30</radiowidth>
                     <radioheight>30</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/remove.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">dialogs/keyboard/remove.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">dialogs/keyboard/remove.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/keyboard/remove.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/keyboard/remove.png</textureradiooffnofocus>
                     <label/>
                     <onup>106</onup>
                     <include>SearchKeyDefs</include>
@@ -447,10 +447,10 @@
                     <radioposy>25</radioposy>
                     <radiowidth>30</radiowidth>
                     <radioheight>30</radioheight>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">dialogs/keyboard/done.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">dialogs/keyboard/done.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">dialogs/keyboard/done.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/keyboard/done.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/keyboard/done.png</textureradiooffnofocus>
                     <label/>
                     <include>SearchKeyDefs</include>
                     <onclick>SetFocus(100)</onclick>
@@ -489,7 +489,6 @@
             <visible>!Window.IsVisible(numericinput)</visible>
             <animation effect="slide" start="0,800" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">WindowOpen</animation>
             <animation effect="slide" start="0,0" end="0,800" tween="cubic" easing="out" delay="0" time="250" reversible="false">WindowClose</animation>
-            <animation effect="slide" end="0,-97" time="0" condition="Skin.HasSetting(EnableTouchSupport)">Conditional</animation>
             <itemlayout width="360" height="60">
                 <control type="group">
                     <control type="button">
@@ -528,7 +527,7 @@
                     <control type="image">
                         <width>350</width>
                         <height>60</height>
-                        <texture border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</texture>
+                        <texture border="10" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</texture>
                         <visible>Control.HasFocus(8000)</visible>
                     </control>
                     <control type="label">
@@ -567,7 +566,6 @@
             <bottom>0</bottom>
             <animation effect="slide" start="0,800" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">WindowOpen</animation>
             <animation effect="slide" start="0,0" end="0,800" tween="cubic" easing="out" delay="0" time="250" reversible="false">WindowClose</animation>
-            <animation effect="slide" end="0,-97" time="0" condition="Skin.HasSetting(EnableTouchSupport)">Conditional</animation>
             <control type="image">
                 <posx>0</posx>
                 <posy>0</posy>
@@ -1082,7 +1080,5 @@
                 </control>
             </control>
         </control>
-
-        <include condition="Skin.HasSetting(EnableTouchSupport)">Footer</include>
     </include>
 </includes>

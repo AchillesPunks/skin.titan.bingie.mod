@@ -13,10 +13,6 @@
 				<include>FullscreenDimensions</include>
 				<texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
 			</control>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture background="true" border="50">special://home/addons/resource.images.backgroundoverlays.basic/resources/Square Grey.png</texture>
-			</control>
 			<control type="scrollbar" id="3000">
 				<include>HiddenObject</include>
 			</control>
@@ -50,7 +46,7 @@
 					<font>Light24</font>
 					<autoscroll>false</autoscroll>
 					<align>left</align>
-					<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+					<textcolor>ffffffff</textcolor>
 					<aligny>top</aligny>
 					<pagecontrol>3000</pagecontrol>
 					<label>31395</label>
@@ -66,20 +62,20 @@
 					<onleft>noop</onleft>
 					<onback>noop</onback>
 					<control type="button" id="101">
-						<width min="300">auto</width>
-						<height>55</height>
+						<width min="300" max="420">auto</width>
+						<height>54</height>
 						<font>Reg24</font>
-						<textcolor>white</textcolor>
+						<textcolor>a6ffffff</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<selectedcolor>white</selectedcolor>
 						<textoffsetx>20</textoffsetx>
 						<aligny>center</aligny>
 						<align>center</align>
 						<texturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</texturefocus>
-						<texturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</texturenofocus>
+						<texturenofocus border="10" colordiffuse="a6ffffff">bingie/border/slimframefo.png</texturenofocus>
 						<alttexturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</alttexturefocus>
-						<alttexturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</alttexturenofocus>
-						<label>31396</label>
+						<alttexturenofocus border="10" colordiffuse="a6ffffff">bingie/border/slimframefo.png</alttexturenofocus>
+						<label>$LOCALIZE[31396]</label>
 						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
 						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
 						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup2,Home),00:02,silent)</onclick>
@@ -89,19 +85,19 @@
 					</control>
 
 					<control type="button" id="102">
-						<width min="300">auto</width>
-						<height>55</height>
+						<width min="300" max="455">auto</width>
+						<height>54</height>
 						<font>Reg24</font>
-						<textcolor>white</textcolor>
+						<textcolor>a6ffffff</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<selectedcolor>white</selectedcolor>
 						<textoffsetx>20</textoffsetx>
 						<aligny>center</aligny>
 						<align>center</align>
 						<texturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</texturefocus>
-						<texturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</texturenofocus>
+						<texturenofocus border="10" colordiffuse="a6ffffff">bingie/border/slimframefo.png</texturenofocus>
 						<alttexturefocus border="10" colordiffuse="ffffffff">bingie/border/slimframefo.png</alttexturefocus>
-						<alttexturenofocus border="10" colordiffuse="ff3F3F3F">bingie/border/slimframefo.png</alttexturenofocus>
+						<alttexturenofocus border="10" colordiffuse="a6ffffff">bingie/border/slimframefo.png</alttexturenofocus>
 						<label>$LOCALIZE[31397]</label>
 						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
 						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
@@ -119,12 +115,12 @@
 					<control type="image">
 						<width>100%</width>
 						<height>100%</height>
-						<texture colordiffuse="cc515151" border="2">colors/color_white.png</texture>
+						<texture colordiffuse="ff414141" border="2">colors/color_white.png</texture>
 					</control>
 					<control type="image">
 						<width>50%</width>
 						<height>100%</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">diffuse/panel2.png</texture>
+						<texture colordiffuse="ffe50914" border="4">diffuse/panel2.png</texture>
 						<animation effect="zoom" end="200,100" easing="in" tween="cubic" time="600" condition="!String.IsEmpty(Window(Home).Property(finishBingieStartup2))">Conditional</animation>
 					</control>
 				</control>

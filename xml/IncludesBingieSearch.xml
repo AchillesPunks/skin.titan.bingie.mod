@@ -25,7 +25,9 @@
 
     <variable name="EmptySearchResultsString">
         <value condition="Control.HasFocus(1007) + String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31558]</value>
-        <value condition="String.IsEmpty(Skin.String(CustomSearchTerm)) + Window.IsActive(1107)">$LOCALIZE[31038]</value>
+        <value condition="String.IsEmpty(Skin.String(CustomSearchTerm)) + Window.IsActive(1106)">$LOCALIZE[31560]</value>
+		<value condition="String.IsEmpty(Skin.String(CustomSearchTerm)) + Window.IsActive(1107)">$LOCALIZE[31038]</value>
+		<value condition="String.IsEmpty(Skin.String(CustomSearchTerm)) + Window.IsActive(1108)">$LOCALIZE[31559]</value>
         <value condition="String.IsEmpty(Skin.String(CustomSearchTerm)) + Skin.HasSetting(EnableBingieSearchLibrary)">$LOCALIZE[31559]</value>
 		<value condition="String.IsEmpty(Skin.String(CustomSearchTerm)) + Skin.HasSetting(EnableBingieSearchTMDBHelper)">$LOCALIZE[320225]</value>
         <value>$LOCALIZE[31578]</value>
@@ -238,6 +240,213 @@
         </content>
     </include>
 	
+	<!-- Static Search Suggestions Movies -->
+    <include name="Search_Suggestions_Movies">
+        <content>
+            <item>
+                <label>$LOCALIZE[31078]</label>
+                <property name="path">special://skin/playlists/blockbustermovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31649]</label>
+                <property name="path">special://skin/playlists/watchitagainmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31716]</label>
+                <property name="path">special://skin/playlists/recentlyaddedmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31532]</label>
+                <property name="path">special://skin/playlists/criticallyacclaimedmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31533]</label>
+                <property name="path">special://skin/playlists/marvelmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31536]</label>
+                <property name="path">special://skin/playlists/actionandcrimemovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31537]</label>
+                <property name="path">special://skin/playlists/kidsandfamily.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31048]</label>
+                <property name="path">special://skin/playlists/horrormovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31049]</label>
+                <property name="path">special://skin/playlists/musicandmusical.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31047]</label>
+                <property name="path">special://skin/playlists/romanticmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31162]</label>
+                <property name="path">special://skin/playlists/adventureandfantasymovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31182]</label>
+                <property name="path">special://skin/playlists/netlfixoriginalmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31859]</label>
+                <property name="path">special://skin/playlists/imdbtop250movies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31157]</label>
+                <property name="path">special://skin/playlists/comedymovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31158]</label>
+                <property name="path">special://skin/playlists/disneyandpixarmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31159]</label>
+                <property name="path">special://skin/playlists/documentaries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31161]</label>
+                <property name="path">special://skin/playlists/europeanmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31189]</label>
+                <property name="path">special://skin/playlists/historywarmovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31193]</label>
+                <property name="path">special://skin/playlists/standup.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31194]</label>
+                <property name="path">special://skin/playlists/syfymovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31196]</label>
+                <property name="path">special://skin/playlists/thrillerandsuspensemovies.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+        </content>
+    </include>
+	
+	    <!-- Static Search Suggestions -->
+    <include name="Search_Suggestions_TVShows">
+        <content>
+            <item>
+                <label>$LOCALIZE[31079]</label>
+                <property name="path">special://skin/playlists/bingeworthyshows.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+			<item>
+                <label>$LOCALIZE[31650]</label>
+                <property name="path">special://skin/playlists/watchitagaintvshows.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31101]</label>
+                <property name="path">special://skin/playlists/recentlyaddedshows.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31098]</label>
+                <property name="path">special://skin/playlists/criticallyacclaimedtvshows.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31181]</label>
+                <property name="path">special://skin/playlists/netflixoriginalseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31046]</label>
+                <property name="path">special://skin/playlists/anime.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31164]</label>
+                <property name="path">special://skin/playlists/actionandcrimeseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31160]</label>
+                <property name="path">special://skin/playlists/docuseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31163]</label>
+                <property name="path">special://skin/playlists/adventureandfantasyseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31156]</label>
+                <property name="path">special://skin/playlists/amazonoriginalseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31187]</label>
+                <property name="path">special://skin/playlists/foodandtravelshows.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31188]</label>
+                <property name="path">special://skin/playlists/hboshows.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31190]</label>
+                <property name="path">special://skin/playlists/huluoriginalshows.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31191]</label>
+                <property name="path">special://skin/playlists/marvelseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31192]</label>
+                <property name="path">special://skin/playlists/realitytv.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31076]</label>
+                <property name="path">special://skin/playlists/britishseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31195]</label>
+                <property name="path">special://skin/playlists/syfyseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+            <item>
+                <label>$LOCALIZE[31197]</label>
+                <property name="path">special://skin/playlists/thrillerandsuspenseseries.xsp</property>
+                <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            </item>
+        </content>
+    </include>
+	
     <!-- Static Search TMDB and Trakt Suggestions -->
     <include name="Search_Suggestions_Content_2">
         <content>
@@ -363,10 +572,10 @@
                 <radioposy>$PARAM[radioposy]</radioposy>
                 <radiowidth>$PARAM[radiowidth]</radiowidth>
                 <radioheight>$PARAM[radioheight]</radioheight>
-                <textureradioonfocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">$PARAM[texture]</textureradioonfocus>
-                <textureradioofffocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">$PARAM[texture]</textureradioofffocus>
-                <textureradioonnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">$PARAM[texture]</textureradioonnofocus>
-                <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">$PARAM[texture]</textureradiooffnofocus>
+                <textureradioonfocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">$PARAM[texture]</textureradioonfocus>
+                <textureradioofffocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">$PARAM[texture]</textureradioofffocus>
+                <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">$PARAM[texture]</textureradioonnofocus>
+                <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">$PARAM[texture]</textureradiooffnofocus>
                 <ondown>$PARAM[ondown]</ondown>
                 <onclick condition="$PARAM[force_refresh]">SetProperty(CustomSearch,1,home)</onclick>
                 <onclick>$PARAM[onclick]</onclick>
@@ -412,10 +621,10 @@
         <align>center</align>
         <font>Reg34</font>
         <textoffsetx>0</textoffsetx>
-        <selectedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</selectedcolor>
-        <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
-        <focusedcolor>$INFO[Skin.String(ButtonTextColor)]</focusedcolor>
-        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+        <selectedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</selectedcolor>
+        <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
+		<focusedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</focusedcolor>
+		<disabledcolor>ffaaaaaa</disabledcolor>
         <pulseonselect>false</pulseonselect>
         <texturefocus border="20">dialogs/keyboard/key-nf2.png</texturefocus>
         <texturenofocus colordiffuse="ff1a1a1a" border="20">dialogs/keyboard/key-nf.png</texturenofocus>
@@ -426,10 +635,10 @@
         <font>Reg30</font>
         <textoffsetx>0</textoffsetx>
 		<textwidth>254</textwidth>
-        <selectedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</selectedcolor>
-        <textcolor>$INFO[Skin.String(ButtonTextColor)]</textcolor>
-        <focusedcolor>$INFO[Skin.String(ButtonTextColor)]</focusedcolor>
-        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
+        <selectedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</selectedcolor>
+        <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
+		<focusedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</focusedcolor>
+		<disabledcolor>ffaaaaaa</disabledcolor>
         <pulseonselect>false</pulseonselect>
         <texturefocus border="20">dialogs/keyboard/key-nf2.png</texturefocus>
         <texturenofocus colordiffuse="ff1a1a1a" border="20">dialogs/keyboard/key-nf.png</texturenofocus>
@@ -748,7 +957,7 @@
     <include name="Search_Suggestions_Container">
         <param name="visibility" default="true" />
         <param name="left" default="75" />
-        <param name="onback" default="9000" />
+        <param name="onback" default="101" />
         <param name="onup" default="101" />
         <param name="ondown" default="noop" />
         <param name="onright" default="77777" />
@@ -756,7 +965,7 @@
         <definition>
             <control type="list" id="$PARAM[id]">
                 <nested/>
-				<animation effect="fade" start="100" end="50" time="150" condition="!ControlGroup(9000).HasFocus() + !Control.HasFocus(1007) + String.IsEmpty(Skin.String(CustomSearchTerm))">Conditional</animation>
+				<animation effect="fade" start="100" end="60" time="150" condition="!ControlGroup(9000).HasFocus() + !Control.HasFocus(1007) + String.IsEmpty(Skin.String(CustomSearchTerm))">Conditional</animation>
                 <visible>$PARAM[visibility]</visible>
                 <left>$PARAM[left]</left>
                 <top>$PARAM[top]</top>
@@ -777,12 +986,12 @@
                         <aligny>center</aligny>
                         <align>left</align>
                         <font>Reg30</font>
-                        <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                        <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
                         <scroll>false</scroll>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                 </itemlayout>
-                <focusedlayout width="$PARAM[width]" height="65">
+                <focusedlayout width="$PARAM[width]" height="65" condition="Control.HasFocus($PARAM[id])">
                     <control type="group">
                         <left>9</left>
                         <control type="image">
@@ -802,7 +1011,38 @@
                             <aligny>center</aligny>
                             <align>left</align>
                             <font>Reg30</font>
-                            <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                            <textcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</textcolor>
+                            <scroll>true</scroll>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="button">
+                            <visible>false</visible>
+                            <onfocus condition="String.IsEmpty(Skin.String(CustomSearchTerm))">$PARAM[onitemfocus]</onfocus>
+                            <onfocus condition="String.IsEmpty(Skin.String(CustomSearchTerm))">$PARAM[onitemfocus2]</onfocus>
+                        </control>
+                    </control>
+                </focusedlayout>
+				<focusedlayout width="$PARAM[width]" height="65" condition="!Control.HasFocus($PARAM[id])">
+                    <control type="group">
+                        <left>9</left>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aligny>top</aligny>
+                            <align>left</align>
+                            <aspectratio align="left" aligny="top">stretch</aspectratio>
+                            <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
+                            <texture border="10" background="true" colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">$INFO[Skin.String(thumbsborder_focused),bingie/border/default_button_fo_,.png]</texture>
+                            <visible>Control.HasFocus($PARAM[id]) | Control.IsVisible(500)</visible>
+                        </control>
+                        <control type="label">
+                            <left>16</left>
+                            <width>380</width>
+                            <height>100%</height>
+                            <aligny>center</aligny>
+                            <align>left</align>
+                            <font>Reg30</font>
+                            <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
                             <scroll>true</scroll>
                             <label>$INFO[ListItem.Label]</label>
                         </control>
@@ -874,7 +1114,7 @@
     <!-- Tag Overlays -->
 	<include name="PosterPanelBingieTags">
         <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | $PARAM[force_tags]">PosterTagOverlayBingie</include>
-        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
+        <!-- <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include> -->
         <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
             <param name="prefix" value="Poster"/>
         </include>
@@ -882,7 +1122,7 @@
 	
     <include name="ThumbsViewTags">
         <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | $PARAM[force_tags]">PosterTagOverlayBingie</include>
-        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
+        <!-- <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include> -->
         <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
             <param name="prefix" value="Poster"/>
         </include>
@@ -890,7 +1130,7 @@
 
     <include name="SquarePosterPanelTags">
         <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | $PARAM[force_tags]">SquarePosterTagOverlay</include>
-        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">SquarePosterTagOverlayVisibility</include>
+        <!-- <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">SquarePosterTagOverlayVisibility</include> -->
         <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
             <param name="prefix" value="SquarePoster"/>
         </include>

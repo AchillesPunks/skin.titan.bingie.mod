@@ -7,7 +7,6 @@
     <!-- Defaults -->
     <include>DefaultSkinSettings</include>
     <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">DefaultSkinHubs</include>
-    <include condition="Skin.HasSetting(KeepWidgetFocus)">WidgetPlaybackFocus</include>
     
 	<!-- BINGIE -->
     <onload condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.Reset(CustomSearchTerm)</onload>
@@ -20,7 +19,7 @@
 
     <!-- First Run -->
     <onload condition="$EXP[IsFirstRun]">ReplaceWindow($VAR[StartUpWindow])</onload>
-    <onunload condition="!Skin.HasSetting(SectionBackgroundHomeOnly)">SetProperty(SectionBackground,$ESCINFO[Control.GetLabel(99004)])</onunload>
+    <onunload>SetProperty(SectionBackground,$ESCINFO[Control.GetLabel(99004)])</onunload>
     <onunload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunload>
     <onunload>ClearProperty(submenu,Home)</onunload>
     <onunload>ClearProperty(ShowWidget,Home)</onunload>
@@ -35,10 +34,10 @@
         <include>GlobalBackground</include>
         <control type="button" id="1000">
             <include>HiddenObject</include>
-            <onfocus condition="[String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)] + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(77777)</onfocus>
-            <onfocus condition="[[!String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEqual(Skin.String(HomeLayout),win10)] | Skin.HasSetting(AutoFocusHome)] + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus($VAR[DefaultMenuFocus])</onfocus>
+            <onfocus condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus(77777)</onfocus>
+            <onfocus condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(AutoFocusHome) + String.IsEmpty(Window(Home).Property(LastFocusWidget))">SetFocus($VAR[DefaultMenuFocus])</onfocus>
             <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone))">SetProperty(HomeFirstLoadDone,1)</onfocus>
-            <include content="WidgetsAutoRotate" condition="!String.IsEmpty(Skin.String(widgets_rotate_delay)) + !String.IsEqual(Skin.String(widgets_rotate),disabled) + [String.IsEqual(Skin.String(HomeLayout),bingie) | String.IsEqual(Skin.String(HomeLayout),win10)]">
+            <include content="WidgetsAutoRotate" condition="!String.IsEmpty(Skin.String(widgets_rotate_delay)) + !String.IsEqual(Skin.String(widgets_rotate),disabled) + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="interval" value="$INFO[Skin.String(widgets_rotate_delay)]" />
             </include>
             <onleft>900</onleft>
@@ -53,25 +52,13 @@
         </control>
 
         <!-- Preload submenu for count calculations -->
-        <include condition="!String.IsEqual(Skin.String(HomeLayout),enhanced) + !Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
+        <include condition="!Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
 
 		<!-- NowPlaying Background -->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingBackground</include>
-        
-        <!-- NowPlaying Info Bar  -->
-		<include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-		<include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-        
-        <!-- PVR recording icon -->
-        <include condition="Skin.HasSetting(Home_RecordingIndicator)">NowRecordingIcon</include>
+		<include>NowPlayingBackground</include>           
 	
 		<!-- Home Screen -->
         <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">HomeBingie</include>
-        <!-- <include condition="$EXP[IsTilesLayout]">HomeTitanTiles</include> -->
-        <!-- <include condition="$EXP[IsHorizontalLayout]">HorizontalHome</include> -->
-        <!-- <include condition="$EXP[IsVerticalLayout]">VerticalHome</include> -->
-        <!-- <include condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">EnhancedHome</include> -->
-        <!-- <include condition="String.IsEqual(Skin.String(HomeLayout),win10)">HomeWin10</include> -->
 
 		<!-- Debug -->
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>

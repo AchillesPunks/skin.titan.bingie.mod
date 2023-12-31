@@ -10,21 +10,16 @@
 		<!--Header-->
         <include>Header</include>
 <!--NowPlaying-->
-        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 		 
  		<!-- weather View -->
 		<include condition="!Skin.HasSetting(useExtendedWeatherScreen)">SimpleWeather</include>
 		<include condition="Skin.HasSetting(useExtendedWeatherScreen)">ExtendedWeather</include>
 		
-		
-        <!--Sub Menu Tab Left-->
-        <include condition="!Skin.HasSetting(DisableSideBladeIndicator)">SideBladeMenuTabLeft</include>
         <!--Sub Menu-->
         <control type="group">
-            <include condition="Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
-			<include condition="![Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)]">SideBladeModern</include>
+            <include condition="Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
+			<include condition="!Skin.HasSetting(smallContextMenu)">SideBladeModern</include>
             <!--Grouplist 9000-->
             <control type="grouplist" id="9000">
                 <posx>21</posx>
@@ -34,7 +29,6 @@
                 <itemgap>3</itemgap>
                 <onleft>50</onleft>
                 <onright>50</onright>
-				<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 				<onright>ClearProperty(ShowViewSubMenu,Home)</onright>
 				<onleft>ClearProperty(ShowViewSubMenu,Home)</onleft>
 				<onback>ClearProperty(ShowViewSubMenu,Home)</onback>
@@ -42,25 +36,6 @@
                 <onup>9000</onup>
                 <ondown>9000</ondown>
                 <orientation>vertical</orientation>
-                <!--Buttons-->
-                <control type="label" id="200">
-                    <!--Label Menu-->
-                    <width>458</width>
-                    <align>left</align>
-                    <textoffsetx>50</textoffsetx>
-                    <font>Bold40</font>
-                    <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
-                    <label>$LOCALIZE[33061]:</label>
-					<visible>Skin.HasTheme(classic)</visible>
-                </control>
-                <control type="image" id="201">
-                    <!--Seperator-->
-                    <width>458</width>
-                    <height>10</height>
-                    <align>left</align>
-                    <texture>common/menu-separator.png</texture>
-					<visible>Skin.HasTheme(classic)</visible>
-                </control>
                 <control type="button" id="2">
                     <!--Refresh-->
                     <description>Refresh</description>
@@ -147,7 +122,6 @@
 				<include>SideBladeMenuButton</include>
                 <label>$INFO[Control.GetLabel(3)]</label>
                 <textoffsetx>40</textoffsetx>
-				<animation effect="slide" end="0,76" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
             </control>
             <control type="label">
                 <!--Location Label Focus-->
@@ -160,7 +134,6 @@
 				<font>Reg26</font>
                 <label>$INFO[Control.GetLabel(3)]</label>
                 <textoffsetx>40</textoffsetx>
-				<animation effect="slide" end="0,76" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
             </control>
         </control>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>

@@ -8,26 +8,6 @@
     <controls>
 	
 	<include>DialogOverlayExtra</include>
-
-
-	<!-- hidden button to exit dialog in touchscreen mode -->
-	<control type="button">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>100%</width>
-		<height>100%</height>
-		<align>center</align>
-		<aligny>center</aligny>
-		<font>Light28</font>
-		<label/>
-		<textcolor/>
-		<focusedcolor/>
-		<disabledcolor/>
-		<texturefocus>colors/color_transparent.png</texturefocus>
-		<texturenofocus/>
-		<onclick>back</onclick>
-		<visible>Skin.HasSetting(EnableTouchSupport)</visible>
-	</control>
     
     <control type="button" id="9001">
         <description>Make sure we hit the first button in the group list and not the close window button</description>
@@ -52,28 +32,9 @@
 		<bottom>0</bottom>
 		<height>110</height>
 		
-		<include condition="!Skin.HasTheme(skindefault)">animation_dialog_button</include>
-		<include condition="Skin.HasTheme(skindefault)">animation_dialog_button_modern</include>
+		<include>animation_dialog_button_modern</include>
 	 
         <!--Panel-->
-        <control type="image">
-            <posx>60</posx>
-            <posy>0</posy>
-            <width>1800</width>
-            <height>120</height>
-            <texture border="15">diffuse/panel2.png</texture>
-			<colordiffuse>$INFO[Skin.String(FooterPanelColor)]</colordiffuse>
-			<visible>Skin.HasTheme(classic)</visible>
-        </control>
-        <control type="image">
-            <posx>60</posx>
-            <posy>0</posy>
-            <width>1800</width>
-            <height>120</height>
-            <texture border="15">diffuse/panel2.png</texture>
-			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-			<visible>Skin.HasTheme(modern_rounded)</visible>
-        </control>
 		
 		<control type="image">
 			<posx>0</posx>
@@ -82,7 +43,6 @@
 			<height>112</height>
 			<texture border="15">diffuse/panel2.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-			<visible>Skin.HasTheme(skindefault)</visible>
 		</control>
 		
 		
@@ -96,7 +56,7 @@
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>Reg42</font>
-			<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
+			<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
 			<animation effect="fade" time="250" delay="250">Visible</animation>
         </control>
         <!--Button Grouplist-->
@@ -119,8 +79,7 @@
 					<width>64</width>
 					<height>64</height>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<colordiffuse>$INFO[Skin.String(MainMenuFocusButtonColor)]</colordiffuse>
-                    <animation end="50" effect="fade" time="0" delay="0" condition="true">Conditional</animation>
+					<colordiffuse>$INFO[Skin.String(MainMenuButtonColor)]</colordiffuse>
 				</control>
 			</itemlayout>
 			<focusedlayout width="170" height="64">

@@ -19,7 +19,7 @@
 			<posx>0</posx>
 			<width>590</width>
 			<height>100%</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			<aspectratio>stretch</aspectratio>
 		</control>
@@ -28,7 +28,7 @@
 			<posx>0</posx>
 			<width>585</width>
 			<height>100%</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			<aspectratio>stretch</aspectratio>
 		</control>
@@ -37,7 +37,7 @@
 			<posx>0</posx>
 			<width>585</width>
 			<height>100%</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			<aspectratio>stretch</aspectratio>
 		</control>
@@ -115,7 +115,7 @@
 						<control type="image">
 							<width>545</width>
 							<height>60</height>
-							<texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
+							<texture diffuse="diffuse/panel.png" border="10" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
 							<visible>Control.HasFocus(11)</visible>
 						</control>
 						<control type="label"> <!--label-->

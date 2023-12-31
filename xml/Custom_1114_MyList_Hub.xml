@@ -23,12 +23,14 @@
         <include>GlobalBackground</include>
         <!--NowPlaying-->
         <include>NowPlayingBackground</include>
-        <include>NowPlayingInfoBar</include>
         <!-- hidden submenu for count calculations -->
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
         <include>HomeBingie</include>
         <!-- Fixed Frame -->
-        <include content="Bingie_Main_View_Fixed_Frame" condition="[String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails) | String.IsEqual(Skin.String(widgetstyle),singlebox) | String.IsEqual(Skin.String(widgetstyle),widebox)] + !Skin.HasSetting(AddToWatchlist)">
+		<control type="group">
+			<visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+			<include>Animation_Right_Home</include>
+        <include content="Bingie_Main_View_Fixed_Frame" condition="[String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)] + !Skin.HasSetting(AddToWatchlist)">
 			<left>131</left>
             <param name="containerid" value="1510" />
             <param name="top" value="611" />
@@ -39,7 +41,11 @@
 			<param name="xAxisAnim" value="238" />
 			<param name="yAxisAnim" value="340" />
         </include>
+		</control>
 		<!-- Fixed Frame -->
+		<control type="group">
+			<visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+			<include>Animation_Right_Home</include>
         <include content="Bingie_Main_View_Fixed_Frame" condition="[String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails)] + !Skin.HasSetting(AddToWatchlist)">
 			<left>131</left>
             <param name="containerid" value="1510" />
@@ -51,6 +57,7 @@
 			<param name="xAxisAnim" value="333" />
 			<param name="yAxisAnim" value="196" />
         </include>
+		</control>
         <!-- Loading Spinner -->
         <include content="Busy_Spinner">
             <param name="centerleft" value="50%"/>

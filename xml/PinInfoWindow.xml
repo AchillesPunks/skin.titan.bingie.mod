@@ -34,7 +34,7 @@
 				<width>790</width>
 				<height>780</height>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 				
 			</control>
 			<control type="image">
@@ -44,7 +44,7 @@
 				<width>770</width>
 				<height>760</height>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 			</control>
             <control type="label">
                 <label>$ADDON[script.trakt 32148]</label>
@@ -64,18 +64,6 @@
                 <width>710</width>
                 <height>625</height>
                 <texture border="5">dialogs/trakt/qr_code.png</texture>
-            </control>
-            <control type="button">
-                    <label></label>
-                    <description>Close Window button</description>
-                    <posx>664</posx>
-                    <posy>-59</posy>
-                    <width>96</width>
-                    <height>48</height>
-                    <onclick>PreviousMenu</onclick>
-                    <texturefocus>dialogs/trakt/close-fo.png</texturefocus>
-                    <texturenofocus>dialogs/trakt/close-nofo.png</texturenofocus>
-					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
             </control>
 		</control>
 	</control>

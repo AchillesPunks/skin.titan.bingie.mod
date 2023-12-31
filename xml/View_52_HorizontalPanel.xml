@@ -2,9 +2,9 @@
 <includes>
 <!-- Poster Row Group Layout -->
 	<include name="View52_layout">
-            <posx>60</posx>
+            <posx>62</posx>
             <bottom>16%</bottom>
-            <width>1827</width>
+            <width>1820</width>
             <height>345</height>
             <onup>9000</onup>
             <ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
@@ -21,45 +21,33 @@
             <preloaditems>2</preloaditems>
             <orientation>horizontal</orientation>
             <preloaditems>2</preloaditems>
-            <itemlayout height="345" width="260">
+            <itemlayout height="345" width="259">
             <!-- Poster UnFocus Layout -->
 			<control type="group">
-                <width>240</width>
-                <height>340</height>
+                <width>242</width>
+                <height>342</height>
                 <include>PosterPanelLayout</include>
-				<control type="group">
-            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay52</include>
-        </control>
 				<control type="group">
             <!--Watched Overlay-->
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorNormal</include>
-            <animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
-                <effect type="slide" end="1,-1" time="0"  />
-            </animation>
         </control>
             </control>
         </itemlayout>
         <!-- Poster Focus Layout -->
-		<focusedlayout height="345" width="260">
+		<focusedlayout height="345" width="259">
             <control type="group">
-                <width>240</width>
-                <height>340</height>
+                <width>242</width>
+                <height>342</height>
                 <animation effect="zoom" center="auto" start="100" end="108" time="160" tween="quadratic" condition="Skin.HasSetting(View52_EnableZoomEffect)">Focus</animation>
                 <animation effect="zoom" center="auto" start="108" end="100" time="160" tween="quadratic" condition="Skin.HasSetting(View52_EnableZoomEffect)">Unfocus</animation>
                 <include>PosterPanelLayoutFocus</include>
-				<control type="group">
-            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlay52</include>
-        </control>
 				<control type="group">
             <!--Watched Overlay-->
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorNormal</include>
-            <animation type="Conditional" condition="Skin.HasSetting(CaseOverlays)">
-                <effect type="slide" end="1,-1" time="0"  />
-            </animation>
         </control>
           </control>
         </focusedlayout>
@@ -88,7 +76,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View52_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -104,9 +92,6 @@
 			<!-- Movie Details -->
 			<control type="group">
 				<visible>Skin.HasSetting(PanelViewShowInfo)</visible>
-				<!-- <top>-140</top> -->
-				<!-- <width>1900</width> -->
-                <!-- <height>1050</height> -->
 				<include>MovieDetailsTop</include>
 			</control>
             
@@ -119,50 +104,17 @@
 				<control type="scrollbar" id="60">
 					<visible>Control.IsVisible(52) + Integer.IsGreater(Container.NumItems,0)</visible>
 					<left>70</left>
-					<bottom>4</bottom>
+					<bottom>0</bottom>
 					<width>1780</width>
 					<height>15</height>
 					<onup>52</onup>
 					<onleft>60</onleft>
 					<onright>60</onright>
 					<orientation>horizontal</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
 				</control>
 			</control>
 		</control>
 	</include>
-	<!-- CASE OVERLAYS -->
-    <include name="PosterCaseOverlay52">
-        <control type="group">
-            <visible>
-                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
-                String.Contains(ListItem.FileNameAndPath,.3d) |
-                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
-                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
-                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
-                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
-            </visible>
-            <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-                <control type="image">
-                <texture border="24" diffuse="diffuse/poster5.png">cases/default_top3.png</texture>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>8</bordersize>
-				<width>242</width>
-                <height>342</height>
-				<posx>-1</posx>
-				<posy>-1</posy>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
-                <top>12</top>
-                <height>24</height>
-                <aspectratio aligny="top" align="center">keep</aspectratio>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>0</bordersize>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
-            </control>
-        </control>
-    </include>
 </includes>

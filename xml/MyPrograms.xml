@@ -12,20 +12,16 @@
         <include>Header</include>
  
 		<!--NowPlaying-->
-		<include condition="!Skin.HasTheme(classic) + !Skin.HasSetting(LowPerformanceMode)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
  
 		<!-- all Views -->
         <include>allViews</include>
 	
-		
-        <!--Sub Menu Tab Left-->
-        <include condition="!Skin.HasSetting(DisableSideBladeIndicator)">SideBladeMenuTabLeft</include>
-		<include condition="!Skin.HasSetting(DisableSideBladeIndicator)">SideBladeMenuTabTop</include>
         <!--Sub Menu-->
         <control type="group">
 			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-            <include condition="Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
-			<include condition="![Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)]">SideBladeModern</include>
+            <include condition="Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
+			<include condition="!Skin.HasSetting(smallContextMenu)">SideBladeModern</include>
             <!--Grouplist 9000-->
             <control type="grouplist" id="9000">
                 <posx>21</posx>
@@ -35,7 +31,6 @@
                 <itemgap>3</itemgap>
                 <onleft>5000</onleft>
                 <onright>5000</onright>
-				<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 				<onright>ClearProperty(ShowViewSubMenu,Home)</onright>
 				<onleft>ClearProperty(ShowViewSubMenu,Home)</onleft>
 				<onback>ClearProperty(ShowViewSubMenu,Home)</onback>
@@ -43,25 +38,6 @@
                 <onup>9000</onup>
                 <ondown>9000</ondown>
                 <orientation>vertical</orientation>
-                <!--Buttons-->
-                <control type="label" id="200">
-                    <!--Label Menu-->
-                    <width>458</width>
-                    <align>left</align>
-                    <textoffsetx>50</textoffsetx>
-                    <font>Bold40</font>
-                    <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
-                    <label>$LOCALIZE[33061]:</label>
-					<visible>Skin.HasTheme(classic)</visible>
-                </control>
-                <control type="image" id="201">
-                    <!--Seperator-->
-                    <width>458</width>
-                    <height>10</height>
-                    <align>left</align>
-                    <texture>common/menu-separator.png</texture>
-					<visible>Skin.HasTheme(classic)</visible>
-                </control>
 
                <control type="button" id="3">
 					<description>Sort by button</description>
@@ -71,7 +47,7 @@
 				<control type="togglebutton" id="4">
 					<description>Sort asc</description>
 					<include>SideBladeMenuButton</include>
-					<alttexturefocus border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</alttexturefocus>
+					<alttexturefocus border="10" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</alttexturefocus>
 					<alttexturenofocus/>
 					<label>585</label>
 					<altlabel>584</altlabel>

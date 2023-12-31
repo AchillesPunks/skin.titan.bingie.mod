@@ -9,7 +9,7 @@
         <!--Global Background-->
         <include>GlobalBackground</include>
  		<!-- Now playing -->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 		
         <!--Header-->
         <include>Header</include>
@@ -100,7 +100,7 @@
                     <item id="2">
                         <description>Media Settings</description>
                         <label>14212</label>
-                        <label2>14212</label2>
+                        <label2>31401</label2>
                         <onclick>activatewindow(MediaSettings)</onclick>
                         <icon>resource://resource.images.skinbackgrounds.titanium/settings_media_settings.jpg</icon>
                         <thumb>resource://resource.images.skinicons.wide/media.png</thumb>
@@ -116,7 +116,7 @@
                     <item id="4">
                         <description>Player</description>
                         <label>14201</label>
-                        <label2>14201</label2>
+                        <label2>31402</label2>
                         <onclick>ActivateWindow(PlayerSettings)</onclick>
                         <icon>resource://resource.images.skinbackgrounds.titanium/settings_player_settings.jpg</icon>
                         <thumb>resource://resource.images.skinicons.wide/player.png</thumb>
@@ -164,7 +164,7 @@
                     <item id="13">
                         <description>Games</description>
                         <label>$LOCALIZE[15016]</label>
-                        <label2>$LOCALIZE[15016]</label2>
+                        <label2>$LOCALIZE[31403]</label2>
                         <onclick>ActivateWindow(GameSettings)</onclick>
                         <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
                         <thumb>resource://resource.images.skinicons.wide/addon.png</thumb>
@@ -172,7 +172,7 @@
                     <item id="14">
                         <description>File Manager</description>
                         <label>7</label>
-                        <label2>7</label2>
+                        <label2>31404</label2>
                         <onclick>ActivateWindow(filemanager)</onclick>
                         <icon>resource://resource.images.skinbackgrounds.titanium/system.jpg</icon>
                         <thumb>resource://resource.images.skinicons.wide/file.png</thumb>
@@ -185,7 +185,7 @@
 		<!--Footer-->
         <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
-        <include>BingieVersion</include>
+        <include>BingieLogo</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
     </controls>
 </window>

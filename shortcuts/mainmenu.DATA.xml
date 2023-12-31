@@ -18,15 +18,6 @@
 		<thumb />
 		<action>ActivateWindow(home,return)</action>
 	</shortcut>
-	
-	<!-- Play Something Hub -->
-	<shortcut>
-		<label>320027</label>                           
-		<label2>320027</label2>                         
-		<icon>shortcuts/something.png</icon>
-		<thumb />
-		<action>ActivateWindow(1118,return)</action>
-	</shortcut>
 
 	<!-- New/Popular Hub -->
 	<shortcut>
@@ -63,24 +54,6 @@
         <thumb />
 		<action>ActivateWindow(1119,return)</action>
 	</shortcut>
-
-	<!-- Music -->
-	<shortcut>
-		<label>2</label>
-		<label2>2</label2>
-		<icon>shortcuts/music.png</icon>
-		<thumb />
-		<action>ActivateWindow(Music,musicdb://albums/,return)</action>
-	</shortcut> 
-	
-	<!-- Live TV -->
-	<!-- <shortcut> -->
-		<!-- <label>32022</label> -->
-		<!-- <label2>32022</label2> -->
-		<!-- <icon>shortcuts/antenna.png</icon> -->
-		<!-- <thumb /> -->
-		<!-- <action>ActivateWindow(1116,return)</action> -->
-	<!-- </shortcut>  -->
 
 	<!-- My List Hub -->
     <shortcut>

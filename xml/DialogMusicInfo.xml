@@ -36,14 +36,6 @@
         <texture>diffuse/panel2.png</texture>
         <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
       </control>
-      <!-- close dialog -->
-      <control type="group">
-        <include>animation_fade_visible_hidden</include>
-        <right>60</right>
-        <width>60</width>
-        <posy>40</posy>
-        <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
-      </control>
 
       <!--Header-->
       <control type="label">
@@ -205,7 +197,7 @@
         <height>430</height>
         <texture border="5">dialogs/default/inner.png</texture>
       </control>
-      <control type="textbox" id="4">
+      <control type="textbox">
         <description>Plot value</description>
         <posx>695</posx>
         <posy>506</posy>
@@ -213,18 +205,7 @@
         <height>400</height>
         <align>justify</align>
         <pagecontrol>60</pagecontrol>
-        <label>$INFO[ListItem.Plot]</label>
-      </control>
-      <control type="textbox" id="55">
-        <description>Plot value fallback</description>
-        <posx>695</posx>
-        <posy>506</posy>
-        <width>1160</width>
-        <height>400</height>
-        <align>justify</align>
-        <pagecontrol>60</pagecontrol>
-        <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</label>
-        <visible>String.IsEmpty(Control.GetLabel(4))</visible>
+        <label>$VAR[Plots]</label>
       </control>
 
       <control type="scrollbar" id="60">
@@ -235,8 +216,8 @@
         <ondown>60</ondown>
         <onleft>9000</onleft>
         <onright>9000</onright>
-        <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-        <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+        <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
       </control>
 
       <!--Button Group-->
@@ -272,7 +253,6 @@
           <align>center</align>
           <include>DialogButtonOther</include>
           <label>13405</label>
-          <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
         </control>
         <control type="button" id="7">
           <!--set personal rating-->
@@ -281,7 +261,6 @@
           <align>center</align>
           <include>DialogButtonOther</include>
           <label>38023</label>
-          <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
         </control>
 		<control type="button" id="3102">
 		  <!--Youtube-->
@@ -290,7 +269,6 @@
           <align>center</align>
           <include>DialogButtonOther</include>
           <label>31797</label>
-          <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
           <onclick>Close</onclick>
           <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/search/?q=$INFO[ListItem.Artist],return)</onclick>
 		</control>
@@ -301,7 +279,6 @@
           <align>center</align>
           <include>DialogButtonOther</include>
           <label>184</label>
-          <enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
         </control>
       </control>
       <!--Arrows-->

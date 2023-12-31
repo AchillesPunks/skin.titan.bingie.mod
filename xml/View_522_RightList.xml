@@ -2,8 +2,7 @@
 <!-- BINGIE -->
 <includes>
     <include name="View_522_RightList">
-        <!--Panel-->
-		
+        <!--Panel-->	
         <control type="group">
             <visible>Control.IsVisible(522)</visible>
             <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
@@ -13,7 +12,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View522_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -21,19 +20,22 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+			<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
 
-            <include>MovieDetailsLeft_Small</include>
+            <!-- info panel -->
+			<control type="group">
+				<include>MovieDetailsLeft_Small</include>
+			</control>          
 
             <!-- ID="522" -->
             <control type="list" id="522">
-                <bottom>148</bottom>
-                <height>720</height>
-                <right>65</right>
-                <width>800</width>
+                <bottom>146</bottom>
+                <height>722</height>
+                <right>60</right>
+                <width>781</width>
                 <onleft>9000</onleft>
                 <onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
                 <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
@@ -45,42 +47,42 @@
                     <param name="viewtype" value="$LOCALIZE[31722]" />
                 </include>
                 <scrolltime>300</scrolltime>
-                <itemlayout width="800" height="62">
+                <itemlayout width="781" height="63">
                     <control type="label">
                         <!--Label 1-->
                         <align>right</align>
-                        <right>10</right>
-                        <width>98%</width>
+                        <right>14</right>
+                        <width>753</width>
                         <font>Reg28</font>
                         <textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
                         <label>$VAR[ListTitle]</label>
                     </control>
                     <control type="image">
                         <!--Separator-->
-                        <right>0</right>
-                        <posy>62</posy>
-                        <width>797</width>
-                        <height>20</height>
+                        <right>7</right>
+                        <posy>63</posy>
+                        <width>767</width>
+                        <height>2</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
                         <texture>common/separator.png</texture>
                     </control>
                 </itemlayout>
-                <focusedlayout width="800" height="90">
+                <focusedlayout width="781" height="90">
                     <control type="image">
 						<right>0</right>
 						<posy>0</posy>
-						<height>86</height>
+						<height>90</height>
 						<width>100%</width>
-						<texture border="5">diffuse/panel.png</texture>
+						<texture border="10">diffuse/panel.png</texture>
 						<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 					</control>
                     <control type="label">
                         <!--Label 1-->
                         <align>right</align>
 						<posy>-2</posy>
-                        <right>10</right>
-                        <width>98%</width>
+                        <right>14</right>
+                        <width>753</width>
                         <height>54</height>
                         <font>Reg36</font>
 						<scroll>true</scroll>
@@ -91,8 +93,8 @@
                         <!--Label 2-->
                         <align>right</align>
 						<posy>49</posy>
-                        <right>10</right>
-                        <width>98%</width>
+                        <right>14</right>
+                        <width>753</width>
                         <posy>50</posy>
                         <height>30</height>
                         <font>Light28</font>
@@ -103,10 +105,10 @@
                     </control>
                     <control type="image">
                         <!--Separator-->
-                        <right>0</right>
-                        <posy>86</posy>
-                        <width>797</width>
-                        <height>20</height>
+                        <right>7</right>
+                        <posy>90</posy>
+                        <width>767</width>
+                        <height>2</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
                         <texture>common/separator.png</texture>
@@ -114,9 +116,9 @@
 					
                 </focusedlayout>
             </control>
-            <!--Poster with discart-->
+            <!--Poster-->
             <control type="group">
-                <right>870</right>
+                <right>863</right>
                 <width>500</width>
                 <bottom>13%</bottom>
                 <height>736</height>
@@ -149,18 +151,17 @@
                 </control>
             </control>
         
-
             <!--vertical Scollbar-->
             <control type="scrollbar" id="60">
                 <visible>Control.IsVisible(522) + Integer.IsGreater(Container.NumItems,0)</visible>
-                <right>10</right>
+                <right>15</right>
                 <bottom>148</bottom>
                 <height>720</height>
                 <onup>60</onup>
                 <ondown>6000</ondown>
                 <onleft>522</onleft>
-                <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-                <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
             </control>
         </control>
  	</include>

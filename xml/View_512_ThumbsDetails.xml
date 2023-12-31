@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-  
   <include name="View_512_ThumbsDetails">
-	
     <control type="group">
       <visible>Control.IsVisible(512)</visible>
 		<include>animation_view_change</include>
@@ -11,7 +9,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View512_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -24,18 +22,21 @@
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
 
-    <include>MovieDetailsLeft</include>
+    	<control type="group">
+		  <animation effect="slide" end="7" time="0" condition="Skin.HasSetting(View512_ShowInfoRight)">Conditional</animation>
+          <include>MovieDetailsLeft</include>
+        </control>
 	  
 	  <control type="panel" id="512">
-        <animation effect="slide" end="-635" time="250" condition="Skin.HasSetting(View512_ShowInfoRight)">Conditional</animation>
+        <animation effect="slide" end="-630" time="0" condition="Skin.HasSetting(View512_ShowInfoRight)">Conditional</animation>
         <viewtype label="31439">icons</viewtype>
           <include content="View_Forced">
               <param name="viewtype" value="$LOCALIZE[31439]" />
           </include>
-        <right>40</right>
-        <bottom>167</bottom>
-        <height>704</height>
-        <width>1192</width>
+        <right>26</right>
+        <bottom>126</bottom>
+        <height>750</height>
+        <width>1212</width>
         <orientation>vertical</orientation>
         <onleft>9000</onleft>
 		<onleft>CancelAlarm(preview_delay,silent)</onleft>
@@ -48,17 +49,17 @@
         <ondown>512</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-          <itemlayout height="176" width="296" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+          <itemlayout height="187" width="296">
             <control type="group">
-                <width>288</width>
-                <height>168</height>
+                <width>298</width>
+                <height>175</height>
                 <include>ThumbsViewLayoutSmall</include>
             </control>
         </itemlayout>
-        <focusedlayout height="176" width="296" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <focusedlayout height="187" width="296">
 			<control type="group">
-                <width>288</width>
-                <height>168</height>
+                <width>298</width>
+                <height>175</height>
 				<include>ThumbsViewLayoutFocusSmall</include>
                 <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
 						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
@@ -66,50 +67,20 @@
 						</include>
 			</control>
         </focusedlayout>
-         <itemlayout height="248" width="397" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-			<control type="group">
-                <width>356</width>
-                <height>240</height>
-                <left>20</left>
-                <include>ThumbsViewLayoutSmall</include>
-            </control>
-        </itemlayout>
-        <focusedlayout height="248" width="397" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-			<control type="group">
-				<animation type="focus">
-					<effect type="zoom" start="100" end="105" center="auto" time="150" />
-				</animation>
-				<animation type="unfocus">
-					<effect type="zoom" start="105" end="100" center="auto" time="150" />
-				</animation>
-                <width>356</width>
-                <height>240</height>
-                <left>20</left>
-				<include>ThumbsViewLayoutFocusSmall</include>
-			</control>
-        </focusedlayout>
- 	  </control>
-      
-	  
-	  
+ 	  </control>     	  	  
 	  <!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(512) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>10</right>
+			<right>15</right>
 			<bottom>148</bottom>
             <height>720</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>509</onleft>
-			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-		</control>
-    
-	  
-    </control>
-	
-	
-	
-
+			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+			<animation effect="slide" end="5" time="0" condition="Skin.HasSetting(View512_ShowInfoRight) + Skin.HasSetting(DetailsLeftHidepanel)">Conditional</animation>
+		</control>   	  
+    </control>			
   </include>
 </includes>

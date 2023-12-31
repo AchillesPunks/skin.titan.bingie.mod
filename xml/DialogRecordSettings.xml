@@ -134,7 +134,6 @@
                         <description>Separator</description>
                         <height>2</height>
                         <width>1200</width>
-                        <aspectratio align="left" aligny="top">stretch</aspectratio>
                         <texture>common/separator.png</texture>
                     </control>
                     <control type="spincontrolex" id="13">

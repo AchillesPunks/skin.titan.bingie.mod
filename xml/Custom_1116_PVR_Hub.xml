@@ -6,29 +6,16 @@
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
 
-    <onload condition="!$EXP[IsPlayingRecognizedContent] + Skin.HasSetting(PVRPreview)">SetProperty(AllowPVRPreview,1,Home)</onload>
-    <onunload condition="$EXP[IsPlayingRecognizedContent] + !String.IsEmpty(Window(Home).Property(AllowPVRPreview))">PlayerControl(Stop)</onunload>
-
-    <onunload>ClearProperty(PlayingPVRPreview,Home)</onunload>
-    <onunload>ClearProperty(AllowPVRPreview,Home)</onunload>
-
     <controls>
 		<include>Defs_TMDbHelper_Loader</include>
         <include>GlobalBackground</include>
         <include>NowPlayingBackground</include>
-        <include>NowPlayingInfoBar</include>
         <!-- hidden submenu for count calculations -->
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
 
         <!-- Spotlight Section -->
         <include content="Bingie_Base_BG">
-            <param name="visibility" value="![Player.HasVideo + String.IsEmpty(Window(Home).Property(AllowPVRPreview))]" />
-        </include>
-
-        <include content="Preview_Window">
-            <param name="id" value="11601" />
-            <param name="visibility" value="Player.HasVideo + !String.IsEmpty(Window(Home).Property(AllowPVRPreview))" />
-            <param name="videowindowVisibility" value="Player.HasVideo + !String.IsEmpty(Window(Home).Property(AllowPVRPreview))" />
+            <param name="visibility" value="!Player.HasVideo" />
         </include>
 
         <control type="group">
@@ -136,31 +123,17 @@
             <usecontrolcoords>true</usecontrolcoords>
             <left>0</left>
             <top>575</top>
-            <include condition="Skin.HasSetting(EnableFixedFocusWidgets)">Fixed_Focus_Bottom</include>
+            <include>Fixed_Focus_Bottom</include>
             <bottom>0</bottom>
-            <include condition="Skin.HasSetting(EnableFixedFocusWidgets)">Fixed_Focus_Itemgap</include>
+            <include>Fixed_Focus_Itemgap</include>
             <itemgap>2</itemgap>
             <pagecontrol>317</pagecontrol>
             <orientation>vertical</orientation>
             <width>100%</width>
-            <onback condition="$EXP[IsPlayingRecognizedContent] + String.IsEmpty(Window(Home).Property(AllowPVRPreview))">SetFocus(509)</onback>
-            <onback condition="$EXP[IsPlayingRecognizedContent] + !String.IsEmpty(Window(Home).Property(AllowPVRPreview))">SetProperty(KeepPlayingPreview,1,Home)</onback>
-            <onback condition="![$EXP[IsPlayingRecognizedContent] + String.IsEmpty(Window(Home).Property(AllowPVRPreview))]">900</onback>
-            <onleft condition="!Skin.HasSetting(EnhancedHome_Circular) + $EXP[IsPlayingRecognizedContent] + !String.IsEmpty(Window(Home).Property(AllowPVRPreview))">SetProperty(KeepPlayingPreview,1,Home)</onleft>
-            <onleft condition="!Skin.HasSetting(EnhancedHome_Circular)">900</onleft>
+            <onback condition="$EXP[IsPlayingRecognizedContent]">SetFocus(509)</onback>
+            <onback condition="$EXP[IsPlayingRecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onback>
+            <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
             <include>bingie_items_pvr</include>
-        </control>
-
-        <control type="scrollbar" id="317">
-            <visible>!Skin.HasSetting(EnableFixedFocusWidgets) + [Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)]</visible>
-            <width>15</width>
-            <orientation>vertical</orientation>
-            <top>620</top>
-            <right>0</right>
-            <bottom>7</bottom>
-            <onleft>77777</onleft>
-            <onright>noop</onright>
-            <showonepage>false</showonepage>
         </control>
 
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="Skin.HasSetting(EnableFixedFrameWidgets)">
@@ -179,6 +152,15 @@
             <param name="height" value="210"/>
             <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
+		
+		<!-- gradient overlays on widgets -->
+        <control type="group">
+			<visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+			<include>Animation_Right_Home</include>
+            <include>Bingie_Left_Gradient</include>
+        </control>
+		
+		<include>Header</include>
 
         <include content="Dim_Overlay">
             <param name="visibility" value="$EXP[IsMainMenuOpened]" />
@@ -192,12 +174,24 @@
             <param name="size" value="100"/>
         </include>
         <!-- Main Menu -->
-        <include>BingieSideBladeMainMenu</include>
+        <control type="group">
+			<include>BingieSideBladeMainMenu</include>
+			<animation effect="fade" start="100" end="50" time="300" condition="!Control.IsVisible(40003) + !$EXP[IsMainMenuOpened] + !$EXP[IsCurrentWidgetSpotlight] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive2] | [Window.IsActive(1114) + Skin.HasSetting(AddToWatchlist)]] + Container.HasPrevious">Conditional</animation>
+		</control>	
 
         <!-- fake go-to-fullscreen button -->
         <control type="button" id="509">
             <visible allowhiddenfocus="true">false</visible>
             <onfocus>FullScreen</onfocus>
+        </control>
+		
+		<!-- Snow Effect -->
+        <control type="group">
+            <include condition="String.IsEqual(Skin.String(season_greetings),snow_animation)">snow</include>
+        </control>
+		<!-- Halloween Effect -->
+        <control type="group">
+            <include condition="String.IsEqual(Skin.String(season_greetings),halloween_animation)">pumpkin</include>
         </control>
     </controls>
 </window>

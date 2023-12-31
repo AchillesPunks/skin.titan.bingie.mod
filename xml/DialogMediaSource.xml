@@ -6,7 +6,6 @@
     <controls>
         <!--Dialog Overlay-->
         <include>DialogOverlayExtra</include>
-		<include condition="Skin.HasSetting(EnableTouchSupport)">Footer</include>
 		
         <!--Dialog Media Source-->
         <control type="group">
@@ -140,7 +139,7 @@
                             <control type="image">
                                 <width>690</width>
                                 <height>60</height>
-                                <texture border="5">diffuse/panel.png</texture>
+                                <texture border="10">diffuse/panel.png</texture>
                                 <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                             </control>
                             <control type="label">

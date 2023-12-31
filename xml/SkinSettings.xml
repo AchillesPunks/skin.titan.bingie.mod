@@ -9,7 +9,7 @@
         <!--Global Background-->
         <include>GlobalBackground</include>
          <!-- Now playing -->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 		
         <!--Header-->
         <include>Header</include>
@@ -40,7 +40,7 @@
 				<posx>90</posx>
 				<posy>20</posy>
 				<width>440</width>
-				<height>96%</height>
+				<height>807</height>
 				<onright>1000</onright>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
@@ -51,6 +51,7 @@
 				<posx>600</posx>
 				<posy>20</posy>
                 <width>1200</width>
+				<height>807</height>
                 <include>SkinSettings_HomeLayout</include>
                 <include>SkinSettings_Shortcuts</include>
 				<include>SkinSettings_Library</include>
@@ -69,7 +70,7 @@
 		<!--Footer-->
         <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
-        <include>BingieVersion</include>
+        <include>BingieLogo</include>
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
 	</controls>
 </window>

@@ -9,7 +9,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View505_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -49,14 +49,14 @@
             </include>
             <visible>!Container.Content(files)</visible>
 			<scrolltime tween="cubic" easing="inout">500</scrolltime>
-			<itemlayout width="605" height="365" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+			<itemlayout width="605" height="365">
 				<control type="group">
                     <width>565</width>
                     <height>325</height>
                     <include>LandscapeLayout</include>
                 </control>
 			</itemlayout>
-			<focusedlayout width="605" height="365" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+			<focusedlayout width="605" height="365">
 				<control type="group">
                     <width>565</width>
                     <height>325</height>
@@ -67,41 +67,19 @@
 						</include>
                 </control>
 			</focusedlayout>
-            <itemlayout width="595" height="378" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-                <control type="group">
-                    <width>493</width>
-                    <height>368</height>
-                    <left>60</left>
-                    <include>LandscapeLayout</include>
-                </control>
-            </itemlayout>
-            <focusedlayout width="595" height="378" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-                <control type="group">
-                    <width>493</width>
-                    <height>368</height>
-                    <left>60</left>
-                    <include>LandscapeLayoutFocus</include>
-                </control>
-            </focusedlayout>
-		</control>
-		  
-		  
-		  
+		</control>		  	  		  
 		  <!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(505) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>10</right>
-				<bottom>148</bottom>
-                <height>720</height>
+				<right>15</right>
+				<bottom>189</bottom>
+                <height>674</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>505</onleft>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-			</control>
-			
-	  
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+			</control>			  
     </control>
-
   </include>
 </includes>

@@ -3,16 +3,11 @@
 
     <!-- POSTER LAYOUT -->
     <include name="PosterPanelLayout">
-        <!-- <control type="image"> -->
-            <!-- <include>PosterThumbBG</include> -->
-            <!-- <include>thumbsborder_unfocused</include> -->
-        <!-- </control> -->
         <include>PosterThumbLayout</include>
         <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
     </include>
     <include name="PosterPanelLayoutFocus">
-        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]] | Window.IsActive(movieinformation)">PosterThumbFO</include>
-        <include condition="Skin.HasSetting(CaseOverlays)">BigPosterThumbFO_Case</include>
+        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]] | Window.IsActive(movieinformation)">PosterThumbFO</include>
 		<include>PosterThumbLayout</include>
         <include condition="!Window.IsActive(Home)">PosterTagOverlay</include>
     </include>
@@ -65,51 +60,26 @@
         </control>
     </include>
 	
-	<!-- POSTER LAYOUT FOR EXTENDED INFO -->
-    <include name="PosterPanelExtendedInfo">
-        <include>PosterThumbBingieLayout</include>
-    </include>
-    <include name="PosterPanelExtendedInfoFocus">
-        <include>PosterThumbFOBingie</include>
-        <include>PosterThumbBingieLayout</include>
-    </include>
-	
 	<!-- POSTER LAYOUT FOR BINGIE VIEWS -->
     <include name="PosterPanelBingieLayout">
-        <!-- <control type="image"> -->
-            <!-- <include>PosterThumbBGBingie</include> -->
-            <!-- <include>thumbsborder_unfocused</include> -->
-        <!-- </control> -->
         <include>PosterThumbBingieLayout</include>
-        <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + [Window.IsActive(1190) | Window.IsActive(1191) | !Window.IsActive(DialogVideoInfo.xml)]">PosterTagOverlayBingie</include>
-        <control type="group">
-            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlayBingie</include>
-        </control>
+        <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + !Window.IsActive(1106) + [Window.IsActive(1190) | Window.IsActive(1191) | !Window.IsActive(DialogVideoInfo.xml)]">PosterTagOverlayBingie</include>
         <control type="group">
             <!--Watched Overlay-->
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorNormal</include>
-            <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                <effect type="slide" end="3,-3" time="0"  />
-            </animation>
         </control>
     </include>
     <include name="PosterPanelBingieLayoutFocus">
-        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]] | Window.IsActive(movieinformation) | Window.IsActive(1109) | Window.IsActive(1108)">PosterThumbFOBingie</include>
+        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]] | Window.IsActive(movieinformation) | Window.IsActive(1109) | Window.IsActive(1108) | Window.IsActive(1106)">PosterThumbFOBingie</include>
         <include>PosterThumbBingieLayout</include>
-        <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + [Window.IsActive(1190) | Window.IsActive(1191) | !Window.IsActive(DialogVideoInfo.xml)]">PosterTagOverlayBingie</include>
-        <control type="group">
-            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlayBingie</include>
-        </control>
+        <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + !Window.IsActive(1106) + [Window.IsActive(1190) | Window.IsActive(1191) | !Window.IsActive(DialogVideoInfo.xml)]">PosterTagOverlayBingie</include>
         <control type="group">
             <!--Watched Overlay-->
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorNormal</include>
-            <animation type="Conditional" condition="Skin.HasTheme(classic)">
-            <effect type="slide" end="3,-3" time="0"  />
-            </animation>
         </control>
     </include>
     
@@ -147,54 +117,28 @@
 	
 	<!-- POSTER LAYOUT FOR HIGHLIGHT WIDGET -->
     <include name="PosterPanelHighlightLayout">
-        <!-- <control type="image"> -->
-            <!-- <include>PosterThumbBGBingie</include> -->
-            <!-- <include>thumbsborder_unfocused</include> -->
-        <!-- </control> -->
         <include>PosterThumbHighlightLayout</include>
         <include condition="!Window.IsActive(Home)">PosterTagOverlayBingie</include>
-        <control type="group">
-            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlayBingie</include>
-        </control>
         <control type="group">
             <!--Watched Overlay-->
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorNormal</include>
-            <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                <effect type="slide" end="3,-3" time="0"  />
-            </animation>
         </control>
     </include>
 	
 	<include name="PosterThumbHighlightLayout">
         <control type="image">
-            <description>Normal Poster thumb stretched aspect</description>
             <texture background="true" diffuse="diffuse/poster3.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(fanart)]</texture>
             <aspectratio scalediffuse="true" aligny="center" align="center">scale</aspectratio>
             <bordersize>8</bordersize>
             <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
         </control>
 		<control type="image">
-            <description>Normal Poster thumb stretched aspect</description>
             <texture background="true">overlays/gradient_poster.png</texture>
             <aspectratio scalediffuse="true" aligny="center" align="center">scale</aspectratio>
             <bordersize>8</bordersize>
             <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-        </control>
-        <control type="image">
-            <description>Fallback Poster thumb keep aspect for all other</description>
-            <texture background="true" diffuse="diffuse/poster3.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(fanart)]</texture>
-            <aspectratio scalediffuse="false" aligny="center" align="center">scale</aspectratio>
-            <bordersize>8</bordersize>
-            <visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-        </control>
-		<control type="image">
-            <description>Fallback Poster thumb keep aspect for all other</description>
-            <texture background="true">overlays/gradient_poster.png</texture>
-            <aspectratio scalediffuse="false" aligny="center" align="center">scale</aspectratio>
-            <bordersize>8</bordersize>
-            <visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
         </control>
 		<control type="group">
 			<left>60</left>
@@ -205,16 +149,11 @@
     
     <!-- SMALL POSTER LAYOUT -->
     <include name="SmallPosterPanelLayout">
-        <!-- <control type="image"> -->
-            <!-- <include>SmallPosterThumbBG</include> -->
-            <!-- <include>thumbsborder_unfocused</include> -->
-          <!-- </control> -->
           <include>SmallPosterThumbLayout</include>
           <include condition="!Window.IsActive(Home)">SmallPosterTagOverlay</include>
     </include>
     <include name="SmallPosterPanelLayoutFocus">
-        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]">SmallPosterFo</include>
-		<include condition="Skin.HasSetting(CaseOverlays)">SmallPosterFo_Case</include>
+        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]">SmallPosterFo</include>
         <include>SmallPosterThumbLayout</include>
         <include condition="!Window.IsActive(Home)">SmallPosterTagOverlay</include>
     </include>
@@ -234,40 +173,24 @@
 	
 	 <!-- SMALL POSTER LAYOUT BINGIE -->
     <include name="SmallPosterPanelBingieLayout">
-        <!-- <control type="image"> -->
-            <!-- <include>PosterThumbBGBingie</include> -->
-            <!-- <include>thumbsborder_unfocused</include> -->
-          <!-- </control> -->
           <include>PosterThumbBingieLayout</include>
           <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117)">smallposterTagOverlayBingie</include>
-          <control type="group">
-            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlayBingieSmall</include>
-          </control>
           <control type="group">
 			<!--Watched Overlay-->
 			<right>8</right>
 			<top>8</top>
 			<include>WatchedIndicatorSmall</include>
-			<animation type="Conditional" condition="Skin.HasTheme(classic)">
-				<effect type="slide" end="3,-3" time="0"  />
-			</animation>
 		</control>
     </include>
     <include name="SmallPosterPanelBingieLayoutFocus">
-        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]">SmallPosterFoBingie</include>
+        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]">SmallPosterFoBingie</include>
         <include>PosterThumbBingieLayout</include>
         <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117)">SmallPosterTagOverlayBingie</include>
-        <control type="group">
-            <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlayBingieSmall</include>
-        </control>
         <control type="group">
             <!--Watched Overlay-->
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorSmall</include>
-            <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                <effect type="slide" end="3,-3" time="0"  />
-            </animation>
         </control>
     </include>
 
@@ -279,14 +202,6 @@
     </include>
     
     <!-- GENERIC LAYOUT FOR POSTERS -->
-    <!-- <include name="PosterThumbBG"> -->
-        <!-- <texture>diffuse/poster.png</texture> -->
-        <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-    <!-- </include> -->
-	<!-- <include name="SmallPosterThumbBG"> -->
-        <!-- <texture>diffuse/poster6.png</texture> -->
-        <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-    <!-- </include> -->
 	<include name="PosterThumbFO_Defs">
         <texture>diffuse/poster4.png</texture>
         <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
@@ -305,11 +220,6 @@
 		<bordersize>3</bordersize>
         <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
     </include>
-	<!-- GENERIC LAYOUT FOR POSTERS BINGIE VIEWS -->
-    <!-- <include name="PosterThumbBGBingie"> -->
-        <!-- <texture>diffuse/poster3.png</texture> -->
-        <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-    <!-- </include> -->
     <include name="PosterThumbFO_DefsBingie">
         <texture>diffuse/poster3.png</texture>
         <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
@@ -329,7 +239,7 @@
             ![Control.IsVisible(526) + Skin.String(View526.Tags,disable)]
         </visible>
         <visible>
-            [Control.IsVisible(52) + Skin.String(View52.Tags,enable)] | 
+            [[Control.IsVisible(52) + Skin.String(View52.Tags,enable)] | 
             [Control.IsVisible(53) + Skin.String(View53.Tags,enable)] | 
             [Control.IsVisible(54) + Skin.String(View54.Tags,enable)] | 
             [Control.IsVisible(57) + Skin.String(View57.Tags,enable)] | 
@@ -338,9 +248,8 @@
             [Control.IsVisible(520) + Skin.String(View520.Tags,enable)] | 
             [Control.IsVisible(521) + Skin.String(View521.Tags,enable)] |
             [Control.IsVisible(526) + Skin.String(View526.Tags,enable)] |
-            [[String.Contains(Window.Property(xmlfile),Nav) | Window.IsActive(Home)] + String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster)) + !String.IsEqual(Skin.String(Widgets_DisplayTags),disable)] |
-            [Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + String.IsEmpty(ListItem.Art(fanart))] | 
-            [!String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Season) + !Container.Content(seasons) + !String.IsEqual(ListItem.Label, ListItem.TvshowTitle) + Skin.HasSetting(ShowLabelsPosterEpisodes)] | Window.IsActive(1109) | Window.IsActive(1108) | Window.IsActive(1190) | Window.IsActive(1191) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)
+            [[String.Contains(Window.Property(xmlfile),Nav) | Window.IsActive(Home)] + String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster)) + !String.IsEqual(Skin.String(Widgets_DisplayTags),disable)] | 
+            [String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster)) + [Window.IsActive(1109) | Window.IsActive(1108) | Window.IsActive(1106) | Window.IsActive(1190) | Window.IsActive(1191) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)]]] | [[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + Skin.HasSetting(ShowLabelsPosterEpisodes) + [String.IsEqual(Skin.String(Widgets_DisplayTags),enable) | String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | String.IsEqual(Skin.String(Widgets_DisplayTags),override)]]
         </visible>
     </include>
     <include name="PosterTagOverlay">
@@ -386,9 +295,9 @@
     </include>
 	<include name="PosterTagOverlayBingie">
         <control type="group">
-            <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + !Window.IsActive(1190) + !Window.IsActive(1191) + !Window.IsActive(DialogVideoInfo.xml) + !Window.IsActive(script-globalsearch.xml)">PosterTagOverlayVisibility</include>
-			<visible>![$EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodes] + !Skin.HasSetting(DisableNewEpisodesIndicator)]</visible>
-			<visible>![!String.IsEmpty(ListItem.Art(poster)) + [Window.IsActive(1109) | Window.IsActive(1108) | Window.IsActive(1190) | Window.IsActive(1191) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)] + [$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | ListItem.IsCollection] + !String.IsEqual(Skin.String(Widgets_DisplayTags),enable)]</visible>
+            <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + !Window.IsActive(1106) + !Window.IsActive(1190) + !Window.IsActive(1191) + !Window.IsActive(DialogVideoInfo.xml) + !Window.IsActive(script-globalsearch.xml) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">PosterTagOverlayVisibility</include>
+			<visible>![[$EXP[IsTvShowDBType] | $EXP[IsMovieDBType]] + [$EXP[IsTVShowInLastEpisodes] | $EXP[IsNewMovie]] + [!Skin.HasSetting(DisableNewEpisodesIndicator)]]</visible>
+			<visible>![!String.IsEmpty(ListItem.Art(poster)) + [Window.IsActive(1109) | Window.IsActive(1108) | Window.IsActive(1106) | Window.IsActive(1190) | Window.IsActive(1191) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)] + [$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | ListItem.IsCollection] + !String.IsEqual(Skin.String(Widgets_DisplayTags),enable)] | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]</visible>
             <!--Panel-->
             <control type="image">
                 <bottom>0</bottom>
@@ -520,11 +429,10 @@
             <height>30</height>
             <left>45</left>
             <bottom>7</bottom>
-			<animation effect="slide" end="-7" time="0" condition="Window.IsActive(1190)">Conditional</animation>
+			<animation effect="slide" end="-7" time="0" condition="Window.IsActive(1190) | Window.IsActive(1191)">Conditional</animation>
 			<animation effect="slide" end="14" time="0" condition="Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)">Conditional</animation>
-            <animation effect="slide" end="1,4" time="0" condition="!Skin.HasTheme(skindefault)">Conditional</animation>
             <control type="button">
-                <width min="150" max="215">auto</width>
+                <width>150</width>
                 <bottom>1</bottom>
 				<height>121%</height>
                 <onclick>noop</onclick>
@@ -533,171 +441,11 @@
                 <font>Reg19</font>
                 <textoffsety>1</textoffsety>
                 <label>[B]$LOCALIZE[31007][/B]</label>
-                <textcolor>white</textcolor>
-                <focusedcolor>white</focusedcolor>
+                <textcolor>$INFO[Skin.String(NewEpisodes.TextColor)]</textcolor>
+				<focusedcolor>$INFO[Skin.String(NewEpisodes.TextColor)]</focusedcolor>
                 <textoffsetx>5</textoffsetx>
-                <texturefocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]" border="15">diffuse/panel4.png</texturefocus>
-                <texturenofocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]" border="15">diffuse/panel4.png</texturenofocus>
-            </control>
-        </control>
-    </include>
-
-    <!-- CASE OVERLAYS -->
-    <include name="PosterCaseOverlay">
-        <control type="group">
-            <visible>
-                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
-                String.Contains(ListItem.FileNameAndPath,.3d) |
-                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
-                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
-                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
-                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
-            </visible>
-            <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-                <control type="image">
-                <texture border="5" diffuse="diffuse/poster.png">cases/default_top3.png</texture>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>8</bordersize>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
-                <top>12</top>
-                <height>24</height>
-                <aspectratio aligny="top" align="center">keep</aspectratio>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>0</bordersize>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
-            </control>
-        </control>
-    </include>
-    <include name="PosterCaseOverlayFocus">
-        <control type="group">
-            <visible>
-                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
-                String.Contains(ListItem.FileNameAndPath,.3d) |
-                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
-                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
-                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
-                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
-            </visible>
-            <visible>!String.IsEqual(Container(900).ListItem.Property(widget),weather) + !String.IsEqual(Container(900).ListItem.Property(widget),systeminfo) + !String.IsEqual(Container(900).ListItem.Property(widget),youtube) + ![String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(fanart))]</visible>
-            <control type="image">
-                <texture border="5" diffuse="diffuse/poster.png">cases/default_top3.png</texture>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>8</bordersize>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
-                <top>12</top>
-                <height>24</height>
-                <aspectratio aligny="top" align="center">keep</aspectratio>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>0</bordersize>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</colordiffuse>
-            </control>
-        </control>
-    </include>
-    <variable name="PosterCaseOverlayVar">
-        <value condition="String.Contains(ListItem.FileNameAndPath,.3d)">cases/3d.png</value>
-        <value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k)">cases/uhd.png</value>
-        <value condition="[String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)]">cases/uhd.png</value>
-        <value condition="String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.EndsWith(ListItem.FileNameAndPath,.iso)">cases/dvd.png</value>
-        <value condition="String.IsEqual(ListItem.VideoResolution,480)">cases/sd.png</value>
-        <value condition="String.IsEqual(ListItem.VideoResolution,540)">cases/sd.png</value>
-        <value condition="String.IsEqual(ListItem.VideoResolution,576)">cases/sd.png</value>
-        <value condition="String.IsEqual(ListItem.VideoResolution,720)">cases/hd.png</value>
-        <value condition="String.IsEqual(ListItem.VideoResolution,1080)">cases/fhd.png</value>
-        <value condition="String.StartsWith(ListItem.Path,videodb://movies/sets)">cases/set.png</value>
-        <value condition="String.IsEqual(Skin.String(CaseOverlays.Fallback),FHD)">cases/fhd.png</value>
-        <value condition="String.IsEqual(Skin.String(CaseOverlays.Fallback),DVD)">cases/dvd.png</value>
-        <value condition="String.IsEqual(Skin.String(CaseOverlays.Fallback),UHD)">cases/uhd.png</value>
-    </variable>
-	
-	<!-- CASE OVERLAYS BINGIE -->
-    <include name="PosterCaseOverlayBingie">
-        <control type="group">
-            <visible>
-                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
-                String.Contains(ListItem.FileNameAndPath,.3d) |
-                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
-                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
-                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
-                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
-            </visible>
-            <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-                <control type="image">
-                <texture border="5" diffuse="diffuse/poster3.png">cases/default_top4.png</texture>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>8</bordersize>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
-                <top>12</top>
-                <height>24</height>
-                <aspectratio aligny="top" align="center">keep</aspectratio>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>0</bordersize>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
-            </control>
-        </control>
-    </include>
-    <include name="PosterCaseOverlayFocusBingie">
-        <control type="group">
-            <visible>
-                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
-                String.Contains(ListItem.FileNameAndPath,.3d) |
-                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
-                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
-                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
-                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
-            </visible>
-            <visible>!String.IsEqual(Container(900).ListItem.Property(widget),weather) + !String.IsEqual(Container(900).ListItem.Property(widget),systeminfo) + !String.IsEqual(Container(900).ListItem.Property(widget),youtube) + ![String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(fanart))]</visible>
-            <control type="image">
-                <texture border="5" diffuse="diffuse/poster3.png">cases/default_top4.png</texture>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>8</bordersize>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
-                <top>12</top>
-                <height>24</height>
-                <aspectratio aligny="top" align="center">keep</aspectratio>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>0</bordersize>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</colordiffuse>
-            </control>
-        </control>
-    </include>
-	<!-- CASE OVERLAYS BINGIE SMALL -->
-    <include name="PosterCaseOverlayBingieSmall">
-        <control type="group">
-            <visible>
-                !String.IsEqual(Skin.String(CaseOverlays.Fallback),None) | 
-                String.Contains(ListItem.FileNameAndPath,.3d) |
-                Integer.IsGreater(ListItem.VideoResolution,1080) | String.Contains(ListItem(0).FileNameAndPath,4k) |
-                [String.Contains(ListItem.FilenameAndPath,bdmv) | String.Contains(ListItem.FilenameAndPath,blu-ray) | String.Contains(ListItem.FilenameAndPath,bluray) | String.Contains(ListItem.FilenameAndPath,bdrip) | String.Contains(ListItem.FilenameAndPath,bd25) | String.Contains(ListItem.FilenameAndPath,bd50)] | 
-                String.EndsWith(ListItem.FileNameAndPath,dvd) | String.EndsWith(ListItem.FileNameAndPath,.ifo) | String.Contains(ListItem.FileNameAndPath,.iso) |
-                String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,540) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,720) | String.IsEqual(ListItem.VideoResolution,1080) | String.StartsWith(ListItem.Path,videodb://movies/sets)
-            </visible>
-            <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
-                <control type="image">
-                <texture border="20" diffuse="diffuse/poster3.png">cases/default_top4.png</texture>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>8</bordersize>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.Color)]</colordiffuse>
-            </control>
-            <control type="image">
-                <texture background="true">$VAR[PosterCaseOverlayVar]</texture>
-                <top>12</top>
-                <height>24</height>
-                <aspectratio aligny="top" align="center">keep</aspectratio>
-                <!-- border left,top,right,bottom  -->
-                <bordersize>0</bordersize>
-                <colordiffuse>$INFO[Skin.String(CaseOverlays.TextColor)]</colordiffuse>
+                <texturefocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]" border="10">diffuse/panel3.png</texturefocus>
+                <texturenofocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]" border="10">diffuse/panel3.png</texturenofocus>
             </control>
         </control>
     </include>
@@ -717,11 +465,12 @@
 		<value condition="!String.IsEmpty(ListItem.Property(tvshow.poster))">$INFO[ListItem.Property(tvshow.poster)]</value>
         <value condition="String.StartsWith(Container.FolderPath, pvr://) + String.IsEqual(Container.ListItem.Label,ListItem.Label)">$VAR[PVRThumb]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Listitem.Art(artist.thumb))">$INFO[Listitem.Art(artist.thumb)]</value>
+		<value condition="!String.IsEmpty(Listitem.Art(albumartist.thumb))">$INFO[Listitem.Art(albumartist.thumb)]</value>
 		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
 		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + !String.Contains(ListItem.FolderPath,music)">$VAR[MovieGenreIconVar]</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVar]</value>
-		<value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.StudioLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.StudioLogo)]</value>
         <value condition="Container.Content(actors) + !String.IsEmpty(ListItem.Art(characterart))">$INFO[ListItem.Art(characterart)]</value>
         <value condition="Container.Content(actors) + !String.IsEmpty(ListItem.Label)">http://localhost:52307/getthumb&amp;title=$INFO[ListItem.Label] IMDB Actor</value>
         <value condition="Container.Content(actors) + String.IsEmpty(ListItem.Art(thumb))">DefaultActorPoster.png</value>
@@ -741,11 +490,12 @@
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(poster))">$INFO[ListItem.Property(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(Listitem.Art(artist.thumb))">$INFO[Listitem.Art(artist.thumb)]</value>
+		<value condition="!String.IsEmpty(Listitem.Art(albumartist.thumb))">$INFO[Listitem.Art(albumartist.thumb)]</value>
 		<value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
 		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>
 		<value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">$VAR[MovieGenreIconVarList]</value>
-		<value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)] + System.HasAddon(resource.images.studios.coloured) + String.Contains(Skin.String(SkinHelper.StudioLogos.Path),colo)">resource://resource.images.studios.coloured/$INFO[ListItem.Label,,.png]</value>
         <value condition="[Container.Content(studios) | String.IsEqual(ListItem.DBTYPE,studio)]">resource://resource.images.studios.white/$INFO[ListItem.Label,,.png]</value>
         <value condition="Container.Content(actors) + !String.IsEmpty(ListItem.Art(characterart))">$INFO[ListItem.Art(characterart)]</value>
         <value condition="Container.Content(actors) + !String.IsEmpty(ListItem.Label)">http://localhost:52307/getthumb&amp;title=$INFO[ListItem.Label] IMDB Actor</value>

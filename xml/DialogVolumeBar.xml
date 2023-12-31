@@ -44,7 +44,7 @@
 
 				<!-- Volume Indicator Basic -->
 				<control type="group">
-				<visible>Skin.HasSetting(LowPerformanceMode) | Skin.String(volumestyle,basic) | !Skin.String(volumestyle)</visible>
+				<visible>Skin.String(volumestyle,basic) | !Skin.String(volumestyle)</visible>
 					<control type="image">
 						<right>20</right>
 						<top>-20</top>
@@ -82,7 +82,7 @@
 				
 				<!-- Volume Indicator Modern -->
 				<control type="group">
-				<visible>!Skin.HasSetting(LowPerformanceMode) + [Skin.String(volumestyle,modern) | Skin.String(volumestyle,modern-alt)]</visible>
+				<visible>[Skin.String(volumestyle,modern) | Skin.String(volumestyle,modern-alt)]</visible>
 					<control type="image">
 						<right>20</right>
 						<top>-30</top>
@@ -252,7 +252,7 @@
 
 				<!-- Volume Indicator Classic -->
 				<control type="group">
-				<visible>!Skin.HasSetting(LowPerformanceMode) + Skin.String(volumestyle,classic)</visible>
+				<visible>Skin.String(volumestyle,classic)</visible>
 
 					<control type="image">
 						<right>20</right>

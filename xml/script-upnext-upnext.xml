@@ -38,16 +38,16 @@
                 <right>40</right>
                 <orientation>horizontal</orientation>
                 <itemgap>25</itemgap>
-                <height>65</height>
+                <height>64</height>
                 <width>1000</width>
                 <control type="button" id="3096">
                     <width>auto</width>
-                    <height>65</height>
+                    <height>64</height>
                     <aligny>center</aligny>
                     <align>center</align>
                     <font>Reg30</font>
-                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                    <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</focusedcolor>
                     <label>31021</label>
                     <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]" border="10">bingie/border/slimframefo.png</texturefocus>
                     <texturenofocus/>
@@ -55,21 +55,21 @@
                 </control>
                 <control type="radiobutton" id="3097">
                     <width>355</width>
-                    <height>65</height>
+                    <height>64</height>
                     <aligny>center</aligny>
                     <align>left</align>
                     <textoffsetx>80</textoffsetx>
                     <textwidth>335</textwidth>
                     <font>Reg30</font>
-                    <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
+                    <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</focusedcolor>
                     <label>$INFO[Player.TimeRemaining(ss),$LOCALIZE[31212] ,]</label>
                     <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]" border="10">bingie/border/slimframefo.png</texturefocus>
                     <texturenofocus/>
-                    <textureradioonfocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioonfocus>
-                    <textureradioofffocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(ViewDetailsTextColor)]">dialogs/upnext/play.png</textureradiooffnofocus>
+                    <textureradioonfocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">dialogs/upnext/play.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="$INFO[Skin.String(BingieButtonFocusTextColor)]">dialogs/upnext/play.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/upnext/play.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/upnext/play.png</textureradiooffnofocus>
                     <radioposx>26</radioposx>
                     <radiowidth>34</radiowidth>
                     <radioheight>34</radioheight>
@@ -86,8 +86,7 @@
                     <bottom>0</bottom>
                     <width>100%</width>
                     <height>100%</height>
-                    <texture border="5">special://home/addons/resource.images.backgroundoverlays.basic/resources/Grey.png</texture>
-                    <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+                    <texture colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]">diffuse/panel2.png</texture>
                 </control>
                 <!-- NextUp Info -->
                 <control type="grouplist">
@@ -101,7 +100,7 @@
                         <width>500</width>
                         <height>36</height>
                         <font>Bold36</font>
-                        <textcolor>white</textcolor>
+                        <textcolor>$INFO[Skin.String(BingieOSDLabelTextColor)]</textcolor>
                         <align>left</align>
                         <aligny>center</aligny>
                         <label>$INFO[Window.Property(tvshowtitle)]</label>
@@ -112,7 +111,7 @@
                         <height>38</height>
                         <font>Bold32</font>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$INFO[Skin.String(BingieOSDSubLabelTextColor)]</textcolor>
                         <label>[LIGHT]$INFO[Player.TimeRemaining(ss),$LOCALIZE[31850] , $LOCALIZE[31231,,...]][/LIGHT]</label>
                     </control>
                     <!-- Thumb/Fanart -->
@@ -124,9 +123,16 @@
                             <width>550</width>
                             <height>315</height>
                             <bordersize>4</bordersize>
-                            <bordertexture>diffuse/panel2.png</bordertexture>
+                            <bordertexture colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">diffuse/panel2.png</bordertexture>
                             <texture background="true">$VAR[NextUpThumb]</texture>
                             <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        </control>
+						<control type="image">
+							<bottom>4</bottom>
+							<left>4</left>
+                            <width>542</width>
+                            <height>307</height>
+                            <texture>overlays/gradient_upnext.png</texture>
                         </control>
                         <control type="image">
                             <left>207</left>
@@ -134,7 +140,7 @@
                             <width>135</width>
                             <height>135</height>
                             <aspectratio>keep</aspectratio>
-                            <texture colordiffuse="ffffffff">$INFO[Player.TimeRemaining(ss),dialogs/nextup/,.png]</texture>
+                            <texture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">$INFO[Player.TimeRemaining(ss),dialogs/nextup/,.png]</texture>
                             <visible>!Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
                         </control>
                         <!-- Sxx: Exx -->
@@ -143,7 +149,7 @@
                             <left>25</left>
                             <height>20</height>
                             <width>auto</width>
-                            <textcolor>white</textcolor>
+                            <textcolor>$INFO[Skin.String(BingieProgressBarBackgroundColor)]</textcolor>
                             <font>Bold26</font>
                             <label>$INFO[Window.Property(season),S,: ]$INFO[Window.Property(episode),E,]</label>
                         </control>
@@ -154,7 +160,7 @@
                         <height>30</height>
                         <aligny>center</aligny>
                         <font>Bold28</font>
-                        <textcolor>white</textcolor>
+                        <textcolor>$INFO[Skin.String(BingieOSDSubLabelTextColor)]</textcolor>
                         <label>$INFO[Window.Property(title)]</label>
                         <visible>!String.IsEmpty(Window.Property(title))</visible>
                     </control>
@@ -172,7 +178,7 @@
                             <height>40</height>
                             <aligny>center</aligny>
                             <font>Reg24</font>
-                            <textcolor>white</textcolor>
+                            <textcolor>$INFO[Skin.String(BingieOSDDeatailsTextColor)]</textcolor>
                             <label>$INFO[Window.Property(year)]</label>
                             <visible>!String.IsEmpty(Window.Property(year))</visible>
                         </control>
@@ -186,46 +192,26 @@
                                 <height>100%</height>
                                 <width>100%</width>
                                 <font>Reg24</font>
-                                <textcolor>white</textcolor>
+                                <textcolor>$INFO[Skin.String(BingieOSDDeatailsTextColor)]</textcolor>
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <scroll>false</scroll>
                                 <label>$INFO[VideoPlayer.MPAA]</label>
                             </control>
-                        </control>
-                        
-                        <!-- Resolution (currently not supported in up-next)
-                        <control type="group">
-                            <visible>!String.IsEmpty(Control.GetLabel(3099))</visible>
-                            <width>65</width>
-                            <height>40</height>
-                            <control type="image">
-                                <height>100%</height>
-                                <width>100%</width>
-                                <texture colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]">bingie/flags/frame.png</texture>
-                            </control>
-                            <control type="label" id="3099">
-                                <width>100%</width>
-                                <height>100%</height>
-                                <aligny>center</aligny>
-                                <align>center</align>
-                                <textcolor>white</textcolor>
-                                <font>Reg24</font>
-                                <scroll>false</scroll>
-                                <label>$VAR[NextUpResolution]</label>
-                            </control>
-                        </control> -->
+                        </control>                       
                     </control>
                     <!-- Plot -->
                     <control type="textbox">
                         <width>auto</width>
                         <height max="110">auto</height>
                         <align>justify</align>
-                        <textcolor>white</textcolor>
+                        <textcolor>$INFO[Skin.String(BingieOSDPlotTextColor)]</textcolor>
                         <label>$INFO[Window.Property(plot)]</label>
                     </control>
+					<control type="progress" id="3014">
+						<visible>false</visible>
+					</control>
                 </control>
             </control>
-
     </controls>
 </window>

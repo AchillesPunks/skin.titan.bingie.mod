@@ -5,7 +5,6 @@
     <controls>
         <!--Dialog Overlay-->
         <include>DialogOverlayExtra</include>
-		<include condition="Skin.HasSetting(EnableTouchSupport)">Footer</include>
 		
         <!--Dialog Tex Viewer-->
         <control type="group">
@@ -61,20 +60,21 @@
                 <width>930</width>
                 <height>545</height>
                 <label/>
-                <include condition="!Skin.HasTheme(classic)">DialogLabel</include>
-                <include condition="Skin.HasTheme(classic)">DialogLabel</include>
+                <include>DialogLabel</include>
                 <align>left</align>
-                <pagecontrol>61</pagecontrol>
+                <pagecontrol>60</pagecontrol>
             </control>
-            <control type="scrollbar" id="61">
-                <posx>1426</posx>
-                <posy>268</posy>
-                <height>541</height>
+            <control type="scrollbar" id="60">
+                <posx>1448</posx>
+                <posy>247</posy>
+                <height>557</height>
+				<width>10</width>
                 <onleft>8000</onleft>
                 <onright>8000</onright>
+				<onback>8000</onback>
                 <showonepage>false</showonepage>
                 <orientation>vertical</orientation>
-                <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(62)">Conditional</animation>
+                <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">Conditional</animation>
             </control>
             <control type="group" id="8000">
                 <posx>466</posx>
@@ -86,10 +86,10 @@
                     <label>$LOCALIZE[222]</label>
                     <include>DialogButtonOther</include>
                     <onclick>PreviousMenu</onclick>
-                    <onleft>61</onleft>
-                    <onright>61</onright>
-                    <onup>61</onup>
-                    <ondown>61</ondown>
+                    <onleft>60</onleft>
+                    <onright>60</onright>
+                    <onup>60</onup>
+                    <ondown>60</ondown>
                     <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(7)">Conditional</animation>
                 </control>
             </control>

@@ -54,13 +54,6 @@
                     <wrapmultiline>false</wrapmultiline>
 				</control>
             </control>
-            <!-- close dialog -->
-            <control type="group">
-                <include>animation_fade_visible_hidden</include>
-                <posx>1180</posx>
-				<posy>130</posy>
-                <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
-            </control>
             <!--Left Menu-->
             <control type="group">
                 <control type="image">
@@ -93,7 +86,7 @@
                                 <top>5</top>
                                 <width>45</width>
                                 <height>45</height>
-                                <texture background="true">$VAR[LanguageFlagIconPath]$INFO[ListItem.Art(thumb)].png</texture>
+                                <texture background="true">flags/flags_color/language/$INFO[ListItem.Art(thumb)].png</texture>
                                 <aspectratio>keep</aspectratio>
                             </control>
                         
@@ -185,7 +178,7 @@
                                 <posy>0</posy>
                                 <width>1048</width>
                                 <height>100</height>
-                                <texture border="5" colordiffuse="black">diffuse/panel.png</texture>
+                                <texture border="10" colordiffuse="black">diffuse/panel.png</texture>
                                 <!--colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse-->
                             </control>
                             <!--Language Flag -->
@@ -194,7 +187,7 @@
                                 <top>5</top>
                                 <width>45</width>
                                 <height>45</height>
-                                <texture background="true">$VAR[LanguageFlagIconPath]$INFO[ListItem.Art(thumb)].png</texture>
+                                <texture background="true">flags/flags_color/language/$INFO[ListItem.Art(thumb)].png</texture>
                                 <aspectratio>keep</aspectratio>
                             </control>
                             
@@ -281,7 +274,7 @@
                                 <top>5</top>
                                 <width>45</width>
                                 <height>45</height>
-                                <texture background="true">$VAR[LanguageFlagIconPath]$INFO[ListItem.Art(thumb)].png</texture>
+                                <texture background="true">flags/flags_color/language/$INFO[ListItem.Art(thumb)].png</texture>
                                 <aspectratio>keep</aspectratio>
                             </control>
                             
@@ -369,8 +362,8 @@
                     <height>404</height>
                     <onleft>120</onleft>
 					<onright>150</onright>
-                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(121) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(121) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(121) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(121) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
                 </control>
                 
 				<control type="label">
@@ -468,7 +461,7 @@
                             <posy>0</posy>
                             <width>330</width>
                             <height>60</height>
-                            <texture border="5">diffuse/panel.png</texture>
+                            <texture border="10">diffuse/panel.png</texture>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                             <visible>Control.HasFocus(150)</visible>
                         </control>

@@ -2,7 +2,6 @@
 <!-- BINGIE -->
 <includes>
     <include name="View_55_BannerList">
-
         <!--View 55-->
         <control type="group">
             <visible>Control.IsVisible(55)</visible>
@@ -11,7 +10,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View55_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -19,20 +18,23 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+		<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
 			
-            <include>MovieDetailsLeft</include>
+			<control type="group">
+				<animation effect="slide" end="7" time="0" condition="Skin.HasSetting(View55_ShowInfoRight)">Conditional</animation>
+				<include>MovieDetailsLeft</include>
+			</control>
 			
 			<!-- ID="52" -->
             <control type="panel" id="55">
-                <animation effect="slide" end="-645" time="250" condition="Skin.HasSetting(View55_ShowInfoRight)">Conditional</animation>
-                <right>39</right>
-				<bottom>118</bottom>
-                <height>758</height>
-				<width>1190</width>
+                <animation effect="slide" end="-630" time="0" condition="Skin.HasSetting(View55_ShowInfoRight)">Conditional</animation>
+                <right>42</right>
+				<bottom>136</bottom>
+                <height>740</height>
+				<width>1196</width>
                 <onup>55</onup>
                 <ondown>55</ondown>
                 <onleft>9000</onleft>
@@ -51,54 +53,17 @@
                 <focusposition>0</focusposition>
                 <orientation>vertical</orientation>
                 <preloaditems>4</preloaditems>
-                <animation effect="slide" start="0" end="-20" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
-                <itemlayout height="125" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
+                <itemlayout height="123" width="594">
                     <control type="group">
-                        <width>585</width>
-                        <height>119</height>
-                        <!-- <control type="image"> -->
-                            <!-- <texture border="5">diffuse/banner.png</texture> -->
-                            <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-                            <!-- <aspectratio scalediffuse="false" align="left">stretch</aspectratio> -->
-                            <!-- <include>thumbsborder_unfocused</include> -->
-                        <!-- </control> -->
+                        <width>592</width>
+                        <height>121</height>
                         <include>BannerLayout</include>
 					</control>
                 </itemlayout>
-                <focusedlayout height="125" width="595" condition="!Skin.HasSetting(View55_LargeBanners)">
+                <focusedlayout height="123" width="594">
                     <control type="group">
-                        <width>585</width>
-                        <height>119</height>
-                        <control type="image">
-                            <texture border="5">diffuse/banner.png</texture>
-                            <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include>thumbsborder_focused</include>
-                        </control>
-                        <include>BannerLayout</include>
-                        <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
-						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
-							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
-						</include>
-					</control>
-                </focusedlayout>
-                <itemlayout height="252" width="1180" condition="Skin.HasSetting(View55_LargeBanners)">
-                    <control type="group">
-                        <width>1180</width>
-                        <height>238</height>
-                        <!-- <control type="image"> -->
-                            <!-- <texture border="5">diffuse/banner.png</texture> -->
-                            <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-                            <!-- <aspectratio scalediffuse="false" align="left">stretch</aspectratio> -->
-                            <!-- <include>thumbsborder_unfocused</include> -->
-                        <!-- </control> -->
-                        <include>BannerLayout</include>
-					</control>
-                </itemlayout>
-                <focusedlayout height="252" width="1180" condition="Skin.HasSetting(View55_LargeBanners)">
-                    <control type="group">
-                        <width>1180</width>
-                        <height>238</height>
+                        <width>592</width>
+                        <height>121</height>
                         <control type="image">
                             <texture border="5">diffuse/banner.png</texture>
                             <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
@@ -116,19 +81,16 @@
  			<!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(55) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>10</right>
+				<right>15</right>
 				<bottom>140</bottom>
                 <height>728</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>55</onleft>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-			</control>
-    
-		</control>
-		
-	
-		
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="slide" end="5" time="0" condition="Skin.HasSetting(View55_ShowInfoRight) + Skin.HasSetting(DetailsLeftHidepanel)">Conditional</animation>
+			</control> 
+		</control>		
 	</include>
 </includes>

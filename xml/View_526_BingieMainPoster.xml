@@ -13,6 +13,8 @@
 
             <!-- View 526 -->
             <control type="group">
+				<visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+				<include>Animation_Right_Home</include>
                 <left>131</left>
                 <top>600</top>
                 <width>1660</width>
@@ -50,7 +52,7 @@
                 </include>
                <include content="Bingie_Main_View_Fixed_Frame">
                     <include>Bounce_Up</include>
-                   <param name="visibility" value="!Skin.HasSetting(View526_DisableFixedBingieFrame)" />
+                    <param name="visibility" value="!Skin.HasSetting(View526_DisableFixedBingieFrame)" />
                     <param name="containerid" value="526" />
                     <param name="top" value="11" />
                     <param name="width" value="240" />
@@ -58,37 +60,47 @@
                     <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
 					<bordersize>2</bordersize>
                     <param name="xAxisAnim" value="238" />
-                   <param name="isHorizontal" value="Skin.HasSetting(View_526_HorizontalNavigation)" />
+                    <param name="isHorizontal" value="Skin.HasSetting(View_526_HorizontalNavigation)" />
                     <param name="yAxisAnim" value="340" />
                 </include>
-            </control>
-
+            </control>			
+			
             <!-- scrollbar -->
             <control type="group">
                 <control type="scrollbar" id="60">
+					<texturesliderbackground border="5" colordiffuse="$INFO[Skin.String(ScrollbarBackgroundColor)]">scrollbar/texturesliderbar_small.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbarfocus>
+					<textureslidernib colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernibfocus>
                     <visible>Control.IsVisible(526) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_526_HorizontalNavigation)</visible>
-                    <top>619</top>
-                    <width>8</width>
-                    <right>3</right>
-                    <bottom>15</bottom>
+                    <width>10</width>
+					<height>461</height>
+                    <right>0</right>
+                    <bottom>0</bottom>
                     <onleft>526</onleft>
                     <orientation>vertical</orientation>
-                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
                 </control>
                 <control type="scrollbar" id="60">
+					<texturesliderbackground border="5" colordiffuse="$INFO[Skin.String(ScrollbarBackgroundColor)]">scrollbar/texturesliderbar_small.png</texturesliderbackground>
+					<texturesliderbar colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbarfocus>
+					<textureslidernib colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernibfocus>
                     <visible>Control.IsVisible(526) + Integer.IsGreater(Container.NumItems,0) + Skin.HasSetting(View_526_HorizontalNavigation)</visible>
-                    <include condition="!Skin.HasSetting(EnhancedHome_Circular)" content="left">
+                    <include content="left">
                         <param name="left" value="140" />
                     </include>
                     <left>70</left>
                     <width>1650</width>
-                    <height>8</height>
-                    <bottom>2</bottom>
+                    <height>10</height>
+                    <bottom>0</bottom>
                     <onup>526</onup>
                     <orientation>horizontal</orientation>
-                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
                 </control>
             </control>
         </control>
@@ -114,8 +126,7 @@
             <onright condition="!Skin.HasSetting(View_526_HorizontalNavigation) + Skin.HasSetting(EnableQuickJump) + !Control.IsVisible(6002)">noop</onright>
             <onright condition="!Skin.HasSetting(View_526_HorizontalNavigation) + !Skin.HasSetting(EnableQuickJump)">60</onright>
             <onright condition="Skin.HasSetting(View_526_HorizontalNavigation)">526</onright>
-            <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9000</onleft>
-            <onleft condition="Skin.HasSetting(KioskMode.Enabled)">back</onleft>
+			<onleft>9000</onleft>
             <onup condition="!Skin.HasSetting(View_526_HorizontalNavigation)">526</onup>
             <!-- play trailer onup -->
             <onup condition="Skin.HasSetting(View_526_HorizontalNavigation) + Skin.HasSetting(PlayTrailerOnUp) + [Container.Content(movies) | Container.Content(tvshows)]">SetProperty(BounceUp,1,Home)</onup>
@@ -153,16 +164,10 @@
                     <include>PosterThumbBingieLayout</include>
                     <include condition="!Window.IsActive(Home)">PosterTagOverlayBingie</include>
                     <control type="group">
-                        <include condition="Skin.HasSetting(CaseOverlays)">PosterCaseOverlayBingie</include>
-                    </control>
-                    <control type="group">
                         <!--Watched Overlay-->
                         <right>8</right>
                         <top>8</top>
                         <include>WatchedIndicatorNormal</include>
-                        <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                            <effect type="slide" end="3,-3" time="0"  />
-                        </animation>
                     </control>
                     <include condition="Skin.HasSetting(DetailsAutoTrailer)">LibraryAutoTrailerStopButton</include>
 						<include content="LibraryAutoTrailerStartButton" condition="Skin.HasSetting(DetailsAutoTrailer)">

@@ -33,7 +33,7 @@
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$ADDON[script.skinshortcuts 32025],property=widgetName$PARAM[widgetprop])</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
         </control>
-        <control type="button" id="900$PARAM[widgetpos]4">
+        <control type="button" id="900$PARAM[widgetpos]3">
             <description>widget limit</description>
             <width>500</width>
             <height>45</height>
@@ -45,7 +45,7 @@
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetlimit,header=$LOCALIZE[21427],property=widgetLimit$PARAM[widgetprop])</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
         </control>
-        <control type="button" id="900$PARAM[widgetpos]5">
+        <control type="button" id="900$PARAM[widgetpos]4">
             <description>widget sort by</description>
             <width>500</width>
             <height>45</height>
@@ -61,7 +61,7 @@
             <onclick>SendClick(404)</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
         </control>
-        <control type="button" id="900$PARAM[widgetpos]6">
+        <control type="button" id="900$PARAM[widgetpos]5">
             <description>widget sort order</description>
             <width>500</width>
             <height>45</height>
@@ -73,20 +73,7 @@
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetsortorder,header=$LOCALIZE[580],property=widgetSortOrder$PARAM[widgetprop])</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop])) + !String.IsEmpty(Container(211).ListItem.Property(widgetSortBy$PARAM[widgetprop]))</visible>
         </control>
-        <control type="button" id="900$PARAM[widgetpos]7">
-            <description>show infopanel (win10)</description>
-            <width>500</width>
-            <height>45</height>
-            <align>left</align>
-            <font>Reg22</font>
-            <textoffsetx>10</textoffsetx>
-            <label>$LOCALIZE[31185]:</label>
-            <label2>$VAR[widget_infopanel_label$PARAM[widgetpos]]</label2>
-            <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetInfoPanel,header=$LOCALIZE[31185],property=widgetInfoPanel$PARAM[widgetprop])</onclick>
-            <visible>String.IsEqual(Skin.String(HomeLayout),win10)</visible>
-            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
-        </control>
-        <control type="button" id="900$PARAM[widgetpos]8">
+        <control type="button" id="900$PARAM[widgetpos]6">
             <description>widget tags</description>
             <width>500</width>
             <height>45</height>
@@ -100,7 +87,7 @@
             <visible>String.IsEqual(Skin.String(Widgets_DisplayTags),override)</visible>
             <visible>!String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),box) + ![String.IsEmpty(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop])) + String.Contains(Skin.String(widgetstyle),box)]</visible>
         </control>
-        <control type="radiobutton" id="900$PARAM[widgetpos]9">
+        <control type="radiobutton" id="900$PARAM[widgetpos]7">
             <description>widget force refresh</description>
             <width>500</width>
             <label>31717</label>
@@ -123,7 +110,7 @@
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
             <visible>String.IsEqual(Container(211).ListItem.Property(widget$PARAM[widgetprop]), Addon) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), favourite) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), xsp)</visible>
         </control>
-        <control type="radiobutton" id="900$PARAM[widgetpos]10">
+        <control type="radiobutton" id="900$PARAM[widgetpos]8">
             <description>widget auto rotate</description>
             <width>500</width>
             <label>31723</label>
@@ -145,28 +132,6 @@
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)</selected>
             <visible>Skin.String(widgets_rotate,override)</visible>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
-        </control>
-        <control type="radiobutton" id="900$PARAM[widgetpos]11">
-            <description>widget static focus</description>
-            <width>500</width>
-            <label>31823</label>
-            <font>Reg22</font>
-            <align>left</align>
-            <textoffsetx>10</textoffsetx>
-            <radiowidth>100</radiowidth>
-            <radioheight>50</radioheight>
-            <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
-            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customProperty, widgetFixedFocus$PARAM[widgetprop])</onclick>
-            <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customValue, enabled)</onclick>
-            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customProperty, widgetFixedFocus$PARAM[widgetprop])</onclick>
-            <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled)">SetProperty(customValue, "")</onclick>
-            <onclick>SendClick(404)</onclick>
-            <selected>String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),details)</selected>
-            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop])) + !String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
     </include>
 
@@ -213,7 +178,6 @@
             <textoffsetx>10</textoffsetx>
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetstyle,header=$LOCALIZE[320036],property=widgetstyle$PARAM[widgetprop])</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
-            <visible>!String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
         </control>
         <control type="button" id="900$PARAM[widgetpos]4">
             <description>widget limit</description>
@@ -254,19 +218,6 @@
             <textoffsetx>10</textoffsetx>
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetsortorder,header=$LOCALIZE[580],property=widgetSortOrder$PARAM[widgetprop])</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop])) + !String.IsEmpty(Container(211).ListItem.Property(widgetSortBy$PARAM[widgetprop]))</visible>
-        </control>
-        <control type="button" id="900$PARAM[widgetpos]7">
-            <description>show infopanel (win10)</description>
-            <width>500</width>
-            <height>45</height>
-            <align>left</align>
-            <font>Reg22</font>
-            <textoffsetx>10</textoffsetx>
-            <label>$LOCALIZE[31185]:</label>
-            <label2>$VAR[widget_infopanel_label$PARAM[widgetpos]]</label2>
-            <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetInfoPanel,header=$LOCALIZE[31185],property=widgetInfoPanel$PARAM[widgetprop])</onclick>
-            <visible>String.IsEqual(Skin.String(HomeLayout),win10)</visible>
-            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
         </control>
         <control type="button" id="900$PARAM[widgetpos]8">
             <description>widget tags</description>
@@ -402,7 +353,6 @@
             <onclick>Skin.ToggleSetting(EnableHighlightWidget)</onclick>
             <selected>Skin.HasSetting(EnableHighlightWidget)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
-            <visible>!String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
 			<visible>String.IsEqual(Container(211).ListItem.Property(labelid),10000)</visible>
         </control>
         <control type="button" id="900$PARAM[widgetpos]4">
@@ -444,19 +394,6 @@
             <textoffsetx>10</textoffsetx>
             <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetsortorder,header=$LOCALIZE[580],property=widgetSortOrder$PARAM[widgetprop])</onclick>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop])) + !String.IsEmpty(Container(211).ListItem.Property(widgetSortBy$PARAM[widgetprop]))</visible>
-        </control>
-        <control type="button" id="900$PARAM[widgetpos]7">
-            <description>show infopanel (win10)</description>
-            <width>500</width>
-            <height>45</height>
-            <align>left</align>
-            <font>Reg22</font>
-            <textoffsetx>10</textoffsetx>
-            <label>$LOCALIZE[31185]:</label>
-            <label2>$VAR[widget_infopanel_label$PARAM[widgetpos]]</label2>
-            <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=widgetInfoPanel,header=$LOCALIZE[31185],property=widgetInfoPanel$PARAM[widgetprop])</onclick>
-            <visible>String.IsEqual(Skin.String(HomeLayout),win10)</visible>
-            <visible>!String.IsEmpty(Container(211).ListItem.Property(widget$PARAM[widgetprop]))</visible>
         </control>
         <control type="button" id="900$PARAM[widgetpos]8">
             <description>widget tags</description>
@@ -548,49 +485,41 @@
     <variable name="widget_style_label1">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.name))">$INFO[Container(211).ListItem.Property(widgetstyle.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle))">$INFO[Container(211).ListItem.Property(widgetstyle)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
     <variable name="widget_style_label2">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.1.name))">$INFO[Container(211).ListItem.Property(widgetstyle.1.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.1))">$INFO[Container(211).ListItem.Property(widgetstyle.1)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
     <variable name="widget_style_label3">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.2.name))">$INFO[Container(211).ListItem.Property(widgetstyle.2.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.2))">$INFO[Container(211).ListItem.Property(widgetstyle.2)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
     <variable name="widget_style_label4">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.3.name))">$INFO[Container(211).ListItem.Property(widgetstyle.3.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.3))">$INFO[Container(211).ListItem.Property(widgetstyle.3)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
     <variable name="widget_style_label5">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.4.name))">$INFO[Container(211).ListItem.Property(widgetstyle.4.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.4))">$INFO[Container(211).ListItem.Property(widgetstyle.4)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
     <variable name="widget_style_label6">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.5.name))">$INFO[Container(211).ListItem.Property(widgetstyle.5.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.5))">$INFO[Container(211).ListItem.Property(widgetstyle.5)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
     <variable name="widget_style_label7">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.6.name))">$INFO[Container(211).ListItem.Property(widgetstyle.6.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.6))">$INFO[Container(211).ListItem.Property(widgetstyle.6)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
     <variable name="widget_style_label8">
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.7.name))">$INFO[Container(211).ListItem.Property(widgetstyle.7.name)]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetstyle.7))">$INFO[Container(211).ListItem.Property(widgetstyle.7)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeLayout),win10)">Square</value>
         <value>$LOCALIZE[31641]</value>
     </variable>
 

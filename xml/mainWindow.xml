@@ -27,22 +27,7 @@
 				<texture border="15">diffuse/bgpanel.png</texture>
 				
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-            </control>
-			
-			<!-- close dialog -->
-			<control type="button">
-				<label></label>
-				<include>animation_fade_visible_hidden</include>
-				<width>60</width>
-				<height>60</height>
-				<right>60</right>
-                <posy>40</posy>
-				<font/>
-				<texturefocus colordiffuse="white">touchcontrols/icon_close.png</texturefocus>
-				<texturenofocus colordiffuse="bbwhite">touchcontrols/icon_close.png</texturenofocus>
-				<onclick>back</onclick>
-				<visible>Skin.HasSetting(EnableTouchSupport)</visible>
-			</control>
+            </control>			
 			
 			<control type="image">
                 <description>LOGO</description>
@@ -52,7 +37,6 @@
                 <posy>10</posy>
                 <aspectratio align="right" aligny="top">keep</aspectratio>
                 <texture>special://skin/extras/openelec/openelec_logo.png</texture>
-				<visible>!Skin.HasSetting(EnableTouchSupport)</visible>
             </control>
 			
            <!--Header-->
@@ -216,7 +200,7 @@
                                 <top>2</top>
                                 <width>1200</width>
                                 <height>45</height>
-								<texture border="5" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+								<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
                             </control>
                             <control type="label">
                                 <left>40</left>
@@ -303,7 +287,7 @@
                                 <width>1200</width>
                                 <height>38</height>
 								<visible>Control.HasFocus(1100)</visible>
-                                <texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
+                                <texture diffuse="diffuse/panel.png" border="10" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
                             </control>
 							<control type="image">
                                 <left>0</left>
@@ -311,7 +295,7 @@
                                 <width>1200</width>
                                 <height>38</height>
 								<visible>!Control.HasFocus(1100)</visible>
-								<texture border="5" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+								<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
                             </control>
                             <control type="label">
                                 <left>40</left>
@@ -428,7 +412,7 @@
                             <top>2</top>
                             <width>1200</width>
                             <height>98</height>
-                            <texture border="5" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                            <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
                         </control>
 						<!-- Icon ethernet -->
                         <control type="image">
@@ -535,7 +519,7 @@
 								<top>2</top>
 								<width>1200</width>
 								<height>98</height>
-								<texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
+								<texture diffuse="diffuse/panel.png" border="10" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
 							</control>
 							<!-- Icon ethernet -->
                         <control type="image">
@@ -634,14 +618,14 @@
                             <visible>String.IsEqual(ListItem.Property(netType), wifi)</visible>
                         </control>
 						</control>
-                					    <control type="group">
+                		<control type="group">
 							<visible>!Control.HasFocus(1200)</visible>
 							<control type="image">
                             <left>0</left>
                             <top>2</top>
                             <width>1200</width>
                             <height>98</height>
-                            								<texture border="5" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                           <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
                         </control>
 						<!-- Icon ethernet -->
                         <control type="image">
@@ -769,7 +753,7 @@
                             <top>2</top>
                             <width>1200</width>
                             <height>68</height>
-							<texture border="5" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+							<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
                         </control>
                         <!-- default -->
                         <control type="image">
@@ -952,7 +936,7 @@
 								<top>2</top>
 								<width>1200</width>
 								<height>98</height>
-								<texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
+								<texture diffuse="diffuse/panel.png" border="10" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">colors/color_white.png</texture>
 							</control>
 							 <!-- default -->
 							<control type="image">
@@ -1125,14 +1109,14 @@
 								<texture>special://skin/extras/openelec/Key.png</texture>
 							</control>
 						</control>
-                					    <control type="group">
+                		<control type="group">
 							<visible>!Control.HasFocus(1300)</visible>
 							<control type="image">
                             <left>0</left>
                             <top>2</top>
                             <width>1200</width>
                             <height>98</height>
-                            <texture border="5" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                            <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
                         </control>
 						 <!-- default -->
                         <control type="image">

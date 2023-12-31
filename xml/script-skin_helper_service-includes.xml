@@ -1,6 +1,5 @@
 <includes>
-	<constant name="verthome_tiles_height">170</constant>
 	<variable name="CustomBackgroundSetting">
-		<value>$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</value>
+		<value>$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.fanartCode)]$INFO[Skin.String(WeatherFanArtPack.ext)]</value>
 	</variable>
 </includes>

@@ -45,7 +45,7 @@
                 </control>
                 <control type="group">
                     <!--LEFT: Group List -->
-                    <posx>341</posx>
+                    <posx>336</posx>
                     <posy>220</posy>
                     <control type="label">
                         <posx>0</posx>
@@ -126,7 +126,7 @@
                                     <posy>0</posy>
                                     <width>400</width>
                                     <height>60</height>
-                                    <texture border="5">diffuse/panel.png</texture><colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
+                                    <texture border="10">diffuse/panel.png</texture><colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                                 </control>
                                 <control type="label">
                                     <posx>20</posx>
@@ -153,9 +153,15 @@
                         <visible>!Control.HasFocus(60) + [Container(13).Scrolling | Container(13).OnScrollNext | Container(13).OnScrollPrevious]</visible>
                     </control>
                     <control type="scrollbar" id="60">
-                        <posx>386</posx>
-                        <posy>43</posy>
-                        <height>595</height>
+						<texturesliderbackground border="5" colordiffuse="$INFO[Skin.String(ScrollbarBackgroundColor)]">scrollbar/texturesliderbar_small.png</texturesliderbackground>
+						<texturesliderbar colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbarfocus>
+						<textureslidernib colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernibfocus>
+                        <posx>404</posx>
+                        <posy>42</posy>
+                        <height>597</height>
+						<width>11</width>
                         <onleft>13</onleft>
                         <onright>11</onright>
                         <ondown>60</ondown>
@@ -211,8 +217,7 @@
                                 <width>310</width>
                                 <height>60</height>
                                 <label>$INFO[ListItem.ChannelNumberLabel,(,) ]$INFO[ListItem.ChannelName]</label>
-                                <include condition="!Skin.HasTheme(classic)">DialogLabel</include>
-                                <include condition="Skin.HasTheme(classic)">DialogLabel</include>
+                                <include>DialogLabel</include>
                             </control>
                             <control type="image">
                                 <posx>10</posx>
@@ -263,7 +268,7 @@
                                     <posy>0</posy>
                                     <width>400</width>
                                     <height>60</height>
-                                    <texture border="5">diffuse/panel.png</texture><colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
+                                    <texture border="10">diffuse/panel.png</texture><colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                                 </control>
                                 <control type="label">
                                     <posx>70</posx>
@@ -297,9 +302,15 @@
                         <visible>!Control.HasFocus(70) + [Container(11).Scrolling | Container(11).OnScrollNext | Container(11).OnScrollPrevious]</visible>
                     </control>
                     <control type="scrollbar" id="70">
-                        <posx>386</posx>
-                        <posy>43</posy>
-                        <height>595</height>
+						<texturesliderbackground border="5" colordiffuse="$INFO[Skin.String(ScrollbarBackgroundColor)]">scrollbar/texturesliderbar_small.png</texturesliderbackground>
+						<texturesliderbar colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbarfocus>
+						<textureslidernib colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernibfocus>
+                        <posx>404</posx>
+                        <posy>42</posy>
+                        <height>597</height>
+						<width>11</width>
                         <onleft>11</onleft>
                         <onright>12</onright>
                         <ondown>70</ondown>
@@ -311,7 +322,7 @@
                 </control>
                 <control type="group">
                     <!--RIGHT: Grouped Channels List -->
-                    <posx>1169</posx>
+                    <posx>1174</posx>
                     <posy>220</posy>
                     <control type="label" id="22">
                         <description>Name label</description>
@@ -406,7 +417,7 @@
                                     <posy>0</posy>
                                     <width>400</width>
                                     <height>60</height>
-                                    <texture border="5">diffuse/panel.png</texture><colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
+                                    <texture border="10">diffuse/panel.png</texture><colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                                 </control>
                                 <control type="label">
                                     <posx>70</posx>
@@ -440,9 +451,15 @@
                         <visible>!Control.HasFocus(80) + [Container(12).Scrolling | Container(12).OnScrollNext | Container(12).OnScrollPrevious]</visible>
                     </control>
                     <control type="scrollbar" id="80">
-                        <posx>386</posx>
-                        <posy>43</posy>
-                        <height>595</height>
+						<texturesliderbackground border="5" colordiffuse="$INFO[Skin.String(ScrollbarBackgroundColor)]">scrollbar/texturesliderbar_small.png</texturesliderbackground>
+						<texturesliderbar colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]" border="5">scrollbar/texturesliderbar_small.png</texturesliderbarfocus>
+						<textureslidernib colordiffuse="$INFO[Skin.String(ScrollbarUnfocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$INFO[Skin.String(ScrollbarFocusedColor)]">scrollbar/texturesliderbar_nib.png</textureslidernibfocus>
+                        <posx>404</posx>
+                        <posy>42</posy>
+                        <height>597</height>
+						<width>11</width>
                         <onleft>12</onleft>
                         <onright>26</onright>
                         <ondown>80</ondown>
@@ -454,11 +471,11 @@
                 </control>
                 <control type="grouplist" id="9000">
                     <!--Button Grouplist-->
-                    <posx>333</posx>
+                    <posx>328</posx>
                     <posy>870</posy>
-                    <width>1235</width>
+                    <width>1254</width>
                     <height>100</height>
-                    <itemgap>12</itemgap>
+                    <itemgap>18</itemgap>
                     <align>left</align>
                     <orientation>horizontal</orientation>
                     <onleft>72</onleft>
@@ -467,8 +484,9 @@
                     <ondown>13</ondown>
                     <control type="togglebutton" id="34">
                         <description>TV/Radio Button</description>
-                        <label>19174 </label>
-                        <altlabel>19173</altlabel>
+                        <label>31135</label>
+                        <altlabel>31132</altlabel>
+						<width>300</width>
                         <usealttexture>!String.IsEmpty(Window.Property(IsRadio))</usealttexture>
                         <include>DialogButtonOther</include>
                     </control>

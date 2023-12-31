@@ -12,11 +12,9 @@
             <visible allowhiddenfocus="true">false</visible>
             <onfocus>FullScreen</onfocus>
         </control>
-
         <include>GlobalBackground</include>
         <!--NowPlaying-->
 		<include>NowPlayingBackground</include>
-        <include>NowPlayingInfoBar</include>
         <!-- hidden submenu for count calculations -->
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">hiddenSubmenu</include>
         <include>HomeBingie</include>

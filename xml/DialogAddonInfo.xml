@@ -37,14 +37,6 @@
 				<texture>diffuse/panel2.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
-            <!-- close dialog -->
-            <control type="group">
-                <include>animation_fade_visible_hidden</include>
-                <right>60</right>
-                <width>60</width>
-                <posy>40</posy>
-                <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
-            </control>
 			
            <!--Header-->
             <control type="label">

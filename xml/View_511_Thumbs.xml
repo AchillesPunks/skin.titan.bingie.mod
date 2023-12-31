@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-  
-  
   <include name="View_511_Thumbs">
     <control type="group">
       <visible>Control.IsVisible(511)</visible>
@@ -10,7 +8,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View511_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -39,55 +37,33 @@
         <ondown>511</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-          <itemlayout height="210" width="358" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+          <itemlayout height="210" width="358">
 			<control type="group">
                 <width>350</width>
                 <height>202</height>
                 <include>ThumbsViewLayout</include>
             </control>
         </itemlayout>
-        <focusedlayout height="210" width="358" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+        <focusedlayout height="210" width="358">
 			<control type="group">
                 <width>350</width>
                 <height>202</height>
 				<include>ThumbsViewLayoutFocus</include>
 			</control>
         </focusedlayout>
-         <itemlayout height="256" width="455" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-			<control type="group">
-                <width>356</width>
-                <height>246</height>
-                <left>40</left>
-                <include>ThumbsViewLayout</include>
-            </control>
-        </itemlayout>
-        <focusedlayout height="256" width="455" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-			<control type="group">
-                <width>356</width>
-                <height>246</height>
-                <left>40</left>
-				<include>ThumbsViewLayoutFocus</include>
-			</control>
-        </focusedlayout>
-	  </control>
-      
+	  </control>    
 	  <!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(511) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>10</right>
+			<right>15</right>
 			<bottom>155</bottom>
 			<height>745</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>511</onleft>
-			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-		</control>
-    
-    
-	</control>
-	
-	
-
+			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+		</control>      
+	</control>	
   </include>
 </includes>

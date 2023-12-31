@@ -41,6 +41,7 @@
                     <movement>1</movement>
                     <itemlayout height="320" width="300">
 						<control type="image">
+							<visible>!Skin.HasSetting(EnableNetflixIcons)</visible>
                             <posx>4</posx>
                             <posy>4</posy>
                             <width>240</width>
@@ -48,6 +49,15 @@
                             <texture background="true" fallback="defaultactor.png">$INFO[Listitem.Icon]</texture>
                             <aspectratio>keep</aspectratio>
                         </control>
+						<!--Netflix Profile Picture-->
+						<control type="image"> 
+							<visible>Skin.HasSetting(EnableNetflixIcons)</visible>
+							<left>50</left>
+							<top>10</top>
+							<width>50</width>
+							<height>50</height>
+							<texture background="true">$INFO[Skin.String(user_picture),userpictures/startup/defaultuser_,.png]</texture>
+						</control>
                         <control type="label">
                             <align>center</align>
 							<posx>3</posx>
@@ -64,17 +74,31 @@
                         <control type="group">                            
 							 <control type="image">
 								<visible>Control.HasFocus(52)</visible>
+								<visible>!Skin.HasSetting(EnableNetflixIcons)</visible>
                                 <align>left</align>
                                 <aligny>top</aligny>
                                 <width>248</width>
                                 <height>248</height>
                                 <aspectratio>keep</aspectratio>
-                                <bordertexture colordiffuse="ffffffff">diffuse/panel2.png</bordertexture>
+                                <bordertexture colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">diffuse/panel2.png</bordertexture>
                                 <bordersize>4</bordersize>
                                 <texture background="true" fallback="defaultactor.png">$INFO[Listitem.Icon]</texture>
                             </control>
 							<control type="image">
+								<visible>Control.HasFocus(52)</visible>
+								<visible>Skin.HasSetting(EnableNetflixIcons)</visible>
+                                <align>left</align>
+                                <aligny>top</aligny>
+                                <width>248</width>
+                                <height>248</height>
+                                <aspectratio>keep</aspectratio>
+                                <bordertexture colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">diffuse/panel2.png</bordertexture>
+                                <bordersize>4</bordersize>
+                                <texture background="true">$INFO[Skin.String(user_picture),userpictures/startup/defaultuser_,.png]</texture>
+                            </control>
+							<control type="image">
 								<visible>!Control.HasFocus(52)</visible>
+								<visible>!Skin.HasSetting(EnableNetflixIcons)</visible>
 								<animation effect="fade" start="100" end="50" time="0" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation> 
                                 <align>left</align>
                                 <aligny>top</aligny>
@@ -83,6 +107,18 @@
                                 <aspectratio>keep</aspectratio>
                                 <bordersize>4</bordersize>
                                 <texture background="true" fallback="defaultactor.png">$INFO[Listitem.Icon]</texture>
+                            </control>
+							<control type="image">
+								<visible>!Control.HasFocus(52)</visible>
+								<visible>Skin.HasSetting(EnableNetflixIcons)</visible>
+								<animation effect="fade" start="100" end="50" time="0" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation> 
+                                <align>left</align>
+                                <aligny>top</aligny>
+                                <width>248</width>
+                                <height>248</height>
+                                <aspectratio>keep</aspectratio>
+                                <bordersize>4</bordersize>
+                                <texture background="true">$INFO[Skin.String(user_picture),userpictures/startup/defaultuser_,.png]</texture>
                             </control>
                             <control type="label">
                                 <align>center</align>
@@ -164,22 +200,6 @@
                 <texturenofocus colordiffuse="FF7F7F7F">bingie/edit.png</texturenofocus>
                 <onclick>ActivateWindow(profiles)</onclick>
             </control>
-        
-            <!-- Power button 
-            <control type="button" id="53">
-                <description>powerbutton</description>
-                <posx>930</posx>
-                <bottom>20</bottom>
-                <width>60</width>
-                <height>60</height>
-                <onup>10034</onup>
-                <ondown>52</ondown>
-                <texturefocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">common/shutdown2.png</texturefocus>
-                <texturenofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/shutdown2.png</texturenofocus>
-                <onclick condition="System.CanPowerDown">ActivateWindow(shutdownmenu)</onclick>
-                <onclick condition="!System.CanPowerDown">Quit()</onclick>
-                <visible>System.ShowExitButton</visible>
-            </control> -->
         </control>
     </controls>
 </window>

@@ -3,7 +3,6 @@
 <window>
     <defaultcontrol always="true">10</defaultcontrol>
     <controls>
-        <include condition="Skin.HasSetting(EnableTouchSupport)">TouchScreenWorkaround</include>
         <control type="button" id="10">
             <onfocus condition="Skin.HasSetting(pvrGuideOnFullscreenVideo)">SetProperty(pvrGuideOnFullscreenVideo,fullscreenvideo,Home)</onfocus>
             <onfocus condition="Skin.HasSetting(pvrGuideOnFullscreenVideo)">Dialog.Close(VideoOSD)</onfocus>
@@ -164,7 +163,7 @@
 						<posx>0</posx>
 						<posy>0</posy>
 						<width>660</width>
-						<height>20</height>
+						<height>2</height>
 						<fadetime>400</fadetime>
 						<colordiffuse>list_separator</colordiffuse>
 						<texture>common/separator.png</texture>
@@ -176,7 +175,7 @@
 						<posy>0</posy>
 						<width>660</width>
 						<height>175</height>
-						<texture border="5">diffuse/panel.png</texture>
+						<texture border="10">diffuse/panel.png</texture>
 						<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
 					</control>
 					<control type="label">

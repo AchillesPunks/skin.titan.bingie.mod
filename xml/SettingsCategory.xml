@@ -8,7 +8,7 @@
         <!--Global Background-->
         <include>GlobalBackground</include>
  		<!-- Now playing -->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 		
         <!--Header-->
         <include>Header</include>
@@ -71,6 +71,15 @@
             <align>left</align>
             <height>47</height>
 			<width>450</width>
+            <textoffsetx>40</textoffsetx>
+        </control>
+		<control type="colorbutton" id="15">
+            <description>Default Setting Button</description>
+            <label/>
+            <font>Reg28</font>
+            <align>left</align>
+            <height>47</height>
+			<width>45</width>
             <textoffsetx>40</textoffsetx>
         </control>
         <control type="radiobutton" id="8">
@@ -174,7 +183,7 @@
         </control>
 
 		<!--BINGIE Version-->
-        <include>BingieVersion</include>
+        <include>BingieLogo</include>
 		<include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
     </controls>
 </window>

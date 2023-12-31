@@ -10,7 +10,7 @@
 				<include>FullscreenDimensions</include>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>4dffffff</colordiffuse>
-				<texture>special://skin/resources/background.jpg</texture>
+				<texture>special://skin/extras/media/background.jpg</texture>
 				<animation effect="fade" time="600">Visible</animation>
 				<animation effect="fade" time="600">Hidden</animation>
 				<visible>String.IsEmpty(ListItem.Art(tvshow.fanart))</visible>
@@ -28,9 +28,7 @@
 					<visible>Skin.HasSetting(ShowNAFanartBackground)</visible>
 				</control>
 		<!--NowPlaying-->
-        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
          <!--Header-->
         <include>Header</include>
 		<control type="group">
@@ -82,7 +80,7 @@
 					<control type="image">
 						 <width>400</width>
 						 <height>89</height>
-						 <texture border="15" colordiffuse="$INFO[Skin.String(ViewDetailsFocusColor)]">diffuse/panel.png</texture>
+						 <texture border="10" colordiffuse="$INFO[Skin.String(ViewDetailsFocusColor)]">diffuse/panel.png</texture>
 						 <aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
@@ -166,8 +164,8 @@
 					<onleft>5000</onleft>
 					<showonepage>false</showonepage>
 					<orientation>horizontal</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
 				</control>
 				<control type="panel" id="200">
 					<visible allowhiddenfocus="true">[Control.HasFocus(5000) + Container(5000).HasFocus(1)] | Control.HasFocus(200) | [Container(5000).HasFocus(1) + Control.HasFocus(60)]</visible>
@@ -221,17 +219,14 @@
 			<include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		</control>
 		
-		<!--Sub Menu Tab Left-->
-        <include condition="!Skin.HasSetting(DisableSideBladeIndicator)">SideBladeMenuTabLeft</include>
-		
 		<!--clear logo -->
 		<include condition="Skin.String(ClearLogoLocation)">ClearLogo</include>
 		
 		
 		<!--Sub Menu-->
         <control type="group">
-            <include condition="Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
-			<include condition="![Skin.HasTheme(classic) | Skin.HasSetting(smallContextMenu)]">SideBladeModern</include>
+            <include condition="Skin.HasSetting(smallContextMenu)">SideBladeClassic</include>
+			<include condition="!Skin.HasSetting(smallContextMenu)">SideBladeModern</include>
             <!--Grouplist 9000-->
             <control type="grouplist" id="9000">
                 <posx>21</posx>
@@ -247,25 +242,6 @@
                 <onup>9000</onup>
                 <ondown>9000</ondown>
                 <orientation>vertical</orientation>
-                <!--Buttons-->
-                <control type="label" id="1001">
-                    <!--Label Menu-->
-                    <width>458</width>
-                    <align>left</align>
-                    <textoffsetx>50</textoffsetx>
-                    <font>Bold40</font>
-                    <textcolor>$INFO[Skin.String(GeneralHighlightTextColor)]</textcolor>
-                    <label>$LOCALIZE[33061]:</label>
-					<visible>Skin.HasTheme(classic)</visible>
-                </control>
-                <control type="image" id="1002">
-                    <!--Seperator-->
-                    <width>458</width>
-                    <height>10</height>
-                    <align>left</align>
-                    <texture>common/menu-separator.png</texture>
-					<visible>Skin.HasTheme(classic)</visible>
-                </control>
 				<control type="button" id="8">
                     <description>Settings</description>
 				    <include>SideBladeMenuButton</include>

@@ -11,20 +11,14 @@
             <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieNoCircularWidgetHeaderAnim</include>
             <!-- fixed focus navigation -->
             <include content="SetFixedVerticalNavigationProps" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <include content="Fixed_Focus_Navigation_Factory1" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
+            <include content="Fixed_Focus_Navigation_Factory1" condition="Skin.HasSetting(LockHubWidgets)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <!-- panel bg option -->
-            <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-                <visible>!Skin.HasSetting(HideWidgetPanelBackground)</visible>
-            </control>
             <include content="Hub_Widget_Label">
                 <param name="widgetid" value="$PARAM[widgetid]" />
                 <param name="visibility" value="String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle)) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(genretitle))" />
@@ -40,8 +34,7 @@
                 <top>7</top>
                 <width>100%</width>
                 <height>30</height>
-                <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-                <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
+                <include>widget_header_leftalign</include>
                 <aspectratio align="left">keep</aspectratio>
                 <imagepath background="true">$VAR[WidgetBusySpinnerPath]</imagepath>
                 <timeperimage>85</timeperimage>
@@ -70,7 +63,7 @@
 			<aligny>center</aligny>
 			<left>130</left>
             <font>Reg24</font>
-            <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+            <include content="textoffsetx">
                 <param name="textoffsetx" value="20" />
             </include>
             <textoffsetx>65</textoffsetx>
@@ -80,13 +73,7 @@
             <texturenofocus/>
             <visible>!Skin.HasSetting(LockHubWidgets) + Skin.String($PARAM[skinsetting].label) + [String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle)) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(genretitle))]</visible>
         </control>
-        <include condition="Skin.HasSetting(EnhancedHome_Circular)" content="bingie_widget_hub">
-            <param name="containerType" value="wraplist" />
-            <param name="widgetid" value="$PARAM[widgetid]" />
-            <param name="widgetStyle" value="$PARAM[widgetStyle]" />
-            <param name="skinsetting" value="$PARAM[skinsetting]" />
-        </include>
-        <include condition="!Skin.HasSetting(EnhancedHome_Circular)" content="bingie_widget_hub">
+        <include content="bingie_widget_hub">
             <param name="containerType" value="fixedlist" />
             <param name="widgetid" value="$PARAM[widgetid]" />
             <param name="widgetStyle" value="$PARAM[widgetStyle]" />
@@ -104,20 +91,14 @@
             <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
+            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieNoCircularWidgetHeaderAnim</include>
             <!-- fixed focus navigation -->
             <include content="SetFixedVerticalNavigationProps" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <include content="Fixed_Focus_Navigation_Factory1" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
+            <include content="Fixed_Focus_Navigation_Factory1" condition="Skin.HasSetting(LockHubWidgets)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <!-- panel bg option -->
-            <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-                <visible>!Skin.HasSetting(HideWidgetPanelBackground)</visible>
-            </control>
         </control>
         <include content="Hub_Set_Widget_Button" condition="!Skin.HasSetting(LockHubWidgets)">
             <param name="visibility" value="Skin.String($PARAM[skinsetting].label)" />
@@ -131,13 +112,7 @@
             <param name="id" value="$PARAM[widgetid]5" />
             <param name="skinsetting" value="$PARAM[skinsetting]" />
         </include>        
-        <include condition="Skin.HasSetting(EnhancedHome_Circular)" content="bingie_widget_hub">
-            <param name="containerType" value="wraplist" />
-            <param name="widgetid" value="$PARAM[widgetid]" />
-            <param name="widgetStyle" value="$PARAM[widgetStyle]" />
-            <param name="skinsetting" value="$PARAM[skinsetting]" />
-        </include>
-        <include condition="!Skin.HasSetting(EnhancedHome_Circular)" content="bingie_widget_hub">
+        <include content="bingie_widget_hub">
             <param name="containerType" value="fixedlist" />
             <param name="widgetid" value="$PARAM[widgetid]" />
             <param name="widgetStyle" value="$PARAM[widgetStyle]" />
@@ -153,7 +128,7 @@
             <include content="BingieUnfocusedWidgetFade">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <scrolltime tween="sine" easing="out">600</scrolltime>
+            <include>ScrollTime</include>
             <preloaditems>5</preloaditems>
             <orientation>horizontal</orientation>
             <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
@@ -169,7 +144,7 @@
             <include content="SetFixedVerticalNavigationProps" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
-            <include content="Fixed_Focus_Navigation_Factory1" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
+            <include content="Fixed_Focus_Navigation_Factory1" condition="Skin.HasSetting(LockHubWidgets)">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
             <include content="$PARAM[widgetStyle]">
@@ -288,7 +263,7 @@
     <include name="bingie_items_movies">
         <include>Empty_Hub_Alt_Buttons</include>
         <!-- set custom spotlight content -->
-        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
+        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="movies"/>
         </include>
         <include content="bingie_custom_hub_items">
@@ -300,7 +275,7 @@
     <include name="bingie_items_tvshows">
         <include>Empty_Hub_Alt_Buttons</include>
         <!-- set custom spotlight content -->
-        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
+        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="tvshows"/>
         </include>
         <include content="bingie_custom_hub_items">
@@ -322,7 +297,7 @@
     <include name="bingie_items_new">
         <include>Empty_Hub_Alt_Buttons</include>
         <!-- set custom spotlight content -->
-        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
+        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="new"/>
         </include>
         <include content="bingie_custom_hub_items">
@@ -334,7 +309,7 @@
     <include name="bingie_items_myhub">
         <include>Empty_Hub_Alt_Buttons</include>
         <!-- set custom spotlight content -->
-        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(BingieHomeDisableFirstRow) + !Skin.HasSetting(DisableSpotlightContent)">
+        <include content="Set_Custom_Spotlight_Hub_Button" condition="!Skin.HasSetting(LockHubWidgets) + !Skin.HasSetting(DisableSpotlightContent)">
             <param name="hubname" value="myhub"/>
         </include>
         <include content="bingie_custom_hub_items">
@@ -458,20 +433,18 @@
             <width>99%</width>
 			<left>67</left>
             <font>Bold31</font>
-            <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-            <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
+            <include>widget_header_leftalign</include>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <label>$PARAM[label]</label>
-            <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0) + !Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
-            <animation effect="slide" end="-50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0) + Skin.HasSetting(WidgetAlignRight)">Conditional</animation>
+            <animation effect="slide" end="50" time="0" condition="Container($PARAM[widgetid]).IsUpdating + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0)">Conditional</animation>
         </control>
     </include>
 
     <include name="Hub_Set_Widget_Button">
         <control type="button" id="$PARAM[id]">
             <visible>$PARAM[visibility]</visible>
-            <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+            <include content="textoffsetx">
                 <param name="textoffsetx" value="20" />
             </include>
             <textoffsetx>65</textoffsetx>
@@ -497,7 +470,7 @@
 			<left>130</left>
             <aligny>center</aligny>
             <font>Reg32</font>
-            <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+            <include content="textoffsetx">
                 <param name="textoffsetx" value="20" />
             </include>
             <textoffsetx>65</textoffsetx>
@@ -520,7 +493,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <font>Reg32</font>
-            <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+            <include content="textoffsetx">
                 <param name="textoffsetx" value="20" />
             </include>
             <textoffsetx>65</textoffsetx>
@@ -553,7 +526,7 @@
         </definition>
     </include>
 	
-	    <include name="Custom_Container_Label2">
+	<include name="Custom_Container_Label2">
         <definition>
             <control type="textbox">
                 <visible>Integer.IsGreater(Container(1510).NumItems,0)</visible>
@@ -579,7 +552,7 @@
                 <visible>Integer.IsEqual(Container($PARAM[containerid]).NumItems,0) + !Container($PARAM[containerid]).IsUpdating</visible>
                 <align>left</align>
 				<left>-6</left>
-                <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+                <include content="textoffsetx">
                     <param name="textoffsetx" value="25" />
                 </include>
                 <textoffsetx>0</textoffsetx>
@@ -603,7 +576,7 @@
             <control type="button" id="$PARAM[id]">
                 <visible>Integer.IsEqual(Container($PARAM[containerid]).NumItems,0) + !Container($PARAM[containerid]).IsUpdating</visible>
                 <align>left</align>
-                <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+                <include content="textoffsetx">
                     <param name="textoffsetx" value="25" />
                 </include>
                 <textoffsetx>0</textoffsetx>
@@ -641,7 +614,7 @@
             <align>left</align>
 			<aligny>center</aligny>
             <font>Reg24</font>
-            <include content="textoffsetx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+            <include content="textoffsetx">
                 <param name="textoffsetx" value="20" />
             </include>
             <textoffsetx>65</textoffsetx>
@@ -662,6 +635,7 @@
         <control type="panel" id="$PARAM[widgetid]">			
             <viewtype label="31018">panel</viewtype>
             <width>1666</width>
+			<animation effect="slide" time="0" start="0" end="0,40" condition="Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge)] | Window.IsActive(1115) + [String.IsEqual(String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge)]">Conditional</animation>
 			<include condition="Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails)] | Window.IsActive(1115) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails)]" content="height">
                     <param name="height" value="390" />
             </include>
@@ -683,7 +657,7 @@
             <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onback>
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
             <onright>noop</onright>
-            <itemlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails) | String.IsEqual(Skin.String(widgetstyle),singlebox) | String.IsEqual(Skin.String(widgetstyle),widebox)">
+            <itemlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)">
                 <control type="group">
                     <width>240</width>
                     <height>330</height>
@@ -691,12 +665,11 @@
                     <control type="group">
                         <description>widget label overlay</description>
                         <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">PosterTagOverlayBingie</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
                         <include>Poster_New_Episodes_Tag_Overlay</include>
                     </control>
                 </control>
             </itemlayout>
-            <focusedlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails) | String.IsEqual(Skin.String(widgetstyle),singlebox) | String.IsEqual(Skin.String(widgetstyle),widebox)">
+            <focusedlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)">
                 <control type="group">
                     <width>240</width>
                     <height>330</height>
@@ -704,7 +677,6 @@
                     <control type="group">
                         <description>widget label overlay</description>
                         <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">PosterTagOverlayBingie</include>
-                        <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">PosterTagOverlayVisibility</include>
                         <include>Poster_New_Episodes_Tag_Overlay</include>
                     </control>
 					<include>Top250Indicator</include>
@@ -727,7 +699,6 @@
                         <include>ThumbsViewBingieLayout</include>
                         <control type="group">
                             <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlayBingie</include>
-                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
 							<include>New_Episodes_Tag_Overlay</include>
                         </control>
                 </control>
@@ -739,7 +710,6 @@
                         <include>ThumbsViewBingieLayout</include>
                         <control type="group">
                             <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlayBingie</include>
-                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
 							<include>New_Episodes_Tag_Overlay</include>
                         </control>
 					<include>Top250Indicator</include>
@@ -767,7 +737,7 @@
                         <width>557</width>
                         <height>118</height>
                         <control type="image">
-                            <texture>diffuse/banner2.png</texture>
+                            <texture>diffuse/banner.png</texture>
                             <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
                             <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
                             <include>thumbsborder_focused</include>
@@ -785,25 +755,23 @@
 						</include>
 					</control>
                 </focusedlayout>
-				<itemlayout height="185" width="185" condition="String.IsEqual(Skin.String(widgetstyle),square) | String.IsEqual(Skin.String(widgetstyle),minisquare)">
+				<itemlayout height="185" width="185" condition="String.IsEqual(Skin.String(widgetstyle),square)">
                     <control type="group">
                         <width>187</width>
                         <height>187</height>
                         <include>SquarePosterPanelLayout</include>
                         <control type="group">
                             <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SquarePosterTagOverlay</include>
-                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">SquarePosterTagOverlayVisibility</include>
                         </control>
                     </control>
                 </itemlayout>
-                <focusedlayout height="185" width="185" condition="String.IsEqual(Skin.String(widgetstyle),square) | String.IsEqual(Skin.String(widgetstyle),minisquare)">
+                <focusedlayout height="185" width="185" condition="String.IsEqual(Skin.String(widgetstyle),square)">
                     <control type="group">
                         <width>187</width>
                         <height>187</height>
                         <include>SquarePosterPanelLayoutFocus</include>
                         <control type="group">
                             <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SquarePosterTagOverlay</include>
-                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">SquarePosterTagOverlayVisibility</include>
                         </control>
                     </control>
                     <control type="button">
@@ -831,13 +799,12 @@
                 + [Integer.IsEqual(Container(1570).NumItems,0) + !Container(1570).IsUpdating] + [Integer.IsEqual(Container(1580).NumItems,0) + !Container(1580).IsUpdating]</visible>
             <animation effect="slide" time="0" start="0" end="65" condition="true">Conditional</animation>
 			<animation effect="slide" time="0" start="0" end="-104,50" condition="Window.IsActive(1118)">Conditional</animation>
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Slide_Animation</include>
+            <include>No_Circular_Slide_Animation</include>
             <height>45</height>
             <width>99%</width>
 			<left>19</left>
             <font>Bold31</font>
-            <include condition="Skin.HasSetting(WidgetAlignRight)">widget_header_rightalign</include>
-            <include condition="!Skin.HasSetting(WidgetAlignRight)">widget_header_leftalign</include>
+            <include>widget_header_leftalign</include>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
             <label>31372</label>
@@ -847,7 +814,7 @@
             <visible>Control.IsVisible(1501)</visible>
             <animation effect="slide" time="0" start="0" end="65" condition="true">Conditional</animation>
 			<animation effect="slide" time="0" start="0" end="-119,50" condition="Window.IsActive(1118)">Conditional</animation>
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Slide_Animation</include>
+            <include>No_Circular_Slide_Animation</include>
             <height>132</height>
             <width>100%</width>
             <orientation>horizontal</orientation>
@@ -873,9 +840,9 @@
                     <font>Reg30</font>
                     <textoffsetx>15</textoffsetx>
                     <textoffsety>8</textoffsety>
-                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
-                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texturefocus>
+                    <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</focusedcolor>
+                    <texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo_4.png</texturefocus>
                     <texturenofocus/>
                     <label>31392</label>
                     <onclick>ActivateWindow(Videos,sources://video/,return)</onclick>
@@ -889,9 +856,9 @@
                     <font>Reg30</font>
                     <textoffsetx>15</textoffsetx>
                     <textoffsety>8</textoffsety>
-                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
-                    <focusedcolor>$INFO[Skin.String(ViewDetailsTextColor)]</focusedcolor>
-                    <texturefocus colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo.png</texturefocus>
+                    <textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
+                    <focusedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</focusedcolor>
+                    <texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_fo_4.png</texturefocus>
                     <texturenofocus/>
                     <label>31394</label>
                     <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>

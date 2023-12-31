@@ -19,5 +19,6 @@
             <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <include>Busy_Spinner</include>
         </control>
+		<control type="videowindow"/>
     </controls>
 </window>

@@ -37,26 +37,13 @@
 					<font>Bold38</font>
 					<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
 				</control>
-				<control type="button">
-					<description>Close Window button</description>
-					<posx>0</posx>
-					<posy>-48</posy>
-					<width>96</width>
-					<height>48</height>
-					<label/>
-					<font/>
-					<onclick>PreviousMenu</onclick>
-					<texturefocus>dialogs/trakt/close-fo.png</texturefocus>
-					<texturenofocus>dialogs/trakt/close-nofo.png</texturenofocus>
-					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
-				</control>
 			</control>
 			<control type="group">
 				<control type="label" id="203">
 					<description>Instructions Label</description>
-					<posx>391</posx>
+					<posx>395</posx>
 					<posy>110</posy>
-					<width>360</width>
+					<width>370</width>
 					<height>80</height>
 					<font>Bold32</font>
 					<textcolor>black</textcolor>
@@ -67,9 +54,9 @@
 				</control>
 				<control type="label" id="204">
 					<description>Code Label</description>
-					<posx>391</posx>
+					<posx>395</posx>
 					<posy>200</posy>
-					<width>360</width>
+					<width>370</width>
 					<height>80</height>
 					<font>Bold34</font>
 					<label/><!-- this is set from the code -->
@@ -79,9 +66,9 @@
 				</control>
 				<control type="label" id="205">
 					<description>Warning Label</description>
-					<posx>391</posx>
+					<posx>395</posx>
 					<posy>300</posy>
-					<width>360</width>
+					<width>370</width>
 					<height>80</height>
 					<font>Reg30</font>
 					<wrapmultiline>true</wrapmultiline>
@@ -93,8 +80,8 @@
 			</control>
 			<control type="image">
 				<description>QR Code</description>
-				<posx>859</posx>
-				<posy>87</posy>
+				<posx>863</posx>
+				<posy>90</posy>
 				<width>336</width>
 				<height>336</height>
 				<texture>dialogs/trakt/qr_code.png</texture>

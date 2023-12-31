@@ -4,10 +4,6 @@
 
     <!-- SQUARE LAYOUT -->
     <include name="SquarePosterPanelLayout">
-        <!-- <control type="image"> -->
-            <!-- <include>SquareThumbBG</include> -->
-            <!-- <include>thumbsborder_unfocused</include> -->
-        <!-- </control> -->
         <control type="image">
             <include>SquareThumb</include>
             <visible>!String.StartsWith(ListItem.FileNameAndPath, pvr://) + ![!String.IsEmpty(ListItem.Art(thumb)) + String.IsEqual(ListItem.Art(thumb),ListItem.Property(channellogo))]</visible>
@@ -22,9 +18,6 @@
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorSmall</include>
-            <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                <effect type="slide" end="3,-3" time="0"  />
-            </animation>
         </control>
         <!--Label Overlay-->
         <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1107) + !Window.IsActive(DialogVideoInfo.xml)">SquarePosterTagOverlay</include>
@@ -48,9 +41,6 @@
             <right>8</right>
             <top>8</top>
             <include>WatchedIndicatorSmall</include>
-            <animation type="Conditional" condition="Skin.HasTheme(classic)">
-                <effect type="slide" end="3,-3" time="0"  />
-            </animation>
         </control>
         <!--Label Overlay-->
         <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1107) + !Window.IsActive(DialogVideoInfo.xml)">SquarePosterTagOverlay</include>
@@ -62,11 +52,6 @@
         <texture background="true" diffuse="diffuse/music_cover.png" fallback="defaultmusicrecentlyplayed.png" border="0">$VAR[SquarePosterThumb]</texture>
         <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
     </include>
-    <!-- <include name="SquareThumbBG"> -->
-        <!-- <aspectratio aligny="top" scalediffuse="false">stretch</aspectratio> -->
-        <!-- <texture>diffuse/music_cover.png</texture> -->
-        <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-    <!-- </include> -->
     <include name="SquareThumbFO">
         <aspectratio aligny="top">stretch</aspectratio>
         <texture>diffuse/music_cover.png</texture>
@@ -78,21 +63,19 @@
             ![Control.IsVisible(509) + Skin.String(View509.Tags,disable)] + 
             ![Control.IsVisible(510) + Skin.String(View510.Tags,disable)] + 
             !String.IsEqual(ListItem.Label,..) +
-            ![Skin.HasSetting(NoTitleOnHomeMenuTiles) + !String.IsEmpty(ListItem.Property(defaultID))] + 
-            !String.IsEqual(ListItem.Property(disableLabel), disable)
+            ![!String.IsEmpty(ListItem.Property(defaultID))] + 
+            !String.IsEqual(ListItem.Property(disableLabel), disable) | [[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + Skin.HasSetting(ShowLabelsPosterEpisodes) + [String.IsEqual(Skin.String(Widgets_DisplayTags),enable) | String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | String.IsEqual(Skin.String(Widgets_DisplayTags),override)]]
         </visible>
         <visible>
-            [Control.IsVisible(509) + Skin.String(View509.Tags,enable)] | 
+            [[Control.IsVisible(509) + Skin.String(View509.Tags,enable)] | 
             [Control.IsVisible(510) + Skin.String(View510.Tags,enable)] | 
             !String.IsEmpty(ListItem.Property(defaultID)) | 
-            [Control.IsVisible(509) + !Skin.String(View509.Tags) + !String.Contains(ListItem.Art(thumb),icon.png)] |
-            [Control.IsVisible(510) + !Skin.String(View510.Tags) + !String.Contains(ListItem.Art(thumb),icon.png)] |
-            Window.IsActive(settings) | Window.IsActive(1109) | Window.IsActive(1107) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)
+            Window.IsActive(settings) | Window.IsActive(1109) | Window.IsActive(1107) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)] | [[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + Skin.HasSetting(ShowLabelsPosterEpisodes) + [String.IsEqual(Skin.String(Widgets_DisplayTags),enable) | String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | String.IsEqual(Skin.String(Widgets_DisplayTags),override)]]
         </visible>
     </include>
     <include name="SquarePosterTagOverlay">
         <control type="group">
-            <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1107) + !Window.IsActive(DialogVideoInfo.xml) + !Window.IsActive(script-globalsearch.xml)">SquarePosterTagOverlayVisibility</include>
+            <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1107) + !Window.IsActive(DialogVideoInfo.xml) + !Window.IsActive(script-globalsearch.xml) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">SquarePosterTagOverlayVisibility</include>
             <control type="image">
                 <bottom>0</bottom>
                 <height>74</height>
@@ -135,8 +118,9 @@
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)] + String.Contains(ListItem.FolderPath,music)">$VAR[MusicGenreIconVarList]</value>
         <value condition="[Container.Content(genres) | String.IsEqual(ListItem.DBTYPE,genre)]">$VAR[MovieGenreIconVarList]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb)) + [Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !Window.IsActive(DialogVideoInfo.xml)">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!String.IsEmpty(Listitem.Art(artist.thumb))">$INFO[Listitem.Art(artist.thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Listitem.Art(artist.thumb))">$INFO[Listitem.Art(artist.thumb)]</value>
+		<value condition="!String.IsEmpty(Listitem.Art(albumartist.thumb))">$INFO[Listitem.Art(albumartist.thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.Art(fanart)]</value>
         <value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack.png</value>
         <value condition="String.IsEqual(ListItem.Label,$LOCALIZE[21452])">dialogs/filebrowser/DefaultAddSource.png</value>

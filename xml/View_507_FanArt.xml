@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-
-    <include name="View_507_FanArt">
-	
+    <include name="View_507_FanArt">	
 	 <!--View 507-->
         <control type="group">
             <visible>Control.IsVisible(507)</visible>
@@ -46,8 +44,6 @@
                 <focusedlayout height="2500" width="1920">
                 </focusedlayout>
             </control>
-
-
 			
 			<!--Info-->
 			<control type="group">
@@ -106,44 +102,8 @@
 						<height>20</height>
 						<label/>
 					</control>
-				</control>
-			
-				<!-- touchscreen support -->
-				<!-- page button left -->
-				<control type="button">
-					<left>0</left>
-					<top>-10</top>
-					<width>30</width>
-					<height>149</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label/>
-					<pulseonselect>false</pulseonselect>
-					<texturefocus colordiffuse="white">home/basichome_left.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">home/basichome_left.png</texturenofocus>
-					<onclick>Control.Move(507,-1) </onclick>
-					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
-				</control>
-
-				<!-- page button right -->
-				<control type="button">
-					<right>0</right>
-					<top>-10</top>
-					<width>30</width>
-					<height>149</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label/>
-					<pulseonselect>false</pulseonselect>
-					<texturefocus colordiffuse="white">home/basichome_right.png</texturefocus>
-					<texturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">home/basichome_right.png</texturenofocus>
-					<onclick>Control.Move(507,1) </onclick>
-					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
-				</control>
-			
-			</control>
-			
-		
+				</control>						
+			</control>					
 		</control>
-     </include>
+     </include> 
 </includes>

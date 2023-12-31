@@ -3,25 +3,6 @@
 
 <template>
 
-	<other include="spotlightwidget">
-		<condition tag="property" attribute="name|widget.99"></condition>
-		<match>all</match>
-        <property name="id" tag="mainmenuid" />
-        <property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
-
-		<property name="target" tag="property" attribute="name|widgetTarget.99" />
-        <property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
-        <property name="content" tag="property" attribute="name|widgetPath.99" />
-
-		<controls>
-			<control type="panel" id="1508">
-				<skinshortcuts>visibility</skinshortcuts>
-				<include>EnhancedHomeSpotLightWidgetLayout</include>
-				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
-			</control>
-		</controls>
-    </other>
-
     <other include="Widgets">
 		<condition tag="property" attribute="name|widget"></condition>
 		<match>all</match>
@@ -34,12 +15,6 @@
             <rule tag="property" attribute="name|multiwidget" value="single2" />
         </property>
         <property name="multiWidgets">true</property>
-        
-        <property name="multiRows" propertyValue="true">
-            <rule tag="property" attribute="name|multiwidget" value="single2" />
-            <rule tag="property" attribute="name|multiwidget" value="multi2" />
-        </property>
-        <property name="multiRows">false</property>
 
         <!-- widget 1 -->
 		<property name="widgetTarget1" tag="property" attribute="name|widgetTarget" />
@@ -257,30 +232,9 @@
         <property name="widgetFixedFocus8" tag="property" attribute="name|widgetFixedFocus.7" />
         <property name="widgetFixedFocus8">disabled</property>
         
-        <controls>
-            <include content="widget_header_single" condition="![$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] + !String.IsEqual(Skin.String(HomeLayout),win10) + $PYTHON['true' if widgetPath1 else 'false']">
-                <param name="mainmenuid" value="$SKINSHORTCUTS[id]" />
-                <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
-                <param name="hasWidget0" value="$PYTHON['true' if widgetPath1 else 'false']" />
-                <param name="hasWidget1" value="$PYTHON['true' if widgetPath2 else 'false']" />
-                <param name="hasWidget2" value="$PYTHON['true' if widgetPath3 else 'false']" />
-                <param name="hasWidget3" value="$PYTHON['true' if widgetPath4 else 'false']" />
-                <param name="hasWidget4" value="$PYTHON['true' if widgetPath5 else 'false']" />
-                <param name="hasWidget5" value="$PYTHON['true' if widgetPath6 else 'false']" />
-                <param name="hasWidget6" value="$PYTHON['true' if widgetPath7 else 'false']" />
-                <param name="hasWidget7" value="$PYTHON['true' if widgetPath8 else 'false']" />
-                <param name="widgetStyle1" value="$SKINSHORTCUTS[widgetStyle1]" />
-                <param name="widgetStyle2" value="$SKINSHORTCUTS[widgetStyle2]" />
-                <param name="widgetStyle3" value="$SKINSHORTCUTS[widgetStyle3]" />
-                <param name="widgetStyle4" value="$SKINSHORTCUTS[widgetStyle4]" />
-                <param name="widgetStyle5" value="$SKINSHORTCUTS[widgetStyle5]" />
-                <param name="widgetStyle6" value="$SKINSHORTCUTS[widgetStyle6]" />
-                <param name="widgetStyle7" value="$SKINSHORTCUTS[widgetStyle7]" />
-                <param name="widgetStyle8" value="$SKINSHORTCUTS[widgetStyle8]" />
-            </include>
-            
+        <controls>           
             <!-- widget 1 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath1 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath1 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]510" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName1]" />
@@ -299,12 +253,11 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder1]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit1]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel1]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + [Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],0) | String.IsEmpty(Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid]))]]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + [Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],0) | String.IsEmpty(Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid]))]]" />
             </include>
 
             <!-- widget 2 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath2 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath2 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]520" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName2]" />
@@ -323,12 +276,11 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder2]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit2]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel2]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],1)]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],1)]" />
             </include>
             
             <!-- widget 3 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath3 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath3 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]530" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName3]" />
@@ -347,12 +299,11 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder3]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit3]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel3]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],2)]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],2)]" />
             </include>
             
             <!-- widget 4 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath4 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath4 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]540" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName4]" />
@@ -371,12 +322,11 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder4]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit4]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel4]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],3)]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],3)]" />
             </include>
             
             <!-- widget 5 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath5 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath5 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]550" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName5]" />
@@ -395,12 +345,11 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder5]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit5]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel5]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],4)]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],4)]" />
             </include>
             
             <!-- widget 6 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath6 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath6 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]560" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName6]" />
@@ -419,12 +368,11 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder6]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit6]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel6]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],5)]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],5)]" />
             </include>
 
             <!-- widget 7 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath7 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath7 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]570" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName7]" />
@@ -443,12 +391,11 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder7]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit7]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel7]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],6)]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],6)]" />
             </include>
             
             <!-- widget 8 -->
-            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath8 else 'false'] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]">
+            <include content="widget_header_multi" condition="$SKINSHORTCUTS[multiWidgets] + $PYTHON['true' if widgetPath8 else 'false'] + String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$SKINSHORTCUTS[id]580" />
                 <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
                 <param name="widgetName" value="$SKINSHORTCUTS[widgetName8]" />
@@ -467,8 +414,7 @@
                 <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder8]" />
                 <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit8]" />
                 <param name="widgetInfoPanel" value="$SKINSHORTCUTS[widgetInfoPanel8]" />
-                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + [String.IsEqual(Skin.String(HomeLayout),bingie) | $EXP[IsVerticalLayout]]] | String.IsEqual(Skin.String(HomeLayout),win10) | [![$SKINSHORTCUTS[multiWidgets] + [$EXP[IsVerticalLayout] | String.IsEqual(Skin.String(HomeLayout),bingie)]] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],7)]" />
-                <param name="multiRows" value="$SKINSHORTCUTS[multiRows] + $EXP[IsVerticalLayout]" />
+                <param name="visibility" value="[$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$SKINSHORTCUTS[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$SKINSHORTCUTS[submenuid],7)]" />
             </include>
         </controls>
         <variables>

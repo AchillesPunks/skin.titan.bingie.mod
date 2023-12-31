@@ -11,7 +11,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View501_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -24,18 +24,18 @@
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
 			<control type="panel" id="501">
-				<posx>60</posx>
+				<posx>58</posx>
 				<width>1880</width>
 				<bottom>150</bottom>
                 <height>700</height>
 				<onup condition="Skin.HasSetting(View_501_HorizontalNavigation)">9000</onup>
                 <onup condition="!Skin.HasSetting(View_501_HorizontalNavigation)">501</onup>
-				<ondown condition="Skin.HasSetting(View_501_HorizontalNavigation)">6000</ondown>
+				<ondown condition="Skin.HasSetting(View_501_HorizontalNavigation)">60</ondown>
                 <ondown condition="!Skin.HasSetting(View_501_HorizontalNavigation)">501</ondown>
 				<onleft condition="Skin.HasSetting(View_501_HorizontalNavigation)">501</onleft>
                 <onleft condition="!Skin.HasSetting(View_501_HorizontalNavigation)">9000</onleft>
 				<onright condition="Skin.HasSetting(View_501_HorizontalNavigation)">501</onright>
-                <onright condition="!Skin.HasSetting(View_501_HorizontalNavigation)">6000</onright>
+                <onright condition="!Skin.HasSetting(View_501_HorizontalNavigation)">60</onright>
 				<pagecontrol>60</pagecontrol>
 				<viewtype label="31430">thumbnail</viewtype>
 				<include content="View_Forced">
@@ -46,33 +46,17 @@
 				<preloaditems>4</preloaditems>
 				<scrolltime tween="cubic" easing="inout">500</scrolltime>
                 <visible>!Container.Content(files)</visible>
-				<itemlayout width="620" height="350" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<itemlayout width="620" height="350">
                     <control type="group">
                         <width>565</width>
                         <height>325</height>
                         <include>LandscapeLayout</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="620" height="350" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<focusedlayout width="620" height="350">
 					<control type="group">
                         <width>565</width>
                         <height>325</height>
-						<include>LandscapeLayoutFocus</include>
-					</control>
-				</focusedlayout>
-                <itemlayout width="620" height="350" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-                    <control type="group">
-                        <width>493</width>
-                        <left>30</left>
-                        <height>340</height>
-                        <include>LandscapeLayout</include>
-                    </control>
-				</itemlayout>
-				<focusedlayout width="620" height="350" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-					<control type="group">
-                        <width>493</width>
-                        <height>340</height>
-                        <left>30</left>
 						<include>LandscapeLayoutFocus</include>
 					</control>
 				</focusedlayout>
@@ -83,33 +67,31 @@
                 <!--horizontal Scrollbar-->
 				<control type="scrollbar" id="60">
 					<visible>Control.IsVisible(501) + Integer.IsGreater(Container.NumItems,0) + Skin.HasSetting(View_501_HorizontalNavigation)</visible>
-					<left>60</left>
+					<left>66</left>
 					<bottom>4</bottom>
-					<width>1800</width>
+					<width>1789</width>
 					<height>15</height>
 					<onup>501</onup>
 					<onleft>60</onleft>
 					<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
                     <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
 					<orientation>horizontal</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
 				</control>
                 <!--vertical Scollbar-->
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(501) + Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(View_501_HorizontalNavigation)</visible>
-                    <right>10</right>
-                    <bottom>150</bottom>
-                    <height>700</height>
+                    <right>15</right>
+                    <bottom>183</bottom>
+                    <height>659</height>
                     <onup>60</onup>
                     <ondown>6000</ondown>
                     <onleft>501</onleft>
-                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
                 </control>
-			</control>
-     			
-		</control>
-	
+			</control>    			
+		</control>	
 	</include>
 </includes>

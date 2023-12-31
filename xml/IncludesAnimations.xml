@@ -34,20 +34,20 @@
 
     <include name="animation_window_open_close">
         <!--Fade Open/Close normal-->
-        <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode) + ![Control.IsVisible(525) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(527)]">
+        <animation type="WindowOpen" reversible="false" condition="![Control.IsVisible(525) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(527)]">
             <effect type="zoom" start="80" end="100" center="960,540" easing="out" tween="back" time="200"/>
             <effect type="fade" start="0" end="100" time="200"/>
         </animation>
-        <animation type="WindowClose" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode) + ![Control.IsVisible(525) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(527)]">
+        <animation type="WindowClose" reversible="false" condition="![Control.IsVisible(525) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(527)]">
             <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="200"/>
             <effect type="fade" start="100" end="0" time="200"/>
         </animation>
 
         <!--Fade Open/Close slow systems-->
-        <animation type="WindowOpen" reversible="false" condition="Skin.HasSetting(LowPerformanceMode) | [Control.IsVisible(525) | Control.IsVisible(527)]">
+        <animation type="WindowOpen" reversible="false" condition="[Control.IsVisible(525) | Control.IsVisible(527)]">
             <effect type="fade" start="0" end="100" time="150"/>
         </animation>
-        <animation type="WindowClose" reversible="false" condition="Skin.HasSetting(LowPerformanceMode) | [Control.IsVisible(525) | Control.IsVisible(527)]">
+        <animation type="WindowClose" reversible="false" condition="[Control.IsVisible(525) | Control.IsVisible(527)]">
             <effect type="fade" start="100" end="0" time="150"/>
         </animation>
 
@@ -121,15 +121,6 @@
         <animation effect="slide" end="0,250" time="300" condition="Integer.IsGreater(Container(77777).NumItems,1) + String.IsEqual(Container(77777).CurrentItem,Container(77777).NumItems)">Conditional</animation>
     </include>
 
-    <include name="widgets_animation">
-        <animation condition="Skin.HasSetting(Widgets_Animation)" reversible="false" type="Visible">
-            <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom" />
-            <effect delay="280" easing="in" end="0,0" start="0,40" time="180" tween="sine" type="slide" />
-            <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade" />
-        </animation>
-        <animation time="300" effect="fade" start="0" end="100" reversible="true" easing="inout" condition="!Skin.HasSetting(Widgets_Animation)">Visible</animation>
-    </include>
-
     <include name="animation_fade_visible_hidden">
         <!--Visible/Hidden Aniamtion-->
         <animation time="125" effect="fade" delay="0">Visible</animation>
@@ -192,7 +183,7 @@
 
     <!-- unfocused widget fade on bingie layout -->
     <include name="BingieUnfocusedWidgetFade">
-        <animation effect="fade" start="100" end="55" time="100" condition="!Control.HasFocus($PARAM[widgetid]) + !Control.HasFocus(1508)">Conditional</animation>
+        <animation effect="fade" start="100" end="50" time="100" condition="!Control.HasFocus($PARAM[widgetid]) + !Control.HasFocus(1508)">Conditional</animation>
     </include>
 
     <include name="BingieNoCircularWidgetHeaderAnim">
@@ -231,7 +222,8 @@
 
     <!-- default fade animation -->
     <include name="Default_Visible_Fade">
-        <animation effect="fade" time="350">Visible</animation>
+        <animation effect="fade" time="350" condition="!String.IsEqual(window(home).Property(widgetstyle),highlight)">Visible</animation>
+		<animation effect="fade" time="300" condition="String.IsEqual(window(home).Property(widgetstyle),highlight)">Visible</animation>
     </include>
 
     <include name="SearchSuggestionsAnim">
@@ -239,187 +231,12 @@
     </include>
 
     <include name="WidgetsBaseAnimation">
-        <include condition="!Skin.HasSetting(Widgets_Animation)">WidgetsBaseAnimationDefault</include>
-        <include condition="Skin.HasSetting(Widgets_Animation)">WidgetsBaseAnimationAlt</include>
-    </include>
-
-    <include name="WidgetsBaseAnimationDefault">
         <animation time="100" effect="fade" start="0" end="100" reversible="false" easing="inout">Visible</animation>
-    </include>
-    <include name="WidgetsBaseAnimationAlt">
-        <animation condition="!ControlGroup(77777).HasFocus()" reversible="false" type="Visible">
-            <effect center="960,540" delay="280" easing="in" end="100" start="98" time="180" tween="sine" type="zoom"/>
-            <effect delay="280" easing="in" end="0,0" start="0,40" time="180" tween="sine" type="slide"/>
-            <effect delay="280" easing="in" end="100" start="0" time="180" tween="sine" type="fade"/>
-        </animation>
-    </include>
-
-    <!-- widget layout animations -->
-    <include name="widget_layout_landscape_animation">
-        <animation effect="slide" delay="0" start="0" end="0,100" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,220" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,0" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-130" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-10" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        <animation effect="slide" start="0" end="140" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-
-        <animation effect="slide" start="0" end="366" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="366" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="366" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="366" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-        <animation effect="slide" start="0" end="326" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="326" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="326" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_landscapelarge_animation">
-        <animation effect="slide" delay="0" start="0" end="0,40" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,160" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-60" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-190" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_landscapedetails_animation">
-        <animation effect="slide" delay="0" start="0" end="0,100" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,220" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,0" time="0" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-10" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_banner_animation">
-        <animation effect="slide" delay="0" start="0" end="0,165" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,285" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,64" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-66" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,54" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_landscapesmall_animation">
-        <animation effect="slide" delay="0" start="0" end="0,162" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,282" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,62" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-68" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,52" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        <animation effect="slide" start="0" end="140" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !$EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-
-        <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="260" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_singlebox_animation">
-        <animation effect="slide" delay="0" start="0" end="0,-30" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,90" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-130" time="0" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-260" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-140" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_widebox_animation">
-        <animation effect="slide" delay="0" start="0" end="0,55" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,175" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-45" time="0" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="0" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-175" time="0" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-55" time="0" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_poster_animation">
-        <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,50" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-170" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-410" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        <animation effect="slide" start="0" end="140" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="261" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="261" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="261" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="261" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="261" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="261" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_posterdetails_animation">
-        <animation effect="slide" delay="0" start="0" end="0,-70" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,50" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-170" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-300" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-180" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_smallposter_animation">
-        <animation effect="slide" delay="0" start="0" end="0,57" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,177" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-43" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-173" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-53" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_square_animation">
-        <animation effect="slide" delay="0" start="0" end="0,65" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,185" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-35" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-165" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-45" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        <animation effect="slide" start="0" end="140" time="0" condition="Skin.HasSetting(WidgetAlignRight) + $EXP[IsVerticalLayout] + Skin.HasSetting(VerticalHomeLargeWidget) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) +  !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="262" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
-    </include>
-
-    <include name="widget_layout_minisquare_animation">
-        <animation effect="slide" delay="0" start="0" end="0,180" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,300" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + String.Contains(Skin.String(HomeLayout),horizontal) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,79" time="200" condition="String.Contains(Skin.String(HomeLayout),simplehor) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-370" time="200" condition="[[[String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + !Skin.HasSetting(LowerWidgets)] | [String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),2small)]] + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,-51" time="200" condition="!String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-        <animation effect="slide" delay="0" start="0" end="0,69" time="200" condition="String.IsEqual(Skin.AspectRatio,16:10) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)] + Skin.HasSetting(LowerWidgets) + Skin.HasSetting(AutoShowWidgets) + [String.IsEmpty(Window(Home).Property(ShowWidget)) | Skin.HasSetting(HideWidgetDetailsPanel)]">Conditional</animation>
-
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,13) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,12) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,11) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,10) + !$EXP[IsVerticalLayout]">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,9)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,8)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,7)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,6)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,5)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="130" time="0" condition="Skin.HasSetting(WidgetAlignRight) + !Integer.IsGreater(Container($PARAM[widgetid]).NumItems,1)">Conditional</animation>
     </include>
 
     <include name="snow">
         <control type="group">
-            <visible>Skin.HasSetting(enablesnow)</visible>
+            <visible>String.IsEqual(Skin.String(season_greetings),snow_animation)</visible>
             <control type="group">
                 <posx>-100</posx>
                 <animation effect="rotate" end="20" time="9000" delay="300" condition="true">Conditional</animation>
@@ -838,7 +655,7 @@
 
  <include name="pumpkin"> 
          <control type="group"> 
-             <visible>Skin.HasSetting(enablepumpkins)</visible> 
+             <visible>String.IsEqual(Skin.String(season_greetings),halloween_animation)</visible> 
              <control type="group"> 
                  <posx>-100</posx> 
                  <animation effect="rotate" end="20" time="9000" delay="300" condition="true">Conditional</animation> 
@@ -1279,12 +1096,132 @@
 		  <effect type="fade" start="0" end="100" time="500" delay="300" tween="sine" easing="out" />
 		  <effect type="slide" start="150" end="0" time="500" delay="300" tween="cubic" easing="out" />
 		</animation>
+		<animation type="WindowClose" reversible="false">
+		  <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+		  <effect type="slide" start="0" end="150" time="300" tween="cubic" easing="out" />
+		</animation>
 	</include>
 	
-	<include name="Animation_Right_Delay2">
+	<include name="Animation_Right_Delay_2">
+		<animation type="WindowOpen" reversible="false" condition="!String.IsEmpty(Window(Home).Property(FullImage)) | !String.IsEmpty(Window(Home).Property(Animation)) | Skin.HasSetting(MovieDetailsHome) + Integer.IsGreater(ListItem.PercentPlayed,1) | Window.IsActive(Custom_1190_TMDbHelperCast.xml) | Window.IsActive(Custom_1191_TMDbHelper.xml) | Window.IsActive(Custom_1109_BingieSearch.xml) | Window.IsActive(Custom_1108_BingieMovieSearch.xml)">
+		  <effect type="fade" start="0" end="100" time="500" delay="200" tween="sine" easing="out" />
+		  <effect type="slide" start="150" end="0" time="500" delay="200" tween="cubic" easing="out" />
+		</animation>
+		<animation type="WindowClose" reversible="false" condition="!String.IsEmpty(Window(Home).Property(FullImage)) | !String.IsEmpty(Window(Home).Property(Animation)) | Skin.HasSetting(MovieDetailsHome) + Integer.IsGreater(ListItem.PercentPlayed,1) | Window.IsActive(Custom_1190_TMDbHelperCast.xml) | Window.IsActive(Custom_1191_TMDbHelper.xml) | Window.IsActive(Custom_1109_BingieSearch.xml) | Window.IsActive(Custom_1108_BingieMovieSearch.xml)">
+		  <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+		  <effect type="slide" start="0" end="150" time="300" tween="cubic" easing="out" />
+		</animation>
+	</include>
+	
+	<include name="Animation_Right_Bingie">
 		<animation type="WindowOpen" reversible="false">
+		  <effect type="fade" start="0" end="100" time="500" delay="300" tween="sine" easing="out" />
+		  <effect type="slide" start="-150" end="0" time="500" delay="300" tween="cubic" easing="out" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+		  <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+		  <effect type="slide" start="0" end="-150" time="300" tween="cubic" easing="out" />
+		</animation>
+	</include>
+	
+	<include name="Animation_Right_Bingie_2">
+		<animation type="WindowOpen" reversible="false">
+		  <effect type="fade" start="0" end="100" time="500" tween="sine" easing="out" />
+		  <effect type="slide" start="-150" end="0" time="500" tween="cubic" easing="out" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+		  <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+		  <effect type="slide" start="0" end="-150" time="300" tween="cubic" easing="out" />
+		</animation>
+	</include>
+	
+	<include name="Animation_Right_Home">
+		<animation type="Visible" reversible="false">
+		  <effect type="fade" start="0" end="100" time="500" delay="200" tween="sine" easing="out" />
+		  <effect type="slide" start="-150" end="0" time="500" delay="200" tween="cubic" easing="out" />
+		</animation>
+	</include>
+	
+	<include name="Animation_Right_Home_2">
+		<animation type="Visible" reversible="false">
 		  <effect type="fade" start="0" end="100" time="500" delay="400" tween="sine" easing="out" />
-		  <effect type="slide" start="150" end="0" time="500" delay="400" tween="cubic" easing="out" />
+		  <effect type="slide" start="-150" end="0" time="500" delay="200" tween="cubic" easing="out" />
+		</animation>
+	</include>
+	
+	<include name="Animation_Recommendations_Window">
+        <animation type="WindowOpen" reversible="false" condition="String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideInfo))">
+            <effect type="fade" start="0" end="100" delay="100" time="500" tween="sine" easing="out"/>
+            <effect type="slide" start="-150,0" end="0" delay="100" time="500" tween="cubic" easing="out" />
+        </animation>
+        <animation type="WindowOpen" reversible="false" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideInfo))">
+            <effect type="fade" start="0" end="100" delay="100" time="500" tween="sine" easing="out"/>
+            <effect type="slide" start="-150,0" end="0" delay="100" time="500" tween="cubic" easing="out" />
+        </animation>
+        <animation type="WindowClose" reversible="false" condition="String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideRecs))">
+            <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out"/>
+            <effect type="slide" start="0" end="-150" time="300" tween="cubic" easing="out" />
+        </animation>
+        <animation type="WindowClose" reversible="false" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideRecs))">
+            <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out"/>
+            <effect type="slide" start="0" end="-150" time="300" tween="cubic" easing="out" />
+        </animation>
+    </include>
+	
+	<include name="Animation_Recommendations_Window_2">
+	    <animation type="WindowOpen" reversible="false" condition="!Window.IsActive(Custom_1191_TMDbHelper.xml)">
+            <effect type="fade" start="0" end="100" delay="400" time="500" tween="sine" easing="out"/>
+            <effect type="slide" start="-150,0" end="0" delay="400" time="500" tween="cubic" easing="out" />
+        </animation>
+        <animation type="WindowOpen" reversible="false" condition="String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideInfo))">
+            <effect type="fade" start="0" end="100" delay="400" time="500" tween="sine" easing="out"/>
+            <effect type="slide" start="150,0" end="0" delay="400" time="500" tween="cubic" easing="out" />
+        </animation>
+        <animation type="WindowOpen" reversible="false" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideInfo))">
+            <effect type="fade" start="0" end="100" delay="400" time="500" tween="sine" easing="out"/>
+            <effect type="slide" start="150,0" end="0" delay="400" time="500" tween="cubic" easing="out" />
+        </animation>
+        <animation type="WindowClose" reversible="false" condition="!Window.IsActive(Custom_1191_TMDbHelper.xml)">
+            <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out"/>
+            <effect type="slide" start="0" end="-150" time="300" tween="cubic" easing="out" />
+        </animation>
+		<animation type="WindowClose" reversible="false" condition="String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideRecs))">
+            <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out"/>
+            <effect type="slide" start="0" end="150" time="300" tween="cubic" easing="out" />
+        </animation>
+        <animation type="WindowClose" reversible="false" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Recommendations.HideRecs))">
+            <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out"/>
+            <effect type="slide" start="0" end="150" time="300" tween="cubic" easing="out" />
+        </animation>
+    </include>
+	
+	<include name="Animation_Common">
+        <animation type="WindowClose" reversible="false" condition="Window.IsActive(Custom_1191_TMDbHelper.xml)">
+			<effect type="slide" start="0" end="150" time="300" tween="cubic" easing="out" />
+        </animation>
+    </include>
+	
+	<include name="Animation_Common_2">
+		<animation type="WindowOpen" reversible="false" condition="Window.IsActive(Custom_1191_TMDbHelper.xml)">
+			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
+		</animation>
+		<animation type="WindowClose" reversible="false" condition="Window.IsActive(Custom_1191_TMDbHelper.xml)">
+			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+		</animation>
+	</include>
+	
+	<include name="OSD_Animation">
+		<animation type="WindowOpen">
+			<effect type="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+			<effect type="fade" start="0" end="100" delay="0" time="350" reversible="false"/>
+		</animation>
+		<animation type="Visible">
+			<effect type="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+			<effect type="fade" start="0" end="100" delay="0" time="350" reversible="false"/>
+		</animation>
+		<animation type="Hidden">
+			<effect type="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+			<effect type="fade" start="100" end="0" delay="0" time="350" reversible="false"/>
 		</animation>
 	</include>
 

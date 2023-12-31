@@ -6,7 +6,6 @@
     <controls>
         <!--Dialog Overlay-->
         <include>DialogOverlayExtra</include>
-		<include condition="Skin.HasSetting(EnableTouchSupport)">Footer</include>
 		
         <!--Numeric-->
         <control type="group">
@@ -18,13 +17,13 @@
 
 			<control type="image">
                 <!--Panel-->
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="10">diffuse/panel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
 			<control type="image">
                 <!--Panel-->
 				<bordersize>5</bordersize>
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="10">diffuse/panel.png</texture>
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
 			

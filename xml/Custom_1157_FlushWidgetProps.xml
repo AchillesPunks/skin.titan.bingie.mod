@@ -48,6 +48,7 @@
 	<onload>ClearProperty(ListItem.PercentPlayed,Home)</onload>
 	<onload>ClearProperty(ListItem.ChannelName,Home)</onload>
 	<onload>ClearProperty(ListItem.ChannelNumberLabel,Home)</onload>
+	<onload>ClearProperty(ListItem.Trailer,Home)</onload>
 
 	<onload>AlarmClock(finishPropsFlush,ClearProperty(flushWidgetProps,home),00:00,silent)</onload>
 	<controls/>

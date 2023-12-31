@@ -10,7 +10,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View56_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -18,7 +18,7 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+		<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
@@ -46,12 +46,6 @@
                     <control type="group">
                         <width>590</width>
                         <height>125</height>
-                        <!-- <control type="image"> -->
-                            <!-- <texture border="5">diffuse/banner.png</texture> -->
-                            <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-                            <!-- <aspectratio scalediffuse="false" align="left">stretch</aspectratio> -->
-                            <!-- <include>thumbsborder_unfocused</include> -->
-                        <!-- </control> -->
                         <include>BannerLayout</include>
 					</control>
                 </itemlayout>
@@ -72,12 +66,6 @@
                     <control type="group">
                         <width>890</width>
                         <height>193</height>
-                        <!-- <control type="image"> -->
-                            <!-- <texture border="5">diffuse/banner.png</texture> -->
-                            <!-- <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse> -->
-                            <!-- <aspectratio scalediffuse="false" align="left">stretch</aspectratio> -->
-                            <!-- <include>thumbsborder_unfocused</include> -->
-                        <!-- </control> -->
                         <include>BannerLayout</include>
 					</control>
                 </itemlayout>
@@ -94,23 +82,19 @@
                         <include>BannerLayout</include>
 					</control>
                 </focusedlayout>
-
 			</control>
  			<!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(56) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>10</right>
+				<right>15</right>
 				<bottom>134</bottom>
 				<height>784</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>56</onleft>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-			</control>
-
-		
-		
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+			</control>	
 		</control>
    </include>
 </includes>

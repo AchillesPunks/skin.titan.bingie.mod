@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-  
-  
   <include name="View_509_PanelSquare">
     <control type="group">
       <visible>Control.IsVisible(509)</visible>
       <include>animation_view_change</include>
-	  <!-- Fanart Image Added to View-->
+		<!-- Fanart Image Added to View-->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View509_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -18,7 +16,7 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+		<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
@@ -59,19 +57,15 @@
 	  <!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(509) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>10</right>
+			<right>15</right>
 			<bottom>163</bottom>
 			<height>734</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>509</onleft>
-			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-		</control>
-	  
-		
+			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+		</control>	  	
     </control>
-	
-	
   </include>
 </includes>

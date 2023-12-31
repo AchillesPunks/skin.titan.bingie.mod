@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <includes>
-
-	<include name="ViewExtendedList">
-	
-	
+	<include name="ViewExtendedList">	
 		<control type="group">
-		
-
-
 			<defaultcontrol always="true">506</defaultcontrol>
 			<visible>Control.IsVisible(506)</visible>
             <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
@@ -18,7 +11,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View506_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -26,7 +19,7 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+				<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
@@ -118,8 +111,7 @@
 							<width>423</width>
 							<height>80</height>
 							<label>$VAR[View_Item_Header]</label>
-							<font>Bold32</font>
-                            
+							<font>Bold32</font>                           
 							<textcolor>$INFO[Skin.String(ViewDetailsHighlightTextColor)]</textcolor>
 							<aligny>top</aligny>
 						</control>
@@ -130,14 +122,12 @@
 							<width>423</width>
 							<height>310</height>
 							<label>$VAR[Plots]</label>
-							<font>Reg24</font>
-                            
+							<font>Reg24</font>                          
 							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
 							<aligny>top</aligny>
 							<autoscroll>false</autoscroll>
 						</control>
-						
-						
+												
 					</control>
 				</itemlayout>
 				<focusedlayout width="454" height="900">
@@ -220,15 +210,10 @@
                             
 							<textcolor>$INFO[Skin.String(ViewDetailsListItemTextFocusColor)]</textcolor>
 							<aligny>top</aligny>
-						</control>
-					
-					</control>	
-					
-				</focusedlayout>
-
-			
-			</control>
-		
+						</control>				
+					</control>						
+				</focusedlayout>			
+			</control>		
 			<!--horizontal Scrollbar-->
 			<control type="group">
 				<control type="scrollbar" id="60">
@@ -241,14 +226,10 @@
 					<onleft>60</onleft>
 					<onright>60</onright>
 					<orientation>horizontal</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
 				</control>
-			</control>
-			
-		
-		</control>
-		
+			</control>				
+		</control>		
 	</include>
-
 </includes>

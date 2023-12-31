@@ -61,14 +61,6 @@
                 <align>left</align>
                 <include>DialogHeader</include>
             </control>
-            <!-- close dialog -->
-            <control type="group">
-                <include>animation_fade_visible_hidden</include>
-                <left>1465</left>
-                <posy>270</posy>
-                <width>60</width>
-                <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
-            </control>
      			<control type="list" id="450">
                 <posx>421</posx>
                 <posy>350</posy>
@@ -160,7 +152,8 @@
                         <control type="image">
                             <width>644</width>
                             <height>60</height>
-                            <texture border="5">diffuse/panel.png</texture><colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
+                            <texture border="10">diffuse/panel.png</texture>
+							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                         </control>
                         <control type="label">
                             <posx>80</posx>
@@ -201,9 +194,8 @@
 				<height>545</height>
 				<onleft>450</onleft>
 				<showonepage>false</showonepage>
-				<animation effect="slide" end="-15" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
-				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
 			</control>				
 	</controls>
 </window>

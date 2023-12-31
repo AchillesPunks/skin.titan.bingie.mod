@@ -10,7 +10,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View517_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -52,9 +52,8 @@
 								<height>312</height>
 								<top>6</top>
 								<left>6</left>
-                                <texture>diffuse/wide2.png</texture>
+                                <texture>diffuse/wide.png</texture>
                                 <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
@@ -113,9 +112,8 @@
 								<height>312</height>
 								<top>6</top>
 								<left>6</left>
-                                <texture>diffuse/wide2.png</texture>
+                                <texture>diffuse/wide.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
 							<control type="image">
 								<width>880</width>
@@ -125,7 +123,6 @@
 								<bordersize>-2</bordersize>
                                 <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
 								<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
@@ -185,9 +182,8 @@
 								<height>312</height>
 								<top>6</top>
 								<left>6</left>
-                                <texture>diffuse/wide2.png</texture>
+                                <texture>diffuse/wide.png</texture>
                                 <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
@@ -257,9 +253,8 @@
 								<height>312</height>
 								<top>6</top>
 								<left>6</left>
-                                <texture>diffuse/wide2.png</texture>
+                                <texture>diffuse/wide.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
                             <control type="image">
 								<width>880</width>
@@ -269,7 +264,6 @@
 								<bordersize>-2</bordersize>
                                 <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
 								<colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
@@ -333,18 +327,16 @@
                 <!--vertical Scollbar-->
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(517) + Integer.IsGreater(Container.NumItems,0)</visible>
-                    <right>10</right>
+                    <right>15</right>
                     <bottom>179</bottom>
                     <height>662</height>
                     <onup>60</onup>
                     <ondown>6000</ondown>
                     <onleft>517</onleft>
-                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
                 </control>
             </control>
          </control>
     </include>
-   
-
 </includes>

@@ -16,7 +16,6 @@
 					<height>240</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                    <visible>!Skin.HasSetting(View10_Hidepanel)</visible>
 				</control>
 				<!-- Background Panel BOTTOM-->
 				<control type="image">
@@ -26,7 +25,6 @@
 					<height>580</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
 					<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                     <visible>!Skin.HasSetting(View10_Hidepanel)</visible>
 				</control>
 				<!-- Background Panel TITLEBAR-->
 				<control type="image">
@@ -34,7 +32,7 @@
 					<posy>330</posy>
 					<width>1780</width>
 					<height>60</height>
-					<texture border="15">diffuse/bgpanel.png</texture>
+					<texture border="10">diffuse/panel.png</texture>
 					<colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>
 				</control>	
             </control>
@@ -291,10 +289,10 @@
                     </control>
                     <control type="image">
                         <!--Separator-->
-                        <posx>0</posx>
+                        <posx>7</posx>
                         <posy>80</posy>
-                        <width>100%</width>
-                        <height>20</height>
+                        <width>1766</width>
+                        <height>2</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
                         <texture>common/separator.png</texture>
@@ -313,7 +311,7 @@
                         <posy>0</posy>
                         <width>100%</width>
                         <height>80</height>
-                        <texture diffuse="diffuse/panel.png" border="5" colordiffuse="$INFO[Skin.String(ViewDetailsFocusColor)]">diffuse/panel.png</texture>
+                        <texture diffuse="diffuse/panel.png" border="10" colordiffuse="$INFO[Skin.String(ViewDetailsFocusColor)]">diffuse/panel.png</texture>
                     </control>
                     <control type="label">
                         <!--Channel Number-->
@@ -368,10 +366,10 @@
                     </control>
                     <control type="image">
                         <!--Separator-->
-                        <posx>0</posx>
+                        <posx>7</posx>
                         <posy>80</posy>
-                        <width>100%</width>
-                        <height>20</height>
+                        <width>1766</width>
+                        <height>2</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
                         <texture>common/separator.png</texture>
@@ -390,12 +388,12 @@
                 <visible>Control.IsVisible(10) + Integer.IsGreater(Container.NumItems,0)</visible>
                 <right>10</right>
                 <posy>410</posy>
-                <height>500</height>
+                <height>480</height>
                 <onup>60</onup>
                 <ondown>6000</ondown>
                 <onleft>10</onleft>
-                <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-                <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
             </control>
         </control>
       </include>

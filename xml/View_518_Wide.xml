@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
-<includes>
-    
+<includes>  
     <variable name="WideView_LargeEpisodeLabel">
         <value condition="!Integer.IsGreater(ListItem.Episode,9) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Episode,0]</value>
         <value condition="Integer.IsGreater(ListItem.Episode,9) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Episode]</value>
@@ -16,7 +15,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View518_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -55,15 +54,14 @@
                             <height>92</height>
                             <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
                             <control type="image">
-                                <texture border="5">diffuse/wide2.png</texture>
+                                <texture border="5">diffuse/wide.png</texture>
                                 <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
                                 <width>520</width>
                                 <height>100%</height>
-                                <texture fallback="resource://resource.images.skinicons.wide/video.png" diffuse="diffuse/banner2.png" background="true">$VAR[BannerImage]</texture>
+                                <texture fallback="resource://resource.images.skinicons.wide/video.png" diffuse="diffuse/banner.png" background="true">$VAR[BannerImage]</texture>
 								<aspectratio align="center" aligny="center">stretch</aspectratio>
 								<visible>!String.IsEmpty(ListItem.Art(banner)) | !String.IsEmpty(ListItem.Art(tvshow.banner)) | !String.IsEmpty(ListItem.Property(banner))</visible>
                             </control>
@@ -71,7 +69,7 @@
                                 <!--Panel icon image-->
                                 <width>520</width>
                                 <height>100%</height>
-                               <texture fallback="resource://resource.images.skinicons.wide/video.png" diffuse="diffuse/banner2.png" background="true">$VAR[BannerImageFallback]</texture>
+                               <texture fallback="resource://resource.images.skinicons.wide/video.png" diffuse="diffuse/banner.png" background="true">$VAR[BannerImageFallback]</texture>
 								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 								<visible>String.IsEmpty(ListItem.Art(banner)) + String.IsEmpty(ListItem.Art(tvshow.banner)) + String.IsEmpty(ListItem.Property(banner))</visible>
                             </control>
@@ -132,15 +130,14 @@
                             <top>0</top>
                             <height>292</height>
                             <control type="image">
-                                <texture border="5">diffuse/wide2.png</texture>
+                                <texture border="5">diffuse/wide.png</texture>
                                 <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                                <!-- <include>thumbsborder_unfocused</include> -->
                             </control>
                             <control type="image">
                                 <!--Panel icon image-->
                                 <width>520</width>
                                 <height>100%</height>
-                                <texture background="true" diffuse="diffuse/wide2.png" fallback="resource://resource.images.skinicons.wide/video.png">$VAR[LandscapeImage]</texture>
+                                <texture background="true" diffuse="diffuse/wide.png" fallback="resource://resource.images.skinicons.wide/video.png">$VAR[LandscapeImage]</texture>
                                 <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
                             </control>
 							<control type="image">
@@ -226,18 +223,16 @@
                 <!--vertical Scollbar-->
                 <control type="scrollbar" id="60">
                     <visible>Control.IsVisible(518) + Integer.IsGreater(Container.NumItems,0)</visible>
-                    <right>10</right>
+                    <right>15</right>
                     <bottom>122</bottom>
                     <height>802</height>
                     <onup>60</onup>
                     <ondown>6000</ondown>
                     <onleft>518</onleft>
-                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
                 </control>
             </control>
          </control>
     </include>
-   
-
 </includes>

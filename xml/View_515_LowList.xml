@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-
 	<include name="LowListLayout">
-
 		<!--Title-->
 		<control type="label">
 			<posx>10</posx>
@@ -31,10 +29,9 @@
 			<bottom>0</bottom>
 			<posy>0</posy>
 			<height>1</height>
-			<texture>diffuse/panel.png</texture>
+			<texture>diffuse/panel2.png</texture>
 			<colordiffuse>grey</colordiffuse>
 		</control>
-		<include>WatchedIndicatorNormal</include>
 		
 		<control type="image">
 			<!--icon-->
@@ -54,7 +51,7 @@
 			<posx>0</posx>
 			<posy>0</posy>
 			<height>114</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 			
 		</control>
@@ -87,10 +84,9 @@
 			<bottom>0</bottom>
 			<posy>0</posy>
 			<height>1</height>
-			<texture>diffuse/panel.png</texture>
+			<texture>diffuse/panel2.png</texture>
 			<colordiffuse>grey</colordiffuse>
 		</control>
-		<include>WatchedIndicatorNormal</include>
 		
 		<control type="image">
 			<!--icon-->
@@ -129,17 +125,14 @@
 			<textcolor>$INFO[Skin.String(ViewDetailsListItemTextColor)]</textcolor>
 			<font>Light28</font>
 			<visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)]]</visible>
-		</control>
-		
-		<include>WatchedIndicatorSmall</include>
+		</control>		
 		
 		<control type="image">
 			<bottom>0</bottom>
 			<posy>0</posy>
 			<height>1</height>
-			<texture>diffuse/panel.png</texture>
-			<colordiffuse>grey</colordiffuse>
-			
+			<texture>diffuse/panel2.png</texture>
+			<colordiffuse>grey</colordiffuse>			
 		</control>
 	</include>
 
@@ -148,7 +141,7 @@
 			<posx>0</posx>
 			<posy>0</posy>
 			<height>68</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 			
 		</control>
@@ -176,15 +169,12 @@
 			<visible>![[Skin.HasSetting(WatchedIndicator.Watched) + String.IsEqual(ListItem.Overlay,OverlayWatched.png)] | [Skin.HasSetting(WatchedIndicator.Sets) + String.Contains(ListItem.Path,videodb://movies/sets/)] | [Skin.HasSetting(WatchedIndicator.Progress) + ListItem.IsResumable] | [Skin.HasSetting(WatchedIndicator.Episodes) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)]]</visible>
 		</control>
 		
-		<include>WatchedIndicatorSmall</include>
-		
 		<control type="image">
 			<bottom>0</bottom>
 			<posy>0</posy>
 			<height>1</height>
-			<texture>diffuse/panel.png</texture>
-			<colordiffuse>grey</colordiffuse>
-			
+			<texture>diffuse/panel2.png</texture>
+			<colordiffuse>grey</colordiffuse>			
 		</control>
 	</include>
 
@@ -201,7 +191,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View515_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -209,16 +199,16 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+			<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
             </control>
 			
 			<!-- Background Panel-->			
 			<control type="image">
-				<posx>61</posx>
+				<posx>49</posx>
 				<bottom>109</bottom>
-				<width>1798</width>
+				<width>1822</width>
 				<height>372</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
@@ -228,7 +218,7 @@
 		
 			<control type="panel" id="515">
 				<bottom>125</bottom>	
-				<posx>343</posx>
+				<posx>335</posx>
 				<posy>10</posy>
 				<width>1400</width>
 				<height>345</height>
@@ -236,7 +226,7 @@
 				<ondown>515</ondown>
 				<onleft>9000</onleft>
 				<onright condition="Skin.HasSetting(EnableQuickJump)">6000</onright>
-        <onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
+				<onright condition="!Skin.HasSetting(EnableQuickJump)">60</onright>
 				<viewtype label="31442">list</viewtype>
 				<include content="View_Forced">
 					<param name="viewtype" value="$LOCALIZE[31442]" />
@@ -257,29 +247,7 @@
 				</itemlayout>
 				<focusedlayout width="857" height="69" condition="Skin.HasSetting(View515_UseSlimList) + ![Skin.HasSetting(View515_ShowBanners) + Container.Content(tvshows)]">
 					<include>LowListSlimLayoutFocus</include>
-				</focusedlayout>
-				
-				<!-- <itemlayout height="173" width="857" condition="[Skin.HasSetting(View515_ShowBanners) + Container.Content(tvshows)]"> -->
-                    <!-- <control type="group"> -->
-                        <!-- <width>840</width> -->
-                        <!-- <height>160</height> -->
-                        <!-- <include>BannerLayout</include> -->
-					<!-- </control> -->
-                <!-- </itemlayout> -->
-                <!-- <focusedlayout height="173" width="857" condition="[Skin.HasSetting(View515_ShowBanners) + Container.Content(tvshows)]"> -->
-					<!-- <control type="group"> -->
-                        <!-- <width>840</width> -->
-                        <!-- <height>160</height> -->
-                        <!-- <control type="image"> -->
-                            <!-- <texture border="5">diffuse/banner.png</texture> -->
-                            <!-- <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse> -->
-                            <!-- <aspectratio scalediffuse="false" align="left">stretch</aspectratio> -->
-							<!-- <include>thumbsborder_focused</include> -->
-                        <!-- </control> -->
-                        <!-- <include>BannerLayout</include> -->
-					<!-- </control> -->
-                <!-- </focusedlayout> -->
-			
+				</focusedlayout>							
 			</control>
 			
 			<!--info-->
@@ -287,16 +255,15 @@
 			<bottom>96</bottom>
 			<height>365</height>
 				<control type="textbox">
-					<right>71</right>
+					<right>60</right>
 					<posy>6</posy>
-					<width>625</width>
+					<width>638</width>
 					<height>333</height>
 					<label>$VAR[Plots]</label>
 					<font>Light28</font>
 					<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
 					<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
 					<aligny>top</aligny>
-					<visible>![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)]</visible>
                     <visible>Integer.IsGreater(Container.NumItems,0)</visible>
 				</control>
 			</control>
@@ -305,7 +272,7 @@
 			<control type="group">
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
 				<bottom>125</bottom>
-				<left>72</left>
+				<left>60</left>
 				<width>245</width>
 				<height>345</height>					
 				<control type="image">
@@ -325,40 +292,22 @@
                     <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
                     <visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
 				</control>
-			</control>
-			 <!-- black background behind video -->
-            <control type="image">
-                <texture>colors/color_black.png</texture>
-                <right>50</right>
-				<posy>10</posy>
-				<width>670</width>
-				<height>350</height>
-				<visible>VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)</visible>
-            </control>
-			<!--Video Window -->
-			<control type="videowindow">
-				<right>50</right>
-				<posy>10</posy>
-				<width>670</width>
-				<height>350</height>
-				<visible>VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview)</visible>
+				<include>WatchedIndicatorSmall</include>
 			</control>
 			
 			<!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(515) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>10</right>
-				<bottom>120</bottom>
-				<height>350</height>
+				<right>15</right>
+				<bottom>126</bottom>
+				<height>344</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>515</onleft>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="slide" end="5" time="0" condition="Skin.HasSetting(View515_HidePanel)">Conditional</animation>
 			</control>
-
-		</control>
-		
+		</control>	
 	</include>
-
 </includes>

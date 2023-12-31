@@ -5,7 +5,6 @@
 	
     <controls>
 		<include>DialogOverlayExtra</include>
-		<include condition="Skin.HasSetting(EnableTouchSupport)">Footer</include>
 		
         <!--Dialog Addon Settings-->
         <control type="group">
@@ -160,14 +159,14 @@
             </control>
 
 			<control type="scrollbar" id="60">
-				<posx>1596</posx>
+				<posx>1599</posx>
                 <posy>304</posy>
                 <height>471</height>
 				<onright>8004</onright>
 				<onleft>5</onleft>
 				<showonepage>false</showonepage>
-				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling  | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling  | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Container.Scrolling  | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling  | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
 			</control>
 			
 			<control type="grouplist" id="8002">

@@ -11,25 +11,25 @@
             <visible>!Window.IsActive(videoosd) + Window.IsVisible(fullscreenvideo)</visible>
             <visible>!String.IsEmpty(VideoPlayer.MPAA) + !String.Contains(VideoPlayer.MPAA,not rated) + !String.Contains(VideoPlayer.MPAA,n/a) + !String.Contains(VideoPlayer.MPAA,nr)</visible>
 			<visible>!Window.IsActive(DialogSeekBar.xml)</visible>
-            <control type="image">
-                <top>0</top>
-                <left>0</left>
-                <width>100%</width>
-                <height>100%</height>
-                <texture background="true">overlays/gradient_mpaa.png</texture>
-                <aspectratio scalediffuse="true">scale</aspectratio>
-            </control>
+			<width>auto</width>
+			<height>290</height>
+			<!-- Vignette Mask -->
+			<control type="image">
+				<width>100%</width>
+				<height>100%</height>
+				<texture background="true" flipy="true">overlays/osd_gradient.png</texture>
+			</control>
             <control type="grouplist">
                 <left>85</left>
-                <top>85</top>
-                <height>60</height>
+                <top>70</top>
+                <height>72</height>
                 <orientation>horizontal</orientation>
-                <itemgap>25</itemgap>
+                <itemgap>20</itemgap>
                 <usecontrolcoords>true</usecontrolcoords>
                 <control type="image">
                     <animation effect="zoom" end="100,1200" easing="inout" tween="sine" time="350" delay="700" condition="true">WindowOpen</animation>
-                    <width>5</width>
-                    <height>5</height>
+                    <width>6</width>
+                    <height>6</height>
                     <texture>diffuse/panel2.png</texture>
                     <colordiffuse>FFE50914</colordiffuse>
                     <aspectratio>stretch</aspectratio>
@@ -40,10 +40,10 @@
                     <height>100%</height>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <font>Light34</font>
+                    <font>Reg34</font>
                     <textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
                     <shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
-                    <label>[B]$VAR[VideoRatingTopBarLabel][/B]</label>
+                    <label>$VAR[VideoRatingTopBarLabel]</label>
                 </control>
             </control>
         </control>

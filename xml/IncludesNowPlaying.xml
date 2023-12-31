@@ -1,172 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-    <!--NowPlayingMusic-->
-    <include name="NowPlayingMusicClassic">
-        <control type="group" id="9999">
-            <!--Panel-->
-            <visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
-            <visible>Player.HasAudio</visible>
-            <visible>!Window.IsActive(settings) + !Window.IsActive(SettingsCategory.xml)  + !Window.IsActive(systeminfo) + !Window.IsActive(skinsettings) + !Control.IsVisible(57)</visible>
-            <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Window.IsActive(movieinformation)</visible>
-			<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
-            <posx>650</posx>
-            <posy>-30</posy>
-            <control type="image">
-                <!--Panel-->
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>633</width>
-                <height>238</height>
-                <texture>dialogs/nowplayingclassic/nowplaying_music.png</texture>
-            </control>
-            <control type="image">
-                <!--Cover-->
-                <posx>90</posx>
-                <posy>44</posy>
-                <width>133</width>
-                <height>133</height>
-                <fadetime>200</fadetime>
-                <texture background="true" fallback="colors/color_keyboard.png" diffuse="diffuse/music_cover.png">$VAR[AudioPlayerCoverImage]</texture>
-                <aspectratio align="center" aligny="top">stretch</aspectratio>
-            </control>
-            <control type="label">
-                <!--Now Playing-->
-                <posx>255</posx>
-                <posy>40</posy>
-                <width>285</width>
-                <align>left</align>
-                <font>Reg28</font>
-                <textcolor>darkgrey</textcolor>
-                <label>31040</label>
-            </control>
-            <control type="fadelabel">
-                <!--Title-->
-                <posx>255</posx>
-                <posy>75</posy>
-                <width>285</width>
-                <align>left</align>
-                <font>Reg30</font>
-                <textcolor>darkgrey</textcolor>
-                <label>$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title]</label>
-                <visible>!String.IsEmpty(MusicPlayer.Artist)</visible>
-            </control>
-            <control type="label">
-                <!--Play Time-->
-                <posx>255</posx>
-                <posy>125</posy>
-                <width>285</width>
-                <align>left</align>
-                <font>Reg28</font>
-                <textcolor>darkgrey</textcolor>
-                <label>$INFO[Player.Time] / $INFO[Player.Duration]</label>
-                <visible>Player.HasDuration</visible>
-            </control>
-            <control type="label">
-                <!--Play Time-->
-                <posx>255</posx>
-                <posy>125</posy>
-                <width>285</width>
-                <align>left</align>
-                <font>Reg28</font>
-                <textcolor>darkgrey</textcolor>
-                <label>$INFO[Player.Time]</label>
-                <visible>String.IsEmpty(Player.Duration)</visible>
-            </control>
-            <control type="progress">
-                <!--Process-->
-                <posx>255</posx>
-                <posy>124</posy>
-                <width>285</width>
-                <texturebg/>
-                <midtexture border="4">common/progress/ProgressMidSmall.png</midtexture>
-                <info>Player.Progress</info>
-                <visible>true</visible>
-            </control>
-        </control>
-    </include>
-    <!--NowPlayingVideo-->
-    <include name="NowPlayingVideoClassic">
-        <control type="group" id="9999">
-            <!--Panel-->
-            <visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
-            <visible>Player.HasVideo</visible>
-            <visible>!Window.IsActive(settings) + !Window.IsActive(SettingsCategory.xml)  + !Window.IsActive(systeminfo) + !Window.IsActive(skinsettings) + !Control.IsVisible(57)</visible>
-            <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !Window.IsActive(movieinformation)</visible>
-			<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
-            <posx>590</posx>
-            <posy>-30</posy>
-            <control type="image">
-                <!--Panel-->
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>734</width>
-                <height>238</height>
-                <texture>dialogs/nowplayingclassic/nowplaying_video.png</texture>
-            </control>
-            <control type="image">
-                <!--Black Back-->
-                <posx>90</posx>
-                <posy>44</posy>
-                <width>240</width>
-                <!-- +8 -->
-                <height>131</height>
-                <!-- +2 -->
-                <texture>colors/color_black.png</texture>
-            </control>
-            <control type="label">
-                <!--Now Playing-->
-                <posx>355</posx>
-                <posy>40</posy>
-                <width>285</width>
-                <align>left</align>
-                <font>Reg28</font>
-                <textcolor>darkgrey</textcolor>
-                <label>31040</label>
-            </control>
-            <control type="fadelabel">
-                <!--Title-->
-                <posx>357</posx>
-                <posy>75</posy>
-                <width>285</width>
-                <align>left</align>
-                <font>Bold34</font>
-                <textcolor>darkgrey</textcolor>
-                <label>$INFO[VideoPlayer.Title]</label>
-                <scroll>false</scroll>
-            </control>
-            <control type="label">
-                <!--Play Time-->
-                <posx>355</posx>
-                <posy>125</posy>
-                <width>285</width>
-                <align>left</align>
-                <font>Reg28</font>
-                <textcolor>darkgrey</textcolor>
-                <label>$INFO[Player.Time] / $INFO[Player.Duration]</label>
-            </control>
-            <control type="progress">
-                <!--Process-->
-                <posx>357</posx>
-                <posy>124</posy>
-                <width>285</width>
-                <texturebg/>
-                <midtexture border="4">common/progress/ProgressMidSmall.png</midtexture>
-                <info>Player.Progress</info>
-                <visible>true</visible>
-            </control>
-            <control type="videowindow">
-                <!--Video Window-->
-                <posx>94</posx>
-                <posy>45</posy>
-                <width>232</width>
-                <height>131</height>
-            </control>
-        </control>
-    </include>
-
 	<include name="NowPlayingModern">
-		<include condition="!Skin.HasSetting(DisableNowPlayingBackground)">NowPlayingBackground</include>
         <include condition="!Skin.HasSetting(DisableNowPlayingInfoBar)">NowPlayingInfoBar</include>
     </include>
 	
@@ -177,8 +12,7 @@
             <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus() + !Control.IsVisible(77551)</visible>
 			<visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible>
 			<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
-			<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Window.IsActive(1110) + !Window.IsActive(1111) + !Window.IsActive(1112) + !Window.IsActive(1113)
-			+ !Window.IsActive(1114) + !Window.IsActive(1115) + !Window.IsActive(1116) + !Window.IsActive(1117) + !Window.IsActive(1118) + !Window.IsActive(1109) + !Window.IsActive(1119) + ![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRGuide.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyPVRTimers.xml)]</visible>
+			<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + ![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRGuide.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyPVRTimers.xml)]</visible>
 			<include>FullscreenDimensions</include>
 			<animation effect="slide" start="0,-400" end="0,0" tween="cubic" easing="out" delay="0" time="250" reversible="false">Visible</animation>
 			<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="0" time="250" reversible="false">Hidden</animation>
@@ -322,7 +156,6 @@
 				<fadetime>200</fadetime>
 				<texture background="true">$VAR[VideoPlayerClearArt]</texture>
 				<aspectratio align="right" aligny="center">keep</aspectratio>
-                <visible>!Skin.HasSetting(EnableTouchSupport)</visible>
 				<visible>!String.IsEmpty(Control.GetLabel(884455)) + !Skin.HasSetting(DisableNowPlayingClearArt)</visible>
 			</control>
             
@@ -331,7 +164,7 @@
                 <animation type="Conditional" condition="Window.IsActive(volumebar)">
                     <effect type="slide" start="0,0" end="-120,0" time="400" tween="cubic" easing="inout" delay="0" />
                 </animation>
-                <visible>!Skin.HasSetting(EnableTouchSupport) + !Control.IsVisible(884455) + !Skin.HasSetting(DisableNowPlayingClock)</visible>
+                <visible>!Control.IsVisible(884455) + !Skin.HasSetting(DisableNowPlayingClock) + Skin.HasSetting(DisableNowPlayingClearArt)</visible>
                 <control type="grouplist">
                     <!--Time Grouplist Line 1-->
                     <posx>1260</posx>
@@ -428,71 +261,6 @@
                     </control>
                 </control>
             </control>
-            <!-- OSD for touch mode -->
-			<control type="grouplist">
-                <!--OSD-->
-                <right>60</right>
-                <posy>55</posy>
-                <width>280</width>
-                <height>130</height>
-                <itemgap>0</itemgap>
-				<visible>Skin.HasSetting(EnableTouchSupport)</visible>
-                <orientation>horizontal</orientation>
-                <control type="togglebutton">
-                    <!--Skip Back-->
-                    <!--visible>ControlGroup(20).HasFocus()</visible-->
-                    <include>animation_fade_visible_hidden</include>
-                    <width>70</width>
-                    <height>70</height>
-                    <label>210</label>
-                    <font/>
-                    <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/prevtrack.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/prevtrack.png</texturenofocus>
-                    <usealttexture>VideoPlayer.Content(livetv)</usealttexture>
-                    <alttexturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/channelup.png</alttexturefocus>
-                    <alttexturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/channelup.png</alttexturenofocus>
-                    <onclick>PlayerControl(Previous)</onclick>
-                </control>
-                <control type="togglebutton">
-                    <label/>
-                    <altlabel/>
-                    <include>animation_fade_visible_hidden</include>
-                    <width>70</width>
-                    <height>70</height>
-                    <font/>
-                    <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/Pause.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/Pause.png</texturenofocus>
-                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-                    <alttexturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/Play.png</alttexturefocus>
-                    <alttexturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/Play.png</alttexturenofocus>
-                    <onclick>PlayerControl(Play)</onclick>
-                </control>
-                <control type="button">
-                    <label/>
-                    <!--Stop-->
-                    <include>animation_fade_visible_hidden</include>
-                    <width>70</width>
-                    <height>70</height>
-                    <font/>
-                    <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/Stop.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/Stop.png</texturenofocus>
-                    <onclick>PlayerControl(Stop)</onclick>
-                </control>
-                <control type="togglebutton">
-                    <!--Next-->
-                    <include>animation_fade_visible_hidden</include>
-                    <width>70</width>
-                    <height>70</height>
-                    <label>209</label>
-                    <font/>
-                    <texturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/NextTrack.png</texturefocus>
-                    <texturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/NextTrack.png</texturenofocus>
-                    <usealttexture>VideoPlayer.Content(livetv)</usealttexture>
-                    <alttexturefocus colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">osd/rounded/ChannelDown.png</alttexturefocus>
-                    <alttexturenofocus colordiffuse="$INFO[Skin.String(OSDButtonsColor)]">osd/rounded/ChannelDown.png</alttexturenofocus>
-                    <onclick>PlayerControl(Next)</onclick>
-                </control>
-            </control>
  		</control>
      </include>
     
@@ -500,16 +268,12 @@
         <control type="group">
             <visible>Player.HasMedia + !Control.IsVisible(507)</visible>
             <visible>![!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + Player.HasAudio]</visible>
-            <visible>!String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)</visible>
-            <visible>String.IsEmpty(Window(Home).Property(PlayingPVRPreview))</visible>
-            <include condition="!Skin.HasSetting(DisableNowPlayingBackground) | !String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))">NowPlayingVideoBackground</include>
-            <include condition="Player.HasAudio">NowPlayingMusicBackground</include>
+            <include condition="Player.HasAudio + !Window.IsActive(Home) + !Window.IsActive(1109)">NowPlayingMusicBackground</include>
 			<include condition="Player.HasVideo">NowPlayingVideoBackground</include>
             
             <!--Background Overlay-->
             <control type="group">
                 <visible>![Window.IsActive(tvguide) + !String.IsEmpty(Window(Home).Property(pvrGuideOnFullscreenVideo))] + !Window.IsActive(visualisation)</visible>
-                <visible>[Player.HasAudio + Skin.HasSetting(DisableNowPlayingMusicBackground)] | [Player.HasVideo + Skin.HasSetting(DisableNowPlayingBackground)]</visible>
                 <control type="image">
                     <description>panel diffuse bg</description>
                     <include>FullscreenDimensions</include>
@@ -521,8 +285,7 @@
                     <animation effect="fade" start="100" end="80" time="150" condition="true">Conditional</animation>
                 </control>
                 <include>DialogOverlay</include>
-            </control>
-            
+            </control>           
         </control>
     </include>
     
@@ -575,7 +338,7 @@
     
     <variable name="music_fanart">
         <value condition="Skin.String(MusicArtistFanart,slideshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.ExtraFanArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.ExtraFanArt)]</value>
-		<value condition="!Skin.String(MusicArtistFanart,disabled) + !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.FanArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.FanArt)]</value>
+		<value condition="!Skin.String(MusicArtistFanart,disabled) + !String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
         <value condition="String.Contains(Skin.String(MusicBackground),VAR)">$VAR[MusicBackground]</value>
         <value condition="Skin.String(MusicBackground)">$INFO[Skin.String(MusicBackground)]</value>
         <value>colors/color_black.png</value>

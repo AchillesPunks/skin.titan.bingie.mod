@@ -44,7 +44,6 @@
             <bottom>40</bottom>
             <height>800</height>
             <include>animation_window_open_close</include>
-            <animation effect="slide" end="-40,0" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
             <!--Panel-->
 
 			<control type="image">
@@ -484,7 +483,7 @@
 				<top>0</top>
 				<width>420</width>
 				<height>910</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
                 <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 			</control>
@@ -529,7 +528,7 @@
 						<width>356</width>
 						<height>89</height>
 						<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
-                        <texture border="5">diffuse/panel.png</texture>
+                        <texture border="10">diffuse/panel.png</texture>
 					</control>
 					<control type="label">
 						<width>356</width>
@@ -606,7 +605,7 @@
 				<top>0</top>
 				<width>1380</width>
 				<height>910</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 				<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
                 <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 			</control>
@@ -701,7 +700,7 @@
 						<top>335</top>
 						<width>1316</width>
 						<height>160</height>
-						<texture border="5">diffuse/panel.png</texture>
+						<texture border="10">diffuse/panel.png</texture>
 						<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
                         <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 						<bordersize>10</bordersize>
@@ -776,7 +775,7 @@
 							<control type="image">
 								<width>329</width>
 								<height>310</height>
-								<texture border="5">diffuse/panel.png</texture>
+								<texture border="10">diffuse/panel.png</texture>
                                 <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>10</bordersize>
@@ -784,7 +783,7 @@
 							<control type="image">
 								<width>329</width>
 								<height>65</height>
-								<texture border="5">diffuse/panel.png</texture>
+								<texture border="10">diffuse/panel.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>10</bordersize>
                                 <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
@@ -834,7 +833,7 @@
 							<control type="image">
 								<width>329</width>
 								<height>310</height>
-								<texture border="5">diffuse/panel.png</texture>
+								<texture border="10">diffuse/panel.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>0</bordersize>
                                 <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
@@ -842,7 +841,7 @@
 							<control type="image">
 								<width>329</width>
 								<height>65</height>
-								<texture border="5">diffuse/panel.png</texture>
+								<texture border="10">diffuse/panel.png</texture>
 								<colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
 								<bordersize>10</bordersize>
                                 <visible>Skin.HasSetting(MyWeatherHidepanel)</visible>
@@ -2441,10 +2440,7 @@
 				</control>
 			</control>
 		
-		</control>
-		
-		<!-- touchscreen support -->
-		<include condition="Skin.HasSetting(EnableTouchSupport)">TouchControlsFooter</include>
+		</control>		
 		
 	</include>
 	

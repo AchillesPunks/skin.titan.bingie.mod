@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- BINGIE -->
 <window id="1107">
-    <defaultcontrol always="true">9000</defaultcontrol>
+    <defaultcontrol always="true">101</defaultcontrol>
     <onload>SetProperty(CustomSearch,1,home)</onload>
     <include>BingieViews_WindowOpen_Fade</include>
 	<controls>
         <!-- Global Background -->
-        <include content="GlobalFanartWithOverlay" condition="Skin.HasSetting(EnableBingieSearchFanart)">
-            <param name="overlay_percent" value="75%" />
-        </include>
+		<include>GlobalBackground</include>
         <!-- Now Playing -->
         <include>NowPlayingBackground</include>
-        <include>NowPlayingInfoBar</include>
         <!-- Hidden Result Scrollbar -->
         <control type="scrollbar" id="666">
-            <visible>[Skin.HasSetting(EnableTouchSupport) | Skin.HasSetting(alwaysShowScrollbars)] + Integer.IsGreater(Container(77777).NumItems,0)</visible>
+            <visible>[String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + Integer.IsGreater(Container(77777).NumItems,0)</visible>
             <right>0</right>
             <top>127</top>
             <height>930</height>
@@ -154,7 +151,7 @@
             <align>center</align>
             <aligny>top</aligny>
             <wrapmultiline>true</wrapmultiline>
-            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+            <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
             <label>$VAR[EmptySearchResultsString]</label>
             <visible>!Container(77777).IsUpdating + !Integer.IsGreater(Container(77777).NumItems,0)</visible>
         </control>
@@ -205,24 +202,24 @@
             <pagecontrol>666</pagecontrol>
             <onright>666</onright>
             <onup>9900</onup>
-            <onleft>9000</onleft>
-            <onback>9000</onback>
+            <onleft>11</onleft>
+            <onback>11</onback>
             <ondown>SetProperty(BounceDown,1,Home)</ondown>
             <include>Bounce_Down</include>
             <!-- Search Music Videos By Name -->
-            <include content="MusicVideosSearchResultWidget" condition="Library.HasContent(musicvideos) + Skin.HasSetting(EnableBingieSearchMusicVideos)">
+            <include content="MusicVideosSearchResultWidget" condition="Library.HasContent(musicvideos)">
                 <param name="id" value="590" />
             </include>
             <!-- Search Music Albums By Name -->
-            <include content="AlbumsSearchResultWidget" condition="Library.HasContent(music) + Skin.HasSetting(EnableBingieSearchMusic)">
+            <include content="AlbumsSearchResultWidget" condition="Library.HasContent(music)">
                 <param name="id" value="610" />
             </include>
             <!-- Search Artists By Name -->
-            <include content="ArtistsSearchResultWidget" condition="Library.HasContent(music) + Skin.HasSetting(EnableBingieSearchMusic)">
+            <include content="ArtistsSearchResultWidget" condition="Library.HasContent(music)">
                 <param name="id" value="620" />
             </include>
             <!-- Search Songs By Name -->
-            <include content="SongsSearchResultWidget" condition="Library.HasContent(music) + Skin.HasSetting(EnableBingieSearchMusic)">
+            <include content="SongsSearchResultWidget" condition="Library.HasContent(music)">
                 <param name="id" value="630" />
             </include>
         </control>

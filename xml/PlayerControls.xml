@@ -15,9 +15,7 @@
 	<include>DialogOverlayExtra</include>
 
 	<!--NowPlaying-->
-	<include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-	<include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-	<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+	<include>NowPlayingModern</include>
 		
 		<control type="group">
 			<left>585</left>
@@ -28,7 +26,7 @@
 				<width>745</width>
 				<height>395</height>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 			</control>
 			
 			<control type="image">
@@ -37,7 +35,7 @@
 				<width>725</width>
 				<height>375</height>
 				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 			</control>
 
 			<control type="group" id="100">
@@ -502,7 +500,7 @@
 						
 			</control>
 			
-			<!-- touch / mouse close window -->
+			<!-- mouse close window -->
 			<control type="button">
 				<description>Close Window button</description>
 				<left>640</left>

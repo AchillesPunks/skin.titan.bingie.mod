@@ -58,11 +58,11 @@
                     <top>-194</top>
 					<left>0</left>
                     <width max="650">auto</width>
-                    <height>189</height>
+                    <height>185</height>
                     <font>Title</font> 
                     <align>left</align>
                     <aligny>center</aligny>
-                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <textcolor>$INFO[Skin.String(BingieLabelTextColor)]</textcolor>
                     <label>$VAR[BingieInfoLabel]</label>
 					<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
                 </control>
@@ -99,12 +99,24 @@
 						<texture border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">$INFO[Skin.String(thumbsborder_focused),bingie/border/default_button_fo_,.png]</texture>
 					</control>
 					<control type="label">
+						<visible>Control.HasFocus(990)</visible>
 						<left>20</left>
 						<width>550</width>
 						<height>65</height>
 						<aligny>center</aligny>
 						<font>Plots</font>
 						<label>320053</label>
+						<textcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</textcolor>
+					</control>
+					<control type="label">
+						<visible>!Control.HasFocus(990)</visible>
+						<left>20</left>
+						<width>550</width>
+						<height>65</height>
+						<aligny>center</aligny>
+						<font>Plots</font>
+						<label>320053</label>
+						<textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
 					</control>
 					</control>
 					<control type="label" id="991">
@@ -152,7 +164,7 @@
 							<aligny>center</aligny>
 							<font>Plots</font>
 							<label>$INFO[ListItem.Label]</label>
-							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+							<textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
 						</control>
 						<control type="label">
 							<right>20</right>
@@ -163,10 +175,10 @@
 							<aligny>center</aligny>
 							<font>Plots</font>
 							<label>$INFO[ListItem.Label2]</label>
-							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+							<textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout height="65" width="550">
+					<focusedlayout height="65" width="550" condition="Control.HasFocus(9000)">
 						<control type="image">
 							<visible>Control.HasFocus(9000) | Control.HasFocus(50)</visible>
 							<width>550</width>
@@ -181,7 +193,7 @@
 							<aligny>center</aligny>
 							<font>Plots</font>
 							<label>$INFO[ListItem.Label]</label>
-							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+							<textcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</textcolor>
 						</control>
 						<control type="label">
 							<right>20</right>
@@ -192,7 +204,36 @@
 							<aligny>center</aligny>
 							<font>Plots</font>
 							<label>$INFO[ListItem.Label2]</label>
-							<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+							<textcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</textcolor>
+						</control>
+					</focusedlayout>
+					<focusedlayout height="65" width="550" condition="!Control.HasFocus(9000)">
+						<control type="image">
+							<visible>Control.HasFocus(9000) | Control.HasFocus(50)</visible>
+							<width>550</width>
+							<height>65</height>
+							<texture border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">$INFO[Skin.String(thumbsborder_focused),bingie/border/default_button_fo_,.png]</texture>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<top>0</top>
+							<height>65</height>
+							<width>550</width>
+							<aligny>center</aligny>
+							<font>Plots</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
+						</control>
+						<control type="label">
+							<right>20</right>
+							<top>0</top>
+							<height>65</height>
+							<width>550</width>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Plots</font>
+							<label>$INFO[ListItem.Label2]</label>
+							<textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
 						</control>
 					</focusedlayout>
 				</control>
@@ -278,11 +319,11 @@
 		</control>
 		<!-- Snow Effect -->
         <control type="group">
-            <include condition="Skin.HasSetting(enablesnow)">snow</include>
+            <include condition="String.IsEqual(Skin.String(season_greetings),snow_animation)">snow</include>
         </control>
 		<!-- Halloween Effect -->
         <control type="group">
-            <include condition="Skin.HasSetting(enablepumpkins)">pumpkin</include>
+            <include condition="String.IsEqual(Skin.String(season_greetings),halloween_animation)">pumpkin</include>
         </control>
 	</controls>
 </window>

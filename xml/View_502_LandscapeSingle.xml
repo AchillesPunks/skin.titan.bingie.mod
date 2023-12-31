@@ -2,8 +2,7 @@
 <!-- BINGIE -->
 <includes>
     <!--Default-->
-    <include name="View_502_LandscapeSingle">
-	
+    <include name="View_502_LandscapeSingle">	
 		<control type="group">
 			<include>animation_view_change</include>
 			<defaultcontrol always="true">502</defaultcontrol>
@@ -12,7 +11,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View502_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -28,8 +27,7 @@
 			<control type="group">
 				<visible>Skin.HasSetting(LandscapeViewShowInfo)</visible>
 				<include>MovieDetailsTop</include>
-			</control>
-            
+			</control>            
             <!--CDART IMAGE-->
             <control type="image">
                 <width>527</width>
@@ -40,11 +38,9 @@
                 <aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
                 <animation effect="fade" start="100" end="100" delay="800" pulse="false">Visible</animation>
                 <animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
-				<visible>Skin.HasSetting(View502_ShowCDart) + Control.HasFocus(502) + !String.StartsWith(ListItem.Art(thumb),Default) + ![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)] + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + $EXP[IsMovieDBType] | Control.HasFocus(502) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + Skin.HasSetting(View502_ShowCDart) + Skin.HasSetting(EnableFakeDiscArt)</visible>
+				<visible>Skin.HasSetting(View502_ShowCDart) + Control.HasFocus(502) + !String.StartsWith(ListItem.Art(thumb),Default) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + $EXP[IsMovieDBType] | Control.HasFocus(502) + !Container.IsScrolling + !Container.OnScrollNext + !Container.OnScrollPrevious + Skin.HasSetting(View502_ShowCDart) + Skin.HasSetting(EnableFakeDiscArt)</visible>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
-            </control>
-			
-			
+            </control>			
 			<control type="fixedlist" id="502">
 				<posx>62</posx>
 				<width>1796</width>
@@ -65,54 +61,37 @@
 				<preloaditems>4</preloaditems>
 				<scrolltime tween="cubic" easing="inout">500</scrolltime>
 				<visible>!Container.Content(files)</visible>
-				<itemlayout width="616" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<itemlayout width="616" height="325">
 					<control type="group">
-                        <width>565</width>
+                        <width>566</width>
                         <height>325</height>
                         <include>LandscapeLayout</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="616" height="325" condition="![Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
+				<focusedlayout width="616" height="325">
                     <control type="group">
-                        <width>565</width>
+                        <width>566</width>
                         <height>325</height>
                         <include>LandscapeLayoutFocus</include>
                     </control>
 				</focusedlayout>
-                    <itemlayout width="440" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-					<control type="group">
-                        <width>440</width>
-                        <height>303</height>
-                        <include>LandscapeLayout</include>
-                    </control>
-				</itemlayout>
-				<focusedlayout width="440" height="325" condition="[Skin.HasSetting(LandscapeAltAspectRatioAdvLauncher) + String.Contains(Container.FolderPath,advanced.launcher)]">
-                    <control type="group">
-                        <width>440</width>
-                        <height>303</height>
-                        <include>LandscapeLayoutFocus</include>
-                    </control>
-				</focusedlayout>
-			</control>
-
-		
+			</control>		
 			<!--horizontal Scrollbar-->
 			<control type="group">
 				<control type="scrollbar" id="60">
 					<visible>Control.IsVisible(502) + Integer.IsGreater(Container.NumItems,0)</visible>
-					<left>60</left>
-					<bottom>4</bottom>
-					<width>1800</width>
+					<left>70</left>
+					<bottom>0</bottom>
+					<width>1780</width>
 					<height>15</height>
 					<onup>502</onup>
 					<onleft>60</onleft>
 					<onright>60</onright>
 					<orientation>horizontal</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
 				</control>
-			</control>
-			
+			</control>			
 		</control>
 	</include>
 </includes>

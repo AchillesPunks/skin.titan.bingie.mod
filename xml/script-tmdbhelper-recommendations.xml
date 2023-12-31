@@ -2,10 +2,12 @@
 <window type="dialog">
     <defaultcontrol always="true">6000</defaultcontrol>
 <controls>
-    <control type="group">
-			<!-- default animation -->
-            <include>GlobalBackground</include>
 
+		<control type="group">	
+			<animation effect="fade" end="100" time="300" condition="String.IsEmpty(Window(Home).Property(TMDBHelper.Recommendations.HideInfo))">WindowOpen</animation>		
+			<animation effect="fade" end="100" time="300" condition="!String.IsEmpty(Window(Home).Property(TMDBHelper.Recommendations.HideInfo))">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300" condition="String.IsEmpty(Window(Home).Property(TMDBHelper.Recommendations.HideRecs))">WindowClose</animation>
+			<animation effect="fade" start="100" end="0" time="300" condition="!String.IsEmpty(Window(Home).Property(TMDBHelper.Recommendations.HideRecs))">WindowClose</animation>
 			<!-- panel background -->
 			<control type="image">
 				<posy>0</posy>
@@ -18,16 +20,18 @@
 			</control>
 			
 			<control type="image">
+				<visible>Skin.HasSetting(ShowExtendedInfoFanart)</visible>
                 <include>FullscreenDimensions</include>
-				<texture background="true" fallback="special://skin/resources/background.jpg">$INFO[Window.Property(Fanart)]</texture>
-				<colordiffuse>33ffffff</colordiffuse>
+				<texture background="true" fallback="special://skin/extras/media/background.jpg">$INFO[Window.Property(Fanart)]</texture>
+				<colordiffuse>26ffffff</colordiffuse>
 				<aspectratio>scale</aspectratio>
 				<fadetime>400</fadetime>
-				<animation effect="fade" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-			</control>		
-			
-			<control type="image" id="9005">
+			</control>
+		</control>
+		
+	    <control type="group">	
+				<include>Animation_Recommendations_Window</include>			
+				<control type="image" id="9005">
 					<posy>20</posy>
 					<posx>75</posx>
 					<height>120</height>                                     
@@ -37,11 +41,9 @@
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture background="true" fallback="colors/color_transparent.png">$INFO[Window.Property(Clearlogo)]</texture>
 				</control>
+				
 			<control type="label">
 				<visible>String.EndsWith(Control.GetLabel(9005),color_transparent.png)</visible>
-				<animation effect="fade" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-				<include>animation_fade_visible_hidden</include>
 				<posx>75</posx>
 				<posy>27</posy>
 				<width min="80" max="1400">auto</width>
@@ -50,14 +52,11 @@
 				<align>left</align>
 				<textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
 				<label>$INFO[Window.Property(Title)]</label>
-				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+				<shadowcolor>$INFO[Skin.String(BingieLabelTextColor)]</shadowcolor>
 			</control>			 
 			
 			<include condition="!String.IsEqual(Skin.String(general_header),disable)">TimeInfo</include>
      
-			<control type="group">
-					<animation effect="fade" end="100" time="200">WindowOpen</animation>
-					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
                 <control type="grouplist" id="6000">
                     <orientation>vertical</orientation>
                     <scrolltime tween="sine">400</scrolltime>
@@ -70,7 +69,6 @@
                     <!-- rating stuff -->
 					<control type="group">
 						<height>130</height>
-						<animation effect="fade" time="250">VisibleChange</animation>
 						<!--First Row-->
 						<control type="group">
 							<posy>0</posy>
@@ -80,7 +78,7 @@
 								<posy>0</posy>
 								<width>1560</width>
 								<height>1</height>
-								<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+								<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 								<texture>dialogs/videoinfo/info/infopanel_line.png</texture>
 							</control>
 							<control type="image">
@@ -88,7 +86,7 @@
 								<posy>82</posy>
 								<width>1560</width>
 								<height>1</height>
-								<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+								<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 								<texture>dialogs/videoinfo/info/infopanel_line.png</texture>
 							</control>
 							<control type="grouplist">
@@ -107,7 +105,7 @@
 										<posy>1</posy>
 										<height>81</height>
 										<width>1</width>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
 									</control>
 									<control type="label">
@@ -117,8 +115,7 @@
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Rating)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold30</font>
 									</control>
 									<control type="label">
@@ -129,8 +126,7 @@
 										<align>center</align>
 										<aligny>center</aligny>
 										<label fallback="Rating">$INFO[Window.Property(Votes),, $LOCALIZE[320203]]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Reg24</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
@@ -145,7 +141,7 @@
 										<posy>1</posy>
 										<height>81</height>
 										<width>1</width>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
 									</control>
 									<control type="label">
@@ -155,8 +151,7 @@
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Premiered)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold30</font>
 									</control>
 									<control type="label">
@@ -167,8 +162,7 @@
 										<align>center</align>
 										<aligny>center</aligny>
 										<label fallback="Premiered">$LOCALIZE[320204]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Reg24</font>
 									</control>
 								</control>
@@ -181,7 +175,7 @@
 										<posy>1</posy>
 										<height>81</height>
 										<width>1</width>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
 									</control>
 									<control type="label">
@@ -191,8 +185,7 @@
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(LastAired)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold30</font>
 									</control>
 									<control type="label">
@@ -203,8 +196,7 @@
 										<align>center</align>
 										<aligny>center</aligny>
 										<label fallback="Last Air Date">$LOCALIZE[320205]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Reg24</font>
 									</control>
 								</control>
@@ -217,7 +209,7 @@
 										<posy>1</posy>
 										<height>81</height>
 										<width>1</width>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
 									</control>
 									<control type="label">
@@ -228,8 +220,7 @@
 										<align>center</align>
 										<textoffsetx>10</textoffsetx>
 										<label fallback="?">$INFO[Window.Property(mpaa)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold30</font>
 										<scroll>true</scroll>										
 										</control>
@@ -241,8 +232,7 @@
 										<align>center</align>
 										<aligny>center</aligny>
 										<label fallback="Rating">$LOCALIZE[320206]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Reg24</font>										
 									</control>
 								</control>
@@ -256,7 +246,7 @@
 										<height>81</height>
 										<width>1</width>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 									</control>
 									<control type="label">
 										<posx>0</posx>
@@ -265,8 +255,7 @@
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Season)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold31</font>
 									</control>
 									<control type="label">
@@ -278,8 +267,7 @@
 										<aligny>center</aligny>
 										<label>$LOCALIZE[320207]</label>
 										<font>Reg24</font>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 									</control>
 								</control>
 								<control type="group">
@@ -292,7 +280,7 @@
 										<posy>1</posy>
 										<height>81</height>
 										<width>1</width>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
 									</control>
 									<control type="label">
@@ -302,8 +290,7 @@
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Duration)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold30</font>
 									</control>
 									<control type="label">
@@ -314,8 +301,7 @@
 										<align>center</align>
 										<aligny>center</aligny>
 										<label fallback="Minutes">$LOCALIZE[320208]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Reg24</font>
 									</control>
 								</control>
@@ -329,7 +315,7 @@
 										<height>81</height>
 										<width>1</width>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 									</control>
 									<control type="label">
 										<posx>0</posx>
@@ -338,8 +324,7 @@
 										<height>38</height>
 										<align>center</align>
 										<label>$INFO[Window.Property(Budget)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold31</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
@@ -353,8 +338,7 @@
 										<aligny>center</aligny>
 										<label>$LOCALIZE[31379]</label>
 										<font>Reg24</font>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 									</control>
 								</control>
 								<control type="group">
@@ -367,7 +351,7 @@
 										<height>81</height>
 										<width>1</width>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 									</control>
 									<control type="label">
 										<posx>0</posx>
@@ -376,8 +360,7 @@
 										<height>38</height>
 										<align>center</align>
 										<label fallback="?">$INFO[Window.Property(Revenue)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold31</font>
 										<textoffsetx>10</textoffsetx>
 										<scroll>true</scroll>
@@ -391,8 +374,7 @@
 										<aligny>center</aligny>
 										<label>$LOCALIZE[31380]</label>
 										<font>Reg24</font>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 									</control>
 								</control>
 								<control type="group">
@@ -406,7 +388,7 @@
 										<height>81</height>
 										<width>1</width>
 										<texture>dialogs/videoinfo/info/upright.png</texture>
-										<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+										<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 									</control>
 									<control type="label">
 										<posx>0</posx>
@@ -416,8 +398,7 @@
 										<align>center</align>
 										<textoffsetx>10</textoffsetx>
 										<label fallback="?">$INFO[Window.Property(Status)]</label>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 										<font>Bold31</font>
 										<scroll>true</scroll>
 									</control>
@@ -430,8 +411,7 @@
 										<aligny>center</aligny>
 										<label>$LOCALIZE[320209]</label>
 										<font>Reg24</font>
-										<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-										<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+										<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
 									</control>
 								</control>
 								<control type="image">
@@ -440,7 +420,7 @@
 									<height>81</height>
 									<width>1</width>
 									<texture>dialogs/videoinfo/info/upright.png</texture>
-									<colordiffuse>$INFO[Skin.String(ViewDetailsTextColor)]</colordiffuse>
+									<colordiffuse>$INFO[Skin.String(BingieDeatailsTextColor)]</colordiffuse>
 								</control>
 							</control>
 						</control>
@@ -466,8 +446,7 @@
 							<height>30</height>
 							<label>$INFO[Window.Property(Tagline)]</label>
 							<font>Bold26</font>
-							<textcolor>$INFO[Skin.String(HeaderTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
+							<textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
 							<visible>!String.IsEmpty(Window.Property(Tagline))</visible>
 						</control>
 						<control type="textbox" id="800">
@@ -475,8 +454,7 @@
 							<width>1417</width>
 							<height>230</height>
 							<label fallback="19055">$INFO[Window.Property(Plot)]</label>
-							<textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+							<textcolor>$INFO[Skin.String(BingiePlotTextColor)]</textcolor>
 							<align>left</align>
 							<font>Reg26</font>
 							<visible>!String.IsEmpty(Window.Property(Plot))</visible>
@@ -505,8 +483,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsHighlightTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[206]</label>
                         </control>
 						<control type="group">	
@@ -539,8 +516,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[31089]</label>
                         </control>
 						<control type="group">	
@@ -573,8 +549,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Director),$LOCALIZE[320071] ,]</label>
                         </control>
 						<control type="group">	
@@ -607,8 +582,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Writer),$LOCALIZE[320072] ,]</label>
                         </control>
 						<control type="group">	
@@ -642,8 +616,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Creator),$LOCALIZE[320080] ,]</label>
                         </control>
 						<control type="group">	
@@ -676,8 +649,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[320207]</label>
                         </control>
 						<control type="group">	
@@ -710,8 +682,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[31065]</label>
                         </control>
 						<control type="group">	
@@ -746,8 +717,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Collection)]</label>
                         </control>
 						<control type="group">	
@@ -780,8 +750,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Studio)]</label>
 							<visible>String.IsEqual(Window.Property(dbtype),movie)</visible>
                         </control>
@@ -792,8 +761,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Network)]</label>
 							<visible>String.IsEqual(Window.Property(dbtype),tvshow) | String.IsEqual(Window.Property(dbtype),episode)</visible>
                         </control>
@@ -827,8 +795,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Genre)]</label>
                         </control>
 						<control type="group">	
@@ -861,15 +828,14 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$INFO[Window.Property(Year),$LOCALIZE[320076] ,]</label>
                         </control>
 						<control type="group">	
 							<posy>-166</posy>				
 							<include content="Widget_Poster">
 								<onup>5006</onup>
-								<ondown>5012</ondown>
+								<ondown>5093</ondown>
 								<param name="id">5005</param>
 								<param name="groupid">5105</param>
 								<param name="visible">[!String.IsEmpty(Window.Property(List_5005_Visible)) | !String.IsEmpty(Window.Property(List_5005_IsUpdating))]</param>
@@ -881,82 +847,7 @@
 							<param name="visibility" value="!String.IsEmpty(Window.Property(List_5005_IsUpdating))"/>
 							<param name="top" value="155"/>
 						</include>
-					</control>
-					
-					<!-- official movies-->
-					<control type="group" id="5112">
-                       <visible>[!String.IsEmpty(Window.Property(List_5012_Visible)) | !String.IsEmpty(Window.Property(List_5012_IsUpdating))]</visible>
-						<visible>Skin.HasSetting(extendedinfo_details_videos) + !Skin.HasSetting(PreferYoutubeTrailers)</visible>
-                        <height>330</height>
-                        <control type="label">
-                            <posx>7</posx>
-                            <posy>0</posy>
-                            <width>1540</width>
-                            <height>25</height>
-                            <aligny>center</aligny>
-                            <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                            <label>$LOCALIZE[320081]</label>
-                        </control>
-						<control type="group">	
-							<posy>-166</posy>				
-							<include content="Widget_Poster">
-								<onup>5005</onup>
-								<ondown>5020</ondown>
-								<param name="id">5012</param>
-								<param name="groupid">5112</param>
-								<param name="include">List_Landscape_Row</param>
-								<param name="icon">$INFO[ListItem.Icon]</param>
-								<param name="visible">[!String.IsEmpty(Window.Property(List_5012_Visible)) | !String.IsEmpty(Window.Property(List_5012_IsUpdating))]</param>
-								<param name="altvisible">[!String.IsEmpty(Window.Property(List_5012_Visible)) | !String.IsEmpty(Window.Property(List_5012_IsUpdating))]</param>
-							</include>
-						</control>
-						<!-- Loading Suggestions -->
-						<include content="ContentLoading">
-							<param name="visibility" value="!String.IsEmpty(Window.Property(List_5012_IsUpdating))"/>
-							<param name="top" value="104"/>
-						</include>
-					</control>	
-
-					<!-- Youtube trailers -->
-					<control type="group" id="5120">
-                        <visible>Container(5020).IsUpdating | !Integer.IsEqual(Container(5020).NumItems,0) | String.IsEmpty(Window.Property(List_Main_Visible))</visible>
-						<visible>Skin.HasSetting(extendedinfo_details_videos) + Skin.HasSetting(PreferYoutubeTrailers)</visible>
-                        <height>330</height>
-                        <control type="label">
-                            <posx>7</posx>
-                            <posy>0</posy>
-                            <width>1540</width>
-                            <height>25</height>
-                            <aligny>center</aligny>
-                            <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
-                            <label>$LOCALIZE[31797]</label>
-                        </control>
-						<control type="group">	
-							<posy>-166</posy>				
-							<include content="Widget_Poster">
-								<onup>5012</onup>
-								<ondown>5093</ondown>
-								<param name="id">5020</param>
-								<param name="groupid">5120</param>
-								<param name="include">List_Landscape_Row</param>
-								<param name="icon">$INFO[ListItem.Icon]</param>
-								<param name="visible">!String.IsEmpty(Window.Property(Youtube))</param>
-								<param name="altvisible">String.IsEmpty(Window.Property(List_Main_Visible))</param>
-								<onclick>Runscript(plugin.video.themoviedb.helper,recommendations=onaction,builtin=Action(Close),window_id=1191)</onclick>								
-								<onclick>AlarmClock(PlayTrailer,PlayMedia($INFO[Container(5020).ListItem.FolderPath],noresume),00:01,silent)</onclick>
-								<content target="videos" limit="20">$INFO[Window.Property(Youtube)]</content>
-							</include>
-						</control>
-						<!-- Loading Suggestions -->
-						<include content="ContentLoading">
-							<param name="visibility" value="Container(5020).IsUpdating + Integer.IsEqual(Container(5020).NumItems,0)"/>
-							<param name="top" value="104"/>
-						</include>
-					</control>					
+					</control>										
 					
 					<!-- reviews -->
 					<control type="group" id="5193">
@@ -970,14 +861,13 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[31120]</label>
                         </control>
 						<control type="group">	
 							<posy>-166</posy>				
 							<include content="Widget_Poster">
-								<onup>5020</onup>
+								<onup>5005</onup>
 								<ondown>5003</ondown>
 								<param name="spacerid">5293</param>
 								<param name="id">5093</param>
@@ -1006,8 +896,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[320069]</label>
                         </control>
 						<control type="group">	
@@ -1040,8 +929,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[320078]</label>
                         </control>
 						<control type="group">	
@@ -1074,8 +962,7 @@
                             <height>25</height>
                             <aligny>center</aligny>
                             <font>Bold31</font>
-                            <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
-							<shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+                            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                             <label>$LOCALIZE[320210]</label>
                         </control>
 						<control type="group">	
@@ -1097,15 +984,6 @@
 						</include>
 					</control>
 				</control>																		
-			</control>
-		<!-- Snow Effect -->
-        <control type="group">
-            <include condition="Skin.HasSetting(enablesnow)">snow</include>
-        </control>
-		<!-- Halloween Effect -->
-        <control type="group">
-            <include condition="Skin.HasSetting(enablepumpkins)">pumpkin</include>
-        </control>
         </control>		
 		<include content="Dialog_ImageViewer">
             <param name="buttonid" value="5292" />
@@ -1117,5 +995,13 @@
             <param name="listid" value="5091" />
             <param name="art" value="PicturePath" />
         </include>
+		<!-- Snow Effect -->
+        <control type="group">
+            <include condition="String.IsEqual(Skin.String(season_greetings),snow_animation)">snow</include>
+        </control>
+		<!-- Halloween Effect -->
+        <control type="group">
+            <include condition="String.IsEqual(Skin.String(season_greetings),halloween_animation)">pumpkin</include>
+        </control>
     </controls>
 </window>

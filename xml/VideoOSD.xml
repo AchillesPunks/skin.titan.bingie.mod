@@ -12,8 +12,7 @@
 		
         <!--OSD Panel-->
         <control type="group">
-            <include condition="Skin.HasTheme(classic)">OSDButtonsClassic</include>
-            <include condition="!Skin.HasTheme(classic)">OSDButtonsModern</include>
+            <include>OSDButtonsModern</include>
             <include>HideOsdConditions</include>
 		</control>
     </controls>

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-  
-  <include name="View_510_PanelSquareDetails">
-	
+  <include name="View_510_PanelSquareDetails">	
     <control type="group">
       <visible>Control.IsVisible(510)</visible>
       <include>animation_view_change</include>
 	  
-	  <!-- Fanart Image Added to View-->
+		<!-- Fanart Image Added to View-->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View510_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -19,23 +17,23 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+		<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-            </control>
-	  
-    <include>MovieDetailsLeft</include>
-	  
-	  
+            </control>	  
+		<control type="group">
+		  <animation effect="slide" end="7" time="0" condition="Skin.HasSetting(View510_ShowInfoRight)">Conditional</animation>
+          <include>MovieDetailsLeft</include>
+        </control>
       <control type="panel" id="510">
-        <animation effect="slide" end="-630" time="250" condition="Skin.HasSetting(View510_ShowInfoRight)">Conditional</animation>
+        <animation effect="slide" end="-630" time="0" condition="Skin.HasSetting(View510_ShowInfoRight)">Conditional</animation>
         <viewtype label="31437">icons</viewtype>
           <include content="View_Forced">
               <param name="viewtype" value="$LOCALIZE[31437]" />
           </include>
-        <right>41</right>
-        <bottom>127</bottom>
-        <height>744</height>
+        <right>38</right>
+        <bottom>126</bottom>
+        <height>750</height>
         <width>1200</width>
         <orientation>vertical</orientation>
         <onleft>9000</onleft>
@@ -49,14 +47,14 @@
         <ondown>510</ondown>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-          <itemlayout height="248" width="238">
+          <itemlayout height="249" width="237">
             <control type="group">
                 <width>238</width>
                 <height>238</height>
                 <include>SquarePosterPanelLayout</include>
             </control>
         </itemlayout>
-        <focusedlayout height="248" width="238">
+        <focusedlayout height="249" width="237">
 		  <control type="group">
                 <width>238</width>
                 <height>238</height>
@@ -67,26 +65,20 @@
 						</include>
             </control>
         </focusedlayout>
-      </control>
-      
-	  
+      </control> 
 			<!--vertical Scollbar-->
 		<control type="scrollbar" id="60">
 			<visible>Control.IsVisible(510) + Integer.IsGreater(Container.NumItems,0)</visible>
-			<right>10</right>
-			<bottom>150</bottom>
-			<height>718</height>
+			<right>15</right>
+			<bottom>147</bottom>
+			<height>720</height>
 			<onup>60</onup>
 			<ondown>6000</ondown>
 			<onleft>510</onleft>
-			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-		</control>
-    
-	  
-    </control>
-	
-	
-
+			<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+			<animation effect="slide" end="5" time="0" condition="Skin.HasSetting(View510_ShowInfoRight) + Skin.HasSetting(DetailsLeftHidepanel)">Conditional</animation>
+		</control>	  
+    </control>		
   </include>
 </includes>

@@ -207,9 +207,9 @@
                         <top>80</top>
                         <width>200</width>
                         <height>10</height>
-                        <texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
+                        <texturebg border="10" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/osd_panel_trans.png</texturebg>
                         <lefttexture/>
-                        <midtexture border="5" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/panel.png</midtexture>
+                        <midtexture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/osd_panel.png</midtexture>
                         <righttexture/>
                         <overlaytexture/>
                         <info>ListItem.Progress</info>
@@ -248,7 +248,7 @@
                         <posx>0</posx>
                         <posy>129</posy>
                         <width>530</width>
-                        <height>20</height>
+                        <height>2</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
                         <texture>common/separator.png</texture>
@@ -260,7 +260,7 @@
                         <posy>0</posy>
                         <width>530</width>
                         <height>125</height>
-                        <texture border="5">diffuse/panel.png</texture>
+                        <texture border="10">diffuse/panel.png</texture>
                         <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                     </control>
                     <control type="label">
@@ -364,9 +364,9 @@
                         <height>10</height>
                         <info>ListItem.Progress</info>
                         <visible>ListItem.HasEpg</visible>
-                        <texturebg border="5" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/panel_trans.png</texturebg>
+                        <texturebg border="10" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/osd_panel_trans.png</texturebg>
                         <lefttexture/>
-                        <midtexture border="5" colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">diffuse/panel.png</midtexture>
+                        <midtexture border="10" colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">diffuse/osd_panel.png</midtexture>
                         <righttexture/>
                         <overlaytexture/>
                     </control>
@@ -402,7 +402,7 @@
                         <posx>0</posx>
                         <posy>125</posy>
                         <width>530</width>
-                        <height>20</height>
+                        <height>2</height>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
                         <texture>common/separator.png</texture>
@@ -434,7 +434,7 @@
             
             <!-- header -->
             <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="10">diffuse/panel.png</texture>
                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
                 <top>0</top>
@@ -484,22 +484,11 @@
                 <align>right</align>
                 <aligny>bottom</aligny>
                 <label>$INFO[System.Date(DDD)], $INFO[System.Date(d)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)] • $INFO[System.Time]</label>
-                <animation effect="slide" start="0" end="-60" time="0" reversible="false" condition="Skin.HasSetting(EnableTouchSupport)">Conditional</animation>
-            </control>
-            
-            <!-- close dialog -->
-            <control type="group">
-                <include>animation_fade_visible_hidden</include>
-                <right>35</right>
-                <width>40</width>
-                <posy>10</posy>
-                <include condition="Skin.HasSetting(EnableTouchSupport)">close_button</include>
-            </control>
-			
+            </control>            			
             
             <!-- footer -->
             <control type="image">
-                <texture border="5">diffuse/panel.png</texture>
+                <texture border="10">diffuse/panel.png</texture>
                 <colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
                 <bottom>0</bottom>
@@ -559,9 +548,9 @@
                         <width>70</width>
                         <height>20</height>
                         <info>ListItem.Progress</info>
-                        <texturebg border="5" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
+                        <texturebg border="10" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
                         <lefttexture/>
-                        <midtexture border="5" colordiffuse="$INFO[Skin.String(OSDSecondaryTextColor)]">diffuse/panel.png</midtexture>
+                        <midtexture border="10" colordiffuse="$INFO[Skin.String(OSDSecondaryTextColor)]">diffuse/osd_panel.png</midtexture>
                         <righttexture/>
                         <overlaytexture/>
                     </control>
@@ -571,7 +560,7 @@
                         <top>20</top>
                         <width>70</width>
                         <height>20</height>
-                        <texture border="5" colordiffuse="$INFO[Skin.String(OSDSecondaryTextColor)]">diffuse/thinborder.png</texture>
+                        <texture border="10" colordiffuse="$INFO[Skin.String(OSDSecondaryTextColor)]">diffuse/thinborder.png</texture>
                     </control>
                     
                     <!--Channel Name + Program Title-->
@@ -602,9 +591,10 @@
                     
                     <control type="image">
                         <!--Separator-->
-                        <posx>0</posx>
+                        <posx>3</posx>
                         <posy>59</posy>
-                        <height>20</height>
+                        <height>2</height>
+						<width>1094</width>
                         <fadetime>400</fadetime>
                         <colordiffuse>list_separator</colordiffuse>
                         <texture>common/separator.png</texture>
@@ -613,7 +603,7 @@
                 </itemlayout>
                 <focusedlayout height="60" width="1100">
                     <control type="image">
-                        <texture border="5">diffuse/panel.png</texture>
+                        <texture border="10">diffuse/panel.png</texture>
                         <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                     </control>
                     
@@ -637,9 +627,9 @@
                         <width>70</width>
                         <height>20</height>
                         <info>ListItem.Progress</info>
-                        <texturebg border="5" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
+                        <texturebg border="10" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
                         <lefttexture/>
-                        <midtexture border="5" colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">diffuse/panel.png</midtexture>
+                        <midtexture border="10" colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">diffuse/osd_panel.png</midtexture>
                         <righttexture/>
                         <overlaytexture/>
                     </control>
@@ -649,7 +639,7 @@
                         <top>20</top>
                         <width>70</width>
                         <height>20</height>
-                        <texture border="5" colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">diffuse/thinborder.png</texture>
+                        <texture border="10" colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">diffuse/thinborder.png</texture>
                     </control>
                     
                     <!--Channel Name + Program Title-->
@@ -688,8 +678,8 @@
 				<ondown>60</ondown>
 				<onleft>11</onleft>
                 <onright>11</onright>
-				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container(11).Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container(11).Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Container(11).Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container(11).Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
 			</control>
             
             <!--details -->
@@ -727,9 +717,9 @@
                 <width>460</width>
                 <height>20</height>
                 <info>Container(11).ListItem.Progress</info>
-                <texturebg border="5" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
+                <texturebg border="10" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
                 <lefttexture/>
-                <midtexture border="5" colordiffuse="$INFO[Skin.String(OSDPrimaryTextColor)]">diffuse/panel.png</midtexture>
+                <midtexture border="10" colordiffuse="$INFO[Skin.String(OSDPrimaryTextColor)]">diffuse/osd_panel.png</midtexture>
                 <righttexture/>
                 <overlaytexture/>
             </control>
@@ -739,7 +729,7 @@
                 <top>135</top>
                 <width>460</width>
                 <height>20</height>
-                <texture border="5" colordiffuse="$INFO[Skin.String(OSDPrimaryTextColor)]">diffuse/thinborder.png</texture>
+                <texture border="10" colordiffuse="$INFO[Skin.String(OSDPrimaryTextColor)]">diffuse/thinborder.png</texture>
             </control>
             <control type="label">
                 <left>1305</left>

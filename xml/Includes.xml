@@ -36,7 +36,6 @@
 	<include file="View_513_PosterRow.xml" />
 	<include file="View_514_PosterShift.xml" />
 	<include file="View_515_LowList.xml" />
-	<include file="View_516_SlimList.xml" />
     <include file="View_517_Cards.xml" />
     <include file="View_518_Wide.xml" />
     <include file="View_519_BigPanel_Wall.xml" />
@@ -70,7 +69,6 @@
 	<include file="IncludesPaths.xml" />
     <include file="IncludesOSDDialogs.xml" />
 	<include file="script-skinshortcuts-includes.xml"/>
-    <include file="IncludesTouchSupport.xml" condition="Skin.HasSetting(EnableTouchSupport)" />
     <include file="IncludesDebugInfo.xml" condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)" />
 
     <!-- Constants -->
@@ -86,7 +84,7 @@
     <constant name="episodes_thumb_width">466</constant>
 
     <!-- expressions -->
-    <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1119) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115) | Window.IsActive(1116) | Window.IsActive(1118)</expression>
+    <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1106) | Window.IsActive(1119) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1115) | Window.IsActive(1116) | Window.IsActive(1118)</expression>
 
     <expression name="IsBingieHubsActive">Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1114) | Window.IsActive(1116) | Window.IsActive(1118)</expression>
 	
@@ -110,7 +108,9 @@
 
     <expression name="IsTVShowInLastEpisodes">String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.Title)</expression>
 
-    <expression name="IsTVShowInLastEpisodesBasedOnProps">String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),Window(Home).Property(ListItem.Title))</expression>
+    <expression name="IsNewMovie">String.IsEqual(Window(Home).Property(LatestMovie.1.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.2.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.3.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.4.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.5.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.6.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.7.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.8.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.9.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.10.Title),ListItem.Title)</expression>
+	
+	<expression name="IsTVShowInLastEpisodesBasedOnProps">String.IsEqual(Window(Home).Property(LatestEpisode.10.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.9.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.8.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.7.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.6.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.5.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.4.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.3.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.2.ShowTitle),Window(Home).Property(ListItem.Title)) | String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),Window(Home).Property(ListItem.Title))</expression>
 
     <expression name="IsTvShowDBType">String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</expression>
 
@@ -118,9 +118,13 @@
 
     <expression name="IsMovieDBType">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,movie)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),movie)</expression>
 
-    <expression name="IsMovieDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie)</expression>
+    <expression name="IsMusicDBType">String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)</expression>
+	
+	<expression name="IsMovieDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.Property(DBTYPE),movie)</expression>
 
     <expression name="IsEpisodeDBType">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,episode)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),episode)</expression>
+	
+	<expression name="IsSeasonDBType">String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.Property(DBTYPE),season) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,season)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),season)</expression>
 
     <expression name="IsEpisodeDBTypeNoFallback">String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)</expression>
 
@@ -129,20 +133,14 @@
     <expression name="IsMenuEntryActive">[Window.IsActive(Home) + String.IsEqual(ListItem.Property(path), ActivateWindow(home,return))] | [Window.IsActive(1110) + String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return))] | [Window.IsActive(1111) + String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return))] | [Window.IsActive(1112) + String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return))] | [Window.IsActive(1113) + String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return))] | [Window.IsActive(1114) + String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return))] | [Window.IsActive(1115) + String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return))] | [Window.IsActive(1109) + String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))] | [Window.IsActive(1119) + String.IsEqual(ListItem.Property(path), ActivateWindow(1119,return))] | [Window.IsActive(1116) + String.IsEqual(ListItem.Property(path), ActivateWindow(1116,return))] | [Window.IsActive(1118) + String.IsEqual(ListItem.Property(path), ActivateWindow(1118,return))]</expression>
 
     <expression name="IsKnownMenuEntryPath">String.IsEqual(ListItem.Property(path), ActivateWindow(home,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1119,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1118,return))</expression>
-
-    <expression name="IsVerticalLayout">String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)</expression>
-
-    <expression name="IsHorizontalLayout">String.IsEqual(Skin.String(HomeLayout),simplehor) | String.IsEqual(Skin.String(HomeLayout),lowhorizontal) | String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)</expression>
-
-    <expression name="IsTilesLayout">String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),3) | String.IsEqual(Skin.String(HomeLayout),1small) | String.IsEqual(Skin.String(HomeLayout),2small) | String.IsEqual(Skin.String(HomeLayout),3small)</expression>
-
-    <expression name="IsSupportedFixedFrameLayout">String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),smallposter)</expression>
+	
+	<expression name="IsSupportedFixedFrameLayout">String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),smallposter)</expression>
 
     <expression name="IsFirstRun">!Skin.HasSetting(BingieFirstStartupDone) | !Skin.HasSetting(BingieSecondStartupDone)</expression>
 
     <expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
 
-    <expression name="IsCurrentWidgetSpotlight">Control.HasFocus(1508) | [Skin.HasSetting(EnableFixedFocusWidgets) + Control.IsVisible(1508) + Container(77777).Position(0)] | [!Skin.HasSetting(EnableFixedFocusWidgets) + Control.IsVisible(1508) + String.IsEqual(Container(77777).CurrentItem,1)]</expression>
+    <expression name="IsCurrentWidgetSpotlight">Control.HasFocus(1508) | [Control.IsVisible(1508) + Container(77777).Position(0)]</expression>
 
 	<expression name="Exp_IsPersonInfo">[String.IsEqual(ListItem.Property(item.type),person) | String.IsEqual(ListItem.Property(tmdb_type),person)]</expression>
 	
@@ -150,7 +148,7 @@
     <!--Common-->
 	
 	<!--NETFLIX ICON - SETTINGS Bottom Right-->
-    <include name="BingieVersion">
+    <include name="BingieLogo">
         <control type="group">
 		    <visible>Skin.HasSetting(EnableNetflixLogo)</visible>
             <bottom>37</bottom>
@@ -249,8 +247,7 @@
     </include>
 
     <include name="BingieLeftDefs">
-        <!-- <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include> -->
-        <left>138</left>  <!--removed the include condition and changed this to hide accomodate the fixed frame hiding the left side diffuse mask on home--> 
+        <left>138</left>
     </include>
 
     <!-- bounce up animation -->
@@ -286,7 +283,7 @@
         <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
 		<texturenofocus></texturenofocus>
-		<texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
+		<texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="10">diffuse/panel.png</texturefocus>
     </include>
 
     <include name="DialogButtonBig">
@@ -406,7 +403,7 @@
         <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
         <pulseonselect>false</pulseonselect>
-        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
+        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="10">diffuse/panel.png</texturefocus>
     </include>
     <include name="KeyBoardKey">
         <height>70</height>
@@ -419,8 +416,8 @@
         <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
         <pulseonselect>false</pulseonselect>
-        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="5">diffuse/panel.png</texturenofocus>
+        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="10">diffuse/panel.png</texturefocus>
+        <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="10">diffuse/panel.png</texturenofocus>
      </include>
     <include name="KeyBoardKeyRadio">
         <align>left</align>
@@ -445,10 +442,10 @@
         <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
         <pulseonselect>false</pulseonselect>
-        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf.png</texturenofocus>
-        <alttexturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf.png</alttexturefocus>
-        <alttexturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf.png</alttexturenofocus>
+        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf-2.png</texturefocus>
+        <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf-2.png</texturenofocus>
+        <alttexturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf-2.png</alttexturefocus>
+        <alttexturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf-2.png</alttexturenofocus>
     </include>
 
     <include name="SmallKey">
@@ -663,7 +660,7 @@
                         <param name="control" value="group" />
                         <top>$PARAM[item_w]</top>
                         <control type="label">
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                            <textcolor>$INFO[Skin.String(BingieLabelTextColor)]</textcolor>
                             <label>$INFO[$PARAM[listitem_label]]</label>
                             <textoffsetx>0</textoffsetx>
                             <align>center</align>
@@ -674,7 +671,7 @@
 							<scroll>$PARAM[selected]</scroll>
                         </control>
                         <control type="label">
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                            <textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
                             <label>$INFO[$PARAM[listitem_label2]]</label>
                             <textoffsetx>0</textoffsetx>
                             <align>center</align>
@@ -685,7 +682,7 @@
 							<scroll>$PARAM[selected]</scroll>
                         </control>
 						<control type="label">
-                            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+                            <textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
                             <label>$INFO[$PARAM[listitem_year]]</label>
                             <textoffsetx>0</textoffsetx>
                             <align>center</align>
@@ -862,7 +859,7 @@
                     <width>1040</width>
                     <label>$PARAM[label]</label>
                     <aligny>center</aligny>
-                    <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                    <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                     <font>Bold31</font>
                     <height>36</height>
                     <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
@@ -970,6 +967,363 @@
                 </include>
 				<include content="Object_Control2" condition="!$PARAM[selected]"></include>
                 <include content="Object_SelectBox2" condition="$PARAM[selected]"></include>
+            </control>
+        </definition>
+    </include>
+	
+	<!-- Trailer Control Button -->
+    <include name="DialogInfo_VideoTrailerControl">
+        <param name="onback">8000</param>
+        <definition>
+		<!-- Bingie OSD for Trailers -->
+		<control type="group">
+			<visible>Skin.HasSetting(UseBingieOSD)</visible>
+			<visible>Control.HasFocus(70011)</visible>
+			<bottom>0</bottom>
+			<height>290</height>
+			<control type="group">
+			<animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="1000" time="450">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="4000" time="450" condition="System.IdleTime(1) + !Player.Paused">conditional</animation>
+			<animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="450" condition="Player.Paused + Player.Forwarding + Player.Rewinding + Player.Seeking">conditional</animation>
+				<!-- Vignette Mask -->
+				<control type="image">
+					<width>100%</width>
+					<height>100%</height>
+					<texture background="true">overlays/osd_gradient.png</texture>
+				</control>
+				<!-- Progress Bars White Line Bottom Center-->
+				<control type="progress">
+					<description>ProgressbarCache</description>
+					<posx>384</posx>
+					<posy>174</posy>
+					<height>7</height>
+					<width>1152</width>
+					<texturebg colordiffuse="$INFO[Skin.String(BingieOSDProgressBarBackgroundColor)]">diffuse/panel2.png</texturebg>
+					<lefttexture/>
+					<midtexture colordiffuse="$INFO[Skin.String(BingieOSDProgressBarCacheColor)]">diffuse/panel2.png</midtexture>
+					<righttexture/>
+					<overlaytexture/>
+					<info>Player.ProgressCache</info>
+				</control>
+				<!-- Progress Bars Color Line Bottom Center-->				
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<posx>384</posx>
+					<posy>174</posy>
+					<height>7</height>
+					<width>1152</width>
+					<texturebg colordiffuse="4dffffff">diffuse/panel2.png</texturebg>
+					<lefttexture/>
+					<midtexture colordiffuse="$INFO[Skin.String(BingieOSDProgressBarColor)]">diffuse/panel2.png</midtexture>
+					<righttexture/>
+					<overlaytexture/>
+					<info>Player.SeekBar</info>
+					<reveal>true</reveal>
+				</control>
+				<control type="slider" id="401">
+					<description>Seek Slider</description>
+					<info>Player.SeekBar</info>
+					<posx>384</posx>
+					<posy>167</posy>
+					<height>11</height>
+					<width>1152</width>
+					<texturesliderbar>colors/color_transparent.png</texturesliderbar>
+					<textureslidernib colordiffuse="$INFO[Skin.String(BingieOSDProgressBarColor)]">common/slider/slider_button_nofocus.png</textureslidernib>
+					<visible>Player.SeekEnabled + Player.Seeking</visible>
+				</control>
+				<!-- Play Time / Remaining Time -->
+				<control type="label">
+					<description>Play Time</description>
+					<animation end="-45,0" time="0" effect="slide" condition="[Player.Seeking + [!String.IsEqual(Player.SeekTime(hh),00) | [VideoPlayer.HasEpg + !String.IsEqual(PVR.EpgEventSeekTime(hh),00)]]] | [VideoPlayer.HasEPG + !String.IsEqual(PVR.EpgEventElapsedTime(hh),00)] | !String.IsEqual(Player.Time(hh),00)">Conditional</animation>
+					<posx>274</posx>
+					<posy>146</posy>
+					<width>160</width>
+					<align>left</align>
+					<font>Reg30</font>
+					<textcolor>$INFO[Skin.String(BingieOSDProgressTextColor)]</textcolor>
+					<label>$VAR[PlayTimeFormat]</label>
+				</control>
+				<control type="label">
+					<description>Time Remaining</description>
+					<posx>1571</posx>
+					<posy>146</posy>
+					<width>160</width>
+					<align>left</align>
+					<font>Reg30</font>
+					<textcolor>$INFO[Skin.String(BingieOSDProgressTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
+					<label>$VAR[TimeRemainingFormat]</label>
+				</control>
+				<!-- Forwarding/Rewinding Indicators -->
+				<control type="image">
+					<visible>Player.Forwarding | Player.Rewinding</visible>
+					<texture>$VAR[ForwardRewindIndicatorImage]</texture>
+					<include>PlayerImageIndicatorDefs</include>
+				</control>				
+				<!-- Play/Pause Indicators -->
+				<control type="image">
+					<visible>Player.Paused | Player.Playing</visible>
+					<visible>!Window.IsActive(videoosd)</visible>
+					<texture>$VAR[PlayingPausedIndicatorImage]</texture>
+					<include>PlayerImageIndicatorDefs</include>
+				</control>
+			</control>
+		</control>
+		
+		<!-- Clasic OSD for Trailers -->
+		<control type="group">
+			<visible>!Skin.HasSetting(UseBingieOSD)</visible>
+			<visible>Control.HasFocus(70011)</visible>
+			<bottom>0</bottom>
+			<height>220</height>
+			<animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="1000" time="450">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,400" tween="cubic" easing="out" delay="4000" time="450" condition="System.IdleTime(1) + !Player.Paused">conditional</animation>
+			<animation effect="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="450" condition="Player.Paused + Player.Forwarding + Player.Rewinding + Player.Seeking">conditional</animation>
+			<!--Panel-->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>100%</width>
+				<height>220</height>
+				<texture border="5">$VAR[osdpanelimage]</texture>
+				<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
+			</control> 
+
+			<!--Cover no poster-->
+			<control type="image">
+				<posx>40</posx>
+				<posy>39</posy>
+				<width>141</width>
+				<height>141</height>
+				<fadetime>200</fadetime>
+				<texture background="true">defaultvideo.png</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+			</control>			
+			
+			<control type="group">
+				<posx>-170</posx>
+				<!-- OSDLabel1 -->
+				<control type="label">
+					<posx>390</posx>
+					<posy>20</posy>
+					<width>1000</width>
+					<align>left</align>
+					<font>Light40</font>
+					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
+					<label>$VAR[OSDLabel1]</label>
+					<scroll>false</scroll>
+				</control>
+                <!-- OSDLabel2 -->
+				<control type="label">
+					<posx>390</posx>
+					<posy>80</posy>
+					<width>980</width>
+					<align>left</align>
+					<font>Light42</font>
+					<textcolor>$INFO[Skin.String(OSDPrimaryTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(OSDPrimaryTextShadowColor)]</shadowcolor>
+					<label>[B]$VAR[OSDLabel2][/B]</label>
+					<scroll>false</scroll>
+				</control>
+				<control type="progress">
+					<description>ProgressbarCache</description>
+					<posx>525</posx>
+					<posy>160</posy>
+					<height>20</height>
+					<width>700</width>
+					<info>Player.ProgressCache</info>
+					<visible>Player.HasDuration + !VideoPlayer.content(livetv)</visible>					
+					<texturebg border="10" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
+					<lefttexture/>
+					<midtexture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/osd_panel.png</midtexture>
+					<righttexture/>
+					<overlaytexture/>
+                    <visible>!String.IsEqual(Skin.String(OSDProgressBarCacheColor),None)</visible>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<posx>525</posx>
+					<posy>160</posy>
+					<height>20</height>
+					<width>700</width>
+					<info>Player.Progress</info>
+					<visible>!VideoPlayer.HasEpg</visible>
+					<texturebg border="10" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/osd_panel_trans.png</texturebg>
+					<lefttexture/>
+					<midtexture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/osd_panel.png</midtexture>
+					<righttexture/>
+					<overlaytexture/>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<posx>525</posx>
+					<posy>160</posy>
+					<height>20</height>
+					<width>700</width>
+					<info>PVR.EpgEventProgress</info>
+					<visible>VideoPlayer.HasEpg</visible>
+					<texturebg border="10" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/osd_panel_trans.png</texturebg>
+					<lefttexture/>
+					<midtexture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/osd_panel.png</midtexture>
+					<righttexture/>
+					<overlaytexture/>
+				</control>
+				<control type="image">
+					<description>Progress Bar Border</description>
+					<posx>525</posx>
+					<posy>160</posy>
+					<height>20</height>
+					<width>700</width>
+					<visible>Player.HasDuration</visible>
+					<texture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarBorderColor)]">diffuse/thinborder.png</texture>
+				</control>
+                <control type="slider" id="401">
+                    <description>Seek Slider</description>
+					<info>Player.SeekBar</info>
+                    <posx>525</posx>
+					<posy>150</posy>
+					<height>20</height>
+					<width>700</width>
+                    <texturesliderbar>colors/color_transparent.png</texturesliderbar>
+                    <textureslidernib border="1" colordiffuse="$INFO[Skin.String(OSDButtonsFocusColor)]">diffuse/seekslider.png</textureslidernib>
+                    <textureslidernibfocus>colors/color_white.png</textureslidernibfocus>
+                    <visible>Player.Seeking + !Player.HasAudio</visible>
+                </control>
+				<!--Process/Seekbar-->
+				<control type="label">
+					<!--Play Time-->
+					<posx>390</posx>
+					<posy>139</posy>
+					<width>160</width>
+					<align>left</align>
+					<font>Light28</font>
+					<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
+					<label>$VAR[PlayTime]</label>
+				</control>
+				<control type="label">
+					<!--Play Time-->
+					<posx>1270</posx>
+					<posy>139</posy>
+					<width>160</width>
+					<align>left</align>
+					<font>Light28</font>
+					<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
+					<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
+					<label>$VAR[RemainingTime,- ]</label>
+					<visible>Player.HasDuration</visible>					
+				</control>				
+			</control>
+			
+		    <!--OSD: right side below clock-->
+		    <control type="label">
+				<!--PlayerActionLabel-->
+				<animation type="Conditional" condition="Player.Paused | Player.Forwarding | Player.Rewinding">
+					<effect type="slide" start="0,0" end="-160,0" time="200" tween="cubic" easing="inout" delay="0" />
+				</animation>
+				<right>40</right>
+				<posy>90</posy>
+				<width>890</width>
+				<align>right</align>
+				<font>Reg30</font>
+				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
+				<label>$VAR[PlayerActionLabel]</label>				
+			</control>
+			
+			<control type="label">
+				<!--Total duration-->
+				<animation type="Conditional" condition="Player.Paused | Player.Forwarding | Player.Rewinding">
+					<effect type="slide" start="0,0" end="-160,0" time="200" tween="cubic" easing="inout" delay="0" />
+				</animation>
+				<right>40</right>
+				<posy>139</posy>
+				<width>940</width>
+				<align>right</align>
+				<font>Light28</font>
+				<textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>
+				<label>$VAR[TotalDuration,[B]$LOCALIZE[180]: [/B]]</label>
+			</control>
+            
+			<!-- pause img -->
+			<control type="image">
+				<visible>Player.Paused</visible>
+				<animation delay="150" time="300" effect="fade">Visible</animation>
+				<animation delay="0" time="200" effect="fade">Hidden</animation>
+				<right>33</right>
+				<bottom>43</bottom>
+				<width>135</width>
+				<height>135</height>
+				<texture>osd/osd_pause.png</texture>
+				<colordiffuse>$INFO[Skin.String(OSDButtonsFocusColor)]</colordiffuse>
+			</control>
+			<!-- ff/rr img -->
+			<control type="image">
+				<visible>Player.Forwarding</visible>
+				<animation delay="150" time="300" effect="fade">Visible</animation>
+				<animation delay="0" time="200" effect="fade">Hidden</animation>
+				<right>40</right>
+				<bottom>50</bottom>
+				<width>120</width>
+				<height>120</height>
+				<texture>osd/osd_ff.png</texture>
+				<colordiffuse>$INFO[Skin.String(OSDButtonsFocusColor)]</colordiffuse>
+			</control>
+			<control type="image">
+				<visible>Player.Rewinding</visible>
+				<animation delay="150" time="300" effect="fade">Visible</animation>
+				<animation delay="0" time="200" effect="fade">Hidden</animation>
+				<right>40</right>
+				<bottom>50</bottom>
+				<width>120</width>
+				<height>120</height>
+				<texture flipx="true">osd/osd_ff.png</texture>
+				<colordiffuse>$INFO[Skin.String(OSDButtonsFocusColor)]</colordiffuse>
+			</control>
+
+			<!--Clock-->
+            <control type="label">
+                <right>38</right>
+                <posy>7</posy>
+                <width>400</width>
+                <height>100</height>
+                <align>right</align>
+                <info>System.Time</info>
+                <font>Light60</font>
+                <aligny>center</aligny>
+                <textcolor>$INFO[Skin.String(OSDSecondaryTextColor)]</textcolor>
+                <shadowcolor>$INFO[Skin.String(OSDSecondaryTextShadowColor)]</shadowcolor>             
+                <animation type="Conditional" condition="Player.Paused | Player.Forwarding | Player.Rewinding">
+                    <effect type="slide" start="0,0" end="-160,0" time="200" tween="cubic" easing="inout" delay="0" />
+                </animation>
+            </control>		
+		</control>
+            <control type="button" id="70011">
+                <texturenofocus />
+                <texturefocus />
+
+                <onback>$PARAM[onback]</onback>
+                <onback condition="Player.HasVideo">Stop</onback>
+
+                <onunfocus>SetFocus($PARAM[onback])</onunfocus>
+                <onunfocus condition="Player.HasVideo">Stop</onunfocus>
+				
+				<onclick condition="!Player.HasVideo">SetFocus($PARAM[onback])</onclick>
+                <onclick condition="Player.HasVideo + Skin.HasSetting(EnableAutoPauseOnOSD)">PlayerControl(Play)</onclick>
+
+                <onleft condition="!Player.HasVideo">SetFocus($PARAM[onback])</onleft>
+                <onleft condition="Player.HasVideo">AnalogSeekBack</onleft>
+
+                <onright condition="!Player.HasVideo">SetFocus($PARAM[onback])</onright>
+                <onright condition="Player.HasVideo">AnalogSeekForward</onright>
+				
+				<onup condition="!Player.HasVideo">SetFocus($PARAM[onback])</onup>
+				<onup condition="Player.HasVideo">StepForward</onup>
+
+                <ondown condition="!Player.HasVideo">SetFocus($PARAM[onback])</ondown>
+				<ondown condition="Player.HasVideo">StepBack</ondown>
             </control>
         </definition>
     </include>

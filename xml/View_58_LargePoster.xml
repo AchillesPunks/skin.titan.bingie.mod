@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-
     <include name="View_58_LargePoster">
         <!--Panel Group-->
         <control type="group">
@@ -12,7 +11,7 @@
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View58_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -65,7 +64,7 @@
 				</control>
 			</control>
             
-<!--CDART IMAGE-->
+			<!--CDART IMAGE-->
             <control type="image">
                 <width>540</width>
                 <height>540</height>
@@ -155,14 +154,9 @@
 						<top>50</top>
 						<include>WatchedIndicatorLarge</include>
 						</control>
-					</control>
-					
+					</control>				
 				</focusedlayout>
-			</control>
-
-			
-			
+			</control>						
         </control>
-
 	</include>
 </includes>

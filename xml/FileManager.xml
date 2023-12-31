@@ -7,9 +7,7 @@
         <include>GlobalBackground</include>
 		
 		<!--NowPlaying-->
-        <include condition="Skin.HasTheme(classic)">NowPlayingMusicClassic</include>
-        <include condition="Skin.HasTheme(classic)">NowPlayingVideoClassic</include>
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 
         <!--Header-->
         <include>Header</include>
@@ -42,7 +40,7 @@
 					<posy>80</posy>
 					<width>850</width>
 					<height>520</height>
-					<texture border="5">diffuse/panel.png</texture>
+					<texture border="10">diffuse/panel.png</texture>
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 				</control>
 				<control type="label" id="101">
@@ -64,8 +62,8 @@
                     <ondown>60</ondown>
                     <onleft>20</onleft>
                     <onright>20</onright>
-                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container(20).Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container(20).Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(60) | Container(20).Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container(20).Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
                 </control>
                 
 				<control type="list" id="20">
@@ -134,7 +132,7 @@
 							<width>810</width>
 							<height>50</height>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
-							<texture border="5">diffuse/panel.png</texture>
+							<texture border="10">diffuse/panel.png</texture>
 						</control>
                         <control type="image">
 							<visible>!Control.HasFocus(20)</visible>
@@ -143,7 +141,7 @@
 							<width>810</width>
 							<height>50</height>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
-							<texture border="5">diffuse/panel_trans.png</texture>
+							<texture border="10">diffuse/panel_trans.png</texture>
 						</control>
 						<control type="image">
 							<posx>140</posx>
@@ -216,7 +214,7 @@
 					<posy>80</posy>
 					<width>850</width>
 					<height>520</height>
-					<texture border="5">diffuse/panel.png</texture>
+					<texture border="10">diffuse/panel.png</texture>
 					
 					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 				</control>
@@ -295,7 +293,7 @@
 							<width>810</width>
 							<height>50</height>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
-							<texture border="5">diffuse/panel.png</texture>
+							<texture border="10">diffuse/panel.png</texture>
 						</control>
                         <control type="image">
 							<visible>!Control.HasFocus(21)</visible>
@@ -304,7 +302,7 @@
 							<width>810</width>
 							<height>50</height>
 							<colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
-							<texture border="5">diffuse/panel_trans.png</texture>
+							<texture border="10">diffuse/panel_trans.png</texture>
 						</control>
                         <control type="image">
 							<posx>140</posx>
@@ -362,8 +360,8 @@
                     <ondown>70</ondown>
                     <onleft>21</onleft>
                     <onright>21</onright>
-                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(70) | Skin.HasSetting(EnableTouchSupport) | Container(20).Scrolling | Skin.HasSetting(alwaysShowScrollbars)">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(70) | Skin.HasSetting(EnableTouchSupport) | Container(20).Scrolling | Skin.HasSetting(alwaysShowScrollbars)]">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="400" condition="Control.HasFocus(70) | Container(20).Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(70) | Container(20).Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)]">Conditional</animation>
                 </control>
                 
                 <control type="label" id="13">

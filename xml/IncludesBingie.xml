@@ -4,8 +4,6 @@
     <!-- includes -->
     <!-- Fixed Focus Navigation -->
     <include name="Fixed_Focus_Navigation">
-        <!--<animation effect="slide" end="0,-754" time="300" condition="Skin.HasSetting(EnableHighlightWidget) + Integer.IsGreater(Container(77777).Position,4)">Conditional</animation>
-        <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" time="300" condition="!Skin.HasSetting(EnableHighlightWidget) + Integer.IsGreater(Container(77777).Position,4)">Conditional</animation>-->
         <animation effect="slide" end="0,-250" time="300" condition="Control.IsVisible(1508) + Integer.IsGreater(Container(77777).Position,0)">Conditional</animation>
         <animation effect="slide" end="0,$PARAM[FixedAnimationHeight]" time="300" condition="Skin.HasSetting(EnableHighlightWidget) + Integer.IsGreater(Container(77777).Position,2) + !Window.IsActive(1116)">Conditional</animation>											 																																											   
 		<animation effect="slide" end="0,-481" time="300" condition="Skin.HasSetting(EnableHighlightWidget) + Integer.IsGreater(Container(77777).Position,2) + [ControlGroup(77777).HasFocus() + String.IsEqual(window(home).Property(widgetstyle),highlight)] + !Window.IsActive(1116) | Integer.IsGreater(Container(77777).Position,2) + [$EXP[IsMainMenuOpened] + String.IsEqual(window(home).Property(widgetstyle),highlight)] + !Window.IsActive(1116)">Conditional</animation>		
@@ -67,14 +65,6 @@
         <animation effect="fade" start="100" end="0" time="250" condition="Integer.IsGreater(Window(Home).Property(CurrentWidgetID), $PARAM[widgetid])">Conditional</animation>
         <animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="Integer.IsGreater(Container(77777).NumItems,2) + String.IsEqual(Window(Home).Property(PrevWidgetPos),1) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),Container(77777).NumItems)">Conditional</animation>
         <animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="Integer.IsGreater(Container(77777).NumItems,2) + String.IsEqual(Window(Home).Property(PrevWidgetPos),Container(77777).NumItems) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),1)">Conditional</animation>
-        <!-- up/down animation
-        <animation effect="fade" start="100" end="0" time="250" condition="Integer.IsGreater(Window(Home).Property(CurrentWidgetPos), Window(Home).Property(PrevWidgetPos))
-         + Integer.IsGreater(Window(Home).Property(CurrentWidgetID), $PARAM[widgetid])">Conditional</animation>
-        <animation effect="fade" start="100" end="0" time="250" condition="Integer.IsGreater(Window(Home).Property(PrevWidgetPos), Window(Home).Property(CurrentWidgetPos))
-         + Integer.IsGreater($PARAM[widgetid], Window(Home).Property(CurrentWidgetID))">Conditional</animation>-->
-        <!-- first-to-last / last-to-first -->
-        <!--<animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="String.IsEqual(Window(Home).Property(PrevWidgetPos),1) + String.IsEqual(Container(77777).CurrentItem,Container(77777).NumItems)">Conditional</animation>
-        <animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="String.IsEqual(Window(Home).Property(PrevWidgetPos),Container(77777).NumItems) + String.IsEqual(Container(77777).CurrentItem,1)">Conditional</animation>-->
     </include>
 	
 	<!-- Fixed Focus Navigation for Hubs -->
@@ -134,18 +124,9 @@
         <animation effect="fade" start="100" end="0" time="250" condition="Integer.IsGreater(Window(Home).Property(CurrentWidgetID), $PARAM[widgetid])">Conditional</animation>
         <animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="Integer.IsGreater(Container(77777).NumItems,2) + String.IsEqual(Window(Home).Property(PrevWidgetPos),1) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),Container(77777).NumItems)">Conditional</animation>
         <animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="Integer.IsGreater(Container(77777).NumItems,2) + String.IsEqual(Window(Home).Property(PrevWidgetPos),Container(77777).NumItems) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),1)">Conditional</animation>
-        <!-- up/down animation
-        <animation effect="fade" start="100" end="0" time="250" condition="Integer.IsGreater(Window(Home).Property(CurrentWidgetPos), Window(Home).Property(PrevWidgetPos))
-         + Integer.IsGreater(Window(Home).Property(CurrentWidgetID), $PARAM[widgetid])">Conditional</animation>
-        <animation effect="fade" start="100" end="0" time="250" condition="Integer.IsGreater(Window(Home).Property(PrevWidgetPos), Window(Home).Property(CurrentWidgetPos))
-         + Integer.IsGreater($PARAM[widgetid], Window(Home).Property(CurrentWidgetID))">Conditional</animation>-->
-        <!-- first-to-last / last-to-first -->
-        <!--<animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="String.IsEqual(Window(Home).Property(PrevWidgetPos),1) + String.IsEqual(Container(77777).CurrentItem,Container(77777).NumItems)">Conditional</animation>
-        <animation effect="fade" start="0" end="100" delay="300" time="300" reversible="false" condition="String.IsEqual(Window(Home).Property(PrevWidgetPos),Container(77777).NumItems) + String.IsEqual(Container(77777).CurrentItem,1)">Conditional</animation>-->
     </include>
 
     <include name="SetFixedVerticalNavigationProps">
-        <!--<onfocus condition="!String.IsEqual(Window(Home).Property(CurrentWidgetID),$PARAM[widgetid])">SetProperty(PrevWidgetID,$INFO[Window(Home).Property(CurrentWidgetID)],Home)</onfocus>-->
         <onfocus condition="!String.IsEqual(Window(Home).Property(CurrentWidgetID),$PARAM[widgetid])">SetProperty(PrevWidgetPos,$INFO[Window(Home).Property(CurrentWidgetPos)],Home)</onfocus>
         <onfocus>SetProperty(CurrentWidgetID,$PARAM[widgetid],Home)</onfocus>
         <onfocus condition="!String.IsEqual(Window(Home).Property(CurrentWidgetID),$PARAM[widgetid])">SetProperty(CurrentWidgetPos,$INFO[Container(77777).CurrentItem],Home)</onfocus>
@@ -163,19 +144,11 @@
         </include>
         <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),poster) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight" value="-371"/> <!--looks about right to me for poster size 325h x 240w-->
+            <param name="FixedAnimationHeight" value="-371"/>
         </include>
         <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="FixedAnimationHeight" value="-188"/>
-        </include>
-        <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),singlebox) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight" value="-370"/>
-        </include>
-        <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),widebox) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight" value="-295"/>
         </include>
         <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),smallposter) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -184,10 +157,6 @@
         <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),square) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="FixedAnimationHeight" value="-295"/>
-        </include>
-        <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),minisquare) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight" value="-171"/>
         </include>
         <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),landscapedetails) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -215,19 +184,11 @@
         </include>
 		<include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),poster) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight1" value="-371"/> <!--looks about right to me for poster size 325h x 240w-->
+            <param name="FixedAnimationHeight1" value="-371"/>
         </include>
         <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="FixedAnimationHeight1" value="-188"/>
-        </include>
-        <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),singlebox) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight1" value="-370"/>
-        </include>
-        <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),widebox) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight1" value="-295"/>
         </include>
         <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),smallposter) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -236,14 +197,6 @@
         <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),square) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="FixedAnimationHeight1" value="-295"/>
-        </include>
-        <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),minisquare) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight1" value="-171"/>
-        </include>
-        <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),landscapedetails) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight1" value="-252"/>
         </include>
         <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),posterdetails) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
@@ -275,7 +228,7 @@
 	<include name="IMDB_RT_Details_Row">
 		<control type="grouplist">
 			<visible>!String.IsEmpty(Control.GetLabel(6997021)) | !String.IsEmpty(Control.GetLabel(699706)) | !String.IsEmpty(Control.GetLabel(699702)) | !String.IsEmpty(Control.GetLabel(6997061)) | [!String.IsEmpty(Control.GetLabel(878787)) | !String.IsEmpty(Control.GetLabel(8787871))] + !Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB),0.0)</visible>
-			<posy>7</posy>
+			<posy>8</posy>
 			<height>31</height>
 			<width>500</width>
 			<orientation>horizontal</orientation>
@@ -394,7 +347,7 @@
 				<include>Default_Visible_Fade</include>
                 <posy>2</posy>
 				<aspectratio>keep</aspectratio>
-                <width>28</width>                                     <!-- The Size seem to look nicer to me -->
+                <width>28</width>
                 <height>29</height>
                 <texture background="true">bingie/whiteRTcritics1.png</texture>
 			    <visible>!String.IsEmpty(Control.GetLabel(6997061)) + String.IsEmpty(Control.GetLabel(878787)) + String.IsEmpty(Control.GetLabel(8787871)) | !String.IsEmpty(Control.GetLabel(6997061)) + Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB),0.0)</visible>
@@ -407,7 +360,7 @@
 				<include>Default_Visible_Fade</include>
                 <posy>3</posy>
 				<aspectratio>keep</aspectratio>
-                <width>29</width>                                     <!-- The Size seem to look nicer to me -->
+                <width>29</width>
                 <height>28</height>
                 <texture background="true">bingie/whitertcriticsrotten2.png</texture>
 			    <visible>!String.IsEmpty(Control.GetLabel(6997061)) + String.IsEmpty(Control.GetLabel(878787)) + String.IsEmpty(Control.GetLabel(8787871)) | !String.IsEmpty(Control.GetLabel(6997061)) + Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB),0.0)</visible>
@@ -420,9 +373,9 @@
 				<posy>2</posy>
 				<include>Default_Visible_Fade</include>
                 <aspectratio>keep</aspectratio>
-                <width>28</width>                                     <!-- The Size seem to look nicer to me -->
+                <width>28</width>
                 <height>29</height>
-                <texture background="true">bingie/fresh11.png</texture> <!-- I Really like the look of the Real Tomatoe -->
+                <texture background="true">bingie/fresh11.png</texture>
 				<visible>!String.IsEmpty(Control.GetLabel(699706)) + String.IsEmpty(Control.GetLabel(878787)) + String.IsEmpty(Control.GetLabel(8787871)) | !String.IsEmpty(Control.GetLabel(699706)) + Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB),0.0)</visible>
 				<visible>[Integer.IsGreater(Container(99950).ListItem.Property(RottenTomatoes_Rating),59) + $EXP[IsMovieDBType] | Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),59) + [!$EXP[IsMovieDBType] + !$EXP[IsEpisodeDBType]]]</visible>
 				<visible>!Skin.HasSetting(whiteIMDBDetailsRow)</visible>
@@ -433,7 +386,7 @@
 				<posy>3</posy>
 				<include>Default_Visible_Fade</include>
                 <aspectratio>keep</aspectratio>
-                <width>29</width>                                     <!-- The Size seem to look nicer to me -->
+                <width>29</width>
                 <height>28</height>
                 <texture background="true">bingie/rotten2.png</texture>
 				<visible>!String.IsEmpty(Control.GetLabel(699706)) + String.IsEmpty(Control.GetLabel(878787)) + String.IsEmpty(Control.GetLabel(8787871)) | !String.IsEmpty(Control.GetLabel(699706)) + Integer.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB),0.0)</visible>
@@ -473,8 +426,7 @@
     <include name="New_Tag_Details_Row">
         <control type="label" id="6110">
             <visible>!String.IsEmpty(Control.GetLabel(6110))</visible>
-            <posy>6</posy>  <!--straightens up the details row-->
-			<left>-1</left>
+            <posy>7</posy>
             <height>35</height>
             <width>auto</width>
             <aligny>center</aligny>
@@ -495,7 +447,7 @@
             <!-- Thumbs Up -->
             <control type="image" id="61111">
                 <include>ThumbsUpMinCondition</include>
-                <posy>5</posy>
+                <posy>9</posy>
                 <width>25</width>
                 <height>30</height>
                 <aspectratio align="left" aligny="center">keep</aspectratio>
@@ -515,25 +467,11 @@
         </control>
     </include>
 
-    <!-- Stars rating -->
-    <!-- <include name="Stars_Rating_Details_Row"> -->
-        <!-- <control type="image" id="6112"> -->
-            <!-- <visible>!String.IsEmpty(Control.GetLabel(6112)) + !Control.IsVisible(6111)</visible> -->
-            <!-- <posy>5</posy> -->
-            <!-- <width>160</width> -->
-            <!-- <height>35</height> -->
-            <!-- <aspectratio align="left" aligny="center">keep</aspectratio> -->
-            <!-- <colordiffuse>$INFO[Skin.String(BingieRatingInDetailsColor)]</colordiffuse> -->
-            <!-- <texture>$VAR[rating_value_texture]</texture> -->
-            <!-- <include>Default_Visible_Fade</include> -->
-        <!-- </control> -->
-    <!-- </include> -->
-
     <!-- Percentage Based Rating -->
     <include name="Percentage_Rating_Details_Row">
         <control type="label" id="6113">
             <visible>!String.IsEmpty(Control.GetLabel(6113)) + !Control.IsVisible(6111)</visible>
-            <posy>6</posy>  <!--straightens up the details row-->
+            <posy>7</posy>
             <height>35</height>
             <width>auto</width>
             <aligny>center</aligny>
@@ -545,10 +483,25 @@
     </include>
 	
 	<!-- Percentage Based Rating -->
+    <include name="Percentage_Music_Rating_Details_Row">
+        <control type="label" id="61131">
+            <visible>!String.IsEmpty(Control.GetLabel(61131))</visible>
+            <posy>7</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>bold26</font>
+            <textcolor>$INFO[Skin.String(BingieRatingInDetailsColor)]</textcolor>
+            <label>$VAR[RatingDecimalToPercentage,,% $LOCALIZE[31857]]</label>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
+	
+	<!-- Percentage Based Rating for Episodes in Bingie Season View -->
     <include name="Percentage_Rating_Details_Row_Seasons">
         <control type="label" id="61132">
             <visible>!String.IsEmpty(Control.GetLabel(61132)) + !Control.IsVisible(6111)</visible>
-            <posy>6</posy>  <!--straightens up the details row-->
+            <posy>7</posy>
             <height>35</height>
             <width>auto</width>
             <aligny>center</aligny>
@@ -563,8 +516,7 @@
     <include name="Year_Premiered_PVRTime_Details_Row">
         <control type="label" id="6114">
             <visible>!String.IsEmpty(Control.GetLabel(6114))</visible>
-			<visible>$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | $EXP[IsEpisodeDBType]</visible>
-            <posy>5</posy>
+            <posy>6</posy>
             <height>35</height>
             <width>auto</width>
             <aligny>center</aligny>
@@ -574,14 +526,129 @@
             <include>Default_Visible_Fade</include>
         </control>
     </include>
+	
+	<!-- Year / Premiered / PVR Time -->
+    <include name="Year_Premiered_Highlight_Widget">
+        <control type="label" id="6114">
+            <visible>!String.IsEmpty(Control.GetLabel(6114))</visible>
+            <posy>7</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>Bold23</font>
+            <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+            <label>$VAR[YearOrPremieredOrPVR]</label>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
+	
+	<!-- Music Year -->
+    <include name="Music_Year_Details_Row">
+        <control type="label" id="61141">
+            <visible>!String.IsEmpty(Control.GetLabel(61141))</visible>
+            <posy>6</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>Reg26</font>
+            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+            <label>$VAR[MusicYear]</label>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
+	
+	<include name="Music_Album_Year_Details_Row">
+        <control type="label" id="61145">
+            <visible>!String.IsEmpty(Control.GetLabel(61145))</visible>
+            <posy>6</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>Reg26</font>
+            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+            <label>$VAR[MusicAlbumYear]</label>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
+	
+	<!-- Music Line -->
+    <include name="Music_Line_Details_Row">
+        <control type="label" id="61143">
+            <visible>!String.IsEmpty(Control.GetLabel(61143)) + !String.IsEmpty(Control.GetLabel(61141)) + !String.IsEmpty(Control.GetLabel(61142))</visible>
+            <posy>6</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>Reg26</font>
+            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+            <label>|</label>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
+	
+	<include name="Music_Album_Line_Details_Row">
+		<control type="label" id="61146">
+            <visible>!String.IsEmpty(Control.GetLabel(61143)) + !String.IsEmpty(Control.GetLabel(61144))</visible>
+            <posy>6</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>Reg26</font>
+            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+            <label>|</label>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
+	
+	<!-- Music Disambiguation -->
+    <include name="Music_Disambiguation_Details_Row">
+        <control type="label" id="61142">
+            <visible>!String.IsEmpty(Control.GetLabel(61142)) + !String.IsEmpty(Control.GetLabel(61141))</visible>
+            <posy>6</posy>
+            <height>35</height>
+            <width max="250">auto</width>
+            <aligny>center</aligny>
+            <font>Reg26</font>
+            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+            <label>$VAR[MusicDisambiguation,[CAPITALIZE],[/CAPITALIZE]]</label>
+            <include>Default_Visible_Fade</include>
+			<scroll>true</scroll>
+        </control>
+		 <control type="label" id="61142">
+            <visible>!String.IsEmpty(Control.GetLabel(61142)) + String.IsEmpty(Control.GetLabel(61141))</visible>
+            <posy>6</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>Reg26</font>
+            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+            <label>$VAR[MusicDisambiguation,[CAPITALIZE],[/CAPITALIZE]]</label>
+            <include>Default_Visible_Fade</include>
+			<scroll>true</scroll>
+        </control>
+    </include>
+	
+	<!-- Music Label -->
+    <include name="Music_Label_Details_Row">
+        <control type="label" id="61144">
+            <visible>!String.IsEmpty(Control.GetLabel(61144))</visible>
+            <posy>6</posy>
+            <height>35</height>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <font>Reg26</font>
+            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+            <label>$VAR[MusicLabel]</label>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
 
-<!-- MPAA UK Icons -->
+	<!-- MPAA UK Icons -->
     <include name="MPAA_Details_RowNew">
 	<include>Default_Visible_Fade</include>
 	<!-- Icon display -->
 		<control type="image" id="123458">
 			<visible>!String.IsEmpty(ListItem.MPAA)</visible>
-			<top>-1</top>
 			<width>56</width>
 			<height>50</height>
             <aspectratio>keep</aspectratio>
@@ -590,13 +657,13 @@
         </control>
     </include>
 			
-<!-- MPAA Color Icons -->
+	<!-- MPAA Color Icons -->
     <include name="MPAA_Details_RowUS">
 	<include>Default_Visible_Fade</include>
 	<!-- Icon display -->
 	<control type="button" id="123456">
 			<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Container(99950).ListItem.mpaa)</visible>
-			<posy>7</posy>
+			<posy>8</posy>
 				<height>34</height>
                 <width min="42">auto</width>
 				<align>center</align>
@@ -615,7 +682,7 @@
         </control>
     </include>		
 
-<!-- MPAA Color Icons - Fixed panel size -->
+	<!-- MPAA Color Icons - Fixed panel size -->
     <include name="MPAA_Details_RowUS_Fixed_Size">
 	<include>Default_Visible_Fade</include>
 	<!-- Icon display -->
@@ -634,7 +701,7 @@
             <width>106</width>
 	<control type="image" id="123456">
 			<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Container(99950).ListItem.mpaa)</visible>
-			<top>7</top>
+			<top>8</top>
 			<width>106</width>
 			<height>34</height>
             <aspectratio>keep</aspectratio>
@@ -645,7 +712,7 @@
 	<control type="image" id="123456">
 			<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Container(99950).ListItem.mpaa)</visible>
 			<right>3</right>
-			<top>10</top>
+			<top>11</top>
 			<width>100</width>
 			<height>28</height>
 			<aspectratio>keep</aspectratio>
@@ -655,7 +722,7 @@
     </control>
 		<control type="label" id="123456">
 				<visible>!String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(Container(99950).ListItem.mpaa)</visible>
-				<posy>7</posy>
+				<posy>8</posy>
 				<align>center</align>
 				<aligny>top</aligny>
 				<textwidth>96</textwidth> 
@@ -669,62 +736,77 @@
 	</control>
     </include>	
 			
-<!-- Original MPAA details row -->
+	<!-- Original MPAA details row -->
 	<include name="MPAA_Details_Row">		
             <include>Default_Visible_Fade</include>
             <control type="button" id="765">
 				<visible>!String.IsEmpty(ListItem.Mpaa) | !String.IsEmpty(Container(99950).ListItem.mpaa)</visible>
 				<posy>7</posy>
-                <height>34</height>
+                <height>36</height>
                 <width min="42">auto</width>
 				<align>center</align>
 				<aligny>top</aligny>
 				<textwidth>140</textwidth> 
-				<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
-				<disabledcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</disabledcolor>
+				<textcolor>$VAR[DetailsTextColor]</textcolor>
+				<disabledcolor>$VAR[DetailsTextColor]</disabledcolor>
 				<texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded.png</texturenofocus>
 				<texturefocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded.png</texturefocus>
 				<textoffsetx>10</textoffsetx>
-				<textoffsety>-1</textoffsety>
+				<textoffsety>0</textoffsety>
 				<font>Bold26</font>
 				<label>$VAR[GetMPAA]</label>
 				<enable>false</enable>
             </control>
     </include>				
 
-<!-- Home Seasons Top Screen / Total Seasons/Episodes  -->
+	<!-- Home Seasons Top Screen / Total Seasons/Episodes  -->
     <include name="Duration_TotalSeasonsEpisodes_Details_Row">
         <control type="label" id="6116">
-            <posy>5</posy>
+            <posy>6</posy>
             <visible>!String.IsEmpty(Control.GetLabel(6116))</visible>
             <width>auto</width>
             <label>$VAR[DurationOrTotalSECount]</label>
             <height>35</height>
             <aligny>center</aligny>
-            <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
-            <font>Reg26</font>                                       <!-- Default - 22 - -->
+            <textcolor>$VAR[DetailsTextColor]</textcolor>
+            <font>Reg26</font>
             <include>Default_Visible_Fade</include>
         </control>
     </include>
 	
-<!-- Resolution Top Box -->
+	<!-- Home Seasons Top Screen / Total Seasons/Episodes  -->
+    <include name="Duration_TotalSeasonsEpisodes_Highlight_Widget">
+        <control type="label" id="6116">
+            <posy>7</posy>
+            <visible>!String.IsEmpty(Control.GetLabel(6116))</visible>
+            <width>auto</width>
+            <label>$VAR[DurationOrTotalSECount]</label>
+            <height>35</height>
+            <aligny>center</aligny>
+            <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+            <font>Bold23</font>
+            <include>Default_Visible_Fade</include>
+        </control>
+    </include>
+	
+	<!-- Resolution Top Box -->
     <include name="Resolution_Details_Row">
 				<include>Default_Visible_Fade</include>
 			<control type="button" id="6117">
 				<visible>!String.IsEmpty(Control.GetLabel(6117))</visible>
 				<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast) + !String.IsEqual(Window.Property(AdditionalInfo),trailers)</visible>
 				<posy>7</posy>
-                <height>34</height>
+                <height>36</height>
                 <width>auto</width>
 				<align>center</align>
 				<aligny>top</aligny>
 				<textwidth>158</textwidth> 
-				<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
-				<disabledcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</disabledcolor>
+				<textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
+				<disabledcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</disabledcolor>
 				<texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturenofocus>
 				<texturefocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturefocus>
 				<textoffsetx>8</textoffsetx>
-				<textoffsety>1</textoffsety>
+				<textoffsety>2</textoffsety>
 				<font>Reg24</font>
 				<label>$VAR[GetResolution,[B],[/B]]</label>
 				<enable>false</enable>
@@ -739,7 +821,7 @@
 				<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast) + !String.IsEqual(Window.Property(AdditionalInfo),trailers)</visible>
 				<posy>7</posy>
 				<width>111</width>
-                <height>34</height>
+                <height>36</height>
 			<control type="image">
 				<height>100%</height>
                 <width>100%</width>
@@ -749,7 +831,7 @@
 				<width>100%</width>
                 <height>100%</height>
                 <align>center</align>
-                <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
 				<textoffsety>6</textoffsety>
                 <font>Reg24</font>
                 <scroll>false</scroll>
@@ -758,42 +840,42 @@
 		</control>
 	</include>
 
-<!-- Audio Channels Top Box -->
+	<!-- Audio Channels Top Box -->
     <include name="Audio_Channels_Details_Row">
 				<include>Default_Visible_Fade</include>
 			<control type="button" id="6118">
 				<visible>!String.IsEmpty(Control.GetLabel(6118))</visible>
 				<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast) + !String.IsEqual(Window.Property(AdditionalInfo),trailers)</visible>
 				<posy>7</posy>
-                <height>34</height>
+                <height>36</height>
                 <width>auto</width>
 				<align>center</align>
 				<aligny>top</aligny>
 				<textwidth>140</textwidth> 
-				<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
-				<disabledcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</disabledcolor>
+				<textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
+				<disabledcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</disabledcolor>
 				<texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturenofocus>
 				<texturefocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturefocus>
 				<textoffsetx>8</textoffsetx>
-				<textoffsety>1</textoffsety>
+				<textoffsety>2</textoffsety>
 				<font>Reg24</font>
 				<label>$VAR[GetAudioChannels,[B],[/B]]</label>
 				<enable>false</enable>
             </control>
 	</include>
 
- <!-- Audio Codec -->
+<!-- Audio Codec -->
 <include name="Audiocodec1">
 	 <control type="group" id="6662221">
 		<include>Default_Visible_Fade</include>
-		<posy>6</posy>
+		<posy>7</posy>
 		<height>37</height>
 		<width>159</width>
 		<control type="image" id="54321">
 		<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 		<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast) + !String.IsEqual(Window.Property(AdditionalInfo),trailers)</visible>
 				<width>130</width>
-                <height>34</height>
+                <height>36</height>
 				<texture fallback="colors/color_transparent.png" colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">$VAR[AudioCodecVar,bingie/,.png]</texture>
 		</control>
 		<control type="image" id="54321">
@@ -802,53 +884,35 @@
                 <height>37</height>
 				<width>130</width>
 				<posx>0</posx>
-				<posy>-2</posy>
+				<posy>-1</posy>
 				<aspectratio>keep</aspectratio>
-				<texture fallback="colors/color_transparent.png" colordiffuse="$INFO[Skin.String(BingieDeatailsTextColor)]">$VAR[AudioCodecVar,bingie/audiocodec/,.png]</texture>
-		</control>
+				<texture fallback="colors/color_transparent.png" colordiffuse="$INFO[Skin.String(BingieDetailsFlagTextColor)]">$VAR[AudioCodecVar,bingie/audiocodec/,.png]</texture>
+		</control>				
 		
-
-<!-- TEXTURE FOLDER -->
-		   <!-- <texture background="true" diffuse="bingie/bingie_default_spotlight_diffuse.png">$PARAM[image]</texture> -->
-
-<!-- EXTRAS FOLDER -->
-		   <!-- <texture background="true" diffuse="special://skin/extras/bingie_default_spotlight_diffuse.png">$PARAM[image]</texture> -->
-		
-		
-		<!-- AudioCodec Images -->  <!-- Revisit Later -->
-        <!-- <control type="image" id="54321"> -->
-			<!-- <left>10</left> -->
-			<!-- <visible>!String.IsEmpty(ListItem.AudioCodec)</visible> -->
-			<!-- <aspectratio>keep</aspectratio> -->
-			<!-- <texture fallback="colors/color_transparent.png" colordiffuse="silver">$VAR[AudioCodecVar,special://skin/extras/audiocodec/,.png]</texture> -->
-		<!-- </control> -->
-		
-		
-		<!-- Fallback Audio Codec flag/text -->
-		
+		<!-- Fallback Audio Codec flag/text -->		
 		<control type="button" id="54227">
 				<visible>!Skin.HasSetting(enableAtmosOnly) + !String.IsEmpty(Control.GetLabel(54227)) + String.EndsWith(Control.GetLabel(54321),color_transparent.png)</visible>
 				<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast) + !String.IsEqual(Window.Property(AdditionalInfo),trailers)</visible>
-				<posy>1</posy>
-                <height>34</height>
+				<posy>0</posy>
+                <height>36</height>
                 <width>auto</width>
 				<align>center</align>
 				<aligny>top</aligny>
 				<textwidth>140</textwidth> 
-				<textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
-				<disabledcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</disabledcolor>
+				<textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
+				<disabledcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</disabledcolor>
 				<texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturenofocus>
 				<texturefocus  colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturefocus>
 				<textoffsetx>8</textoffsetx>
-				<textoffsety>1</textoffsety>
+				<textoffsety>2</textoffsety>
 				<font>Reg24</font>
-				<label>$VAR[AudioCodecVar,[B],[/B]]</label>
+				<label>$VAR[AudioCodecVar,[UPPERCASE][B],[/B][/UPPERCASE]]</label>
 				<enable>false</enable>
             </control>
 	</control>
 </include>
 
-<!-- TV Show Status -->
+		<!-- TV Show Status -->
 		<include name="ShowStatus">
 				<include>Default_Visible_Fade</include>
 		<control type="group">
@@ -857,7 +921,7 @@
 				<visible>String.IsEmpty(ListItem.AudioCodec)</visible>
 			<control type="button" id="6111161">
 				<posy>7</posy>
-                <height>34</height>
+                <height>36</height>
                 <width min="80" max="148">auto</width>
 				<align>center</align>
 				<aligny>top</aligny>
@@ -869,19 +933,19 @@
 				<textoffsetx>8</textoffsetx>
 				<textoffsety>-1</textoffsety>
 				<font>Reg26</font>
-				<label>$INFO[Container(99950).ListItem.Status]</label>
+				<label>[CAPITALIZE]$INFO[Container(99950).ListItem.Status][/CAPITALIZE]</label>
 				<enable>false</enable>
 			</control>
 			<control type="label" id="6111161">
 				<width>132</width>
-				<left>7</left>
+				<left>8</left>
                 <align>left</align>
 				<aligny>top</aligny>
-				<posy>6</posy>
-                <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+				<posy>7</posy>
+                <textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
                 <font>Reg26</font>
                 <scroll>true</scroll>
-                <label>$INFO[Container(99950).ListItem.Status]</label>
+                <label>[CAPITALIZE]$INFO[Container(99950).ListItem.Status][/CAPITALIZE]</label>
 			</control>
 		</control>
 		</include>			
@@ -896,9 +960,8 @@
 			<top>10</top>
 			<height>50</height>
 			<itemgap>15</itemgap>
-            <include condition="!Skin.HasSetting(PreferIMDBDetailsRow)">New_Tag_Details_Row</include>
-            <include condition="!Skin.HasSetting(DisableThumbsUpDown)">Thumbs_Up_Down_Details_Row</include>
-            <!-- <include condition="Skin.HasSetting(PreferStarsRatingBingie)">Stars_Rating_Details_Row</include> -->
+			<include condition="!Skin.HasSetting(DisableThumbsUpDown)">Thumbs_Up_Down_Details_Row</include>
+			<include condition="!Skin.HasSetting(PreferIMDBDetailsRow)">New_Tag_Details_Row</include>
             <include condition="!Skin.HasSetting(PreferIMDBDetailsRow)">Percentage_Rating_Details_Row</include>
             <include condition="Skin.HasSetting(PreferIMDBDetailsRow)">IMDB_RT_Details_Row</include>
 			<include>Year_Premiered_PVRTime_Details_Row</include>
@@ -912,6 +975,23 @@
             <include>Audio_Channels_Details_Row</include>
 			<include condition="Skin.HasSetting(EnableTVShowStatus)">ShowStatus</include>
 			<include condition="!Skin.HasSetting(EnableAudioCodec)">Audiocodec1</include>
+		</control>
+	</include>
+	
+	<include name="MusicRowDetails">
+		<control type="grouplist">
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<top>10</top>
+			<height>50</height>
+			<itemgap>15</itemgap>
+            <include>Percentage_Rating_Details_Row</include>
+			<include>Music_Disambiguation_Details_Row</include>
+			<include>Music_Line_Details_Row</include>
+			<include>Music_Year_Details_Row</include>
+			<include>Music_Album_Year_Details_Row</include>
+			<include>Music_Album_Line_Details_Row</include>
+			<include>Music_Label_Details_Row</include>
 		</control>
 	</include>
 	
@@ -937,10 +1017,9 @@
 			<top>10</top>
 			<height>50</height>
 			<itemgap>15</itemgap>
-            <include condition="!Skin.HasSetting(PreferIMDBDetailsRow)">New_Tag_Details_Row</include>
             <include condition="!Skin.HasSetting(DisableThumbsUpDown)">Thumbs_Up_Down_Details_Row</include>
-            <!-- <include condition="Skin.HasSetting(PreferStarsRatingBingie)">Stars_Rating_Details_Row</include> -->
             <include condition="!Skin.HasSetting(PreferIMDBDetailsRow)">Percentage_Rating_Details_Row</include>
+			<include condition="!Skin.HasSetting(PreferIMDBDetailsRow)">New_Tag_Details_Row</include>
             <include condition="Skin.HasSetting(PreferIMDBDetailsRow)">IMDB_RT_Details_Row</include>
 			<include>Year_Premiered_PVRTime_Details_Row</include>
             <include condition="Skin.HasSetting(enableUKIcons)">MPAA_Details_RowNew</include>
@@ -960,14 +1039,14 @@
                   <nested/>
 				  <visible>Skin.HasSetting(DisableCastThumb)</visible>
 				  <visible>$PARAM[visibility]</visible>
-                  <visible>$EXP[IsMovieDBType] | $EXP[IsTvShowDBType]</visible>
+                  <visible>$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | [String.IsEqual(ListItem.DBTYPE,artist) | String.IsEqual(ListItem.DBTYPE,album)] + [!String.IsEmpty(ListItem.Property(Album_Description)) | !String.IsEmpty(ListItem.Property(Artist_Description))]</visible>
 				  <visible>!Skin.HasSetting(DisableTop250) + String.IsEmpty(Control.GetLabel(8231)) + !Integer.IsGreater(ListItem.PercentPlayed,1) | [$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)] | 
 				  !Skin.HasSetting(DisableTop250) + String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(MovieDetailsHome) + Integer.IsGreater(ListItem.PercentPlayed,1) | 
 				  Skin.HasSetting(DisableTop250) + !Skin.HasSetting(MovieDetailsHome) | 
 				  Skin.HasSetting(DisableTop250) + Skin.HasSetting(MovieDetailsHome) + !Integer.IsGreater(ListItem.PercentPlayed,1)
 				  </visible>
                   <top>$PARAM[top]</top>
-                  <height>115</height> <!--100 for max 3 line textbox 73 for max 2 line textbox -->
+                  <height>115</height>
                	  <width>800</width>
                   <itemgap>25</itemgap>
                   <orientation>horizontal</orientation>
@@ -975,7 +1054,6 @@
                   <include>Default_Visible_Fade</include>
 				  
                   <control type="group">
-                      <!-- <visible>!String.IsEmpty(Control.GetLabel(84))</visible> -->  <!--removed to fix details icon not showing in library poster view-->
                       <top>23</top>
                       <height>70</height> 
                       <width>70</width>
@@ -983,7 +1061,7 @@
                       <control type="image">    <!-- red circle icons -->
 					      <visible>Skin.HasSetting(EnableColorDetailsIcons)</visible>
                           <animation effect="fade" time="150">Visible</animation>
-                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation> <!--default = 60 -->
+                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation>
                           <align>left</align>
                           <aligny>center</aligny>
                           <texture>$VAR[BingieMoreDetailsImage,bingie/details/,.png]</texture>
@@ -991,7 +1069,7 @@
 					  <control type="image">    <!-- white circle icons -->
 					      <visible>!Skin.HasSetting(EnableColorDetailsIcons)</visible>
                           <animation effect="fade" time="150">Visible</animation>
-                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation> <!--default = 60 -->
+                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation>
                           <align>left</align>
                           <aligny>center</aligny>
 						  <colordiffuse>$INFO[Skin.String(BingieAdditionalInfoIconsColor)]</colordiffuse>
@@ -1005,7 +1083,7 @@
 					  <bottom>0</bottom>			  
                       <width>650</width>
                       <label>$VAR[BingieMoreDetails]</label>
-                      <textcolor>$INFO[Skin.String(BingieAdditionalInfoColor)]</textcolor>
+                      <textcolor>$INFO[Skin.String(BingieAdditionalInfoTextColor)]</textcolor>
                       <align>left</align>
                       <aligny>center</aligny>
                       <font>Reg28</font> 
@@ -1016,14 +1094,14 @@
                   <nested/>
 				  <visible>!Skin.HasSetting(DisableCastThumb)</visible>
 				  <visible>$PARAM[visibility]</visible>
-                  <visible>$EXP[IsMovieDBType] | $EXP[IsTvShowDBType]</visible>
+                  <visible>$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | [String.IsEqual(ListItem.DBTYPE,artist) | String.IsEqual(ListItem.DBTYPE,album)] + [!String.IsEmpty(ListItem.Property(Album_Description)) | !String.IsEmpty(ListItem.Property(Artist_Description))]</visible>
 				  <visible>!Skin.HasSetting(DisableTop250) + String.IsEmpty(Control.GetLabel(8231)) + !Integer.IsGreater(ListItem.PercentPlayed,1) | [$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)] | 
 				  !Skin.HasSetting(DisableTop250) + String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(MovieDetailsHome) + Integer.IsGreater(ListItem.PercentPlayed,1) | 
 				  Skin.HasSetting(DisableTop250) + !Skin.HasSetting(MovieDetailsHome) | 
 				  Skin.HasSetting(DisableTop250) + Skin.HasSetting(MovieDetailsHome) + !Integer.IsGreater(ListItem.PercentPlayed,1)
 				  </visible>
                   <top>$PARAM[top]</top>
-                  <height>115</height> <!--100 for max 3 line textbox 73 for max 2 line textbox -->
+                  <height>115</height>
                	  <width>800</width>
                   <itemgap>25</itemgap>
                   <orientation>horizontal</orientation>
@@ -1039,7 +1117,7 @@
                       <control type="image">    <!-- red circle icons -->
 					      <visible>Skin.HasSetting(EnableColorDetailsIcons)</visible>
                           <animation effect="fade" time="150">Visible</animation>
-                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation> <!--default = 60 -->
+                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation>
                           <align>left</align>
                           <aligny>center</aligny>
                           <texture>$VAR[BingieMoreDetailsImage,bingie/details/,.png]</texture>
@@ -1047,7 +1125,7 @@
 					  <control type="image">    <!-- white circle icons -->
 					      <visible>!Skin.HasSetting(EnableColorDetailsIcons)</visible>
                           <animation effect="fade" time="150">Visible</animation>
-                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation> <!--default = 60 -->
+                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation>
                           <align>left</align>
                           <aligny>center</aligny>
 						  <colordiffuse>$INFO[Skin.String(BingieAdditionalInfoIconsColor)]</colordiffuse>
@@ -1062,7 +1140,7 @@
 					  <posx>1</posx>
                       <control type="image">
                           <animation effect="fade" time="150">Visible</animation>
-                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation> <!--default = 60 -->
+                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation>
                           <align>left</align>
                           <aligny>center</aligny>
 						  <colordiffuse>$INFO[Skin.String(BingieAdditionalInfoIconsColor)]</colordiffuse>
@@ -1070,7 +1148,7 @@
                       </control>
 					  <control type="image">
                           <animation effect="fade" time="150">Visible</animation>
-                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation> <!--default = 60 -->
+                          <animation effect="fade" time="0" end="85" condition="true">Visible</animation>
 						  <height>64</height> 
 						  <width>64</width>
 						  <posx>3</posx>
@@ -1089,7 +1167,7 @@
 					  <bottom>0</bottom>			  
                       <width>650</width>
                       <label>$VAR[BingieMoreDetails]</label>
-                      <textcolor>$INFO[Skin.String(BingieAdditionalInfoColor)]</textcolor>
+                      <textcolor>$INFO[Skin.String(BingieAdditionalInfoTextColor)]</textcolor>
                       <align>left</align>
                       <aligny>center</aligny>
                       <font>Reg28</font> 
@@ -1102,7 +1180,7 @@
 					  <bottom>0</bottom>			  
                       <width>650</width>
                       <label>$INFO[Container(99950).ListItem.Property(Cast.1.Name),$LOCALIZE[320223] ]</label>
-                      <textcolor>$INFO[Skin.String(BingieAdditionalInfoColor)]</textcolor>
+                      <textcolor>$INFO[Skin.String(BingieAdditionalInfoTextColor)]</textcolor>
                       <align>left</align>
                       <aligny>center</aligny>
                       <font>Reg28</font> 
@@ -1121,6 +1199,15 @@
         <include condition="String.IsEqual(Skin.String(ThumbsUpMin),9)">ThumbsUpMin9</include>
         <include condition="String.IsEqual(Skin.String(ThumbsUpMin),10)">ThumbsUpMin10</include>
     </include>
+	
+	<include name="ThumbsUpMinCondition_2">
+        <include condition="String.IsEqual(Skin.String(ThumbsUpMin),-1)">DisableVisibility</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsUpMin),6)">ThumbsUpMin6_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsUpMin),7)">ThumbsUpMin7_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsUpMin),8)">ThumbsUpMin8_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsUpMin),9)">ThumbsUpMin9_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsUpMin),10)">ThumbsUpMin10_2</include>
+    </include>
 
     <include name="ThumbsDownMaxCondition">
         <include condition="String.IsEqual(Skin.String(ThumbsDownMax),-1)">DisableVisibility</include>
@@ -1130,18 +1217,39 @@
         <include condition="String.IsEqual(Skin.String(ThumbsDownMax),2)">ThumbsDownMax2</include>
         <include condition="String.IsEqual(Skin.String(ThumbsDownMax),1)">ThumbsDownMax1</include>
     </include>
+	
+	<include name="ThumbsDownMaxCondition_2">
+        <include condition="String.IsEqual(Skin.String(ThumbsDownMax),-1)">DisableVisibility</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsDownMax),5)">ThumbsDownMax5_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsDownMax),4)">ThumbsDownMax4_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsDownMax),3)">ThumbsDownMax3_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsDownMax),2)">ThumbsDownMax2_2</include>
+        <include condition="String.IsEqual(Skin.String(ThumbsDownMax),1)">ThumbsDownMax1_2</include>
+    </include>
 
     <include name="ThumbsUpMin6"><visible>[Integer.IsGreaterOrEqual(ListItem.UserRating,6) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsUpMin7"><visible>[Integer.IsGreaterOrEqual(ListItem.UserRating,7) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsUpMin8"><visible>[Integer.IsGreaterOrEqual(ListItem.UserRating,8) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsUpMin9"><visible>[Integer.IsGreaterOrEqual(ListItem.UserRating,9) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsUpMin10"><visible>[Integer.IsGreaterOrEqual(ListItem.UserRating,10) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
+	
+	<include name="ThumbsUpMin6_2"><visible>![[Integer.IsGreaterOrEqual(ListItem.UserRating,6) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsUpMin7_2"><visible>![[Integer.IsGreaterOrEqual(ListItem.UserRating,7) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsUpMin8_2"><visible>![[Integer.IsGreaterOrEqual(ListItem.UserRating,8) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsUpMin9_2"><visible>![[Integer.IsGreaterOrEqual(ListItem.UserRating,9) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsUpMin10_2"><visible>![[Integer.IsGreaterOrEqual(ListItem.UserRating,10) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),like) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
 
     <include name="ThumbsDownMax5"><visible>[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,5) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsDownMax4"><visible>[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,4) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsDownMax3"><visible>[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,3) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsDownMax2"><visible>[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,2) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
     <include name="ThumbsDownMax1"><visible>[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,1) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]</visible></include>
+	
+	<include name="ThumbsDownMax5_2"><visible>![[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,5) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsDownMax4_2"><visible>![[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,4) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsDownMax3_2"><visible>![[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,3) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsDownMax2_2"><visible>![[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,2) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
+    <include name="ThumbsDownMax1_2"><visible>![[!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,1) + String.IsEmpty(Window(Home).Property(RateTitle))] | [String.IsEqual(Window(Home).Property(RateTitle.Action),dislike) + String.IsEqual(Window(Home).Property(RateTitle),ListItem.DBID)]]</visible></include>
 
     <!-- disable visibility -->
     <include name="DisableVisibility"><visible>false</visible></include>
@@ -1169,15 +1277,15 @@
         </content>
     </include>
     <!-- variables -->
-
-    <!-- New Item Tag -->
+	
+	<!-- New Item Tag -->
     <variable name="NewItem">
         <value condition="$EXP[IsMovieDBType]">$VAR[NewMovieItem]</value>
         <value condition="$EXP[IsEpisodeDBType]">$VAR[NewEpisodeItem]</value>
         <value condition="$EXP[IsTvShowDBType]">$VAR[NewTVShowItem]</value>
     </variable>
-
-    <!-- New Movie -->
+	
+	<!-- New Movie -->
     <variable name="NewMovieItem">
         <!-- last 10 added movies -->
         <value condition="String.IsEqual(Window(Home).Property(LatestMovie.1.Title),ListItem.Title) | String.IsEqual(Window(Home).Property(LatestMovie.2.Title),ListItem.Title) |
@@ -1222,6 +1330,26 @@
 		<value condition="$EXP[IsEpisodeDBType]">$VAR[GetPremiered]</value>
         <value condition="String.IsEmpty(ListItem.DBTYPE) + !String.IsEmpty(ListItem.StartTime)">$VAR[GetPVRTimings]</value>
 		<value>$VAR[GetYear]</value>
+	</variable>
+	
+	<!-- Choose Music Year -->
+	<variable name="MusicYear">       
+		<value condition="[!String.IsEmpty(ListItem.Property(Artist_Formed)) | !String.IsEmpty(ListItem.Property(Artist_Disbanded))] + !String.IsEqual(ListItem.Property(Artist_Type),person)">$INFO[ListItem.Property(Artist_Formed),$LOCALIZE[31106] ]$INFO[ListItem.Property(Artist_Disbanded),  |  $LOCALIZE[31107] ]</value>
+		<value condition="[!String.IsEmpty(ListItem.Property(Artist_Born)) | !String.IsEmpty(ListItem.Property(Artist_Died))] + String.IsEqual(ListItem.Property(Artist_Type),person)">$INFO[ListItem.Property(Artist_Born),$LOCALIZE[320195] ]$INFO[ListItem.Property(Artist_Died),  |  $LOCALIZE[320196] ]</value>
+	</variable>
+	
+	<variable name="MusicAlbumYear">
+		<value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year,$LOCALIZE[31108] ]</value>        
+	</variable>
+	
+	<!-- Choose Music Year -->
+	<variable name="MusicDisambiguation">
+		<value condition="!String.IsEmpty(ListItem.Property(Artist_Disambiguation))">$INFO[ListItem.Property(Artist_Disambiguation)]</value>        
+	</variable>
+	
+	<!-- Music Label -->
+	<variable name="MusicLabel">
+		<value condition="!String.IsEmpty(ListItem.Property(Album_Label))">$INFO[ListItem.Property(Album_Label),$LOCALIZE[31109] ]</value>        
 	</variable>
 	
 	<!-- Choose Duration Or Total Seasons/Episodes count -->
@@ -1463,24 +1591,22 @@
 	<variable name="GetResolution">
 		<!--normal-->
 		<value condition="ListItem.IsStereoscopic">3D</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">Ultra HD 8K</value>
-		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K)">Ultra HD 4K</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,8K) + ![String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">Ultra HD 8K</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,8K) + [String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">8K HDR</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,4K) + ![String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">Ultra HD 4K</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,4K) + [String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">4K HDR</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">FHD</value>
-		<value condition="Integer.IsGreater(ListItem.VideoResolution,719)">HD</value>
-		<value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value>
-		<!--normal-->
-		<!-- <value condition="ListItem.IsStereoscopic">3D</value> -->
-		<!-- <value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K) | String.IsEqual(ListItem.VideoResolution,8K)">UHD</value> -->
-		<!-- <value condition="String.IsEqual(ListItem.VideoResolution,720)">720</value> -->
-		<!-- <value condition="String.IsEqual(ListItem.VideoResolution,1080)">1080</value> -->
-		<!-- <value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value> -->	   
+		<value condition="String.IsEqual(ListItem.VideoResolution,720)">HD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,540)">SD</value>
 		<!--home-->
 		<value condition="$EXP[IsMainMenuOpened] + Window(Home).Property(ListItem.IsStereoscopic)">3D</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K)">Ultra HD 8K</value>
-		<value condition="$EXP[IsMainMenuOpened] + Integer.Greater(Window(Home).Property(ListItem.VideoResolution),1080) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K)">Ultra HD 4K</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">Ultra HD 8K</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">8K HDR</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">Ultra HD 4K</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">4K HDR</value>
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),1080)">FHD</value>
-		<value condition="$EXP[IsMainMenuOpened] + Integer.IsGreater(Window(Home).Property(ListItem.VideoResolution),719)">HD</value>
-		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.VideoResolution))">SD</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),720)">HD</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),480) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),576) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),540)">SD</value>
 	</variable>
 
 	<!-- Audio Channels Info (from 5.1 and up) -->
@@ -1499,21 +1625,9 @@
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),10)">9.1</value>
 	</variable>
 	
-	<variable name="ScreensaverWidgetClearlogo">
-        <value condition="Skin.HasSetting(NoClearLogoBingie)">colors/color_transparent.png</value>
-        <!-- normal -->
-        <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(ChannelLogo))">$INFO[ListItem.Property(ChannelLogo)]</value>
-        <!-- home -->
-        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.tvshow.clearlogo)]</value>
-        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.ClearLogo))">$INFO[Window(Home).Property(ListItem.ClearLogo)]</value>
-        <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
-    </variable>
-	
-	 <variable name="ScreensaverWidget">
+	<variable name="ScreensaverWidget">
         <value condition="!String.IsEmpty(Skin.String(screensaver.titan.bingie.mod.path))">$INFO[Skin.String(screensaver.titan.bingie.mod.path)]</value>
-        <value>plugin://script.skin.helper.widgets/?action=randomshowsandmovies&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+        <value>plugin://script.skin.helper.widgets/?action=randomshowsandmovies&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
     </variable>
 
     <!-- bingie home clearlogo -->
@@ -1521,20 +1635,26 @@
         <value condition="Skin.HasSetting(NoClearLogoBingie)">colors/color_transparent.png</value>
         <!-- normal -->
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(artist.clearlogo))">$INFO[ListItem.Art(artist.clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(albumartist.clearlogo))">$INFO[ListItem.Art(albumartist.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(ChannelLogo))">$INFO[ListItem.Property(ChannelLogo)]</value>
         <!-- home -->
         <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Art.tvshow.clearlogo))">$INFO[Window(Home).Property(ListItem.Art.tvshow.clearlogo)]</value>
+		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Art(artist.clearlogo)))">$INFO[ListItem.Art(artist.clearlogo)]</value>
+		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Art(albumartist.clearlogo)))">$INFO[ListItem.Art(albumartist.clearlogo)]</value>
         <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.ClearLogo))">$INFO[Window(Home).Property(ListItem.ClearLogo)]</value>
         <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
     </variable>
 
     <variable name="BingieSpotlightBackground">
+		<value condition="Control.IsVisible(99008) + !String.IsEmpty(Control.GetLabel(99008))">$INFO[Control.GetLabel(99008)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(season.fanart))">$INFO[Container(1508).ListItem.Art(season.fanart)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(tvshow.fanart))">$INFO[Container(1508).ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(artist.fanart))">$INFO[Container(1508).ListItem.Art(artist.fanart)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(albumartist.fanart))">$INFO[Container(1508).ListItem.Art(albumartist.fanart)]</value>
+
     </variable>
 
     <variable name="BingieSpotlightLogo">
@@ -1571,8 +1691,6 @@
 
     <!-- Bingie Sublabel - tagline/watch now/album or song/pvr -->
     <variable name="BingieSublabel">
-        <!-- <value condition="!String.IsEmpty(ListItem.TagLine)">[B]$INFO[ListItem.TagLine][/B]</value> --> <!--taglines were annoying me-->
-        <!-- <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.TagLine))">[B]$INFO[Window(Home).Property(ListItem.TagLine)][/B]</value> -->
         <value condition="$EXP[IsTvShowDBTypeNoFallback] + $EXP[IsTVShowInLastEpisodes]">$VAR[GetNewEpisodesTVShowSeason,$LOCALIZE[31070] , $LOCALIZE[31067]]</value>
         <value condition="$EXP[IsMainMenuOpened] + $EXP[IsTvShowDBType] + $EXP[IsTVShowInLastEpisodesBasedOnProps]">$VAR[GetNewEpisodesTVShowSeasonBasedOnProps,$LOCALIZE[31070] , $LOCALIZE[31067]]</value>
         <value condition="$EXP[IsTvShowDBTypeNoFallback] + !String.IsEmpty(ListItem.Property(TotalSeasons)) + !Integer.IsEqual(ListItem.Property(TotalSeasons),0) + !Integer.IsEqual(ListItem.Property(TotalSeasons),1) + String.IsEqual(ListItem.Property(UnWatchedEpisodes),ListItem.Property(TotalEpisodes))">$LOCALIZE[31840]</value>
@@ -1628,18 +1746,21 @@
     </variable>
 
     <variable name="SpotlightLandscapeImage">
-        <value condition="!String.IsEmpty(Container(1508).ListItem.Art(season.landscape))">$INFO[Container(1508).ListItem.Art(season.landscape)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(tvshow.landscape))">$INFO[Container(1508).ListItem.Art(tvshow.landscape)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(landscape))">$INFO[Container(1508).ListItem.Art(landscape)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(tvshow.fanart))">$INFO[Container(1508).ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(fanart))">$INFO[Container(1508).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(1508).ListItem.Art(thumb))">$INFO[Container(1508).ListItem.Art(thumb)]</value>
     </variable>
+	
+	<variable name="SpotlightPosterImage">
+        <value condition="!String.IsEmpty(Container(1508).ListItem.Art(tvshow.poster))">$INFO[Container(1508).ListItem.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(Container(1508).ListItem.Art(poster))">$INFO[Container(1508).ListItem.Art(poster)]</value>
+    </variable>
 
     <!-- Bingie More Details (pseudo-random) -->
     <variable name="BingieMoreDetails">		
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Container(99950).ListItem.Property(Awards))">$INFO[Container(99950).ListItem.Property(Awards)]</value>       
-        <!-- <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">$INFO[ListItem.Top250,#, $LOCALIZE[31859]]</value> -->
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Director) + !String.IsEmpty(Container(99950).ListItem.Property(cast.1.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.2.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.3.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.4.name)) + $EXP[IsMovieDBType]">$INFO[Container(99950).ListItem.Director,$LOCALIZE[320071] ] $LOCALIZE[320054] $INFO[Container(99950).ListItem.Property(cast.1.name)]$INFO[Container(99950).ListItem.Property(cast.2.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.3.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.4.name), $LOCALIZE[320056] ] $LOCALIZE[320193].</value>	
 		<value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Property(Network.1.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.1.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.2.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.3.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.4.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.5.name)) + !$EXP[IsMovieDBType]">$INFO[Container(99950).ListItem.Property(Network.1.name)] $LOCALIZE[320194] $INFO[Container(99950).ListItem.Property(cast.1.name)]$INFO[Container(99950).ListItem.Property(cast.2.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.3.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.4.name),$COMMA ,]$INFO[Container(99950).ListItem.Property(cast.5.name), $LOCALIZE[320056] ] $LOCALIZE[320193].</value>
 		<value condition="Integer.IsLessOrEqual(System.Time(ss),45) + !String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
@@ -1649,7 +1770,6 @@
     <!-- Bingie More Details Image (pseudo-random) -->
     <variable name="BingieMoreDetailsImage">		
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Container(99950).ListItem.Property(Awards))">awards</value>       
-        <!-- <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">awards</value> -->
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Director) + !String.IsEmpty(Container(99950).ListItem.Property(cast.1.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.2.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.3.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.4.name)) + $EXP[IsMovieDBType]">director</value>	
 		<value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Container(99950).ListItem.Property(Network.1.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.1.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.2.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.3.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.4.name)) + !String.IsEmpty(Container(99950).ListItem.Property(cast.5.name)) + !$EXP[IsMovieDBType]">star</value>
 		<value condition="Integer.IsLessOrEqual(System.Time(ss),45) + !String.IsEmpty(ListItem.Tagline)">tags</value>
@@ -1691,17 +1811,10 @@
         <value condition="[String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEmpty(Container(5050).ListItem.Title) + Skin.HasSetting(ShowEpisodePlotInfoDialog) + !String.IsEmpty(ListItem.DBID)">$INFO[Container(5050).ListItem.Title]</value>
 		<value condition="[String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEmpty(Container(1234).ListItem.Title) + Skin.HasSetting(ShowEpisodePlotInfoDialog) + Control.IsVisible(1234) + String.IsEqual(ListItem.Path,plugin://plugin.video.themoviedb.helper/) + !Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)">$INFO[Container(1234).ListItem.Title]</value>
 		<value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
-        <!--<value condition="[String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEmpty(Container(5050).ListItem.Season) + !String.IsEmpty(Container(5050).ListItem.Episode) +
-        !String.IsEmpty(Container(5050).ListItem.Title)">$INFO[Container(5050).ListItem.Season,$LOCALIZE[31871],]$INFO[Container(5050).ListItem.Episode,$LOCALIZE[31872],]$INFO[Container(5050).ListItem.Title, ","]</value>
-        <value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) +
-        !String.IsEmpty(ListItem.Title)">[UPPERCASE]$INFO[ListItem.Season,$LOCALIZE[31871],]$INFO[ListItem.Episode,$LOCALIZE[31872],][/UPPERCASE]$INFO[ListItem.Title, ","]</value>-->
-        <!-- fallback -->
-        <!-- <value>$INFO[Window(Home).Property(ListItem.Label)]</value> -->
     </variable>
 
     <variable name="BingieDialogInfoSublabel">
         <value condition="[String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(Window(Home).Property(ListItem.dbtype),episode)] | [Skin.HasSetting(ShowEpisodePlotInfoDialog) + Control.IsVisible(5050)]">$VAR[BingieDialogEpisodeInfoLabel]</value>
-        <!-- <value condition="!String.IsEmpty(ListItem.TagLine)">$INFO[ListItem.TagLine]</value> -->
     </variable>
 
     <variable name="BingiePlot">
@@ -1777,26 +1890,6 @@
         <value>$VAR[Plots]</value>
     </variable>
 
-    <variable name="BingieInfoDialogDetailsTextColor">
-        <value condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">white</value>
-        <value>$INFO[Skin.String(BingieSecondaryTextColor)]</value>
-    </variable>
-
-    <variable name="BingieAdditionalInfoColor">
-        <value condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">white</value>
-        <value>$INFO[Skin.String(BingieAdditionalInfoColor)]</value>
-    </variable>
-
-    <variable name="BingieInfoDialogButtonsTextColor">
-        <value condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">white</value>
-        <value>$INFO[Skin.String(BingiePrimaryTextColor)]</value>
-    </variable>
-
-    <variable name="BingieInfoDialogPlotTextColor">
-        <value condition="!String.IsEmpty(Window(Home).Property(TrailerOnLoad)) + String.IsEqual(Window(Home).Property(TrailerPlaying),windowed)">white</value>
-        <value>$INFO[Skin.String(BingiePrimaryTextColor)]</value>
-    </variable>
-
     <!-- TVShow title & fallback for skin widgets -->
     <variable name="TVShowTitle">
         <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)] + !String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
@@ -1854,54 +1947,36 @@
         <value>spinner/busy_spinner/</value>
     </variable>
 
-    <!-- Up Next addon vars -->
-    <!-- next up resolution - is currently missing in UP-NEXT addon
-    <variable name="NextUpResolution">
-        <value condition="Integer.IsGreater(Control.GetLabel(3011),1080)">UHD</value>
-        <value condition="Integer.IsGreater(Control.GetLabel(3011),700)">HD</value>
-        <value condition="Integer.IsLess(Control.GetLabel(3011),700)">SD</value>
-    </variable> -->
-
     <!-- next up thumb episode/tvshow based on setting preference -->
     <variable name="NextUpThumb">
         <value condition="!String.IsEmpty(Window.Property(fanart)) + Skin.HasSetting(PreferTvShowThumbWidget)">$INFO[Window.Property(thumb)]</value>
         <value condition="!String.IsEmpty(Window.Property(fanart)) + !Skin.HasSetting(PreferTvShowThumbWidget)">$INFO[Window.Property(fanart)]</value>
     </variable>
 	
-<!-- BINGIE MENU -->
+	<!-- BINGIE MENU -->
 
     <!-- Menu -->
     <include name="BingieSideBladeMainMenu">
         <control type="group" id="9001">
             <visible>![Window.IsActive(virtualkeyboard) + !Window.IsActive(1109)]</visible>
             <include>HideWindowOnStartupAndDialogInfoLoad</include>
-            <include content="posx" condition="!Skin.HasSetting(EnhancedHome_Circular)">
+            <include content="posx">
                 <param name="posx" value="-260" />
             </include>
             <posx>-600</posx>
             <posy>0</posy>
-            <include condition="Skin.HasSetting(EnhancedHome_Circular)">Circular_Menu_Animations</include>
-           	<include condition="!Skin.HasSetting(EnhancedHome_Circular) + !Skin.HasSetting(DisableStaticSlimMenu)">No_Circular_Menu_Animations</include>
-			<include condition="!Skin.HasSetting(EnhancedHome_Circular) + Skin.HasSetting(DisableStaticSlimMenu)">No_Circular_Menu_AnimationsOriginal</include>
+           	<include condition="!Skin.HasSetting(DisableStaticSlimMenu)">No_Circular_Menu_Animations</include>
+			<include condition="Skin.HasSetting(DisableStaticSlimMenu)">No_Circular_Menu_AnimationsOriginal</include>
 
             
- <!-- Logo / user profile button -->
+		<!-- Logo / user profile button -->
         <control type="group">
                 <visible>$EXP[IsMainMenuOpened] + !Skin.HasSetting(Disableprofile)</visible>
                 <top>54</top>
 				<left>20</left>
                 <width>bingie_menu_width</width>
                 <height>80</height>
-				<!--Netflix Profile Picture-->
-					<control type="image"> 
-					    <visible>Skin.HasSetting(EnableNetflixIcons)</visible>
-                        <left>50</left>
-                        <top>10</top>
-                        <width>50</width>
-                        <height>50</height>
-                        <texture background="true">$INFO[Skin.String(user_picture),userpictures/menu/defaultuser_,.png]</texture>
-                    </control>
-				<!--Profile Picture-->
+					<!--Profile Picture-->
 					<control type="image">
                     <visible>!Skin.HasSetting(EnableNetflixIcons)</visible>					
                         <left>50</left>
@@ -1910,14 +1985,23 @@
                         <height>50</height>
                         <texture background="true">$INFO[System.ProfileThumb]</texture>
                     </control>
-				<!-- Picture Border --> 
+					<!--Netflix Profile Picture-->
+					<control type="image"> 
+					    <visible>Skin.HasSetting(EnableNetflixIcons)</visible>
+                        <left>50</left>
+                        <top>10</top>
+                        <width>50</width>
+                        <height>50</height>
+                        <texture background="true">$INFO[Skin.String(user_picture),userpictures/menu/defaultuser_,.png]</texture>
+                    </control>
+					<!-- Picture Border --> 
 					<control type="button" id="40000">
 						<top>6</top>
 						<left>46</left>
                         <align>left</align>
                         <width>58</width>
                         <height>58</height>
-                        <texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">diffuse/border2.png</texturefocus>
+                        <texturefocus border="10" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">diffuse/border.png</texturefocus>
                         <texturenofocus/>
                         <onup>noop</onup>
                         <ondown>900</ondown>
@@ -1925,10 +2009,9 @@
                         <onback>77777</onback>
                         <onright>ClearProperty(ShowViewSubMenu,Home)</onright>
                         <onright>77777</onright>
-                        <onclick condition="!Skin.HasSetting(EnableNetflixIcons)">System.LogOff</onclick>
-						<onclick condition="Skin.HasSetting(EnableNetflixIcons)">RunScript(script.skin.helper.service,action=setskinsetting,setting=user_picture,header=Choose a profile icon)</onclick>
+                        <onclick>System.LogOff</onclick>
 					</control>
-				<!-- Profile Name --> 
+					<!-- Profile Name --> 
 					<control type="label">
 						<visible>!Control.HasFocus(40000)</visible>
 						<top>-21</top>
@@ -1940,7 +2023,6 @@
                         <height>80</height>
                         <font>Reg28</font>
                         <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-                        <focusedcolor>$INFO[Skin.String(MainMenuTextColor)]</focusedcolor>
 					</control>
 					<control type="label">
 						<visible>Control.HasFocus(40000)</visible>
@@ -1952,11 +2034,10 @@
                         <textwidth>250</textwidth>
                         <height>80</height>
                         <font>Bold28</font>
-                        <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-                        <focusedcolor>$INFO[Skin.String(MainMenuTextColor)]</focusedcolor>
+                        <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
 					</control>
-				<!-- "switch profile" text -->   				
-			        <control type="label">
+					<!-- "switch profile" text -->   				
+					<control type="label">
                         <label>[CR]$LOCALIZE[31839]</label>
 						<top>-3</top>
 						<posx>1</posx>
@@ -1967,13 +2048,19 @@
                         <height>80</height>
                         <font>reg22</font>
                         <textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
-                        <focusedcolor>$INFO[Skin.String(MainMenuTextColor)]</focusedcolor>
                     </control> 
 		</control>
 
-<!--Main Menu Items 900-->
+			<!--Main Menu Items 900-->
             <control type="list" id="900">
-                <top>195</top>
+                <top>199</top>
+				<animation effect="slide" end="0,42" condition="Integer.IsEqual(Container(900).NumItems,7)">Conditional</animation>
+				<animation effect="slide" end="0,84" condition="Integer.IsEqual(Container(900).NumItems,6)">Conditional</animation>
+				<animation effect="slide" end="0,126" condition="Integer.IsEqual(Container(900).NumItems,5)">Conditional</animation>
+				<animation effect="slide" end="0,168" condition="Integer.IsEqual(Container(900).NumItems,4)">Conditional</animation>
+				<animation effect="slide" end="0,210" condition="Integer.IsEqual(Container(900).NumItems,3)">Conditional</animation>
+				<animation effect="slide" end="0,252" condition="Integer.IsEqual(Container(900).NumItems,2)">Conditional</animation>
+				<animation effect="slide" end="0,294" condition="Integer.IsEqual(Container(900).NumItems,1)">Conditional</animation>
 				<width>bingie_menu_width</width>
                 <height>680</height> <!--default = 680-->
                 <orientation>vertical</orientation>
@@ -1982,14 +2069,15 @@
                 <onright condition="Integer.IsGreater(Container(4445).NumItems,0)">4444</onright>
                 <onright condition="Integer.IsEqual(Container(4445).NumItems,0)">ClearProperty(ShowViewSubMenu,Home)</onright>
                 <onright condition="Integer.IsEqual(Container(4445).NumItems,0) + [!Window.IsActive(1109) | !Window.IsActive(1119)]">77777</onright>
-                <onright condition="Integer.IsEqual(Container(4445).NumItems,0) + [Window.IsActive(1109) | Window.IsActive(1119)]">9000</onright>
+                <onright condition="Integer.IsEqual(Container(4445).NumItems,0) + [Window.IsActive(1109) | Window.IsActive(1119)]">SetFocus(9000)</onright>
                 <onback>ClearProperty(ShowViewSubMenu,Home)</onback>
-                <onback>77777</onback>
+                <onback condition="!Window.IsActive(1109)">77777</onback>
+				<onback condition="Window.IsActive(1109)">9000</onback>
 				<onup condition="Control.IsVisible(40000)">40000</onup>
                 <ondown>40003</ondown>
-                <itemlayout height="85" width="bingie_menu_width">
+                <itemlayout height="84" width="bingie_menu_width" condition="[Control.HasFocus(900) | Control.HasFocus(4444) | Control.HasFocus(40000) | Control.HasFocus(40003)]">
                     <!--this red line just for slim menu-->
-                    <include content="Bingie_Menu_Current_Indicator" condition="!Skin.HasSetting(EnhancedHome_Circular)"> 
+                    <include content="Bingie_Menu_Current_Indicator"> 
                          <param name="keepvisible" value="true" />
                          <param name="visibility" value="$EXP[IsMenuEntryActive] + !$EXP[IsMainMenuOpened]" />
                          <param name="left" value="315" /> 
@@ -1999,20 +2087,34 @@
                         <param name="visibility" value="$EXP[IsMainMenuOpened] + $EXP[IsMenuEntryActive]" />
 						<param name="left" value="70" />
 						</include>
-                    <include content="Bingie_Menu_Icon" condition="!Skin.HasSetting(DisableIconsMainMenu)">
+                    <include content="Bingie_Menu_Icon">
                         <param name="includeAnimCond" value="true" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusButtonColor)]" />
                     </include>
                     <include content="Bingie_Menu_Label">
                         <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]" />
                     </include>
                 </itemlayout>
-                <focusedlayout height="85" width="bingie_menu_width" condition="Control.HasFocus(900) | Control.HasFocus(4444)">
-                    <!-- <include content="Bingie_Menu_Focus_Img"> -->
-                        <!-- <param name="visibility" value="true" /> -->
-                        <!-- <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusButtonColor)]" /> -->
-                    <!-- </include> -->
-                    <include content="Bingie_Menu_IconFOCUS" condition="!Skin.HasSetting(DisableIconsMainMenu)">
+				<itemlayout height="84" width="bingie_menu_width" condition="![Control.HasFocus(900) | Control.HasFocus(4444) | Control.HasFocus(40000) | Control.HasFocus(40003)]">
+                    <!--this red line just for slim menu-->
+                    <include content="Bingie_Menu_Current_Indicator"> 
+                         <param name="keepvisible" value="true" />
+                         <param name="visibility" value="$EXP[IsMenuEntryActive] + !$EXP[IsMainMenuOpened]" />
+                         <param name="left" value="315" /> 
+                     </include> 
+					 <!--added to keep the red line stationary on sideblade menu instead of moving with focus-->
+						<include content="Bingie_Menu_Current_Indicator"> 
+                        <param name="visibility" value="$EXP[IsMainMenuOpened] + $EXP[IsMenuEntryActive]" />
+						<param name="left" value="70" />
+						</include>
+                    <include content="Bingie_Menu_IconFOCUS">
+                        <param name="includeAnimCond" value="true" />
+                    </include>
+					<include content="Bingie_Menu_Label">
+                        <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]" />
+                    </include>
+                </itemlayout>
+                <focusedlayout height="84" width="bingie_menu_width" condition="[Control.HasFocus(900) | Control.HasFocus(4444)]">
+                    <include content="Bingie_Menu_IconFOCUS">
                         <param name="includeAnimCond" value="false" />
                     </include>
                     <include>Bingie_Menu_LabelFOCUS</include>
@@ -2024,8 +2126,21 @@
                     <!-- home behavior onfocus -->
                     <include>HiddenHomeMenuButton</include>
                 </focusedlayout>
-                <focusedlayout height="85" width="bingie_menu_width" condition="![Control.HasFocus(900) | Control.HasFocus(4444)]">
-					<include content="Bingie_Menu_Current_Indicator" condition="!Skin.HasSetting(EnhancedHome_Circular)"> 
+				<focusedlayout height="84" width="bingie_menu_width" condition="[Control.HasFocus(40000) | Control.HasFocus(40003)]">
+                    <include content="Bingie_Menu_Icon">
+                        <param name="includeAnimCond" value="false" />
+                    </include>
+                    <include>Bingie_Menu_Label</include>
+                     <!--Red line under sideblade icons and slim menu-->
+                    <include content="Bingie_Menu_Current_Indicator">
+                        <param name="visibility" value="$EXP[IsMainMenuOpened] + $EXP[IsMenuEntryActive]" />
+						<param name="left" value="70" /> 
+                    </include>
+                    <!-- home behavior onfocus -->
+                    <include>HiddenHomeMenuButton</include>
+                </focusedlayout>
+                <focusedlayout height="84" width="bingie_menu_width" condition="![Control.HasFocus(900) | Control.HasFocus(4444)]">
+					<include content="Bingie_Menu_Current_Indicator"> 
                          <param name="keepvisible" value="true" />
                          <param name="visibility" value="$EXP[IsMenuEntryActive] + !$EXP[IsMainMenuOpened]" />
                          <param name="left" value="315" /> 
@@ -2035,9 +2150,8 @@
                         <param name="visibility" value="$EXP[IsMainMenuOpened] + $EXP[IsMenuEntryActive]" />
 						<param name="left" value="70" />
 						</include>
-                    <include content="Bingie_Menu_Icon" condition="!Skin.HasSetting(DisableIconsMainMenu)">
+                    <include content="Bingie_Menu_IconFOCUS">
                         <param name="includeAnimCond" value="true" />
-                        <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusButtonColor)]" />
                     </include>
                     <include content="Bingie_Menu_Label">
                         <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]" />
@@ -2063,18 +2177,13 @@
                 <onback>ClearProperty(ShowViewSubMenu,Home)</onback>
                 <onback>77777</onback>
                 <itemlayout width="384" height="55">
-                    <include content="BingiePowerMenuItemLabel">
-                        <param name="textcolor" value="$INFO[Skin.String(MainMenuTextColor)]"/>
-                    </include>
+                    <include content="BingiePowerMenuItemLabel"></include>
                 </itemlayout>
-                <focusedlayout width="384" height="55">
-                    <!-- <include content="Bingie_Menu_Focus_Img"> -->
-                        <!-- <param name="visibility" value="Control.HasFocus(40003)" /> -->
-                        <!-- <param name="colordiffuse" value="$INFO[Skin.String(MainMenuFocusButtonColor)]" /> -->
-                    <!-- </include> -->
-                    <include content="BingiePowerMenuItemLabelFOCUS">
-                        <param name="textcolor" value="white"/>
-                    </include>
+                <focusedlayout width="384" height="55"  condition="Control.HasFocus(40003)">
+                    <include content="BingiePowerMenuItemLabelFOCUS"></include>
+                </focusedlayout>
+				<focusedlayout width="384" height="55"  condition="!Control.HasFocus(40003)">
+                    <include content="BingiePowerMenuItemLabel"></include>
                 </focusedlayout>
                 <content><include>skinshortcuts-group-powermenu</include></content>
             </control>
@@ -2082,12 +2191,19 @@
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">SideBladeSubMenu</include>
     </include>
 
-<!-- Secondary Menu Inside Left Panel -->
+	<!-- Secondary Menu Inside Left Panel -->
     <include name="SideBladeSubMenu">
         <!-- submenu -->
         <control type="group">
             <posx>378</posx>
-            <posy>145</posy>
+            <posy>146</posy>
+			<animation effect="slide" end="0,42" condition="Integer.IsEqual(Container(900).NumItems,7)">Conditional</animation>
+			<animation effect="slide" end="0,84" condition="Integer.IsEqual(Container(900).NumItems,6)">Conditional</animation>
+			<animation effect="slide" end="0,126" condition="Integer.IsEqual(Container(900).NumItems,5)">Conditional</animation>
+			<animation effect="slide" end="0,168" condition="Integer.IsEqual(Container(900).NumItems,4)">Conditional</animation>
+			<animation effect="slide" end="0,210" condition="Integer.IsEqual(Container(900).NumItems,3)">Conditional</animation>
+			<animation effect="slide" end="0,252" condition="Integer.IsEqual(Container(900).NumItems,2)">Conditional</animation>
+			<animation effect="slide" end="0,294" condition="Integer.IsEqual(Container(900).NumItems,1)">Conditional</animation>
             <animation type="Conditional" condition="Control.IsVisible(4444)">
                 <effect type="slide" start="-10" end="0" time="200" delay="0" tween="cubic" easing="inout"/>
             </animation>
@@ -2127,7 +2243,7 @@
                 <focusposition>0</focusposition>
                 <movement>3</movement>
                 <onleft>900</onleft>
-                <onleft>ClearProperty(submenu,Home)</onleft>
+                <onleft condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onleft>
                 <onright>ClearProperty(submenu,Home)</onright>
                 <onright condition="Window.IsActive(1109)">9000</onright>
                 <onright condition="!Window.IsActive(1109) | !Window.IsActive(1119)">77777</onright>
@@ -2135,17 +2251,21 @@
                 <onup>4444</onup>
                 <ondown>4444</ondown>
                 <onback>900</onback>
-                <onback>ClearProperty(submenu,Home)</onback>
+                <onback condition="!Skin.HasSetting(AutoShowSubmenu)">ClearProperty(submenu,Home)</onback>
                 <itemlayout width="360" height="50">
-                    <include content="Bingie_Submenu_Label">
-                        <param name="textcolor" value="darkgray" />
-                    </include>
+                    <include content="Bingie_Submenu_Label"></include>
                 </itemlayout>
-                <focusedlayout width="360" height="50">
+                <focusedlayout width="360" height="50" condition="!Control.HasFocus(900)">
 				
-                    <include content="Bingie_Submenu_LabelFOCUS">
-                        <param name="textcolor" value="white" />
-					</include>
+                    <include content="Bingie_Submenu_LabelFOCUS"></include>
+                    <control type="button">
+                        <label/>
+                        <visible>false</visible>
+                        <onfocus>SetProperty(submenu,show,Home)</onfocus>
+					</control>
+                </focusedlayout>
+				<focusedlayout width="360" height="50" condition="Control.HasFocus(900)">				
+                    <include content="Bingie_Submenu_Label"></include>
                     <control type="button">
                         <label/>
                         <visible>false</visible>
@@ -2158,7 +2278,7 @@
             </control>
         </control>
     </include>
-<!-- Bingie Menu  Indicator - Red line Under Menu Icons-->
+	<!-- Bingie Menu  Indicator - Red line Under Menu Icons-->
     <include name="Bingie_Menu_Current_Indicator">
         <param name="keepvisible" default="false" />
         <definition>
@@ -2172,13 +2292,11 @@
                 <colordiffuse>$INFO[Skin.String(LineUnderMenuIconsColor)]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
                 <animation effect="fade" start="0" end="100" delay="200" time="150">Visible</animation>
-				<animation effect="fade" start="100" end="50" time="300" condition="!Control.IsVisible(40003) + !$EXP[IsMainMenuOpened] + !$EXP[IsCurrentWidgetSpotlight] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive2] | [Window.IsActive(1114) + Skin.HasSetting(AddToWatchlist)]] + Container.HasPrevious">Conditional</animation>
-                <!-- <include condition="$PARAM[keepvisible]">KeepMenuIndicatorVisible</include> -->
             </control>
         </definition>
     </include>
 
-<!-- Menu Includes -->
+	<!-- Menu Includes -->
     <include name="Bingie_Submenu_Label">
         <control type="label">
             <posx>10</posx>
@@ -2205,32 +2323,22 @@
         </control>
     </include>
 
-    <!-- <include name="Bingie_Menu_Focus_Img"> -->
-        <!-- <control type="image">
-            <visible>$PARAM[visibility]</visible>
-            <width>358</width>
-            <texture>colors/color_white.png</texture>
-            <colordiffuse>$PARAM[colordiffuse]</colordiffuse>
-        </control>
-    </include>
-
-
-Bingie Menu Icons -->
+	<!-- Bingie Menu Icons -->
     <include name="Bingie_Menu_Icon">
         <control type="group">
-            <include condition="$PARAM[includeAnimCond] + !Skin.HasSetting(EnhancedHome_Circular)">Bingie_Menu_Icon_Anim</include>
+            <include condition="$PARAM[includeAnimCond]">Bingie_Menu_Icon_Anim</include>
             <left>70</left>
             <height>100%</height>
             <top>35</top>
             <control type="image">
                 <include>Bingie_Menu_Icon_Defs</include>
-                <colordiffuse>$INFO[Skin.String(MainMenuFocusButtonColor)]</colordiffuse>
+                <colordiffuse>$INFO[Skin.String(MainMenuButtonColor)]</colordiffuse>
             </control>
         </control>
     </include>
 	<include name="Bingie_Menu_IconFOCUS">
         <control type="group">
-            <include condition="$PARAM[includeAnimCond] + !Skin.HasSetting(EnhancedHome_Circular)">Bingie_Menu_Icon_Anim</include>
+            <include condition="$PARAM[includeAnimCond]">Bingie_Menu_Icon_Anim</include>
             <left>70</left>
             <height>100%</height>
             <top>35</top>
@@ -2242,26 +2350,21 @@ Bingie Menu Icons -->
     </include>
     <include name="Bingie_Menu_Icon_Anim">
         <animation effect="slide" start="0" end="245" time="0" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
-		<animation effect="fade" start="100" end="50" time="300" condition="!Control.IsVisible(40003) + !$EXP[IsMainMenuOpened] + !$EXP[IsCurrentWidgetSpotlight] + [Window.IsActive(Home) | $EXP[IsBingieHubsActive2] | [Window.IsActive(1114) + Skin.HasSetting(AddToWatchlist)]] + Container.HasPrevious">Conditional</animation>
     </include>
 
     <include name="Bingie_Menu_Icon_Defs">
         <width>25</width>
         <height>25</height>
         <texture background="true">$INFO[ListItem.Icon]</texture>
-        <!-- <animation end="70" effect="fade" time="0" delay="0" condition="true">Conditional</animation> --> <!--removed so the focus highlight is actually white now matching label-->
     </include>
 
     <include name="Bingie_Menu_Label_Defs">
-        <width>340</width>
-        <height>108%</height>
+        <width>350</width>
+        <height>92</height>
         <align>left</align>
-        <include content="left" condition="Skin.HasSetting(DisableIconsMainMenu)">
-            <param name="left" value="85" />
-        </include>
         <left>150</left>
         <aligny>center</aligny>
-        <font>Reg35</font>
+        <font>Reg34</font>
 		<textcolor>$INFO[Skin.String(MainMenuTextColor)]</textcolor>
         <label>$INFO[ListItem.Label]</label>
         <animation effect="fade" start="100" end="0" time="300" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
@@ -2270,7 +2373,6 @@ Bingie Menu Icons -->
     <include name="Bingie_Menu_Label">
         <control type="label">
             <include>Bingie_Menu_Label_Defs</include>
-            <textcolor>ffffffff</textcolor>
         </control>
     </include>
 
@@ -2280,67 +2382,15 @@ Bingie Menu Icons -->
         </include>
     </include>
 
-    <variable name="Bingie_Logo">
-        <value condition="String.IsEmpty(Skin.String(CustomLogoImage))">bingie_logo.png</value>
-        <value condition="!String.IsEmpty(Skin.String(CustomLogoImage))">$INFO[Skin.String(CustomLogoImage)]</value>
-    </variable>
-
-    <include name="Bingie_Touch_Support">
-        <control type="radiobutton" id="51">
-            <visible>$EXP[IsBingieViewsActive]</visible>
-            <visible>![Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)]</visible>
-            <width>60</width>
-            <height>60</height>
-            <right>20</right>
-            <top>20</top>
-            <font/>
-            <selected>Control.HasFocus(51)</selected>
-            <texturefocus/>
-            <texturenofocus/>
-            <textureradioonfocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">common/menu.png</textureradioonfocus>
-            <textureradioonnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/menu.png</textureradioonnofocus>
-            <textureradioofffocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">common/menu.png</textureradioofffocus>
-            <textureradiooffnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">common/menu.png</textureradiooffnofocus>
-            <radiowidth>60</radiowidth>
-            <radioheight>60</radioheight>
-            <onclick condition="!String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">SetProperty(ShowViewSubMenu, show,Home)</onclick>
-            <onclick condition="String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">ClearProperty(ShowViewSubMenu,Home)</onclick>
-            <onclick condition="!String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">SetFocus(900)</onclick>
-            <ondown>510</ondown>
-        </control>
-        <control type="radiobutton" id="52">
-            <visible>!$EXP[IsBingieViewsActive]</visible>
-            <visible>![Skin.HasSetting(CompactHeader) + !Skin.String(home_header,disable)]</visible>
-            <width>60</width>
-            <height>60</height>
-            <right>20</right>
-            <top>20</top>
-            <font/>
-            <selected>Control.HasFocus(52)</selected>
-            <texturefocus/>
-            <texturenofocus/>
-            <textureradioonfocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">touchcontrols/back.png</textureradioonfocus>
-            <textureradioonnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">touchcontrols/back.png</textureradioonnofocus>
-            <textureradioofffocus colordiffuse="$INFO[Skin.String(MainMenuFocusTextColor)]">touchcontrols/back.png</textureradioofffocus>
-            <textureradiooffnofocus colordiffuse="$INFO[Skin.String(MainMenuTextColor)]">touchcontrols/back.png</textureradiooffnofocus>
-            <radiowidth>60</radiowidth>
-            <radioheight>60</radioheight>
-            <onclick>Close</onclick>
-            <ondown>510</ondown>
-        </control>
-    </include>
 <!--Side Menu Icon Names on Focus-->
  <include name="Bingie_Menu_LabelFOCUS">
         <control type="label">
-        <width>360</width>
-        <height>110%</height>
+        <width>350</width>
+        <height>92</height>
         <align>left</align>
-        <include content="left" condition="Skin.HasSetting(DisableIconsMainMenu)">
-            <param name="left" value="85" />
-        </include>
         <left>152</left>
 		<aligny>center</aligny>
-        <font>Bold33</font>
+        <font>Bold34</font>
 		<textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
         <label>$INFO[ListItem.Label]</label>
         <animation effect="fade" start="100" end="0" time="300" condition="!$EXP[IsMainMenuOpened]">Conditional</animation>
@@ -2352,10 +2402,10 @@ Bingie Menu Icons -->
             <posx>12</posx>
             <width>400</width>
             <align>left</align>
-            <font>bold29</font>
-            <height>52</height>
+            <font>Bold30</font>
+            <height>50</height>
             <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
-            <label>[B]$INFO[ListItem.Label][/B]</label>
+            <label>$INFO[ListItem.Label]</label>
             <scroll>true</scroll>
         </control>
     </include>
@@ -2363,11 +2413,11 @@ Bingie Menu Icons -->
 	<include name="BingiePowerMenuItemLabelFOCUS">
         <control type="label">
             <width>384</width>
-            <height>57</height>
+            <height>55</height>
             <textoffsetx>52</textoffsetx>
             <align>left</align>
             <aligny>center</aligny>
-            <font>Bold23</font>
+            <font>Bold24</font>
             <label>$INFO[ListItem.Label]</label>
             <textcolor>$INFO[Skin.String(MainMenuFocusTextColor)]</textcolor>
         </control>
@@ -2377,15 +2427,12 @@ Bingie Menu Icons -->
     <include name="Bingie_Footer">
         <control type="group">
             <animation effect="slide" end="0,283" time="300" condition="$EXP[IsCurrentWidgetSpotlight]">Conditional</animation>
-			<animation effect="slide" end="0,19" time="300" condition="$EXP[IsCurrentWidgetSpotlight] + !Skin.HasSetting(EnableFixedFocusWidgets)">Conditional</animation>
-            <animation effect="fade" start="100" end="0" time="300"  condition="!Skin.HasSetting(HideMediaFlagsTrailer) + [$EXP[IsPlayingUnrecognizedContent]]">Conditional</animation>
             <top>520</top>
             <width>100%</width>
 			<visible>!$EXP[IsMainMenuOpened]</visible>
 			
-<!-- New Footer on HOME -->
+			<!-- New Footer on HOME -->
 			<control type="group">
-				<visible>!Skin.HasSetting(EnableTextFooter)</visible>
 				<include content="right" condition="$EXP[IsBingieCategoriesActive]">
                 <param name="right" value="130" />
                 </include>
@@ -2395,20 +2442,6 @@ Bingie Menu Icons -->
 				<top>-30</top>
 				<include>new_footer</include>
 			</control>
-
-<!-- New Text Footer on HOME -->
-			<control type="group">
-				<visible>skin.hasSetting(EnableTextFooter)</visible>
-				<include content="right" condition="$EXP[IsBingieCategoriesActive]">
-                <param name="right" value="130" />
-                </include>
-				<right>9</right>
-                <height></height>
-                <width></width>
-				<top>-30</top>
-				<include>text_footer</include>
-			</control>
-
 		</control>
 	</include>
 	
@@ -2421,9 +2454,9 @@ Bingie Menu Icons -->
             <width>130</width>
             <aspectratio scalediffuse="true">scale</aspectratio>
             <texture border="2" background="true">bingie/sidediffuse.png</texture>
-            <colordiffuse>ff000000</colordiffuse> <!-- Added to Give Panel Color -->     
+            <colordiffuse>ff000000</colordiffuse>  
 			<!-- Never Change or Remove / It will give everything a Grey Effect on Screen. It's very Hard to see on Smaller TV but Very Noticable on a Larger One -->
-			<visible>!$EXP[IsRecognizedVideoContent]</visible>
+			<visible>!$EXP[IsRecognizedVideoContent] + !$EXP[IsCurrentWidgetSpotlight]</visible>
 		</control>
     </include>
 
@@ -2433,25 +2466,41 @@ Bingie Menu Icons -->
         <control type="image">
             <nested />
             <visible>$PARAM[visibility]</visible>
-            <top>611</top>                                           <!-- default 645 -->
-            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <top>611</top>
+            <include>No_Circular_Left</include>
             <left>0</left>
             <width>$PARAM[width]</width>
             <height>$PARAM[height]</height>
             <texture background="true" border="-4">$PARAM[texture]</texture>
             <bordersize>2</bordersize>
             <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-            <!-- <include>Frame_Scrolling_Fade</include> 
-            <include>Default_Visible_Fade</include> -->
         </control>
     </include>
-
+	
+	<include name="Bingie_Screens_Fixed_Focus_Frame_Highlight">
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base">
+            <param name="visibility" value="String.IsEqual(window(home).Property(widgetstyle),highlight) + String.IsEqual(Window(home).property(highlightfocus),Container($PARAM[widgetid]).CurrentItem) + ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + !$EXP[IsCurrentWidgetSpotlight]"/>
+            <param name="width" value="361" />
+            <param name="height" value="720" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
+	</include>
+	
+	<include name="Bingie_Screens_Fixed_Focus_Frame_Highlight_2">
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base">
+            <param name="visibility" value="String.IsEqual(window(home).Property(widgetstyle),highlight) + ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + !$EXP[IsCurrentWidgetSpotlight]"/>
+            <param name="width" value="361" />
+            <param name="height" value="720" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
+	</include>
+	
     <include name="Bingie_Screens_Fixed_Focus_Frame">
 		<!-- Landscape Fixed Frame -->
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscape)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),singlebox) + !String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),minisquare) + !String.IsEqual(window(home).Property(widgetstyle),widebox) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="landscape_width"/>
             <param name="height" value="210"/>
@@ -2481,11 +2530,17 @@ Bingie Menu Icons -->
             <param name="height" value="248" />
             <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscape)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),square)"/>
+            <param name="width" value="240" />
+            <param name="height" value="240" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
 		<!-- Landscape Small Fixed Frame -->
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),singlebox) + !String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),minisquare) + !String.IsEqual(window(home).Property(widgetstyle),widebox) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="250" />
             <param name="height" value="148" />
@@ -2515,11 +2570,17 @@ Bingie Menu Icons -->
             <param name="height" value="248" />
             <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),square)"/>
+            <param name="width" value="240" />
+            <param name="height" value="240" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
 		<!-- Landscape Large Fixed Frame -->
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapelarge)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) +
-			!String.IsEqual(window(home).Property(widgetstyle),singlebox) + !String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),minisquare) + !String.IsEqual(window(home).Property(widgetstyle),widebox) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="430" />
             <param name="height" value="248" />
@@ -2549,11 +2610,17 @@ Bingie Menu Icons -->
             <param name="height" value="148" />
             <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapelarge)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),square)"/>
+            <param name="width" value="240" />
+            <param name="height" value="240" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
 		<!-- Poster Fixed Frame -->
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),poster)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),singlebox) + !String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),minisquare) + !String.IsEqual(window(home).Property(widgetstyle),widebox) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="240" />
             <param name="height" value="330" />
@@ -2583,11 +2650,17 @@ Bingie Menu Icons -->
             <param name="height" value="248" />
             <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),poster)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),square)"/>
+            <param name="width" value="240" />
+            <param name="height" value="240" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
 		<!-- Small Poster Fixed Frame -->
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),smallposter)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),singlebox) + !String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),minisquare) + !String.IsEqual(window(home).Property(widgetstyle),widebox) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="177" />
             <param name="height" value="240" />
@@ -2612,6 +2685,52 @@ Bingie Menu Icons -->
             <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
         </include>
 		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),smallposter)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),landscapelarge)"/>
+             <param name="width" value="430" />
+            <param name="height" value="248" />
+            <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
+        </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),smallposter)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),square)"/>
+            <param name="width" value="240" />
+            <param name="height" value="240" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
+		<!-- Square Fixed Frame -->
+        <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
+			!String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
+			!String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
+            <param name="width" value="240" />
+            <param name="height" value="240" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),landscape)"/>
+            <param name="width" value="landscape_width"/>
+            <param name="height" value="210"/>
+            <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
+        </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),poster)"/>
+            <param name="width" value="240" />
+            <param name="height" value="330" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),smallposter)"/>
+            <param name="width" value="177" />
+            <param name="height" value="240" />
+            <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
+        </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square)">
+            <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),landscapesmall)"/>
+            <param name="width" value="250" />
+            <param name="height" value="148" />
+            <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
+        </include>
+		<include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + ![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)] + String.IsEqual(window(home).Property(widgetstyle),landscapelarge)"/>
              <param name="width" value="430" />
             <param name="height" value="248" />
@@ -2649,11 +2768,13 @@ Bingie Menu Icons -->
             <onleft condition="!String.IsEmpty(Window(Home).Property(spotlightinfo))">ClearProperty(spotlightinfo,Home)</onleft>
             <onleft condition="String.IsEmpty(Window(Home).Property(spotlightinfo)) + $EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onleft>
             <onleft condition="String.IsEmpty(Window(Home).Property(spotlightinfo))">900</onleft>
-            <onleft condition="String.IsEmpty(Window(Home).Property(spotlightinfo)) + Skin.HasSetting(EnhancedHome_Circular)">noop</onleft>
             <onunfocus>ClearProperty(spotlightinfo,home)</onunfocus>
+			<onfocus>SetProperty(FullImage,1,Home)</onfocus>
+			<onunfocus>ClearProperty(FullImage,home)</onunfocus>
             <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onback>
             <onback>900</onback>
 
+			<onclick condition="String.IsEmpty(Window(Home).Property(FullImage))">SetProperty(FullImage,1,Home)</onclick>
             <onclick condition="!String.IsEmpty(Window(Home).Property(spotlightinfo))">Action(info)</onclick>
             <onclick condition="String.IsEmpty(Window(Home).Property(spotlightinfo)) + !String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">PlayMedia($ESCINFO[Container($PARAM[widgetid]).ListItem.FileNameAndPath],resume)</onclick>
             <onclick condition="String.IsEmpty(Window(Home).Property(spotlightinfo)) + !String.IsEmpty(Container($PARAM[widgetid]).ListItem.DBID) + String.IsEqual(Container($PARAM[widgetid]).ListItem.DBType,tvshow)">SetProperty(ListItem.TVShowID,$INFO[Container($PARAM[widgetid]).ListItem.DBID],Home)</onclick>
@@ -2701,7 +2822,7 @@ Bingie Menu Icons -->
                     <width>420</width>
                     <label>[B]$LOCALIZE[31185]...[/B]</label>
                     <font>Light22</font>
-                    <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+                    <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
                 </control>
             </control>
         </definition>
@@ -2729,7 +2850,7 @@ Bingie Menu Icons -->
 					<description>Play</description>
                     <height>100%</height>
                     <width>auto</width>
-                    <textoffsetx>34</textoffsetx>
+                    <textoffsetx>28</textoffsetx>
                     <textwidth>auto</textwidth>
                     <align>left</align>
                     <textcolor>$VAR[SpotlightPlayTextButtonColor]</textcolor>
@@ -2743,7 +2864,7 @@ Bingie Menu Icons -->
                     <height>100%</height>
                     <align>center</align>
 					<textwidth>auto</textwidth> 
-					<textoffsetx>30</textoffsetx>
+					<textoffsetx>28</textoffsetx>
                     <textcolor>$VAR[SpotlightInfoTextButtonColor]</textcolor>
                     <texturenofocus colordiffuse="$VAR[SpotlightInfoButtonColor]" border="10">diffuse/panel-spot.png</texturenofocus>
 					<font>Reg30</font>
@@ -2751,7 +2872,7 @@ Bingie Menu Icons -->
                 </control>
             </control>
 			<control type="image">
-			<posx>36</posx>
+			<posx>30</posx>
 			<posy>30</posy>
             <width>24</width>
             <height>24</height>
@@ -2821,10 +2942,10 @@ Bingie Menu Icons -->
     <include name="BingieSpotlightCornerImage">
         <param name="top" default="0"/>
         <param name="right" default="-2"/>
-        <param name="width" default="1240"/>
+        <param name="width" default="1220"/>
         <param name="height" default="700"/>
         <definition>
-<!-- Spotlight DIffuse -->  
+<!-- Spotlight Diffuse -->  
 			<control type="image">
                 <nested />
                 <visible>$PARAM[visibility]</visible>
@@ -2832,7 +2953,7 @@ Bingie Menu Icons -->
                 <right>$PARAM[right]</right>
                 <width>$PARAM[width]</width>
                 <height>$PARAM[height]</height>
-                <texture background="true" diffuse="bingie/new_bingie_spotlight_diffuse1.png">$PARAM[image]</texture>
+                <texture background="true" diffuse="bingie/new_bingie_spotlight_diffuse.png">$PARAM[image]</texture>
 				<fadetime>550</fadetime>
                 <aspectratio scalediffuse="true" aligny="top" align="right">keep</aspectratio>
                 <animation effect="fade" end="0" time="500">Hidden</animation>
@@ -2841,27 +2962,36 @@ Bingie Menu Icons -->
 	    </definition>
     </include>
 	
-<!-- Achilles Spotlight Image Main Home -->
-     <include name="AchillesBingieSpotlightCornerImage">
-        <param name="top" default="-30"/>
-        <param name="right" default="-130"/>
-        <param name="width" default="1540"/>
-        <param name="height" default="869"/>
+<!-- SPOTLIGHT IMAGE MAIN HOME--> 
+<!--the whole fanart image now fits the spotlight like Netflix -->
+    <include name="BingieSpotlightFullImage">
+        <param name="top" default="0"/>
+        <param name="right" default="0"/>
+        <param name="width" default="1920"/>
+        <param name="height" default="1080"/>
         <definition>
-            <control type="image">
-                <nested />
+<!-- Spotlight Diffuse -->  
+			<control type="image">
                 <visible>$PARAM[visibility]</visible>
                 <top>$PARAM[top]</top>
                 <right>$PARAM[right]</right>
                 <width>$PARAM[width]</width>
                 <height>$PARAM[height]</height>
-                <texture background="true" diffuse="bingie/new_bingie_spotlight_diffuse.png">$PARAM[image]</texture>
-                <fadetime>550</fadetime>
-                <aspectratio scalediffuse="true" aligny="top" align="right">scale</aspectratio>
-                <animation effect="fade" end="0" time="500">Hidden</animation>
-                <animation effect="fade" start="0" end="100" time="1200">Visible</animation>
+                <texture background="true">$PARAM[image]</texture>
+                <aspectratio>scale</aspectratio>
+				<animation effect="fade" start="100" end="50" time="300" condition="true">WindowOpen</animation>
+				<animation effect="fade" start="50" end="50" time="300" condition="true">WindowClose</animation>
             </control>
-        </definition>
+			<control type="image">			
+                <visible>$PARAM[visibility]</visible>
+                <top>$PARAM[top]</top>
+                <right>$PARAM[right]</right>
+                <width>$PARAM[width]</width>
+                <height>$PARAM[height]</height>
+				<texture background="true">overlays/gradient_videoinfo.png</texture>
+				<colordiffuse>$VAR[BingiePanelColor]</colordiffuse>
+			</control>
+	    </definition>
     </include>
 
 <!-- CLEARLOGO - Home Screen Widgets - Info/Text/Clearlogo -->
@@ -2869,7 +2999,7 @@ Bingie Menu Icons -->
         <param name="genre_adjust" default="false" />
         <definition>
             <control type="image" id="$PARAM[id]5">
-                <height>190</height>                                      <!-- default - 186 -->
+                <height>190</height>
                 <width>490</width>
                 <align>left</align>
                 <fadetime>350</fadetime>
@@ -2885,7 +3015,7 @@ Bingie Menu Icons -->
                 <font>Title</font> 
                 <align>left</align>
                 <aligny>center</aligny>
-                <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(BingieLabelTextColor)]</textcolor>
                 <label>$PARAM[text]</label>
                 <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
 				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
@@ -2898,7 +3028,7 @@ Bingie Menu Icons -->
         <param name="genre_adjust" default="false" />
         <definition>
             <control type="image" id="$PARAM[id]5">
-                <height>190</height>                                      <!-- default - 186 -->
+                <height>190</height>
                 <width>490</width>
                 <align>left</align>
                 <fadetime>350</fadetime>
@@ -2913,7 +3043,7 @@ Bingie Menu Icons -->
                 <font>Title</font> 
                 <align>left</align>
                 <aligny>center</aligny>
-                <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+                <textcolor>$INFO[Skin.String(BingieLabelTextColor)]</textcolor>
                 <label>$PARAM[text]</label>
                 <include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
 				<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
@@ -2925,11 +3055,11 @@ Bingie Menu Icons -->
     <include name="Preview_Window">
         <param name="top" default="0"/>
         <param name="right" default="0"/>
-        <param name="width" default="1240"/>
-        <param name="height" default="700"/>
-        <param name="overlaywidth" default="1240"/>
-        <param name="overlayheight" default="700"/>
-        <param name="videowindowVisibility" default="!$EXP[IsRecognizedVideoContent]" />
+        <param name="width" default="1200"/>
+        <param name="height" default="675"/>
+        <param name="overlaywidth" default="1200"/>
+        <param name="overlayheight" default="675"/>
+        <param name="videowindowVisibility" default="!$EXP[IsRecognizedVideoContent] + [!Window.IsActive(DialogVideoInfo.xml) | !Window.IsActive(1190) | !Window.IsActive(1191) | !Window.IsActive(1116)]" />
         <param name="isFullscreen" default="false" />
         <param name="overlay_animation" default="Bingie_Preview_Window_Overlay_Anim" />
         <definition>
@@ -2986,21 +3116,21 @@ Bingie Menu Icons -->
                     <width>160</width>
                     <texture background="true" colordiffuse="9a343434">diffuse/panel2.png</texture>
                 </control>
-<!-- White Line on Right Home Screen -->
+				<!-- White Line on Right Home Screen -->
 				<control type="image">
                     <height>54</height>
                     <width>6</width>
                     <align>left</align>
                     <texture background="true" colordiffuse="ffffffff">bingie/line.png</texture>
                 </control>
-<!-- Text inside of Box Right Home Screen -->                
+				<!-- Text inside of Box Right Home Screen -->                
 				<control type="label" id="$PARAM[id]">
                     <left>30</left>
                     <height>52</height>
                     <width>134</width>
                     <align>left</align>
                     <font>Bold28</font>
-                    <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>               <!-- Default - white -->
+                    <textcolor>ffffffff</textcolor>
                     <label>$VAR[GetMPAA]</label>
                 </control>
             </control>
@@ -3050,11 +3180,11 @@ Bingie Menu Icons -->
         <control type="image">
             <visible>$PARAM[visibility]</visible>
             <include>FullscreenDimensions</include>
-            <texture background="true" colordiffuse="$VAR[BingiePanelColor]">colors/color_white.png</texture>
+            <texture background="true" colordiffuse="$VAR[BingiePanelColor]">diffuse/panel2.png</texture>
         </control>
     </include>
 
-    <!-- Bingie Basic Inc/Vars -->
+<!-- Bingie Basic Inc/Vars -->
 <!-- Bingie Panel Color - Home Background Color-->
     <variable name="BingiePanelColor">
         <value condition="!String.IsEmpty(Skin.String(ViewDetailsPanelColor.base))">$INFO[Skin.String(ViewDetailsPanelColor.base)]</value>
@@ -3062,27 +3192,8 @@ Bingie Menu Icons -->
     <!-- This Above Should Never Be Changed -->
 	</variable>
 
-    <!-- <variable name="BingieMenuPanelColor"> -->
-        <!-- <value condition="!$EXP[IsMainMenuOpened] + !Skin.HasSetting(EnhancedHome_Circular)">$INFO[Skin.String(BingieSlimMenuPanelColor)]</value> -->
-        <!-- <value>$INFO[Skin.String(MainMenuPanelColor)]</value> -->
-	<!-- </variable> -->
-
-    <!-- <include name="Alt_Bingie_Plot_Height"> -->
-        <!-- <height min="50" max="200">auto</height> -->
-    <!-- </include> -->
-
     <include name="Title_Height_No_Clearlogo">
         <top>43</top>
-    </include>
-
-    <include name="NoCircularPosX">
-        <posx>bingie_no_circular_posx</posx>
-    </include>
-
-    <!-- Disabled Spotlight Widgets Height -->
-    <include name="Bingie_Alt_Height_No_Spotlight">
-        <top>0</top>
-        <height>100%</height>
     </include>
 
     <!-- Bingie Views Includes -->
@@ -3093,20 +3204,13 @@ Bingie Menu Icons -->
         </include>
         <include content="Preview_Window">
             <param name="id" value="$PARAM[id]01" />
-            <param name="visibility" value="Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + [Skin.HasSetting(DetailsAutoTrailer) | Skin.HasSetting(PlayTrailerOnUp)]" />
+            <param name="visibility" value="Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))] + [Skin.HasSetting(DetailsAutoTrailer) | Skin.HasSetting(PlayTrailerOnUp)] + !Window.IsActive(DialogVideoInfo.xml)" />
         </include>
         <control type="group">
             <width>1920</width>
-            <height>600</height>
-
-            
+            <height>600</height>            
 			<include content="BingieSpotlightCornerImage">
-                <param name="visibility" value="!$EXP[IsPlayingRecognizedContent] + !Control.IsVisible($PARAM[id]01) + !Skin.HasSetting(NewSpotlight) | $EXP[IsPlayingRecognizedContent] + Control.HasFocus(526) + !Skin.HasSetting(NewSpotlight) | $EXP[IsPlayingRecognizedContent] + Control.HasFocus(523) + !Skin.HasSetting(NewSpotlight)" />
-                <param name="image" value="$VAR[bingieThumb]" />
-            </include>
-			<!-- Achilles Spotlight corner image -->
-			 <include content="AchillesBingieSpotlightCornerImage">
-                <param name="visibility" value="!$EXP[IsPlayingRecognizedContent] + !Control.IsVisible($PARAM[id]01) + Skin.HasSetting(NewSpotlight) | $EXP[IsPlayingRecognizedContent] + Control.HasFocus(526) + Skin.HasSetting(NewSpotlight) | $EXP[IsPlayingRecognizedContent] + Control.HasFocus(523) + Skin.HasSetting(NewSpotlight)" />
+                <param name="visibility" value="!$EXP[IsPlayingRecognizedContent] + !Control.IsVisible($PARAM[id]01) | $EXP[IsPlayingRecognizedContent] + Control.HasFocus(526) + !Skin.HasSetting(NewSpotlight) | $EXP[IsPlayingRecognizedContent] + Control.HasFocus(523) + !Skin.HasSetting(NewSpotlight)" />
                 <param name="image" value="$VAR[bingieThumb]" />
             </include>
 			
@@ -3134,68 +3238,10 @@ Bingie Menu Icons -->
 				 <visible>Skin.HasSetting(MovieDetailsHome) + !Integer.IsGreater(ListItem.PercentPlayed,1) | !Skin.HasSetting(MovieDetailsHome)</visible>
                     <top>-7</top>
 					<width>1000</width>
-                    <height>60</height>
+                    <height>55</height>
                     <include>Default_Visible_Fade</include>
                     <include>SpotlightRowDetails</include>
                 </control>			
-
-		<!-- Bingie library views Sublabel grouplist (top250 + watch xx now) -->
-    <control type="grouplist">
-			<orientation>horizontal</orientation>
-			<visible>!Container.Content(episodes) + !Container.Content(seasons)</visible>
-			<visible>!Skin.HasSetting(DisableTop250) + !String.IsEmpty(Control.GetLabel(8231)) + !Integer.IsGreater(ListItem.PercentPlayed,1) | !Skin.HasSetting(DisableTop250) + !String.IsEmpty(Control.GetLabel(823)) + $EXP[IsTVShowInLastEpisodes] + !Integer.IsGreater(ListItem.PercentPlayed,1) | 
-			!Skin.HasSetting(DisableTop250) + !String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(MovieDetailsHome) + Integer.IsGreater(ListItem.PercentPlayed,1)
-			</visible>
-			<height>55</height>
-			<width>800</width>
-			<left>1</left>
-			<top>-10</top>
-			<aligny>center</aligny> 
-			<usecontrolcoords>true</usecontrolcoords>
-			<itemgap>15</itemgap>
-		<!--top 250 icon White-->	
-		<control type="image">
-				<visible>!String.IsEmpty(Control.GetLabel(8231)) + Skin.HasSetting(EnableTop250ColoredLabel)</visible>
-				<posy>5</posy>
-				<left>0</left>
-                <height>50</height>
-                <width>50</width>
-				<aspectratio>keep</aspectratio>
-				<colordiffuse>$INFO[Skin.String(BingieTop250IconColor)]</colordiffuse>
-                <texture>bingie/top2501.png</texture>
-		</control>
-		<!--top 250 icon color-->	
-		<control type="image">
-				<visible>!String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(EnableTop250ColoredLabel)</visible>
-				<posy>5</posy>
-				<left>0</left>
-                <height>50</height>
-                <width>50</width>
-				<aspectratio>keep</aspectratio>
-                <texture>bingie/top250.png</texture>
-		</control>
-			
-		<control type="label" id="8231">
-            <!-- <visible>!Container.Content(episodes)</visible> -->
-            <visible>!String.IsEmpty(Control.GetLabel(8231))</visible>
-			<visible>!Skin.HasSetting(DisableTop250)</visible>
-			<font>bold29</font> 
-            <textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor> 
-            <label>$VAR[IMDBTop250RatingValue,#, $LOCALIZE[320157]]</label>
-            <include>Default_Visible_Fade</include>
-        </control>
-				
-			<!-- Bingie  Sublabel (Tagline/Watch library view) -->
-		<control type="label" id="823">
-                <visible>!Container.Content(episodes)</visible>
-                <visible>!String.IsEmpty(Control.GetLabel(823)) + String.IsEmpty(Control.GetLabel(8231))</visible>
-                <width>820</width>
-                <font>bold29</font> 
-                <textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor> 
-                <label>$VAR[BingieSublabel]</label>
-                <include>Default_Visible_Fade</include>
-        </control> 
-	</control>
 	
 					<!-- TV shows Seasons -->
                     <control type="grouplist">
@@ -3245,7 +3291,6 @@ Bingie Menu Icons -->
                             <width>650</width>
                             <align>left</align>
 							<posx>-6</posx>
-							<posy>-5</posy>
                             <aligny>center</aligny>
                             <font>bold29</font>
                          	<textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
@@ -3275,7 +3320,7 @@ Bingie Menu Icons -->
 							<posy>2</posy>
                             <aligny>center</aligny>
                             <font>Reg36</font>
-                         	<textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+                         	<textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor>
                             <label>$VAR[BingieEpisodeInfoHeader]</label>
                         </control>
                     </control>
@@ -3291,9 +3336,9 @@ Bingie Menu Icons -->
                             <control type="progress">
                                 <width>185</width>
                                 <height>8</height>
-                                <texturebg colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="0">diffuse/panel2.png</texturebg>
+                                <texturebg colordiffuse="$INFO[Skin.String(BingieHomeProgressBarBackgroundColor)]" border="0">diffuse/panel2.png</texturebg>
                                 <lefttexture/>
-                                <midtexture colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]" border="4">diffuse/panel2.png</midtexture>
+                                <midtexture colordiffuse="$INFO[Skin.String(BingieHomeProgressBarColor)]" border="4">diffuse/panel2.png</midtexture>
                                 <righttexture/>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
@@ -3303,19 +3348,83 @@ Bingie Menu Icons -->
                                 <height>25</height>
                                 <width>450</width>
                                 <font>Reg26</font>
-                                <textcolor>$INFO[Skin.String(BingieSecondaryTextColor)]</textcolor>
+                                <textcolor>$INFO[Skin.String(BingieHomeProgressBarTextColor)]</textcolor>
                                 <label>$VAR[PercentRemained,,% $LOCALIZE[31059]]</label>
                             </control>
                         </control>
 
+				<control type="grouplist">
+					<visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
+					<include>Animation_Right_Home</include>
+					<width>1500</width>
+					<height>600</height>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>5</itemgap>
+				<!-- Bingie library views Sublabel grouplist (top250 + watch xx now) -->
+				<control type="grouplist">
+						<orientation>horizontal</orientation>
+						<visible>!Container.Content(episodes) + !Container.Content(seasons)</visible>
+						<visible>!Skin.HasSetting(DisableTop250) + !String.IsEmpty(Control.GetLabel(8231)) + !Integer.IsGreater(ListItem.PercentPlayed,1) | !Skin.HasSetting(DisableTop250) + !String.IsEmpty(Control.GetLabel(823)) + $EXP[IsTVShowInLastEpisodes] + !Integer.IsGreater(ListItem.PercentPlayed,1) | 
+						!Skin.HasSetting(DisableTop250) + !String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(MovieDetailsHome) + Integer.IsGreater(ListItem.PercentPlayed,1)
+						</visible>
+						<height>55</height>
+						<width>800</width>
+						<left>1</left>
+						<top>-5</top>
+						<aligny>center</aligny> 
+						<usecontrolcoords>true</usecontrolcoords>
+						<itemgap>15</itemgap>
+					<!--top 250 icon White-->	
+					<control type="image">
+							<visible>!String.IsEmpty(Control.GetLabel(8231)) + Skin.HasSetting(EnableTop250ColoredLabel)</visible>
+							<posy>5</posy>
+							<left>0</left>
+							<height>50</height>
+							<width>50</width>
+							<aspectratio>keep</aspectratio>
+							<colordiffuse>$INFO[Skin.String(BingieTop250IconColor)]</colordiffuse>
+							<texture>bingie/top2501.png</texture>
+					</control>
+					<!--top 250 icon color-->	
+					<control type="image">
+							<visible>!String.IsEmpty(Control.GetLabel(8231)) + !Skin.HasSetting(EnableTop250ColoredLabel)</visible>
+							<posy>5</posy>
+							<left>0</left>
+							<height>50</height>
+							<width>50</width>
+							<aspectratio>keep</aspectratio>
+							<texture>bingie/top250.png</texture>
+					</control>
+						
+					<control type="label" id="8231">
+						<visible>!String.IsEmpty(Control.GetLabel(8231))</visible>
+						<visible>!Skin.HasSetting(DisableTop250)</visible>
+						<font>bold29</font> 
+						<textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor> 
+						<label>$VAR[IMDBTop250RatingValue,#, $LOCALIZE[320157]]</label>
+						<include>Default_Visible_Fade</include>
+					</control>
+							
+						<!-- Bingie  Sublabel (Tagline/Watch library view) -->
+					<control type="label" id="823">
+							<visible>!Container.Content(episodes)</visible>
+							<visible>!String.IsEmpty(Control.GetLabel(823)) + String.IsEmpty(Control.GetLabel(8231))</visible>
+							<width>820</width>
+							<font>bold29</font> 
+							<textcolor>$INFO[Skin.String(BingieSubLabelTextColor)]</textcolor> 
+							<label>$VAR[BingieSublabel]</label>
+							<include>Default_Visible_Fade</include>
+					</control> 
+				</control>
                 <!-- Plot (Library Bingie) -->
                 <control type="textbox">
                     <visible>Skin.HasSetting(MovieDetailsHome) + !Integer.IsGreater(ListItem.PercentPlayed,1) | !Skin.HasSetting(MovieDetailsHome)</visible>
-					<height min="30" max="121">auto</height>	<!--3 lines visible here-->
-					<top>0</top>
-					<width>820</width>                               <!-- default - 650 -->
+					<height min="30" max="121">auto</height>
+					<top>5</top>
+					<width>820</width>
                     <textcolor>$INFO[Skin.String(BingiePlotTextColor)]</textcolor>
-                    <align>left</align>                              <!-- justify -->
+                    <align>left</align>
                     <font>Plots</font>					
                     <label>$VAR[ViewsPlotWithOutline]</label>
                     <include>Default_Visible_Fade</include>
@@ -3323,11 +3432,15 @@ Bingie Menu Icons -->
                 </control>
 
                 <!-- additional info -->
-                <include content="Bingie_Additional_Info">
-                    <param name="visibility" value="!$EXP[IsTVShowInLastEpisodes] + [Container.Content(movies) | Container.Content(tvshows)] | Skin.HasSetting(DisableTop250) + [Container.Content(movies) | Container.Content(tvshows)]" />
-                </include>
+				<control type="group">
+					<top>5</top>
+					<include content="Bingie_Additional_Info">
+						<param name="visibility" value="!$EXP[IsTVShowInLastEpisodes] + [Container.Content(movies) | Container.Content(tvshows)] | Skin.HasSetting(DisableTop250) + [Container.Content(movies) | Container.Content(tvshows)]" />
+					</include>
+				</control>
             </control>
         </control>
+		</control>
 	</include>
 
     <include name="Bingie_Main_View_Fixed_Frame">
@@ -3355,32 +3468,6 @@ Bingie Menu Icons -->
             </control>
         </definition>
     </include>
-<!--bingie library ratings footer-->
-    <include name="Bingie_Main_RatingsAndStudio_Hor">
-        <control type="grouplist">
-			<visible></visible>
-            <orientation>horizontal</orientation>
-            <height>90</height>
-            <itemgap>15</itemgap>
-            <align>right</align>
-            <include condition="Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Monochrome_Hor</include>
-            <include condition="!Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Color_Hor</include>
-            <include condition="Skin.HasSetting(EnableStudioLogo)">StudioLogo</include>
-        </control>
-    </include>
-	<!--bingie views ratings when RT/IMDB is preffered on details row (removes RT/IMDB from footer)-->
-	 <!-- <include name="Bingie_Main_RatingsAndStudio_HorHugo"> -->
-        <!-- <control type="grouplist"> -->
-			<!-- <visible>Skin.HasSetting(PreferIMDBDetailsRow)</visible> -->
-            <!-- <orientation>horizontal</orientation> -->
-            <!-- <height>90</height> -->
-            <!-- <itemgap>15</itemgap> -->
-            <!-- <align>right</align> -->
-            <!-- <include condition="Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Monochrome_Hor1</include> -->
-            <!-- <include condition="!Skin.HasSetting(EnableMonochromeRatingInFooter)">Rating_Color_Hor1</include> -->
-            <!-- <include condition="Skin.HasSetting(EnableStudioLogo)">StudioLogo</include> -->
-        <!-- </control> -->
-    <!-- </include> -->
 	
     <!-- Content header -->
     <variable name="BingieMainContentHeader">
@@ -4421,29 +4508,6 @@ Bingie Menu Icons -->
         <value condition="String.IsEqual(Window(Home).Property(ListItem.PercentPlayed),98)">2</value>
         <value condition="String.IsEqual(Window(Home).Property(ListItem.PercentPlayed),99)">1</value>
         <value condition="String.IsEqual(Window(Home).Property(ListItem.PercentPlayed),100)">0</value>
-    </variable>
-	
-    <variable name="Label_Oscars">
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),20 Oscar)">x20</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),19 Oscar)">x19</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),18 Oscar)">x18</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),17 Oscar)">x17</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),16 Oscar)">x16</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),15 Oscar)">x15</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),14 Oscar)">x14</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),13 Oscar)">x13</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),12 Oscar)">x12</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),11 Oscar)">x11</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),10 Oscar)">x10</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),9 Oscar)">x9</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),8 Oscar)">x8</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),7 Oscar)">x7</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),6 Oscar)">x6</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),5 Oscar)">x5</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),4 Oscar)">x4</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),3 Oscar)">x3</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),2 Oscar)">x2</value>
-        <value condition="String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),1 Oscar)">x1</value>
     </variable>
 	
 	<include name="user_picture">

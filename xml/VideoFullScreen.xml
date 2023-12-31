@@ -14,7 +14,7 @@
 			<top>300</top>
 			<width>100%</width>
 			<height>275</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(OSDPanelColor)]</colordiffuse>
 		</control>
 
@@ -62,7 +62,7 @@
 
 		<!-- Buffering Progress Overlay -->
 		<control type="group" id="2">
-			<visible>Player.Caching + Skin.HasSetting(EnableBufferingProgressOSD) + !Skin.HasTheme(classic)</visible>
+			<visible>Player.Caching + Skin.HasSetting(EnableBufferingProgressOSD)</visible>
 			<animation end="-850,-230" time="0" effect="slide" condition="Skin.HasSetting(UseBingieOSD)">Conditional</animation>
 			<animation end="-850,-230" time="0" effect="slide" condition="!Skin.HasSetting(UseBingieOSD)">Conditional</animation>
 			<animation delay="300" effect="fade" time="200">Visible</animation>

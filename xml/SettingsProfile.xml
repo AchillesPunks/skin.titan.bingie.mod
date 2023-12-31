@@ -14,7 +14,7 @@
          <!--Footer-->
         <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
-        <include>BingieVersion</include>
+        <include>BingieLogo</include>
 		
 		<control type="group">
 		<include>animation_window_open_close</include>
@@ -46,57 +46,17 @@
                 <texture border="90,3,90,3">common/profil/separator.png</texture>
             </control>
 			
-            <control type="radiobutton" id="4">
-				<visible>!Skin.HasSetting(EnableNetflixIcons)</visible>
-                <posx>80</posx>
-                <posy>41</posy>
-                <width>520</width>
-                <label>20096</label>
-                <onup>2</onup>
-				<onright>2</onright>
-				<align>left</align>
-                <ondown>444</ondown>
-            </control>
-			
 			<control type="button">
-				<visible>Skin.HasSetting(EnableNetflixIcons)</visible>
                 <posx>80</posx>
                 <posy>41</posy>
                 <width>520</width>
-                <label>General</label>
+                <label>320158</label>
                 <onup>2</onup>
 				<onright>2</onright>
 				<align>left</align>
                 <ondown>444</ondown>
             </control>
 			
-			<control type="radiobutton" id="444">
-                <posx>80</posx>
-                <posy>105</posy>
-                <width>520</width>
-                <label>31147</label>
-                <onup>4</onup>
-                <ondown>31693</ondown>
-				<onright>2</onright>
-				<align>left</align>
-				<onclick condition="String.IsEmpty(Skin.String(LoginBackground))">Skin.SetImage(LoginBackground)</onclick>
-				<onclick condition="!String.IsEmpty(Skin.String(LoginBackground))">Skin.Reset(LoginBackground)</onclick>
-				<selected>Skin.String(LoginBackground)</selected>
-				<visible>System.HasLoginScreen </visible>
-            </control>
-            <control type="radiobutton" id="31693">
-                <posx>80</posx>
-                <posy>170</posy>
-                <width>520</width>
-                <label>31693</label>
-                <onup>444</onup>
-                <ondown>4</ondown>
-				<onright>2</onright>
-				<align>left</align>
-				<onclick>Skin.ToggleSetting(LoginScreen_DisableContextMenu)</onclick>
-				<selected>Skin.HasSetting(LoginScreen_DisableContextMenu)</selected>
-				<visible>System.HasLoginScreen </visible>
-            </control>
             <control type="list" id="2">
                 <description>Control Area</description>
                 <posx>660</posx>
@@ -156,7 +116,7 @@
                         <control type="image">
                             <height>77</height>
                             <width>1100</width>
-                            <texture border="5" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</texture>
+                            <texture border="10" colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">diffuse/panel.png</texture>
                         </control>
                         <control type="image">
                             <posx>35</posx>

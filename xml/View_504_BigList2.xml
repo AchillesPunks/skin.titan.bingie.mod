@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-	<include name="View_504_BigList2">
-	
+	<include name="View_504_BigList2">	
 		<control type="group">
 			<defaultcontrol always="true">504</defaultcontrol>
 			<visible>Control.IsVisible(504)</visible>
-			<include>animation_view_change</include>
-			
+			<include>animation_view_change</include>		
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View504_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -20,12 +18,10 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+			<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-            </control>
-     
-		
+            </control>		
 			<control type="panel" id="504">
 				<viewtype label="31643">list</viewtype>
 				<include content="View_Forced">
@@ -34,7 +30,7 @@
 				<animation effect="slide" end="505" time="0" condition="!Skin.HasSetting(View504_ShowInfoRight)">Conditional</animation>
 				<bottom>147</bottom>
                 <height>721</height>	
-				<left>55</left>
+				<left>60</left>
 				<width>800</width>
 				<onup>504</onup>
 				<ondown>504</ondown>
@@ -45,17 +41,17 @@
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>
 				<preloaditems>2</preloaditems>
-				<itemlayout width="800" height="103" condition="!Skin.HasSetting(View504_UseSlimList)">		
+				<itemlayout width="791" height="103" condition="!Skin.HasSetting(View504_UseSlimList)">		
                     <control type="group">
                         <left>0</left>
-                        <width>790</width>
+                        <width>781</width>
                         <include>BiglistLayout</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="800" height="103" condition="!Skin.HasSetting(View504_UseSlimList)">
+				<focusedlayout width="791" height="103" condition="!Skin.HasSetting(View504_UseSlimList)">
                     <control type="group">
                         <left>0</left>
-                        <width>790</width>
+                        <width>781</width>
                         <include>BigListFocusLayout</include>
 						<include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
 							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
@@ -63,17 +59,17 @@
                     </control>
 				</focusedlayout>
 
-				<itemlayout width="800" height="60" condition="Skin.HasSetting(View504_UseSlimList)">		
+				<itemlayout width="791" height="60" condition="Skin.HasSetting(View504_UseSlimList)">		
                     <control type="group">
                         <left>0</left>
-                        <width>790</width>
+                        <width>781</width>
                         <include>Biglist2SlimLayout</include>
                     </control>
 				</itemlayout>
-				<focusedlayout width="800" height="60" condition="Skin.HasSetting(View504_UseSlimList)">
+				<focusedlayout width="791" height="60" condition="Skin.HasSetting(View504_UseSlimList)">
                     <control type="group">
                         <left>0</left>
-                        <width>790</width>
+                        <width>781</width>
                         <include>BigList2SlimLayoutFocus</include>
 						<include content="LibraryAutoTrailerButton" condition="Skin.HasSetting(DetailsAutoTrailer)">
 							<param name="interval" value="$INFO[Skin.String(details_auto_trailer_interval)]" />
@@ -84,16 +80,15 @@
             <control type="group">
                 <!-- info panel -->
                 <include>MovieDetailsLeft_Small</include>
-                <animation effect="slide" end="815" time="0" condition="Skin.HasSetting(View504_ShowInfoRight) + Skin.HasSetting(View504_SwapPoster)">Conditional</animation>
-                <animation effect="slide" end="1320" time="0" condition="Skin.HasSetting(View504_ShowInfoRight) + !Skin.HasSetting(View504_SwapPoster)">Conditional</animation>
-				<left>-5</left>
+                <animation effect="slide" end="813" time="0" condition="Skin.HasSetting(View504_ShowInfoRight) + Skin.HasSetting(View504_SwapPoster)">Conditional</animation>
+                <animation effect="slide" end="1325" time="0" condition="Skin.HasSetting(View504_ShowInfoRight) + !Skin.HasSetting(View504_SwapPoster)">Conditional</animation>
             </control>
             
             <!--large poster-->
 			<control type="group">
                 <animation effect="slide" end="-505" time="0" condition="Skin.HasSetting(View504_ShowInfoRight) + !Skin.HasSetting(View504_SwapPoster)">Conditional</animation>
                 <visible>Integer.IsGreater(Container.NumItems,0)</visible>
-                <right>55</right>
+                <right>52</right>
                 <bottom>13%</bottom>
                 <height>736</height>
                 <width>500</width>
@@ -127,22 +122,20 @@
                 <visible>![ListItem.IsCollection + Skin.HasSetting(EmbyCovertArtEnabled)]</visible>
                 </control>
 			</control>
-     			<!--vertical Scollbar-->
+     		<!--vertical Scollbar-->
 			<control type="scrollbar" id="60">
 				<visible>Control.IsVisible(504) + Integer.IsGreater(Container.NumItems,0)</visible>
-				<right>10</right>
+				<right>15</right>
 				<bottom>148</bottom>
 				<height>720</height>
 				<onup>60</onup>
 				<ondown>6000</ondown>
 				<onleft>504</onleft>
-				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
-			</control>
-    
-
-		</control>
-		
+				<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
+				<animation effect="slide" end="5" time="0" condition="Skin.HasSetting(View504_ShowInfoRight) + !Skin.HasSetting(View504_SwapPoster) + Skin.HasSetting(View504_HidePanel)">Conditional</animation>
+			</control>    
+		</control>		
 	</include>
     <include name="Biglist2SlimLayout">
 
@@ -159,15 +152,15 @@
 		
 		<control type="group">
 			<!--Watched Overlay-->
-			<visible>![Skin.HasSetting(View51_ShowCDart) + ![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview) + [Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]]]</visible>
 			<include>WatchedIndicatorSmall</include>
+			<visible>Skin.HasSetting(View504_ShowInfoRight)</visible>
 		</control>
 		
 		<control type="image">
 			<bottom>0</bottom>
 			<posy>0</posy>
 			<height>1</height>
-			<texture>diffuse/panel.png</texture>
+			<texture>diffuse/panel2.png</texture>
 			<colordiffuse>grey</colordiffuse>
 		</control>
 	</include>
@@ -177,7 +170,7 @@
 			<posx>0</posx>
 			<posy>0</posy>
 			<height>59</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(ViewDetailsFocusColor)]</colordiffuse>
 			
 		</control>
@@ -196,18 +189,16 @@
 		
 		<control type="group">
 			<!--Watched Overlay-->
-			<visible>![Skin.HasSetting(View51_ShowCDart) + ![VideoPlayer.Content(livetv) + Skin.HasSetting(PVRShowPreview) + [Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings)]]]</visible>
 			<include>WatchedIndicatorSmall</include>
+			<visible>Skin.HasSetting(View504_ShowInfoRight)</visible>
 		</control>
 		
 		<control type="image">
 			<bottom>0</bottom>
 			<posy>0</posy>
 			<height>1</height>
-			<texture>diffuse/panel.png</texture>
-			<colordiffuse>grey</colordiffuse>
-			
+			<texture>diffuse/panel2.png</texture>
+			<colordiffuse>grey</colordiffuse>			
 		</control>
 	</include>
-	
 </includes>

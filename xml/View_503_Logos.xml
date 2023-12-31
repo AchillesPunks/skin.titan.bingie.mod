@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-
 	<variable name="503_LogoImage">
 		<value condition="Skin.HasSetting(LogoViewPreferClearArt) + !String.IsEmpty(ListItem.Art(clearart))">$INFO[ListItem.Art(clearart)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
@@ -16,13 +15,12 @@
 			<include>animation_view_change</include>
 			<defaultcontrol always="true">503</defaultcontrol>
 			<visible>Control.IsVisible(503) + Integer.IsGreater(Container.NumItems,0)</visible>
-            <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>
-			<include>WatchedIndicatorLarge</include>
-<!-- Fanart Image Added to View-->
+            <visible>!Window.IsActive(DialogVideoInfo.xml)</visible>			
+		<!-- Fanart Image Added to View-->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View503_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -34,6 +32,7 @@
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
 			 </control>
+			 <include>WatchedIndicatorLarge</include>
 				<!-- movie details -->
 				<control type="group">
 					<visible>Skin.HasSetting(LogoViewShowInfo)</visible>
@@ -48,7 +47,7 @@
 					<onright>503</onright>
 					<onup>9000</onup>
 					<ondown condition="Skin.HasSetting(EnableQuickJump)">7000</ondown>
-                <ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
+					<ondown condition="!Skin.HasSetting(EnableQuickJump)">60</ondown>
 					<focusposition>1</focusposition>
 					<pagecontrol>60</pagecontrol>
 					<preloaditems>2</preloaditems>
@@ -75,7 +74,7 @@
 						<control type="group">
 							<animation effect="zoom" center="auto" start="100" end="190" time="480" tween="back" reversible="false">Focus</animation>
 							<animation effect="zoom" center="auto" start="140" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
-<!-- LOGO IMAGE Center Position -->
+					<!-- LOGO IMAGE Center Position -->
 							<control type="image">
 								<left>102</left>
 								<top>178</top>
@@ -86,8 +85,7 @@
 							</control>
 						</control>
 					</focusedlayout>
-			</control>
-		
+			</control>		
                 <control type="scrollbar" id="60">
 					<visible>Control.IsVisible(503) + Integer.IsGreater(Container.NumItems,0)</visible>
 					<left>60</left>
@@ -98,10 +96,9 @@
 					<onleft>60</onleft>
 					<onright>60</onright>
 					<orientation>horizontal</orientation>
-					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
 				</control>
         </control>
 	</include>
-
 </includes>

@@ -5,11 +5,11 @@
 		<control type="group">
 			<visible>Control.IsVisible(513)</visible>
 			<include>animation_view_change</include>
-<!-- Fanart Image Added to View-->
+		<!-- Fanart Image Added to View-->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View513_DisableFanArt)</visible>
                 <include>FullscreenDimensions</include>
-                <texture border="15">diffuse/bgpanel.png</texture>
+                <texture>diffuse/panel2.png</texture>
 			    <colordiffuse>33ffffff</colordiffuse>
 				<imagepath background="true">$VAR[backgroundVar]</imagepath>
                 <aspectratio>scale</aspectratio>
@@ -17,32 +17,18 @@
                 <include>fanartSpeed</include>
                 <randomize>true</randomize>
                 <loop>yes</loop>
-<!-- Background Animation -->
+		<!-- Background Animation -->
                 <animation effect="zoom" start="110" end="130" center="auto" time="12000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
                 <animation effect="slide" start="-10,-10" end="10,10" time="8000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(BackgroundAnimation)">Conditional</animation>
-			 </control>
-        
-			<!-- movie details normal -->
-			<!-- <control type="group" id="88882"> -->
-				<!-- <include>MovieDetailsTop</include> -->
-                <!-- <top>-140</top> -->
-                <!-- <visible>Control.IsVisible(513)</visible> -->
-                <!-- <visible>Skin.String(View513_DisplayInfo,normal) | [Skin.String(View513_DisplayInfo,normal_delayed) + System.IdleTime(3)]</visible> -->
-				<!-- <animation effect="slide" start="0,-1100" end="0" time="550" tween="cubic" easing="inout">Visible</animation> -->
-			<!-- </control> -->
-            
+			 </control>           
             <!-- movie details small -->
 			<control type="group" id="88883">
 				<include>MovieDetailsTop2</include>
                 <visible>Control.IsVisible(513)</visible>
                 <visible>Skin.String(View513_DisplayInfo,small) | [Skin.String(View513_DisplayInfo,small_delayed) + System.IdleTime(3)]</visible>
 				<animation effect="slide" start="0,-350" end="0" time="350" tween="cubic" easing="inout">Visible</animation>
-			</control>
-				
+			</control>				
 			<control type="group">
-				<!-- <animation type="Conditional" condition="Control.IsVisible(88882)"> -->
-					<!-- <effect type="slide" start="0,-0" end="0,250" time="550" tween="cubic" easing="inout" /> -->
-				<!-- </animation> -->
 				<bottom>11%</bottom>
 				<height>1000</height>
 				<control type="group">
@@ -82,6 +68,7 @@
 									<width>100</width>
 									<height>242</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(10).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>27</posx>
@@ -128,6 +115,7 @@
 									<width>100</width>
 									<height>243</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(9).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>33</posx>
@@ -174,6 +162,7 @@
 									<width>100</width>
 									<height>292</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(8).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>39</posx>
@@ -220,6 +209,7 @@
 									<width>100</width>
 									<height>341</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(7).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>45</posx>
@@ -266,6 +256,7 @@
 									<width>100</width>
 									<height>388</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(6).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>50</posx>
@@ -312,6 +303,7 @@
 									<width>100</width>
 									<height>442</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(5).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>56</posx>
@@ -358,6 +350,7 @@
 									<width>100</width>
 									<height>490</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(4).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>62</posx>
@@ -404,6 +397,7 @@
 									<width>100</width>
 									<height>538</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(3).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>68</posx>
@@ -450,6 +444,7 @@
 									<width>100</width>
 									<height>588</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(2).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>74</posx>
@@ -500,6 +495,7 @@
 									<width>100</width>
 									<height>588</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(1).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>74</posx>
@@ -554,6 +550,7 @@
 									<width>100</width>
 									<height>242</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(9).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>27</posx>
@@ -600,6 +597,7 @@
 									<width>100</width>
 									<height>242</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(8).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>27</posx>
@@ -646,6 +644,7 @@
 									<width>100</width>
 									<height>243</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(7).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>33</posx>
@@ -692,6 +691,7 @@
 									<width>100</width>
 									<height>292</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(6).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>39</posx>
@@ -738,6 +738,7 @@
 									<width>100</width>
 									<height>341</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(5).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>45</posx>
@@ -784,6 +785,7 @@
 									<width>100</width>
 									<height>388</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(4).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>50</posx>
@@ -830,6 +832,7 @@
 									<width>100</width>
 									<height>442</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(3).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>56</posx>
@@ -876,6 +879,7 @@
 									<width>100</width>
 									<height>490</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(2).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>62</posx>
@@ -922,6 +926,7 @@
 									<width>100</width>
 									<height>538</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(1).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>68</posx>
@@ -965,13 +970,14 @@
 									<bordersize>20</bordersize>
 									<fadetime>0</fadetime>
 								</control>
-								<!--<control type="image">
+								<control type="image">
 									<posx>500</posx>
 									<posy>88</posy>
 									<width>100</width>
 									<height>588</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
-								</control>-->
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(0).FolderPath)</visible>
+								</control>
 								<control type="image">
 									<posx>30</posx>
 									<posy>636</posy>
@@ -1018,6 +1024,7 @@
 									<width>100</width>
 									<height>242</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(9).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>27</posx>
@@ -1062,6 +1069,7 @@
 									<width>100</width>
 									<height>243</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(8).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>33</posx>
@@ -1106,6 +1114,7 @@
 									<width>100</width>
 									<height>292</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(7).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>39</posx>
@@ -1150,6 +1159,7 @@
 									<width>100</width>
 									<height>341</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(6).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>45</posx>
@@ -1194,6 +1204,7 @@
 									<width>100</width>
 									<height>388</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(5).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>50</posx>
@@ -1238,6 +1249,7 @@
 									<width>100</width>
 									<height>442</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(4).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>56</posx>
@@ -1282,6 +1294,7 @@
 									<width>100</width>
 									<height>490</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(3).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>62</posx>
@@ -1326,6 +1339,7 @@
 									<width>100</width>
 									<height>538</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(2).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>68</posx>
@@ -1385,6 +1399,7 @@
 									<width>100</width>
 									<height>588</height>
 									<texture flipx="true" border="1">diffuse/side_shadow.png</texture>
+									<visible>!String.IsEmpty(Container.ListItemNoWrap(1).FolderPath)</visible>
 								</control>
 								<control type="image">
 									<posx>74</posx>
@@ -1441,8 +1456,8 @@
                 <onleft>60</onleft>
                 <onright>60</onright>
                 <orientation>horizontal</orientation>
-                <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] + !Control.IsVisible(6002)">Conditional</animation>
-                <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Skin.HasSetting(EnableTouchSupport) | Container.Scrolling | Skin.HasSetting(alwaysShowScrollbars)] | Control.IsVisible(6002)">Conditional</animation>
+                <animation effect="fade" start="0" end="100" time="400" condition="[Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] + !Control.IsVisible(6002)">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="400" condition="![Control.HasFocus(60) | Container.Scrolling | String.IsEqual(Skin.String(scrollbar_visibility),always_show)] | Control.IsVisible(6002)">Conditional</animation>
             </control>
             
 		</control>
@@ -1801,9 +1816,5 @@
                 <param name="listitem" value="(-7)" />
             </include>
 		</control>
-	</include>
-	
-	
-	
-	
+	</include>	
 </includes>

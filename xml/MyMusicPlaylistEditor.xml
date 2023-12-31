@@ -12,23 +12,14 @@
          <!--Header-->
         <include>Header</include>
          <!-- footer -->
-		<control type="image">	
-			<posx>50</posx>
-			<posy>960</posy>
-			<width>1820</width>
-			<height>84</height>
-			<texture colordiffuse="$INFO[Skin.String(FooterPanelColor)]">dialogs/footer_classic.png</texture>
-			<visible>[!Skin.HasSetting(EnableFooterBar) + Skin.HasTheme(classic)]</visible>
-			<include>animation_fade_visible_hidden</include>				
-		</control>
 		<control type="image">
 			<posx>0</posx>
 			<posy>982</posy>
 			<width>100%</width>
 			<height>110</height>
-			<texture border="5">diffuse/panel.png</texture>
+			<texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-			<visible>!Skin.HasTheme(classic) + !Skin.HasSetting(EnableFooterBar)</visible>
+			<visible>!Skin.HasSetting(EnableFooterBar)</visible>
 			<include>animation_fade_visible_hidden</include>
 		</control>
 
@@ -38,7 +29,7 @@
             <posy>240</posy>
             <width>1800</width>
             <height>660</height>
-            <texture border="5">diffuse/panel.png</texture>
+            <texture border="10">diffuse/panel.png</texture>
 			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
         </control>
         <control type="group">
@@ -51,7 +42,7 @@
 				<posy>-20</posy>
 				<width>850</width>
 				<height>600</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 				
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			</control>
@@ -169,7 +160,7 @@
 				<posy>-20</posy>
 				<width>850</width>
 				<height>600</height>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 				
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
 			</control>

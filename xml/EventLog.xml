@@ -9,9 +9,9 @@
         <!--Global Background-->
         <include>GlobalBackground</include>
         <!--Time & Weather-->
-        <include condition="!Skin.HasSetting(DisableHeader)">TimeInfo</include>
+        <include>TimeInfo</include>
 		<!-- Now playing -->
-		<include condition="!Skin.HasTheme(classic)">NowPlayingModern</include>
+		<include>NowPlayingModern</include>
 		
         <!--Header-->
         <include>Header</include>
@@ -53,7 +53,7 @@
                         <top>0</top>
                         <height>80</height>
                         <width>100%</width>
-                        <texture border="5">diffuse/panel.png</texture>
+                        <texture border="10">diffuse/panel.png</texture>
                         <colordiffuse>$INFO[Skin.String(ButtonColor)]</colordiffuse>
                     </control>
                     <control type="image">
@@ -104,7 +104,7 @@
                         <top>0</top>
                         <height>80</height>
                         <width>100%</width>
-                        <texture border="5">diffuse/panel.png</texture>
+                        <texture border="10">diffuse/panel.png</texture>
                         <colordiffuse>$INFO[Skin.String(ButtonFocusColor)]</colordiffuse>
                         <animation effect="fade" start="100" end="30" time="0" condition="!Control.HasFocus(570)">Conditional</animation>
                     </control>
@@ -207,7 +207,7 @@
 		<!--Footer-->
         <include condition="!Skin.HasSetting(EnableFooterBar)">Footer</include>
 		<!--BINGIE Version-->
-        <include>BingieVersion</include>
+        <include>BingieLogo</include>
 		
     </controls>
 </window>

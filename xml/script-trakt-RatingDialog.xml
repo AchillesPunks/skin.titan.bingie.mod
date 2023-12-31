@@ -31,7 +31,7 @@
                     <width>940</width>
                     <height>415</height>
                     <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-					<texture border="5">diffuse/panel.png</texture>
+					<texture border="10">diffuse/panel.png</texture>
 					
                 </control>
 			    <control type="image">
@@ -41,7 +41,7 @@
                     <width>920</width>
                     <height>395</height>
                     <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-					<texture border="5">diffuse/panel.png</texture>
+					<texture border="10">diffuse/panel.png</texture>
                 </control>
                 <control type="image">
                     <description>Trakt Background</description>
@@ -91,18 +91,6 @@
                     <font>Bold34</font>
                     <textcolor>black</textcolor>
 					<shadowcolor>grey</shadowcolor>
-                </control>
-                <control type="button">
-                    <label/>
-                    <description>Close Window button</description>
-                    <posx>0</posx>
-                    <posy>-48</posy>
-                    <width>96</width>
-                    <height>48</height>
-                    <onclick>PreviousMenu</onclick>
-                    <texturefocus>dialogs/trakt/close-fo.png</texturefocus>
-                    <texturenofocus>dialogs/trakt/close-nofo.png</texturenofocus>
-					<visible>Skin.HasSetting(EnableTouchSupport)</visible>
                 </control>
             </control>
             <!-- Dialogue Button content -->

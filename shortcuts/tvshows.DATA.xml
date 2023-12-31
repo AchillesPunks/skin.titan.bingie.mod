@@ -4,7 +4,7 @@
 		<label>31051</label>
 		<label2>TV shows</label2>
 		<defaultID>369</defaultID>
-		<icon>$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</icon>
+		<icon />
 		<thumb />
 		<action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
 	</shortcut>
@@ -12,23 +12,23 @@
 		<label>$ADDON[script.skin.helper.widgets 32045]</label>
 		<label2>TV shows</label2>
 		<defaultID>369</defaultID>
-		<icon>$INFO[Window(Home).Property(SkinHelper.RecentEpisodesBackground)]</icon>
+		<icon/>
 		<thumb />
 		<action>ActivateWindow(Videos,plugin://script.skin.helper.widgets/?action=recent&amp;mediatype=tvshows&amp;limit=250,return)</action>
 	</shortcut>
 	<shortcut>
 		<label>20387</label>
-		<label2>Videos</label2>
+		<label2>TV shows</label2>
 		<defaultID>20387</defaultID>
-		<icon>$INFO[Window(Home).Property(SkinHelper.RecentEpisodesBackground)]</icon>
+		<icon />
 		<thumb />
 		<action>ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</action>
 	</shortcut>
 	<shortcut>
 		<label>626</label>
-		<label2>Videos</label2>
+		<label2>TV shows</label2>
 		<defaultID>626</defaultID>
-		<icon>$INFO[Window(Home).Property(SkinHelper.InProgressShowsBackground)]</icon>
+		<icon />
 		<thumb />
 		<action>ActivateWindow(Videos,videodb://inprogresstvshows,return)</action>
 	</shortcut>
@@ -36,7 +36,7 @@
 		<label>135</label>
 		<label2>TV shows</label2>
 		<defaultID>135</defaultID>
-		<icon>resource://resource.images.skinicons.wide/defaultgenre.png</icon>
+		<icon />
 		<thumb />
 		<action>ActivateWindow(Videos,videodb://tvshows/genres/,return)</action>
 	</shortcut>
@@ -44,8 +44,16 @@
 		<label>$ADDON[script.skin.helper.widgets 32043]</label>
 		<label2>TV shows</label2>
 		<defaultID>369</defaultID>
-		<icon/>
+		<icon />
 		<thumb />
 		<action>ActivateWindow(Videos,plugin://script.skin.helper.widgets/?action=nextaired&amp;mediatype=episodes&amp;limit=250,return)</action>
+	</shortcut>
+	<shortcut>
+		<label>137</label>
+		<label2>TV shows</label2>
+		<defaultID>137</defaultID>
+		<icon />
+		<thumb />
+		<action>ActivateWindow(1106,return)</action>
 	</shortcut>
 </shortcuts>

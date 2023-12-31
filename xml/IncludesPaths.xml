@@ -17,7 +17,6 @@
     **  5009|fromwriter
         5010|info=crew|true
     **  5011|info=upnext|true
-	**  5012|info=videos|true
 	**  5014|fromcreator
         5091|info=posters|true
         5092|info=fanart|true
@@ -30,8 +29,8 @@
     </variable>
 
     <variable name="Path_Recs_Basic">
-        <value condition="String.IsEqual(ListItem.DBType,movie)">5000|info=cast&amp;aggregate=true|true|info$VAR[Path_Recs_Collection,||5002|,|false|info]||5091|info=posters|true|SetFocus(5291)||5092|info=fanart|true|SetFocus(5292)||5093|info=trakt_comments|true|text||5010|info=crew&amp;aggregate=true|true|info$VAR[Path_Recs_Videos,||5012|,|true|play]</value>
-        <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">5000|info=cast&amp;aggregate=true|true|info$VAR[Path_Recs_Season,||5001|,|true|browse]||5091|info=posters|true|SetFocus(5291)||5092|info=fanart|true|SetFocus(5292)||5093|info=trakt_comments|true|text||5010|info=crew&amp;aggregate=true|true|info$VAR[Path_Recs_UpNext,||5011|,|true|play]$VAR[Path_Recs_Videos,||5012|,|true|play]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie)">5000|info=cast&amp;aggregate=true|true|info$VAR[Path_Recs_Collection,||5002|,|false|info]||5091|info=posters|true|SetFocus(5291)||5092|info=fanart|true|SetFocus(5292)||5093|info=trakt_comments|true|text||5010|info=crew&amp;aggregate=true|true|info</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">5000|info=cast&amp;aggregate=true|true|info$VAR[Path_Recs_Season,||5001|,|true|browse]||5091|info=posters|true|SetFocus(5291)||5092|info=fanart|true|SetFocus(5292)||5093|info=trakt_comments|true|text||5010|info=crew&amp;aggregate=true|true|info$VAR[Path_Recs_UpNext,||5011|,|true|play]</value>
     </variable>
 
     <variable name="Path_Recs_Collection">
@@ -45,7 +44,7 @@
     </variable>
 
     <variable name="Path_Recs_Genre">
-        <value condition="!String.IsEmpty(ListItem.Genre)">info=discover&amp;with_genres=$ESCINFO[ListItem.Genre]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]</value>
+        <value condition="!String.IsEmpty(Container(99950).ListItem.Property(Genre.1.TMDb_ID))">info=discover&amp;with_genres=$INFO[Container(99950).ListItem.Property(Genre.1.TMDb_ID)]&amp;with_id=True$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]</value>
     </variable>
 
     <variable name="Path_Recs_Season">
@@ -95,8 +94,14 @@
     </variable>
 
     <variable name="Path_Recs_Query">
+		<value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.UniqueID(tmdb))">tmdb_id=$INFO[ListItem.UniqueID(tmdb)]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Property(tmdb_id))">tmdb_id=$INFO[ListItem.Property(tmdb_id)]</value>
         <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Property(imdb_id))">imdb_id=$INFO[ListItem.Property(imdb_id)]</value>
         <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt)">imdb_id=$INFO[ListItem.IMDBNumber]</value>
+		<value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.UniqueID(tmdb))">tmdb_id=$INFO[ListItem.UniqueID(tmdb)]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.UniqueID(tvshow.tmdb))">tmdb_id=$INFO[ListItem.UniqueID(tvshow.tmdb)]</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(tmdb_id))">tmdb_id=$INFO[ListItem.Property(tmdb_id)]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)]</value>
         <value condition="[String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode) | String.StartsWith(ListItem.Label,Season)] + !String.IsEmpty(ListItem.TvShowTitle)">query='$ESCINFO[ListItem.TvShowTitle]'$INFO[ListItem.Year,$COMMAepisode_year=,]</value>
         <value condition="$EXP[Exp_IsPersonInfo] + !String.IsEmpty(ListItem.Property(tmdb_id))">tmdb_id=$INFO[ListItem.Property(tmdb_id)]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">query='$ESCINFO[ListItem.Title]'$INFO[ListItem.Year,$COMMAyear=,]</value>
@@ -119,10 +124,6 @@
 
     <variable name="Path_Recs_Writer">
         <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Property(Writer.1.name))">$VAR[Path_Recs_Writer_Screenplay,info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Writer&amp;query=,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]</value>
-    </variable>
-	
-		<variable name="Path_Param_Widget">
-        <value condition="Skin.HasSetting(fanarttvinfodialog)">&amp;fanarttv=false</value>
     </variable>
 	
 	<variable name="Path_Param_Search_Widget">
@@ -170,7 +171,7 @@
     </variable>
 	
 	<variable name="Path_Recommendations">
-        <value>plugin://plugin.video.themoviedb.helper?info=recommendations$VAR[Path_Param_Widget]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value>plugin://plugin.video.themoviedb.helper?info=recommendations$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="Path_Videos">
@@ -201,7 +202,7 @@
     </variable>
 	
 	 <variable name="Path_FromGenre">
-        <value condition="!String.IsEmpty(ListItem.Genre)">plugin://plugin.video.themoviedb.helper?info=discover&amp;with_genres=$INFO[ListItem.Genre]$VAR[Path_Param_Widget]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="!String.IsEmpty(Container(99950).ListItem.Property(Genre.1.TMDb_ID))">plugin://plugin.video.themoviedb.helper?info=discover&amp;with_genres=$INFO[Container(99950).ListItem.Property(Genre.1.TMDb_ID)]&amp;with_id=True$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="Path_FromDirector_Name">
@@ -210,8 +211,8 @@
     </variable>
 	
 	<variable name="Path_FromDirector">
-        <value condition="String.IsEqual(ListItem.DBType,movie)">plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director$VAR[Path_FromDirector_Name,&amp;query=,]$VAR[Path_Param_Widget]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
-		<value condition="String.IsEqual(ListItem.DBType,episode)">plugin://plugin.video.themoviedb.helper?info=crew_in_tvshows&amp;type=person&amp;filter_key=job&amp;filter_value=Director$VAR[Path_FromDirector_Name,&amp;query=,]$VAR[Path_Param_Widget]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie)">plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director$VAR[Path_FromDirector_Name,&amp;query=,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+		<value condition="String.IsEqual(ListItem.DBType,episode)">plugin://plugin.video.themoviedb.helper?info=crew_in_tvshows&amp;type=person&amp;filter_key=job&amp;filter_value=Director$VAR[Path_FromDirector_Name,&amp;query=,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="Path_FromCreator_Name">
@@ -219,7 +220,7 @@
     </variable>
 	
 	<variable name="Path_FromCreator">
-        <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)">plugin://plugin.video.themoviedb.helper?info=crew_in_tvshows&amp;type=person&amp;filter_key=job&amp;filter_value=Creator$VAR[Path_FromCreator_Name,&amp;query=,]$VAR[Path_Param_Widget]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)">plugin://plugin.video.themoviedb.helper?info=crew_in_tvshows&amp;type=person&amp;filter_key=job&amp;filter_value=Creator$VAR[Path_FromCreator_Name,&amp;query=,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="Path_FromWriter_Screenplay">
@@ -237,179 +238,183 @@
     </variable>
 	
 	<variable name="Path_FromWriter">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Property(Writer.1.name))">$VAR[Path_FromWriter_Screenplay,plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Writer&amp;query=,]$VAR[Path_Param_Widget]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Property(Writer.1.name))">$VAR[Path_FromWriter_Screenplay,plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Writer&amp;query=,]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
     <variable name="Path_FromStudio">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Property(Studio.1.TMDB_ID))">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_companies=$INFO[Container(99950).ListItem.Property(Studio.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Widget]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
-        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(Container(99950).ListItem.Property(Network.1.TMDB_ID))">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=tv&amp;with_networks=$INFO[Container(99950).ListItem.Property(Network.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Widget]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Property(Studio.1.TMDB_ID))">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_companies=$INFO[Container(99950).ListItem.Property(Studio.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(Container(99950).ListItem.Property(Network.1.TMDB_ID))">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=tv&amp;with_networks=$INFO[Container(99950).ListItem.Property(Network.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="Path_FromYear">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;primary_release_year=$INFO[ListItem.Year]$VAR[Path_Param_Widget]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
-        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=tv&amp;first_air_date_year=$INFO[ListItem.Year]$VAR[Path_Param_Widget]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;primary_release_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=tv&amp;first_air_date_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="Path_Similar">
 		<value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.DBID,0) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.widgets/?action=similar&mediatype=movies&imdbid=$INFO[ListItem.IMDBNumber]$VAR[Path_Param_Database]</value>
 		<value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.IsEmpty(ListItem.DBID)">plugin://script.skin.helper.widgets/?action=similar&mediatype=tvshows&imdbid=$INFO[ListItem.IMDBNumber]$VAR[Path_Param_Database]</value>
-        <value>plugin://plugin.video.themoviedb.helper?info=similar&amp;nextpage=false$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]$VAR[Path_Param_Widget]</value>
+        <value>plugin://plugin.video.themoviedb.helper?info=similar&amp;nextpage=false$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]</value>
+    </variable>
+	
+	<variable name="Path_Collection">
+        <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Set)">plugin://plugin.video.themoviedb.helper?info=collection&amp;tmdb_type=collection&amp;query=$INFO[ListItem.Set]&amp;nextpage=false$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]</value>
     </variable>
 	
 	<variable name="Path_CastInMovies">
-        <value>plugin://plugin.video.themoviedb.helper?info=stars_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]$VAR[Path_Param_Widget]&amp;nextpage=false</value>
+        <value>plugin://plugin.video.themoviedb.helper?info=stars_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
     <variable name="Path_CastInShows">
-        <value>plugin://plugin.video.themoviedb.helper?info=stars_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]$VAR[Path_Param_Widget]&amp;nextpage=false</value>
+        <value>plugin://plugin.video.themoviedb.helper?info=stars_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
     <variable name="Path_CrewInMovies">
-        <value>plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]$VAR[Path_Param_Widget]&amp;nextpage=false</value>
+        <value>plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
     <variable name="Path_CrewInShows">
-        <value>plugin://plugin.video.themoviedb.helper?info=crew_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]$VAR[Path_Param_Widget]&amp;nextpage=false</value>
+        <value>plugin://plugin.video.themoviedb.helper?info=crew_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="ActionAdvantureMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/actionadventure.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=28%20%2f%2012&amp;with_id=True&amp;with_separator=OR&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/actionadventure.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=28%20%2f%2012&amp;with_id=True&amp;with_separator=OR&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="ActionAdvantureTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvactionadventure.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10759&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16%20%2f%2010766$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvactionadventure.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10759&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16%20%2f%2010766$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="DramaMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/dramas.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/dramas.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="DramaTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvdramas.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvdramas.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="ComedyMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/comedies.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/comedies.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="ComedyTVShow">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvcomedies.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvcomedies.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="HorrorMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/horror.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=27&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/horror.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=27&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="DocumentaryMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/documentaries.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/documentaries.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="DocumentaryTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvdocumentaries.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvdocumentaries.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="CrimeMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/crime.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/crime.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="CrimeTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvcrime.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvcrime.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="FantasyMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/fantasy.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=14&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/fantasy.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=14&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="SciFiFantasyTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvscififantasy.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10765&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvscififantasy.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10765&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="MusicMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/musicandmusical.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10402&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/musicandmusical.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10402&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="RomanceMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/romance.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10749&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/romance.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10749&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="SciFiMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/scifi.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=878&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/scifi.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=878&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="ThrillerMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/thriller.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=53&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/thriller.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=53&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="WesternMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/westerns.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/westerns.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="WesternTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvwesterns.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvwesterns.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="AnimationMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/animations.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=16&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/animations.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=16&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="AnimationTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvanimations.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=16&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvanimations.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=16&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="AnimeMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/anime.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_id=True&amp;with_keywords=210024&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/anime.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_id=True&amp;with_keywords=210024&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="FamilyMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/kidsandfamily.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10751&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/kidsandfamily.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10751&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="FamilyTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvkidsandfamily.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10751%20%2f%2010762&amp;with_id=True&amp;with_separator=OR&amp;without_genres=10766$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvkidsandfamily.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10751%20%2f%2010762&amp;with_id=True&amp;with_separator=OR&amp;without_genres=10766$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="HistoryWarMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/historywar.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=36%20%2f%2010752&amp;with_id=True&amp;with_separator=OR$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/historywar.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=36%20%2f%2010752&amp;with_id=True&amp;with_separator=OR$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="WarPoliticsTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvwarpolitics.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10768&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvwarpolitics.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10768&amp;with_id=True&amp;with_separator=AND$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="MysteryMovies">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/mysteries.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/mysteries.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="MysteryTVShows">
-		<value condition="Skin.HasSetting(EnableLibraryList)">special://skin/extras/categories/tvmysteries.xsp</value>
-        <value condition="Skin.HasSetting(EnableTMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
+		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/tvmysteries.xsp</value>
+        <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>
     </variable>
 	
 	<variable name="InfoDialogTrailers">

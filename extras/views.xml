@@ -8,7 +8,6 @@
     <view id="Big List" value="51" languageid="31444" type="all,!addons,!images,!tvchannels,!tvrecordings" />
     <view id="Big List 2" value="504" languageid="31643" type="all,!addons,!images,!tvchannels,!tvrecordings" />
     <view id="Low List" value="515" languageid="31442" type="all,!addons,!images,!tvchannels,!tvrecordings" />	
-	<view id="Slim List" value="516" languageid="31450" type="all,!addons,!images,!tvchannels,!tvrecordings" />
     <view id="Right List" value="522" languageid="31722" type="all,!addons,!images,!tvchannels,!tvrecordings" />
     <view id="Panel" value="54" languageid="31680" type="movies,setmovies,tvshows,seasons,sets,actors" />
     <view id="Panel details" value="53" languageid="31422" type="movies,setmovies,tvshows,seasons,sets,actors" />

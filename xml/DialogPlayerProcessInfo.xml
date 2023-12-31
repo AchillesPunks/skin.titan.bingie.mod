@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">5550</defaultcontrol>
-		<animation effect="slide" start="0,-400" end="0,0" time="200" condition="!Skin.HasSetting(LowPerformanceMode)">WindowOpen</animation>
-		<animation effect="slide" start="0,0" end="0,-400" time="200" condition="!Skin.HasSetting(LowPerformanceMode)">WindowClose</animation>
-		<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="300" time="250" reversible="false" condition="!Skin.HasSetting(LowPerformanceMode)">Hidden</animation>
+		<animation effect="slide" start="0,-400" end="0,0" time="200">WindowOpen</animation>
+		<animation effect="slide" start="0,0" end="0,-400" time="200">WindowClose</animation>
+		<animation effect="slide" start="0,0" end="0,-400" tween="cubic" easing="out" delay="300" time="250" reversible="false">Hidden</animation>
 	<controls>
 		<control type="group">
 			<top>0</top>
@@ -12,7 +12,7 @@
             <height>380</height>
 			<control type="image">
 				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
-				<texture border="5">diffuse/panel.png</texture>
+				<texture border="10">diffuse/panel.png</texture>
 			</control>
 			<control type="group">
 				<left>7</left>

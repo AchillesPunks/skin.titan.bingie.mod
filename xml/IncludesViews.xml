@@ -1714,7 +1714,7 @@
 
 		<control type="image">
 			<left>4</left>
-			<top>45</top>
+			<bottom>8</bottom>
 			<width>16</width>
 			<height>16</height>
 			<texture>pvr/icons/pvr_record.png</texture>
@@ -1751,7 +1751,7 @@
 
 		<control type="image">
 			<left>4</left>
-			<top>45</top>
+			<bottom>8</bottom>
 			<width>16</width>
 			<height>16</height>
 			<texture>pvr/icons/pvr_record.png</texture>

@@ -68,6 +68,7 @@
 <!-- Side Menu Background Panel Color -->
     <include name="Dim_Overlay">
         <control type="group">
+            <visible>!Skin.HasSetting(BackgroundNowPlaying)</visible>
             <control type="image">
                 <include>FullscreenDimensions</include>
                 <visible>$PARAM[visibility]</visible>
@@ -172,6 +173,11 @@
         <control type="group">
             <include condition="String.IsEqual(Skin.String(season_greetings),halloween_animation)">pumpkin</include>
         </control>		
+
+		<control type="videowindow">
+            <visible>Skin.HasSetting(BackgroundNowPlaying)</visible>
+			<include>FullscreenDimensions</include>
+		</control>
 
     </include>
 	

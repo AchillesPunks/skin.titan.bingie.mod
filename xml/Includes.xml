@@ -98,11 +98,11 @@
 
     <expression name="IsBingieViewsVisible">Window.IsVisible(Home) | Window.IsVisible(1109) | Window.IsVisible(1119) | Window.IsVisible(1110) | Window.IsVisible(1111) | Window.IsVisible(1112) | Window.IsVisible(1113) | Window.IsVisible(1114) | Window.IsVisible(1115) | Window.IsVisible(1116) | Window.IsActive(1118)</expression>
 
-    <expression name="IsRecognizedVideoContent">VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording</expression>
+    <expression name="IsRecognizedVideoContent">VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files) | Pvr.IsPlayingRecording</expression>
 
     <expression name="IsPlayingUnrecognizedContent">Player.HasVideo + Player.Playing + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv) | VideoPlayer.Content(files) | Pvr.IsPlayingRecording]</expression>
 
-    <expression name="IsPlayingRecognizedContent">Player.Paused + Player.HasVideo | Player.HasVideo + Player.Playing + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | Pvr.IsPlayingRecording]</expression>
+    <expression name="IsPlayingRecognizedContent">Player.Paused + Player.HasVideo | Player.HasVideo + Player.Playing + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files) | Pvr.IsPlayingRecording]</expression>
 
     <expression name="IsMainMenuOpened">ControlGroup(9001).HasFocus() | Control.HasFocus(900) | String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)</expression>
 

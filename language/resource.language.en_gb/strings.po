@@ -3883,3 +3883,7 @@ msgstr ""
 msgctxt "#320237"
 msgid "Enable air date"
 msgstr ""
+
+msgctxt "#320238"
+msgid "Show Background \"Now Playing\" Video"
+msgstr ""

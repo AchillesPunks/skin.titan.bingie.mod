@@ -68,7 +68,6 @@
 <!-- Side Menu Background Panel Color -->
     <include name="Dim_Overlay">
         <control type="group">
-            <visible>!Skin.HasSetting(BackgroundNowPlaying)</visible>
             <control type="image">
                 <include>FullscreenDimensions</include>
                 <visible>$PARAM[visibility]</visible>

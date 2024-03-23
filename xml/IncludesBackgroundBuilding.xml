@@ -148,7 +148,7 @@
             <width>1</width>
             <height>1</height>
             <texture background="true">$VAR[fanartBackground]</texture>
-            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
+            <visible>![Skin.HasSetting(BackgroundNowPlaying) + $EXP[IsPlayingRecognizedContent]] + [Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523) | Control.IsVisible(526)]</visible>
             <include condition="Window.IsMedia">disabledFanart</include>
         </control>
         <!-- hidden container for categories fanart -->

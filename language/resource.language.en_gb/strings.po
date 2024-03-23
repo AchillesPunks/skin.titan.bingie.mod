@@ -3883,3 +3883,23 @@ msgstr ""
 msgctxt "#320237"
 msgid "Enable air date"
 msgstr ""
+
+msgctxt "#320238"
+msgid "Bingie Screensaver - Slow Down Image Change Time"
+msgstr ""
+
+msgctxt "#320239"
+msgid "Bingie Screensaver - Slow Down Image Scroll Speed"
+msgstr ""
+
+msgctxt "#320240"
+msgid "Bingie Screensaver - Disable Netflix Logo"
+msgstr ""
+
+msgctxt "#320241"
+msgid "Bingie Screensaver - Disable Clearlogo"
+msgstr ""
+
+msgctxt "#320242"
+msgid "Show Background \"Now Playing\" Video"
+msgstr ""

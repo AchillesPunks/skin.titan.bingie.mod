@@ -1077,6 +1077,13 @@
             <onclick>Skin.ToggleSetting(RandomizeBackground)</onclick>
             <selected>Skin.HasSetting(RandomizeBackground)</selected>
         </control>
+        <!--background now playing-->
+        <control type="radiobutton" id="320238">
+            <include>SkinSettings_Button</include>
+            <label>320238</label>
+            <onclick>Skin.ToggleSetting(BackgroundNowPlaying)</onclick>
+            <selected>Skin.HasSetting(BackgroundNowPlaying)</selected>
+        </control>
     </include>
 
     <!-- Media Library Views Settings -->

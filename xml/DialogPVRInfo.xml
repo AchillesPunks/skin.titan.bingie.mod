@@ -242,6 +242,13 @@
                     <include>DialogButtonOther</include>
                     <visible>Window.IsActive(PVRRecordingInfo)</visible> 
                 </control>
+				<control type="button" id="10">
+                    <!--play programme-->
+                    <width>289</width>
+                    <label>19190</label>
+                    <include>DialogButtonOther</include>
+                    <visible>Window.IsActive(PVRGuideInfo)</visible> 
+                </control>
 				<control type="button" id="4">
 					<width>289</width>
 					<description>Find similar</description>

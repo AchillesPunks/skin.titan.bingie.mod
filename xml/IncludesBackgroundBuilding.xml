@@ -148,7 +148,7 @@
             <width>1</width>
             <height>1</height>
             <texture background="true">$VAR[fanartBackground]</texture>
-            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
+            <visible>![Skin.HasSetting(BackgroundNowPlaying) + $EXP[IsPlayingRecognizedContent]] + [Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523) | Control.IsVisible(526)]</visible>
             <include condition="Window.IsMedia">disabledFanart</include>
         </control>
         <!-- hidden container for categories fanart -->
@@ -162,7 +162,14 @@
 		
 		<include condition="Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(EnableNativeExtraFanart)">Native_extraFanartBackground</include>
 
-        <include>DialogOverlay</include>
+		<control type="videowindow">
+            <visible>Skin.HasSetting(BackgroundNowPlaying)</visible>
+			<include>FullscreenDimensions</include>			
+		</control>
+
+		<include condition="Skin.HasSetting(BackgroundNowPlaying)">DialogOverlayExtra</include>
+
+        <include condition="!Skin.HasSetting(BackgroundNowPlaying)">DialogOverlay</include>
 
         <!-- Snow Effect -->
         <control type="group">
@@ -171,7 +178,7 @@
 		 <!-- Halloween Effect -->
         <control type="group">
             <include condition="String.IsEqual(Skin.String(season_greetings),halloween_animation)">pumpkin</include>
-        </control>		
+        </control>
 
     </include>
 	

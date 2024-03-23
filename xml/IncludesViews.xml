@@ -1711,25 +1711,18 @@
         
         <!--Watched Overlay-->
         <include>PVRWatchedIndicator</include>
-        
-        <control type="label" id="1">
-            <!--Channel Now Playing (with recording or timer active)-->
-            <visible>[ListItem.IsRecording | ListItem.HasTimer | ListItem.IsPlaying]</visible>
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>0</width>
-            <height>92%</height>
-            <include condition="!String.IsEqual(Skin.String(GuideRows),7)">Font_Reg24</include>
-            <include condition="Skin.String(GuideRows, 7)">Font_Reg31</include>
-            <aligny>center</aligny>
-            <textoffsetx>55</textoffsetx>
-            <textcolor>$INFO[Skin.String(PVRGuideItemTextColorUnfocus)]</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-        </control>
+
+		<control type="image">
+			<left>4</left>
+			<bottom>8</bottom>
+			<width>16</width>
+			<height>16</height>
+			<texture>pvr/icons/pvr_record.png</texture>
+			<visible>[ListItem.IsRecording | ListItem.HasRecording | ListItem.IsPlayable]</visible>
+		</control>
         
         <control type="label" id="1">
             <!--Channel Now Playing-->
-            <visible>![ListItem.IsRecording | ListItem.HasTimer | ListItem.IsPlaying]</visible>
             <posx>0</posx>
             <posy>0</posy>
             <width>0</width>
@@ -1755,26 +1748,18 @@
         </control>
         
         <include>PVRWatchedIndicator</include>
-        
-        <control type="label" id="1">
-            <!--Channel Now Playing (with recording or timer active)-->
-            <visible>[ListItem.IsRecording | ListItem.HasTimer | ListItem.IsPlaying]</visible>
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>0</width>
-            <height>92%</height>
-            <include condition="!String.IsEqual(Skin.String(GuideRows),7)">Font_Reg24</include>
-            <include condition="Skin.String(GuideRows, 7)">Font_Reg31</include>
-            <aligny>center</aligny>
-            <textoffsetx>55</textoffsetx>
-            <textcolor>$INFO[Skin.String(PVRGuideItemTextColorFocus)]</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
-        </control>
+
+		<control type="image">
+			<left>4</left>
+			<bottom>8</bottom>
+			<width>16</width>
+			<height>16</height>
+			<texture>pvr/icons/pvr_record.png</texture>
+			<visible>[ListItem.IsRecording | ListItem.HasRecording | ListItem.IsPlayable]</visible>
+		</control>
         
         <control type="label" id="1">
             <!--Channel Now Playing-->
-            <visible>![ListItem.IsRecording | ListItem.HasTimer | ListItem.IsPlaying]</visible>
             <posx>0</posx>
             <posy>0</posy>
             <width>0</width>

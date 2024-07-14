@@ -84,52 +84,54 @@
 	</include>
 
 	<!-- Movie Showcase Variables: Main thumbs -->
-    <include name="MovieShowcaseThumb">
-        <posx>41</posx>
-        <posy>-50</posy>
+    <!-- Main Thumb Movie Showcase -->
+	<include name="MovieShowcaseThumbMain">
+         <posx>54</posx>
+        <posy>-12</posy>
         <width>300</width>
-        <height>441</height>
+        <height>421</height>
         <align>center</align>
-        <aspectratio scalediffuse="false">scale</aspectratio>
+        <aspectratio scalediffuse="false">stretch</aspectratio>
 		<include condition="!Skin.HasSetting(EmbyCovertArtEnabled)">poster_shadow</include>
 		<bordersize>20</bordersize>
     </include>
-    <include name="MovieShowcaseWatchedPos">
-        <posx>296</posx>
-        <posy>-19</posy>
+	<!-- Thumb Movie Showcase -->
+	<include name="MovieShowcaseThumb">
+        <posx>54</posx>
+        <posy>-12</posy>
+        <width>300</width>
+        <height>421</height>
+        <align>center</align>
+        <aspectratio scalediffuse="false">stretch</aspectratio>
+		<include condition="!Skin.HasSetting(EmbyCovertArtEnabled)">poster_shadow</include>
+		<bordersize>20</bordersize>
+    </include>
+    <!-- Movie Watched Posistion -->
+	<include name="MovieShowcaseWatchedPos">
+        <posx>274</posx>
+        <posy>7</posy>
         <width>60</width>
         <height>60</height>
+		<animation type="Conditional" condition="Skin.HasTheme(classic)">
+            <effect type="slide" end="4,-3" time="0"  />
+		</animation>
     </include>
-	<include name="MovieShowcaseWatchedPos1">
-		<posx>261</posx>
-		<posy>-30</posy>
-		<width>60</width>
-		<height>60</height>
-	</include>
-    <include name="MovieShowcaseThumbMain">
-         <posx>27</posx>
-        <posy>-40</posy>
-        <width>350</width>
-        <height>500</height>
-        <align>center</align>
-        <aspectratio scalediffuse="false">scale</aspectratio>
-		<include condition="!Skin.HasSetting(EmbyCovertArtEnabled)">poster_shadow</include>
-		<bordersize>20</bordersize>
-    </include>
-    <include name="MovieShowcaseThumbReflectionMain">
-        <posx>47</posx>
-        <posy>440</posy>
-        <width>310</width>
-        <height>580</height>
+    <!-- Reflection Main -->
+	<include name="MovieShowcaseThumbReflectionMain">
+        <posx>74</posx>
+        <posy>393</posy>
+        <width>260</width>
+        <height>680</height>
         <colordiffuse>FFFFFFFF</colordiffuse>
         <aspectratio scalediffuse="false">stretch</aspectratio>
     </include>
-    <include name="MovieShowcaseThumbReflection">
-        <posx>61</posx>
-        <posy>370</posy>
+    <!-- Reflection -->
+	<include name="MovieShowcaseThumbReflection">
+        <posx>74</posx>
+        <posy>393</posy>
         <width>260</width>
-        <height>1000</height>
-        <colordiffuse>80FFFFFF</colordiffuse>
+        <height>800</height>
+        <colordiffuse>FFFFFFFF</colordiffuse>
         <aspectratio scalediffuse="false">stretch</aspectratio>
     </include>
     <!--ShowcaseMovies-->
@@ -158,7 +160,7 @@
                         <visible>Control.IsVisible(524)</visible>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-7</include>
                     </control>
                 </control>
@@ -178,7 +180,7 @@
                         <visible>Control.IsVisible(524)</visible>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-6</include>
                     </control>
                 </control>
@@ -198,7 +200,7 @@
                         <visible>Control.IsVisible(524)</visible>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-5</include>
                     </control>
                 </control>
@@ -218,7 +220,7 @@
                         <visible>Control.IsVisible(524)</visible>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-4</include>
                     </control>
                 </control>
@@ -238,7 +240,7 @@
                         <visible>Control.IsVisible(524)</visible>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-3</include>
                     </control>
                 </control>
@@ -256,14 +258,14 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-2Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-2</include>
                     </control>
                 </control>
             </control>
             <control type="group">
                 <!-- +6 Fade In-->
-                <posx>1660</posx>
+                <posx>1635</posx>
                 <visible>!Container.OnNext</visible>
                 <animation effect="fade" start="0" end="100" delay="0" time="250" tween="cubic" easing="in" reversible="false">Visible</animation>
                 <animation effect="rotatey" center="2205" start="55" end="55" time="0" condition="true">Conditional</animation>
@@ -277,13 +279,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem6Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal6</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>1524</posx>
+                <posx>1500</posx>
                 <animation effect="rotatey" center="2070" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -295,13 +297,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem5Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal5</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>1389</posx>
+                <posx>1365</posx>
                 <animation effect="rotatey" center="1935" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -313,13 +315,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem4Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal4</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>1252</posx>
+                <posx>1230</posx>
                 <animation effect="rotatey" center="1800" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -331,13 +333,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem3Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal3</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>1115</posx>
+                <posx>1095</posx>
                 <animation effect="rotatey" center="1665" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -349,13 +351,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem2Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal2</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>981</posx>
+                <posx>960</posx>
                 <animation effect="rotatey" center="1530" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -367,7 +369,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem1Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal1</include>
                     </control>
                 </control>
@@ -390,7 +392,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem0Var]</texture>
                         </control>
                         <control type="group">
-                            <include>MovieShowcaseWatchedPos1</include>
+                            <include>MovieShowcaseWatchedPos</include>
                             <include>WatchedIndicatorNormal</include>
                         </control>
                     </control>
@@ -409,7 +411,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-1Var]</texture>
                         </control>
                         <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-1</include>
                     </control>
                     </control>
@@ -424,7 +426,7 @@
             <animation effect="slide" end="135,0" time="250" reversible="false">Hidden</animation>
             <control type="group">
                 <!-- +7 Fade out-->
-                <posx>1525</posx>
+                <posx>1500</posx>
                 <visible>Container.OnPrevious</visible>
                 <animation effect="fade" start="100" end="0" time="250" tween="cubic" easing="out" reversible="false">Hidden</animation>
                 <animation effect="rotatey" center="2070" start="55" end="55" time="0" condition="true">Conditional</animation>
@@ -438,7 +440,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem7Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal7</include>
                     </control>
 					
@@ -446,7 +448,7 @@
                 </control>
             </control>
             <control type="group">
-                <posx>1389</posx>
+                <posx>1365</posx>
                 <animation effect="rotatey" center="1935" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -458,13 +460,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem6Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal6</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>1254</posx>
+                <posx>1230</posx>
                 <animation effect="rotatey" center="1800" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -476,13 +478,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem5Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal5</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>1115</posx>
+                <posx>1095</posx>
                 <animation effect="rotatey" center="1665" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -494,13 +496,13 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem4Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal4</include>
                     </control>
                 </control>
             </control>
             <control type="group">
-                <posx>980</posx>
+                <posx>960</posx>
                 <animation effect="rotatey" center="1530" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <control type="group">
                     <control type="image">
@@ -512,7 +514,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem3Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal3</include>
                     </control>
                 </control>
@@ -530,7 +532,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem2Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal2</include>
                     </control>
                 </control>
@@ -551,7 +553,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-6Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-6</include>
                     </control>
                 </control>
@@ -569,7 +571,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-5Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-5</include>
                     </control>
                 </control>
@@ -587,7 +589,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-4Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-4</include>
                     </control>
                 </control>
@@ -605,7 +607,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-3Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-3</include>
                     </control>
                 </control>
@@ -623,7 +625,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-2Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-4</include>
                     </control>
                 </control>
@@ -641,7 +643,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-1Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-1</include>
                     </control>
                 </control>
@@ -683,7 +685,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem1Var]</texture>
                         </control>
                         <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal1</include>
                         </control>
                     </control>
@@ -741,7 +743,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-6Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-6</include>
                         </control>
                 </control>
@@ -764,7 +766,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-5Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-5</include>
                         </control>
                 </control>
@@ -787,7 +789,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-4Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-4</include>
                         </control>
                 </control>
@@ -810,7 +812,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-3Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-3</include>
                         </control>
                 </control>
@@ -833,7 +835,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-2Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-2</include>
                         </control>
                 </control>
@@ -857,14 +859,14 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem-1Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal-1</include>
                         </control>
                 </control>
             </control>
             <control type="group">
                 <!-- +6 -->
-                <posx>1525</posx>
+                <posx>1500</posx>
                 <animation effect="rotatey" center="2070" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
                     <effect type="rotatey" center="2070" start="0" end="-55" time="250" tween="cubic" easing="inout" />
@@ -880,14 +882,14 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem6Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal6</include>
 					</control>
                 </control>
             </control>
             <control type="group">
                 <!-- +5 -->
-                <posx>1389</posx>
+                <posx>1365</posx>
                 <animation effect="rotatey" center="1935" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
                     <effect type="rotatey" center="1935" start="0" end="-55" time="250" tween="cubic" easing="inout" />
@@ -903,14 +905,14 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem5Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal5</include>
 					</control>
                 </control>
             </control>
             <control type="group">
                 <!-- +4 -->
-                <posx>1254</posx>
+                <posx>1230</posx>
                 <animation effect="rotatey" center="1800" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
                     <effect type="rotatey" center="1800" start="0" end="-55" time="250" tween="cubic" easing="inout" />
@@ -926,14 +928,14 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem4Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal4</include>
 					</control>
                 </control>
             </control>
             <control type="group">
                 <!-- +3 -->
-                <posx>1117</posx>
+                <posx>1095</posx>
                 <animation effect="rotatey" center="1665" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
                     <effect type="rotatey" center="1665" start="0" end="-55" time="250" tween="cubic" easing="inout" />
@@ -949,14 +951,14 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem3Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal3</include>
 					</control>
                 </control>
             </control>
             <control type="group">
                 <!-- +2 -->
-                <posx>980</posx>
+                <posx>960</posx>
                 <animation effect="rotatey" center="1530" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
                     <effect type="rotatey" center="1530" start="0" end="-55" time="250" tween="cubic" easing="inout" />
@@ -972,14 +974,14 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem2Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal2</include>
 					</control>
                 </control>
             </control>
             <control type="group">
                 <!-- +1 -->
-                <posx>842</posx>
+                <posx>821</posx>
                 <!-- add +1 -->
                 <animation effect="rotatey" center="1395" start="55" end="55" time="0" condition="true">Conditional</animation>
                 <animation type="Conditional" condition="Skin.HasSetting(flattenshowcase)">
@@ -996,7 +998,7 @@
                         <texture background="true" flipy="true" diffuse="diffuse/poster_reflect.png">$VAR[ShowcaseItem1Var]</texture>
                     </control>
                     <control type="group">
-						<include>MovieShowcaseWatchedPos1</include>
+						<include>MovieShowcaseWatchedPos</include>
                         <include>WatchedIndicatorNormal1</include>
 					</control>
                 </control>

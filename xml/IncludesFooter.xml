@@ -930,7 +930,7 @@
         <include condition="Skin.HasSetting(views_ratings_Metacritic) + Skin.HasSetting(EnableViewsRatings)">MetaCritic_Monochrome_Hor</include>
     </include>
 
-<!-- New Footer -->
+<!-- New Footer - Bingie Home Spotlight -->
 	<include name="new_footer">
 			<control type="grouplist">
 				<orientation>horizontal</orientation>

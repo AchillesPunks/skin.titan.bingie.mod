@@ -410,16 +410,16 @@
             <selected>Skin.HasSetting(DisableSpotlightContent)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-        <!-- Set Spotlight Content to Recommendations Based on Recently Watched -->
-        <control type="radiobutton" id="28327">
+        <!-- Set Spotlight Content to Random Media  -->
+		<control type="radiobutton" id="38456">
             <include>SkinSettings_Button</include>
-            <label>31842</label>
-            <onclick condition="!Skin.HasSetting(SimilarContentSpotlight)"> RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31374])</onclick>
-            <onclick>Skin.ToggleSetting(SimilarContentSpotlight)</onclick>
-            <selected>Skin.HasSetting(SimilarContentSpotlight)</selected>
+            <label>320243</label>
+            <onclick condition="!Skin.HasSetting(RandomContentSpotlight)"> RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31374])</onclick>
+            <onclick>Skin.ToggleSetting(RandomContentSpotlight)</onclick>
+            <selected>Skin.HasSetting(RandomContentSpotlight)</selected>
             <visible>!Skin.HasSetting(DisableSpotlightContent) + String.IsEmpty(Skin.String(spotlighthome.label)) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-        <!-- Set Custom Content in Home Spotlight -->
+		<!-- Set Custom Content in Home Spotlight -->
         <control type="radiobutton" id="31793">
             <include>SkinSettings_Button</include>
             <label>31882</label>
@@ -429,6 +429,22 @@
             <selected>Skin.String(spotlighthome.label)</selected>
             <visible>!Skin.HasSetting(DisableSpotlightContent) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
+		<!-- Set Spotlight Content to Recommendations Based on Recently Watched -->
+        <control type="radiobutton" id="28327">
+            <include>SkinSettings_Button</include>
+            <label>31842</label>
+            <onclick condition="!Skin.HasSetting(SimilarContentSpotlight)"> RunScript(script.skin.helper.service,action=dialogok,header=$LOCALIZE[31376],message=$LOCALIZE[31374])</onclick>
+            <onclick>Skin.ToggleSetting(SimilarContentSpotlight)</onclick>
+            <selected>Skin.HasSetting(SimilarContentSpotlight)</selected>
+            <visible>!Skin.HasSetting(DisableSpotlightContent) + String.IsEmpty(Skin.String(spotlighthome.label)) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+        </control>
+        
+		
+		
+		
+		
+		
+		
 	    <!-- Disable Sub Label on Home Spotlight -->
 		<control type="radiobutton" id="2030">
             <include>SkinSettings_Button</include>
@@ -1413,7 +1429,15 @@
             <selected>!Skin.HasSetting(EnableStudioLogoInfoDialog)</selected>
             <visible>Skin.HasSetting(UseBingieInfoDialog)</visible>
         </control>
-        <!-- prefer youtube trailers -->
+        <!--trailer behavior info-->
+        <!-- <control type="label" id="31697"> -->
+            <!-- <include>SkinSettings_Button</include> -->
+            <!-- <label>    $LOCALIZE[31909]</label> -->
+            <!-- <height>40</height> -->
+            <!-- <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor> -->
+            <!-- <visible>!Skin.HasSetting(UseExtendedInfoDialog)</visible> -->
+        <!-- </control> -->
+		<!-- prefer youtube trailers -->
         <control type="radiobutton" id="46653">
             <include>SkinSettings_Button</include>
             <label>31910</label>
@@ -1421,7 +1445,16 @@
             <selected>Skin.HasSetting(PreferYoutubeTrailers)</selected>
             <visible>Skin.HasSetting(UseBingieInfoDialog)</visible>
         </control>
-        <!-- Show next/resumable ep. info instead of tvshow's -->
+        <!-- enable local language trailers in info dialog -->
+        <!-- <control type="radiobutton" id="41633"> -->
+            <!-- <include>SkinSettings_Button</include> -->
+            <!-- <label>31911</label> -->
+            <!-- <onclick condition="!Skin.String(RegionalTrailers,true)">Skin.SetString(RegionalTrailers,true)</onclick> -->
+            <!-- <onclick condition="Skin.String(RegionalTrailers,true)">Skin.SetString(RegionalTrailers,false)</onclick> -->
+            <!-- <selected>Skin.String(RegionalTrailers,true)</selected> -->
+            <!-- <visible>!Skin.HasSetting(UseExtendedInfoDialog) + Skin.HasSetting(PreferYoutubeTrailers)</visible> -->
+        <!-- </control> -->
+		<!-- Show next/resumable ep. info instead of tvshow's -->
         <control type="radiobutton" id="39275">
             <include>SkinSettings_Button</include>
             <label>31913</label>

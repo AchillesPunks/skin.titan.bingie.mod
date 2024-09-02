@@ -3853,7 +3853,7 @@ msgid "Auto Hide Plot when System is Idle"
 msgstr ""
 
 msgctxt "#320230"
-msgid "Play Movie/Open Seasons Instead Open Info"
+msgid "Play Movie Collection in Video Info/Instead of Opening Info"
 msgstr ""
 
 msgctxt "#320231"
@@ -3902,4 +3902,8 @@ msgstr ""
 
 msgctxt "#320242"
 msgid "Enable 2 Studio Logos on Home/Bingie Views"
+msgid ""
+
+msgctxt "#320243"
+msgid "Set Spotlight Content to Random"
 msgid ""

@@ -147,12 +147,12 @@
 	<expression name="Exp_InfoDialog_IsFolder">[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set)]</expression>
     <!--Common-->
 	
-	<!--NETFLIX ICON - SETTINGS Bottom Right-->
+	<!--BINGIE MOD ICON - SETTINGS Bottom Right-->
     <include name="BingieLogo">
         <control type="group">
 		    <visible>Skin.HasSetting(EnableNetflixLogo)</visible>
             <bottom>37</bottom>
-            <right>176</right>
+            <right>205</right>
             <width>180</width>
             <height>190</height>
             <align>right</align>
@@ -160,7 +160,7 @@
                 <width>320</width>
                 <height>320</height>
                 <aspectratio align="left">keep</aspectratio>
-                <texture background="true">bingie_logo.png</texture>
+                <texture background="true">bingie_mod_logo.png</texture>
             </control>
         </control>
     </include>

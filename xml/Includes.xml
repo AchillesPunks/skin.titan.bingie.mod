@@ -150,7 +150,7 @@
 	<!--BINGIE MOD ICON - SETTINGS Bottom Right-->
     <include name="BingieLogo">
         <control type="group">
-		    <visible>Skin.HasSetting(EnableNetflixLogo)</visible>
+		    <visible>Skin.HasSetting(EnableBingieModLogo)</visible>
             <bottom>37</bottom>
             <right>205</right>
             <width>180</width>

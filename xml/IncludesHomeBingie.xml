@@ -670,7 +670,7 @@
 	
 			<!--Netflix Diffuse Logo-->
 			<control type="image">
-				<visible>Skin.HasSetting(EnableNetflixLogo) + [Window.IsActive(Home) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | [Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)]]]</visible> 
+				<visible>Skin.HasSetting(EnableNetflixLogo) + !Skin.HasSetting(EnableBingieModLogo) + [Window.IsActive(Home) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | [Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)]]]</visible> 
 				<description>diffuse behind Netflix logo</description>
 				<animation effect="slide" end="-66" time="0" condition="Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1114)">Conditional</animation>
 				<right>470</right>
@@ -684,7 +684,7 @@
 			</control>
 			<!--Netflix Logo-->
 			<control type="image">
-				<visible>Skin.HasSetting(EnableNetflixLogo) + !Window.IsActive(1110) + !Window.IsActive(1111) + !Window.IsActive(1114) + !Window.IsActive(1115)</visible>
+				<visible>Skin.HasSetting(EnableNetflixLogo) + !Skin.HasSetting(EnableBingieModLogo) + !Window.IsActive(1110) + !Window.IsActive(1111) + !Window.IsActive(1114) + !Window.IsActive(1115)</visible>
 				<description>Netflix logo</description>
 				<right>325</right>
 				<bottom>10</bottom>
@@ -694,9 +694,9 @@
 				<aspectratio align="right">keep</aspectratio>
 				<texture>home/netflix_logo.png</texture>
 			</control>
-
+            <!-- Netflix Logo Grouplist -->
 			<control type="grouplist">
-				<visible>Skin.HasSetting(EnableNetflixLogo) + [Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)]]</visible>
+				<visible>Skin.HasSetting(EnableNetflixLogo) + !Skin.HasSetting(EnableBingieModLogo) + [Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)]]</visible>
 				<orientation>horizontal</orientation>
 				<height>56</height>
 				<width>300</width>
@@ -717,7 +717,58 @@
 				<align>right</align>
 				<label>$VAR[HubNames]</label>
 			</control>
-			</control>								
+			</control>
+            
+            <!-- Bingie Mod Diffuse Logo -->
+			<control type="image">
+				<visible>Skin.HasSetting(EnableBingieModLogo) + !Skin.HasSetting(EnableNetflixLogo) + [Window.IsActive(Home) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | [Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)]]]</visible> 
+				<description>diffuse behind Netflix logo</description>
+				<animation effect="slide" end="-66" time="0" condition="Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1114)">Conditional</animation>
+				<right>470</right>
+				<bottom>0</bottom>
+				<width>0</width>
+				<height>223</height>
+				<align>right</align>
+				<aspectratio align="right">keep</aspectratio>
+				<colordiffuse>4d000000</colordiffuse>
+                <texture background="true">home/bingie_mod_diffuse.png</texture>
+			</control>
+			<!-- Bingie Mod Logo -->
+			<control type="image">
+				<visible>Skin.HasSetting(EnableBingieModLogo) + !Skin.HasSetting(EnableNetflixLogo) + !Window.IsActive(1110) + !Window.IsActive(1111) + !Window.IsActive(1114) + !Window.IsActive(1115)</visible>
+				<description>Bingie Mod logo</description>
+				<right>325</right>
+				<bottom>10</bottom>
+				<width>0</width>
+				<height>165</height>
+				<align>right</align>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>home/bingie_mod_logo.png</texture>
+			</control>
+            <!-- Bingie Mod Logo Grouplist -->
+			<control type="grouplist">
+				<visible>Skin.HasSetting(EnableBingieModLogo) + !Skin.HasSetting(EnableNetflixLogo) + [Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1114) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)]]</visible>
+				<orientation>horizontal</orientation>
+				<height>56</height>
+				<width>300</width>
+				<itemgap>10</itemgap>
+				<right>130</right>
+				<top>973</top>
+				<align>right</align>
+			<control type="image">
+				<width>9</width>
+				<height>39</height>
+				<texture background="true" colordiffuse="ffE50914">bingie/line.png</texture>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<textoffsetx>0</textoffsetx>
+				<height>37</height>
+                <font>bold38</font>
+				<align>right</align>
+				<label>$VAR[HubNames]</label>
+			</control>
+			</control>			
         </control>
 
 		<include>Header</include>

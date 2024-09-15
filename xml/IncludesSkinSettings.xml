@@ -439,13 +439,7 @@
             <visible>!Skin.HasSetting(DisableSpotlightContent) + String.IsEmpty(Skin.String(spotlighthome.label)) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
         
-		
-		
-		
-		
-		
-		
-	    <!-- Disable Sub Label on Home Spotlight -->
+		<!-- Disable Sub Label on Home Spotlight -->
 		<control type="radiobutton" id="2030">
             <include>SkinSettings_Button</include>
             <label>$LOCALIZE[320153]</label>
@@ -3345,14 +3339,31 @@
             <label>31270</label>
             <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
         </control>
-        <!--Enable Netflix Logo on Bingie Home and Settings-->
+        <!-- Season Greetings -->
+		<control type="button" id="2034">
+            <include>SkinSettings_Button</include>
+            <label>31104</label>
+            <label2>$INFO[Skin.String(season_greetings.label)]</label2>
+            <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=season_greetings,header=$LOCALIZE[31104])</onclick>
+        </control>		        
+		<!-- Enable Netflix Logo on Bingie Home -->
         <control type="radiobutton" id="2014">
             <include>SkinSettings_Button</include>
             <label>320178</label>
             <onclick>Skin.ToggleSetting(EnableNetflixLogo)</onclick>
             <selected>!Skin.HasSetting(EnableNetflixLogo)</selected>
+            <selected>!Skin.HasSetting(EnableBingieModLogo)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
+		<!-- Enable Bingie Mod Logo on  Settings -->
+        <control type="radiobutton" id="38555">
+            <include>SkinSettings_Button</include>
+            <label>320244</label>
+            <onclick>Skin.ToggleSetting(EnableBingieModLogo)</onclick>
+            <selected>!Skin.HasSetting(EnableBingieModLogo)</selected>
+            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+        </control>
+		
 		<!-- Disable Welcome Pop-Up Message Notification -->        
 		<control type="radiobutton" id="8026">
             <description/>
@@ -3378,13 +3389,7 @@
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=user_picture,header=$LOCALIZE[320100]])</onclick>
             <visible>Skin.HasSetting(EnableNetflixIcons) + !Skin.HasSetting(Disableprofile)</visible>
         </control>
-        <!-- Season Greetings -->
-		<control type="button" id="2034">
-            <include>SkinSettings_Button</include>
-            <label>31104</label>
-            <label2>$INFO[Skin.String(season_greetings.label)]</label2>
-            <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=season_greetings,header=$LOCALIZE[31104])</onclick>
-        </control>		                                                                 
+                                                                 
         <!--Bingie Screensaver Image Change Time-->
         <control type="radiobutton" id="2072">
             <include>SkinSettings_Button</include>

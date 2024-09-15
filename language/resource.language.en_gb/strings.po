@@ -3645,7 +3645,7 @@ msgid "Disable Static Slim Menu"
 msgstr ""
 
 msgctxt "#320178"
-msgid "Disable Netflix logo on Home and Settings"
+msgid "Disable Netflix logo on Spotlight"
 msgstr ""
 
 msgctxt "#320179"
@@ -3893,7 +3893,7 @@ msgid "Bingie Screensaver - Slow Down Image Scroll Speed"
 msgstr ""
 
 msgctxt "#320240"
-msgid "Bingie Screensaver - Disable Netflix Logo"
+msgid "Bingie Screensaver - Disable Bingie Mod Logo"
 msgstr ""
 
 msgctxt "#320241"
@@ -3907,3 +3907,11 @@ msgid ""
 msgctxt "#320243"
 msgid "Set Spotlight Content to Random"
 msgid ""
+
+msgctxt "#320244"
+msgid "Disable Bingie Mod Logo on Settings"
+msgid ""
+
+msgctxt "#320245"
+msgid "ScreenSaver Settings"
+msgstr ""

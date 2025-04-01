@@ -86,96 +86,96 @@
                         <label>20077</label>
                         <label2>31407</label2>
                         <onclick>activatewindow(skinsettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_skin_settings.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/addonskin.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_bingie_mod.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/skinsettings.png</thumb>
                     </item>
                     <item id="1">
                         <description>Interface</description>
                         <label>14206</label>
                         <label2>31400</label2>
                         <onclick>activatewindow(InterfaceSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_interface.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/interface.png</thumb>
+                       <icon>special://skin/extras/media/backgrounds/settings_interface.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/interface.png</thumb>
                     </item>
                     <item id="2">
                         <description>Media Settings</description>
                         <label>14212</label>
                         <label2>31401</label2>
                         <onclick>activatewindow(MediaSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_media_settings.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/media.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_media_settings.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/mediasettings.png</thumb>
                     </item>
                     <item id="3">
                         <description>Live TV</description>
                         <label>31088</label>
                         <label2>31410</label2>
                         <onclick>ActivateWindow(PVRSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_live_tv.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/addonpvrclient.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_live_tv.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/livetv.png</thumb>
                     </item>
                     <item id="4">
                         <description>Player</description>
                         <label>14201</label>
                         <label2>31402</label2>
                         <onclick>ActivateWindow(PlayerSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_player_settings.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/player.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_player_settings.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/playersettings.png</thumb>
                     </item>
                     <item id="5">
                         <description>Addons</description>
                         <label>24001</label>
                         <label2>31408</label2>
                         <onclick>activatewindow(AddonBrowser)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/program.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_addons.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/addons.png</thumb>
                     </item>
                     <item id="8">
                         <description>Network/Services</description>
                         <label>14036</label>
                         <label2>31405</label2>
                         <onclick>activatewindow(ServiceSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_services.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/addonservice.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_services.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/services.png</thumb>
                     </item>
                     <item id="9">
                         <description>System</description>
                         <label>13000</label>
                         <label2>31406</label2>
                         <onclick>activatewindow(SystemSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_system.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/harddisk.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_system.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/system.png</thumb>
                     </item>
                     <item id="10">
                         <description>System Info</description>
                         <label>130</label>
                         <label2>31409</label2>
                         <onclick>activatewindow(7)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_system_info.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/cpu.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_system_info.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/systeminfo.png</thumb>
                     </item>
                     <item id="12">
                         <description>Profiles</description>
                         <label>13200</label>
                         <label2>31421</label2>
                         <onclick>activatewindow(Profiles)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_profiles.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/actor.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_profiles.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/actor.png</thumb>
                     </item>
                     <item id="13">
                         <description>Games</description>
                         <label>$LOCALIZE[15016]</label>
                         <label2>$LOCALIZE[31403]</label2>
                         <onclick>ActivateWindow(GameSettings)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/settings_addons.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/addon.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/settings_games.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/games.png</thumb>
                     </item>
                     <item id="14">
                         <description>File Manager</description>
                         <label>7</label>
                         <label2>31404</label2>
                         <onclick>ActivateWindow(filemanager)</onclick>
-                        <icon>resource://resource.images.skinbackgrounds.titanium/system.jpg</icon>
-                        <thumb>resource://resource.images.skinicons.wide/file.png</thumb>
+                        <icon>special://skin/extras/media/backgrounds/system.jpg</icon>
+                        <thumb>special://skin/extras/media/backgrounds/filemanager.png</thumb>
                     </item>
                 </content>
             </control>

@@ -43,7 +43,7 @@
 		<control type="group">
             <animation effect="fade" start="100" end="0" time="300" condition="$EXP[IsPlayingUnrecognizedContent] + Skin.HasSetting(HideMediaFlagsTrailer)">Conditional</animation>
             <!-- <top>490</top> -->
-            <top>595</top>
+            <top>600</top>
             <width>100%</width>
 			<!-- <right>14</right> -->
             <right>125</right>

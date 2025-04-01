@@ -711,13 +711,13 @@
     <include name="HeaderLogo">
         <!-- Kodi Logo image -->
         <control type="image">
-            <posx>35</posx>
-            <posy>-34</posy>
+            <posx>45</posx>
+            <posy>-30</posy>
             <height>196</height>
             <width></width>
             <aspectratio align="left">keep</aspectratio>
             <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-            <texture>bingie_logo.png</texture>
+            <texture>bingie_mod_logo.png</texture>
             <visible>String.IsEmpty(Control.GetLabel(198754))</visible>
             <visible>![Skin.HasSetting(CompactHeader)]</visible>
         </control>
@@ -728,7 +728,7 @@
             <width></width>
             <aspectratio align="left">keep</aspectratio>
             <colordiffuse>$INFO[Skin.String(HeaderTextColor)]</colordiffuse>
-            <texture>home/netflix_logo.png</texture>
+            <texture>home/bingie_mod_logo.png</texture>
             <visible>String.IsEmpty(Control.GetLabel(198754))</visible>
             <visible>![!Skin.HasSetting(CompactHeader)]</visible>
         </control>   

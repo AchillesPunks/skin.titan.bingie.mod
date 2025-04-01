@@ -3645,7 +3645,7 @@ msgid "Disable Static Slim Menu"
 msgstr ""
 
 msgctxt "#320178"
-msgid "Disable Netflix logo on Spotlight"
+msgid "Disable Bingie Mod Logo on Home and Settings"
 msgstr ""
 
 msgctxt "#320179"
@@ -3689,7 +3689,7 @@ msgid "Disable 'Top 250' indicator"
 msgstr ""
 
 msgctxt "#320189"
-msgid "Netflix alternative"
+msgid "Bingie Mod Default"
 msgstr ""
 
 msgctxt "#320190"
@@ -3853,7 +3853,7 @@ msgid "Auto Hide Plot when System is Idle"
 msgstr ""
 
 msgctxt "#320230"
-msgid "Play Movie Collection in Video Info/Instead of Opening Info"
+msgid "Play Movie/Open Seasons Instead Open Info"
 msgstr ""
 
 msgctxt "#320231"
@@ -3877,7 +3877,7 @@ msgid "Startup animations"
 msgstr ""
 
 msgctxt "#320236"
-msgid "Netflix default"
+msgid "Netflix Alternative"
 msgstr ""
 
 msgctxt "#320237"
@@ -3893,7 +3893,7 @@ msgid "Bingie Screensaver - Slow Down Image Scroll Speed"
 msgstr ""
 
 msgctxt "#320240"
-msgid "Bingie Screensaver - Disable Bingie Mod Logo"
+msgid "Bingie Screensaver - Disable Netflix Logo"
 msgstr ""
 
 msgctxt "#320241"
@@ -3903,15 +3903,3 @@ msgstr ""
 msgctxt "#320242"
 msgid "Enable 2 Studio Logos on Home/Bingie Views"
 msgid ""
-
-msgctxt "#320243"
-msgid "Set Spotlight Content to Random"
-msgid ""
-
-msgctxt "#320244"
-msgid "Disable Bingie Mod Logo on Settings"
-msgid ""
-
-msgctxt "#320245"
-msgid "ScreenSaver Settings"
-msgstr ""

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- BINGIE -->
 <window type="dialog" id="1158">
-    <visible>Skin.HasSetting(AutoCloseVideoOSD)</visible>
+    <visible>Skin.HasSetting(AutoCloseVideoOSD) + !Skin.HasSetting(EnableOSDInfo)</visible>
     <visible>Window.IsActive(videoosd) + System.IdleTime(4) + !Player.Paused</visible>
     <onload>Dialog.Close(videoosd)</onload>
 

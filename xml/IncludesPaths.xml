@@ -277,6 +277,18 @@
         <value>plugin://plugin.video.themoviedb.helper?info=crew_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]$VAR[Path_Param_Database]$VAR[Path_Param_Digital_Release]&amp;nextpage=false</value>
     </variable>
 	
+	<variable name="Path_OSD_Cast">
+        <value condition="VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.IMDBNumber) + String.StartsWith(VideoPlayer.IMDBNumber,tt)">plugin://plugin.video.themoviedb.helper/?info=cast&amp;type=movie$INFO[VideoPlayer.IMDBNumber,&amp;imdb_id=,]</value>
+        <value condition="VideoPlayer.Content(movies)">plugin://plugin.video.themoviedb.helper/?info=cast&amp;type=movie$INFO[Window(Home).Property(TMDbHelper.Player.TMDb_ID),&amp;tmdb_id=,]$INFO[Player.Title,&amp;query=,]$INFO[VideoPlayer.Year,&amp;year=,]</value>
+        <value condition="VideoPlayer.Content(episodes)">plugin://plugin.video.themoviedb.helper/?info=cast&amp;type=tv$INFO[Window(Home).Property(TMDbHelper.Player.TVShow.TMDb_ID),&amp;tmdb_id=,]$INFO[VideoPlayer.TVShowTitle,&amp;query=,]$INFO[VideoPlayer.Season,&amp;season=,]$INFO[VideoPlayer.Episode,&amp;episode=,]$INFO[VideoPlayer.Year,&amp;episode_year=,]</value>   
+	</variable>
+	
+	<variable name="Path_OSD_Crew">   
+	    <value condition="VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.IMDBNumber) + String.StartsWith(VideoPlayer.IMDBNumber,tt)">plugin://plugin.video.themoviedb.helper/?info=crew&amp;type=movie$INFO[VideoPlayer.IMDBNumber,&amp;imdb_id=,]</value>
+        <value condition="VideoPlayer.Content(movies)">plugin://plugin.video.themoviedb.helper/?info=crew&amp;type=movie$INFO[Window(Home).Property(TMDbHelper.Player.TMDb_ID),&amp;tmdb_id=,]$INFO[Player.Title,&amp;query=,]$INFO[VideoPlayer.Year,&amp;year=,]</value>
+        <value condition="VideoPlayer.Content(episodes)">plugin://plugin.video.themoviedb.helper/?info=crew&amp;type=tv$INFO[Window(Home).Property(TMDbHelper.Player.TVShow.TMDb_ID),&amp;tmdb_id=,]$INFO[VideoPlayer.TVShowTitle,&amp;query=,]$INFO[VideoPlayer.Season,&amp;season=,]$INFO[VideoPlayer.Episode,&amp;episode=,]$INFO[VideoPlayer.Year,&amp;episode_year=,]</value>
+	</variable>
+	
 	<variable name="ActionAdvantureMovies">
 		<value condition="String.IsEqual(Skin.String(categories_types),LibraryList)">special://skin/extras/categories/actionadventure.xsp</value>
         <value condition="String.IsEqual(Skin.String(categories_types),TMDbHelperList)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=28%20%2f%2012&amp;with_id=True&amp;with_separator=OR&amp;without_genres=16$VAR[Path_Param_Categories_Digital_Release]</value>

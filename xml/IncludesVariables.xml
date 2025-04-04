@@ -1053,4 +1053,14 @@
         <value condition="Window.IsActive(1118)">$INFO[Skin.String(BingieSubLabelTextColor)]</value>
     </variable>
 	
+	<variable name="CustomPlotHeader">	
+		<value condition="Skin.HasSetting(EnableOSDInfo)">$INFO[Window.Property(osdheader)]</value>
+		<value>$INFO[Window.Property(header)]</value>
+	</variable>
+	
+	<variable name="CustomPlotTextbox">
+		<value condition="Skin.HasSetting(EnableOSDInfo)">$INFO[Window.Property(osdtextbox)]</value>
+		<value>$INFO[Window.Property(textbox)]</value>
+	</variable>
+	
 </includes>

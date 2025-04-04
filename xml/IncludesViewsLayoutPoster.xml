@@ -295,7 +295,7 @@
     </include>
 	<include name="PosterTagOverlayBingie">
         <control type="group">
-            <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + !Window.IsActive(1106) + !Window.IsActive(1190) + !Window.IsActive(1191) + !Window.IsActive(DialogVideoInfo.xml) + !Window.IsActive(script-globalsearch.xml) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">PosterTagOverlayVisibility</include>
+            <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117) + !Window.IsActive(1109) + !Window.IsActive(1108) + !Window.IsActive(1106) + !Window.IsActive(1190) + !Window.IsActive(1191) + !Window.IsActive(DialogVideoInfo.xml) + !Window.IsActive(script-globalsearch.xml) + !Window.IsActive(videoosd) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">PosterTagOverlayVisibility</include>
 			<visible>![[$EXP[IsTvShowDBType] | $EXP[IsMovieDBType]] + [$EXP[IsTVShowInLastEpisodes] | $EXP[IsNewMovie]] + [!Skin.HasSetting(DisableNewEpisodesIndicator)]]</visible>
 			<visible>![!String.IsEmpty(ListItem.Art(poster)) + [Window.IsActive(1109) | Window.IsActive(1108) | Window.IsActive(1106) | Window.IsActive(1190) | Window.IsActive(1191) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(script-globalsearch.xml)] + [$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | ListItem.IsCollection] + !String.IsEqual(Skin.String(Widgets_DisplayTags),enable)] | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]</visible>
             <!--Panel-->

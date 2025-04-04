@@ -2377,6 +2377,7 @@
 		<!--BINGIE OSD Info Panel-->
 		<control type="group">
 			<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv)</visible>
+			<visible>!Skin.HasSetting(EnableOSDCastInfo) + !Skin.HasSetting(EnableOSDCrewInfo)</visible>
 			<!-- background -->
 			<control type="image">
 				<width>100%</width>
@@ -2606,7 +2607,7 @@
 					<description>Current Time</description>
 					<visible>Skin.HasSetting(EnableTimeInfo)</visible>
 					<visible>!VideoPlayer.Content(livetv)</visible>
-					<bottom>25</bottom>
+					<bottom>126</bottom>
 					<posy>0</posy>
 					<width>1920</width>
 					<align>center</align>
@@ -2860,7 +2861,9 @@
 			<itemgap>25</itemgap>
 			<onleft>noop</onleft>
             <onright>noop</onright>
-			<ondown>200</ondown>
+			<ondown condition="Skin.HasSetting(EnableOSDCastInfo)">50</ondown>
+			<ondown condition="Skin.HasSetting(EnableOSDCrewInfo)">51</ondown>
+			<ondown condition="![Skin.HasSetting(EnableOSDCastInfo) | Skin.HasSetting(EnableOSDCrewInfo)]">200</ondown>
 			<orientation>vertical</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
 			<!-- Vignette Mask -->
@@ -3157,7 +3160,10 @@
 			<onright condition="!Player.SeekEnabled">noop</onright>
             <onright condition="Player.SeekEnabled + Player.Paused">PlayerControl(Play)</onright>
 			<onright condition="Player.SeekEnabled">back</onright>
-			<onup>300</onup>
+			<onup condition="Skin.HasSetting(EnableOSDCastInfo)">50</onup>
+			<onup condition="Skin.HasSetting(EnableOSDCrewInfo)">51</onup>
+			<onup condition="![Skin.HasSetting(EnableOSDCastInfo) | Skin.HasSetting(EnableOSDCrewInfo)]">300</onup>
+			<ondown condition="Skin.HasSetting(EnableOSDInfo)">3000</ondown>
 			<orientation>horizontal</orientation>
 			
 			<control type="togglebutton" id="203">
@@ -3178,6 +3184,87 @@
 				<visible>!VideoPlayer.Content(livetv)</visible>
 			</control>
 		</control>
+		<control type="grouplist" id="3000">
+			<animation effect="fade" time="350" delay="200" reversible="false">Visible</animation>
+			<animation effect="fade" time="350" reversible="false">Hidden</animation>
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,400" end="0,0" tween="cubic" easing="out" delay="0" time="450" reversible="false"/>
+				<effect type="fade" start="0" end="100" delay="0" time="350" reversible="false"/>
+			</animation>
+			<animation type="WindowClose" condition="Window.IsVisible(1158) | Player.Paused | Player.Playing">
+				<effect type="fade" start="100" end="0" delay="0" time="0" reversible="false"/>
+			</animation>
+			<animation type="WindowClose" condition="!Window.IsVisible(1158)">
+				<effect type="slide" start="0,0" end="0,300" tween="cubic" easing="out" delay="0" time="800" reversible="false"/>
+				<effect type="fade" start="100" end="0" delay="0" time="700" reversible="false"/>
+			</animation>
+			<visible>Skin.HasSetting(EnableOSDInfo) + !VideoPlayer.Content(livetv)</visible>
+			
+			<align>center</align>
+			<bottom>30</bottom>
+			<width>100%</width>
+			<height>50</height>
+			<itemgap>15</itemgap>
+			<onup>200</onup>
+			<orientation>horizontal</orientation>			
+			
+			<control type="togglebutton" id="3001">
+			  <visible>Skin.HasSetting(EnableOSDInfo)</visible>
+			  <animation effect="fade" time="350">Hidden</animation>
+			  <width>200</width>
+			  <height>50</height>
+			  <label>$LOCALIZE[206]</label>
+			  <altlabel>$LOCALIZE[15067]</altlabel>
+			  <font>Reg26</font>
+			  <textwidth>160</textwidth>
+			  <focusedcolor>ffffffff</focusedcolor>
+			  <texturefocus border="10" background="true" colordiffuse="ffffffff">bingie/border/slimframefo.png</texturefocus>
+			  <texturenofocus border="10" background="true" colordiffuse="80ffffff">bingie/border/slimframefo.png</texturenofocus>
+			  <usealttexture>Skin.HasSetting(EnableOSDCastInfo)</usealttexture>
+			  <alttexturefocus border="10" background="true" colordiffuse="ffffffff">bingie/border/slimframefo.png</alttexturefocus>
+			  <alttexturenofocus border="10" background="true" colordiffuse="80ffffff">bingie/border/slimframefo.png</alttexturenofocus>
+			  <onclick>Skin.ToggleSetting(EnableOSDCastInfo)</onclick>
+			  <onclick>Skin.Reset(EnableOSDCrewInfo)</onclick>
+			</control>
+			<control type="togglebutton" id="3002">
+			  <visible>Skin.HasSetting(EnableOSDInfo)</visible>
+			  <animation effect="fade" time="350" condition="Skin.HasSetting(UseBingieOSD)">Hidden</animation>
+			  <width>200</width>
+			  <height>50</height>
+			  <label>$LOCALIZE[31089]</label>
+			  <altlabel>$LOCALIZE[15067]</altlabel>
+			  <font>Reg26</font>
+			  <textwidth>160</textwidth>
+			  <focusedcolor>ffffffff</focusedcolor>
+			  <texturefocus border="10" background="true" colordiffuse="ffffffff">bingie/border/slimframefo.png</texturefocus>
+			  <texturenofocus border="10" background="true" colordiffuse="80ffffff">bingie/border/slimframefo.png</texturenofocus>
+			  <usealttexture>Skin.HasSetting(EnableOSDCrewInfo)</usealttexture>
+			  <alttexturefocus border="10" background="true" colordiffuse="ffffffff">bingie/border/slimframefo.png</alttexturefocus>
+			  <alttexturenofocus border="10" background="true" colordiffuse="80ffffff">bingie/border/slimframefo.png</alttexturenofocus>
+			  <onclick>Skin.ToggleSetting(EnableOSDCrewInfo)</onclick>
+			  <onclick>Skin.Reset(EnableOSDCastInfo)</onclick>
+			</control>
+		</control>
+		
+		<include content="OSDInfoWidget">
+			<param name="id" value="50" />	
+			<param name="top" value="370" />			
+			<param name="visible" value="Skin.HasSetting(EnableOSDInfo) + Skin.HasSetting(EnableOSDCastInfo)" />
+			<param name="widgetTags" value="WidgetTagOverlayEnable" />
+            <param name="force_tags" value="true" />
+			<param name="layout">PosterPanelBingie</param>
+			<param name="content" value="$VAR[Path_OSD_Cast]" />
+		</include>
+
+		<include content="OSDInfoWidget">
+			<param name="id" value="51" />	
+			<param name="top" value="370" />			
+			<param name="visible" value="Skin.HasSetting(EnableOSDInfo) + Skin.HasSetting(EnableOSDCrewInfo)" />
+			<param name="widgetTags" value="WidgetTagOverlayEnable" />
+            <param name="force_tags" value="true" />
+			<param name="layout">PosterPanelBingie</param>
+			<param name="content" value="$VAR[Path_OSD_Crew]" />
+		</include>	
 	</include>
 
 	<include name="JumpIndicator">
@@ -3233,4 +3320,119 @@
 		<value condition="Player.Paused">osd/slim/play_fo.png</value>
 		<value condition="Player.Playing">osd/slim/pause_fo.png</value>
 	</variable>
+	
+	<variable name="OSDMenuFocus">
+		<value condition="Skin.HasSetting(EnableOSDCastInfo) + Skin.HasSetting(UseBingieOSD)">50</value>
+		<value condition="!Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(EnableOSDCrewInfo)">50</value>
+        <value condition="Skin.HasSetting(EnableOSDCrewInfo)">51</value>
+    </variable>
+	
+	<!-- OSD Info List -->
+	<include name="OSDInfoWidget">
+        <definition>
+                <include content="OSDInfoContainerTemplate">
+                    <nested />
+                    <param name="id" value="$PARAM[id]"/>
+					<param name="top" value="$PARAM[top]"/>
+                    <param name="condition1" value="$PARAM[condition1]" />
+                    <param name="condition2" value="$PARAM[condition2]" />
+					<param name="visible" value="$PARAM[visible]" />
+					<param name="content" value="$PARAM[content]" />
+                </include>
+        </definition>
+    </include>
+	
+	<!-- OSD Info Tamplate -->
+	<include name="OSDInfoContainerTemplate">
+        <definition>
+			<control type="group">
+					<visible>$PARAM[visible]</visible>		
+					<animation effect="fade" time="350">WindowOpen</animation>
+					<animation effect="fade" time="350">WindowClose</animation>
+					<animation effect="fade" time="350">Visible</animation>
+					<animation effect="fade" time="350">Hidden</animation>					
+				<control type="fixedlist" id="$PARAM[id]">
+					<animation effect="fade" start="100" end="0" time="350" condition="Container($PARAM[id]).IsUpdating">Conditional</animation>	
+					<animation effect="fade" start="0" end="100" time="350" condition="!Container($PARAM[id]).IsUpdating">Conditional</animation>
+					<top>$PARAM[top]</top>
+					<width>1670</width>
+					<height>350</height>
+                    <left>126</left>					
+					<onleft>50</onleft>
+					<onright>50</onright>					
+					<onup condition="Skin.HasSetting(UseBingieOSD)">300</onup>
+					<ondown condition="Skin.HasSetting(UseBingieOSD)">200</ondown>
+					<ondown condition="!Skin.HasSetting(UseBingieOSD)">3000</ondown>
+					<scrolltime tween="quadratic">500</scrolltime>
+					<preloaditems>4</preloaditems>
+					<orientation>horizontal</orientation>
+					<onclick>SetProperty(DisableOSDCast,1,home)</onclick>
+					<onclick>Action(Close)</onclick>
+					<onclick>RunScript(plugin.video.themoviedb.helper,recommendations=oninfo,tmdb_type=person,tmdb_id=$INFO[Container($PARAM[id]).ListItem.UniqueID(tmdb)],window_id=1191)</onclick>
+					<itemlayout height="347" width="238">
+			        <control type="group">
+						<width>240</width>
+						<height>340</height>
+						<include>PosterPanelBingieLayout</include>
+						<control type="group">
+                            <include content="$PARAM[layout]Tags">
+                                <param name="force_tags" value="$PARAM[force_tags]" />
+                                <param name="widgetTags" value="$PARAM[widgetTags]" />
+                            </include>
+                        </control>
+					</control>
+					</itemlayout>
+					<focusedlayout height="347" width="238" condition="Control.HasFocus($PARAM[id])">
+					<control type="group">
+						<width>240</width>
+						<height>340</height>
+						<include>PosterPanelBingieLayoutFocus</include>
+						<control type="group">
+                            <include content="$PARAM[layout]Tags">
+                                <param name="force_tags" value="$PARAM[force_tags]" />
+                                <param name="widgetTags" value="$PARAM[widgetTags]" />
+                            </include>
+                        </control>
+					</control>
+					</focusedlayout>
+					<focusedlayout height="347" width="238" condition="!Control.HasFocus($PARAM[id])">
+					<control type="group">
+						<width>240</width>
+						<height>340</height>
+						<include>PosterPanelBingieLayout</include>
+						<control type="group">
+                            <include content="$PARAM[layout]Tags">
+                                <param name="force_tags" value="$PARAM[force_tags]" />
+                                <param name="widgetTags" value="$PARAM[widgetTags]" />
+                            </include>
+                        </control>
+					</control>
+					</focusedlayout>
+					<content>$PARAM[content]</content>
+				</control>
+				<control type="label">
+					<animation effect="fade" start="0" end="100" time="400">Visible</animation>	
+					<visible>Container(50).IsUpdating + Skin.HasSetting(EnableOSDCastInfo) + Skin.HasSetting(UseBingieOSD) | Container(51).IsUpdating + Skin.HasSetting(EnableOSDCrewInfo) + Skin.HasSetting(UseBingieOSD)</visible>					
+					<top>460</top>
+					<height>120</height>
+					<align>center</align>
+					<label>Content loading...</label>
+					<font>reg40</font>
+					<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+					<scroll>true</scroll>
+				</control>	
+				<control type="label">
+					<animation effect="fade" start="0" end="100" time="400">Visible</animation>	
+					<visible>Container(50).IsUpdating + !Skin.HasSetting(UseBingieOSD) + !Skin.HasSetting(EnableOSDCrewInfo) | Container(51).IsUpdating + Skin.HasSetting(EnableOSDCrewInfo) + !Skin.HasSetting(UseBingieOSD)</visible>						
+					<top>460</top>
+					<height>120</height>
+					<align>center</align>
+					<label>Content loading...</label>
+					<font>reg40</font>
+					<textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
+					<scroll>true</scroll>
+				</control>						
+			</control>
+        </definition>
+    </include>
 </includes>

@@ -3,6 +3,9 @@
     <defaultcontrol always="true">9999</defaultcontrol>
 	<onload>SetProperty(TMDbHelper.WidgetContainer,9999,Home)</onload>
     <onunload>ClearProperty(TMDbHelper.WidgetContainer,Home)</onunload>
+	<onload>Skin.Reset(EnableOSDInfo)</onload>
+	<onload>Skin.Reset(EnableOSDCastInfo)</onload>
+	<onload>Skin.Reset(EnableOSDCrewInfo)</onload>
     <controls>
         <include>GlobalBackground</include>
         <control type="list" id="9999">

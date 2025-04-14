@@ -3342,7 +3342,7 @@
         </definition>
     </include>
 	
-	<!-- OSD Info Tamplate -->
+	<!-- OSD Info Template -->
 	<include name="OSDInfoContainerTemplate">
         <definition>
 			<control type="group">

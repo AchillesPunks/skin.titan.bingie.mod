@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
-<addon id="skin.titan.bingie.mod" version="2.2.2" name="Titan BINGIE MOD" provider-name="AchillesPunks, Matke">
+<addon id="skin.titan.bingie.mod" version="2.2.2" name="BINGIE MOD" provider-name="AchillesPunks, Matke">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.1.2"/>
@@ -21,7 +21,7 @@
 		<res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Titan BINGIE MOD... The new Bingie Mod skin for Kodi Omega.</summary>
+		<summary lang="en_GB">BINGIE MOD... The new Bingie Mod skin for Kodi Omega.</summary>
 		<description>Bingie Mod is back for Kodi Omega with the new NETFLIX layout!</description>
 		<platform>all</platform>
 		<license>GPL v2.0</license>
@@ -44,7 +44,7 @@
 			<screenshot>resources/screenshot009.jpg</screenshot>
 		</assets>
 		<news>
-			[B]Titan BINGIE MOD v2[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=355993
+			[B]BINGIE MOD v2[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=355993
 		</news>
 	</extension>
 </addon>

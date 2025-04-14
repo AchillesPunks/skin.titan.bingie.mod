@@ -183,6 +183,7 @@
             <include>General_Resources_Settings</include>
             <include>General_Splash_Screen_Settings</include>
             <include>General_Advanced_Settings</include>
+            <include>General_ScreenSaver</include>
         </include>
     </include>
 
@@ -3352,7 +3353,17 @@
             <label2>$INFO[Skin.String(season_greetings.label)]</label2>
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=season_greetings,header=$LOCALIZE[31104])</onclick>
         </control>		                                                                 
-        <!--Bingie Screensaver Image Change Time-->
+	</include>
+    
+	<!-- General ScreenSaver -->
+	<include name="General_ScreenSaver">
+        <!-- Advanced ScreenSaver Settings -->
+        <control type="label" id="8110">
+            <include>SkinSettings_Header</include>
+            <label>320243</label>
+            <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+        </control>
+		<!--Bingie Screensaver Image Change Time-->
         <control type="radiobutton" id="2072">
             <include>SkinSettings_Button</include>
             <label>320238</label>
@@ -3368,7 +3379,7 @@
             <selected>!Skin.HasSetting(ImageFadeTime)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-	    <!--Disable Netflix Logo on Bingie Screensaver-->
+        <!--Disable Bingie Mod Logo on Bingie Screensaver-->
         <control type="radiobutton" id="2074">
             <include>SkinSettings_Button</include>
             <label>320240</label>
@@ -3376,7 +3387,7 @@
             <selected>!Skin.HasSetting(NetflixLogoScreensaver)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-	    <!-- Disable Clearlogo in Bingie Home -->
+	   <!-- Disable Clearlogo Screensaver Bingie Home -->
         <control type="radiobutton" id="2075">
             <include>SkinSettings_Button</include>
             <label>320241</label>

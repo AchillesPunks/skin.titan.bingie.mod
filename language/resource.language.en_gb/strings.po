@@ -1,5 +1,5 @@
 # Kodi Media Center language file
-# Addon Name: Titan Bingie Mod
+# Addon Name: Bingie Mod
 # Addon id: skin.titan.bingie.mod
 # Addon Provider: AchillesPunks, HugoL, Matke
 msgid ""
@@ -1147,14 +1147,14 @@ msgid "Recommended TV Shows"
 msgstr ""
 
 msgctxt "#31387"
-msgid "Welcome to Titan BINGIE MOD"
+msgid "Welcome to BINGIE MOD"
 msgstr ""
 
 msgctxt "#31388"
 msgid ""
 "The new Titan skin for Kodi Nexus."
 "[CR]This skin has many different layouts to choose from, let us start with the "
-"Titan BINGIE MOD main layout. This layout is designed to simulate Netflix user experience "
+"BINGIE MOD main layout. This layout is designed to simulate Netflix user experience "
 "for TV.[CR]In "
 "order to get everything running as it should, it's recommended to set the "
 "following Kodi options:[CR][CR][COLOR ff41b957]    - Disable mouse[CR]    - Hide "
@@ -1189,7 +1189,7 @@ msgid "Unlock Hubs now"
 msgstr ""
 
 msgctxt "#31395"
-msgid "With Titan BINGIE MOD you can have all of your Kodi and library content in one place, through the use of widgets.[CR][CR]"
+msgid "With BINGIE MOD you can have all of your Kodi and library content in one place, through the use of widgets.[CR][CR]"
 "Home widgets can be configured from:[CR]"
 "[COLOR white]    - Skin Settings -> Configure Shortcuts tab -> Edit Menu Shortcuts[/COLOR][CR][CR]"
 "There are also Hubs for Movies, TV Shows, New and you can add your own.[CR]"
@@ -1238,7 +1238,7 @@ msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR][CR]Setup and calibrate displays · C
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Titan Bingie Mod skin · Add and remove home menu items · Change skin backgrounds"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Bingie Mod skin · Add and remove home menu items · Change skin backgrounds"
 msgstr ""
 
 msgctxt "#31408"
@@ -3005,7 +3005,7 @@ msgid "Radio Channels"
 msgstr ""
 
 msgctxt "#320018"
-msgid "Welcome to[CR]Titan BINGIE MOD"
+msgid "Welcome to[CR]BINGIE MOD"
 msgstr ""
 
 msgctxt "#320019"
@@ -3049,7 +3049,7 @@ msgid "Random TV Shows"
 msgstr ""
 
 msgctxt "#320029"
-msgid "Exit Netflix"
+msgid "Exit Bingie"
 msgstr ""
 
 msgctxt "#320030"
@@ -3885,21 +3885,25 @@ msgid "Enable air date"
 msgstr ""
 
 msgctxt "#320238"
-msgid "Bingie Screensaver - Slow Down Image Change Time"
+msgid "Slow Down Image Change Time"
 msgstr ""
 
 msgctxt "#320239"
-msgid "Bingie Screensaver - Slow Down Image Scroll Speed"
+msgid "Slow Down Image Scroll Speed"
 msgstr ""
 
 msgctxt "#320240"
-msgid "Bingie Screensaver - Disable Netflix Logo"
+msgid "Disable Bingie Logo"
 msgstr ""
 
 msgctxt "#320241"
-msgid "Bingie Screensaver - Disable Clearlogo"
+msgid "Disable Clearlogo"
 msgstr ""
 
 msgctxt "#320242"
 msgid "Enable 2 Studio Logos on Home/Bingie Views"
 msgid ""
+
+msgctxt "#320243"
+msgid "Bingie ScreenSaver Settings"
+msgstr ""

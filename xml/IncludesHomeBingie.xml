@@ -138,6 +138,7 @@
 					<!-- Spotlight Top 250 Grouplist -->
 					<control type="grouplist">
 						<visible>!Skin.HasSetting(DisableSpotlightLabel)</visible>
+						<visible>!Skin.HasSetting(DisableSpotlightTop250)</visible>
 						<visible>!String.IsEmpty(Control.GetLabel(823100)) | !String.IsEmpty(Control.GetLabel(82300)) + $EXP[IsTVShowInLastEpisodes]</visible>
 						<animation effect="slide" end="0,125" tween="sine" easing="in" time="400" delay="5000" condition="[$EXP[IsPlayingUnrecognizedContent] + System.IdleTime(1) + Skin.HasSetting(SpotLightTrailers) + !Skin.HasSetting(DisablePlotSlide)] | [System.IdleTime(1) + Skin.HasSetting(AutoHidePlotOnIdle) + !Skin.HasSetting(SpotLightTrailers)]" reversible="false">Conditional</animation>
 						<orientation>horizontal</orientation>
@@ -155,6 +156,7 @@
 						<width>50</width>
 						<aspectratio>keep</aspectratio>
 						<texture>bingie/top250.png</texture>
+						<!-- <texture>bingie/top250c.png</texture> -->
 					</control>
 					<!-- Home Spotlight Top250 White Icon -->
 					<control type="image">

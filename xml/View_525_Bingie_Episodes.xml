@@ -278,7 +278,33 @@
                 <label>$VAR[ViewsPlotWithOutline]</label>
                 <autoscroll>false</autoscroll>
             </control>
-            <!-- duration -->
+            <!-- Resolution -->
+            <control type="label">
+                <visible>Container(525).Content(episodes) + String.IsEqual(ListItem.DBTYPE,episode)</visible>
+                <posx>80</posx>
+                <height>35</height>
+                <width>auto</width>
+                <bottom>20</bottom>
+                <height>35</height>
+                <align>left</align>
+                <font>Reg26</font>
+                <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+                 <label>$VAR[GetResolution]</label>
+			</control>
+			<!-- HDR TYPE -->
+            <control type="label">
+                <visible>Container(525).Content(episodes) + String.IsEqual(ListItem.DBTYPE,episode)</visible>
+                <posx>122</posx>
+				<height>35</height>
+                <width>auto</width>
+                <bottom>20</bottom>
+                <height>35</height>
+                <align>left</align>
+                <font>Reg26</font>
+                <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+                 <label>$VAR[VideoHDRVar]</label>
+            </control>
+			<!-- duration -->
             <control type="label">
                 <visible>Container(525).Content(episodes) + String.IsEqual(ListItem.DBTYPE,episode)</visible>
                 <width>100%</width>
@@ -381,7 +407,34 @@
                 <label>$VAR[ViewsPlotWithOutline]</label>
                 <autoscroll delay="7000" time="3000" repeat="4000">!Skin.HasSetting(DisablePlotAutoScroll) + Control.HasFocus(525)</autoscroll>
             </control>
-            <!-- duration -->
+            <!-- Resolution -->
+            <control type="label">
+                <visible>Container(525).Content(episodes) + String.IsEqual(ListItem.DBTYPE,episode)</visible>
+                <posx>80</posx>
+                <height>35</height>
+                <width>auto</width>
+                <bottom>20</bottom>
+                <height>35</height>
+                <align>left</align>
+                <font>Reg26</font>
+                <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+                 <label>$VAR[GetResolution]</label>
+			</control>
+			<!-- HDR TYPE -->
+            <control type="label">
+                <visible>Container(525).Content(episodes) + String.IsEqual(ListItem.DBTYPE,episode)</visible>
+                <posx>122</posx>
+				<height>35</height>
+                <width>auto</width>
+                <bottom>20</bottom>
+                <height>35</height>
+                <align>left</align>
+                <font>Reg26</font>
+                <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
+                 <label>$VAR[VideoHDRVar]</label>
+            </control>
+			
+			<!-- duration -->
             <control type="label">
                 <visible>Container(525).Content(episodes) + String.IsEqual(ListItem.DBTYPE,episode)</visible>
                 <width>100%</width>
@@ -416,15 +469,18 @@
                 <aligny>center</aligny>
                 <font>Reg26</font>
                 <textcolor>$INFO[Skin.String(BingieDeatailsTextColor)]</textcolor>
-                <label>$VAR[GetYear]</label>
+                <label>$VAR[GetYear,[B],[/B]]</label>
                 <include>Default_Visible_Fade</include>
             </control>
-
+            
+			
+			
             <include condition="Skin.HasSetting(enableUKIcons)">MPAA_Details_RowNew</include>
 			<include condition="!Skin.HasSetting(enableUKIcons) + !Skin.HasSetting(enableUSIcons)">MPAA_Details_Row</include>
 			<include condition="Skin.HasSetting(enableUSIcons) + !Skin.HasSetting(FixedMPAAPanel)">MPAA_Details_RowUS</include>
 			<include condition="Skin.HasSetting(enableUSIcons) + Skin.HasSetting(FixedMPAAPanel)">MPAA_Details_RowUS_Fixed_Size</include>
-            <!-- Total Seasons -->
+            
+			<!-- Total Seasons -->
             <control type="label" id="611117">
                 <posy>6</posy>
                 <visible>!String.IsEmpty(Control.GetLabel(611117)) + Control.IsVisible(5250)</visible>

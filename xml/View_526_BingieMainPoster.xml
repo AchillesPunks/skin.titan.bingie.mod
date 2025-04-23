@@ -11,6 +11,18 @@
                 <param name="id" value="526" />
             </include>
             
+			<!-- Media File Location -->
+			<control type="label">
+			<description>Show Media File Pather BingiePoster/List/Panel</description>
+				<visible>Skin.HasSetting(ShowFilePath)</visible>
+				<posx>138</posx>
+				<posy>615</posy>
+				<width>100%</width>
+				<height>30</height>
+				<font>font13</font>
+				<label>$INFO[ListItem.Path]</label>  
+			</control>
+			
 			<!-- scrollbar -->
             <control type="group">
                 <control type="scrollbar" id="60">

@@ -3907,3 +3907,11 @@ msgid ""
 msgctxt "#320243"
 msgid "Bingie ScreenSaver Settings"
 msgstr ""
+
+msgctxt "#320244"
+msgid "Show Media File Path (BingiePoster/List/Panel)"
+msgstr ""
+
+msgctxt "#320245"
+msgid "Disable Top250 on Spotlight"
+msgstr ""

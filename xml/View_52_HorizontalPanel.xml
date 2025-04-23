@@ -71,7 +71,17 @@
 		<control type="group">
             <visible>Control.IsVisible(52)</visible>
             <include>animation_view_change</include>
-			
+			<!-- Media File Location -->
+			<control type="label">
+			<description>Show Media Location Label</description>
+				<visible>Skin.HasSetting(ShowFilePath)</visible>
+				<posx>65</posx>
+				<posy>160</posy>
+				<width>100%</width>
+				<height>30</height>
+				<font>font13</font>
+				<label>$INFO[ListItem.Path]</label>  
+			</control>
 			<!-- Fanart Image Added to View-->
             <control type="multiimage">
 				<visible>!Skin.HasSetting(View52_DisableFanArt)</visible>

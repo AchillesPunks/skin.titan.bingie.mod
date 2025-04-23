@@ -438,13 +438,21 @@
             <selected>Skin.HasSetting(DisableSpotlightLabel)</selected>
             <visible>!Skin.HasSetting(DisableSpotlightContent) + String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
+		<!-- Disable Top250 on Spotlight -->
+		<control type="radiobutton" id="2079">
+            <include>SkinSettings_Button</include>
+            <label>320245</label>
+            <onclick>Skin.ToggleSetting(DisableSpotlightTop250)</onclick>
+            <selected>Skin.HasSetting(DisableSpotlightTop250)</selected>
+            <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(DisableSpotlightLabel)</visible>
+        </control>
 		<!-- Prefer White Top 250 Sub Label on Home Spotlight -->	
 		<control type="radiobutton" id="2047">
             <include>SkinSettings_Button</include>
             <label>      $LOCALIZE[320154]</label>
             <onclick>Skin.ToggleSetting(EnableSpotlightWhiteLabel)</onclick>
             <selected>Skin.HasSetting(EnableSpotlightWhiteLabel)</selected>
-            <visible>!Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(DisableSpotlightLabel)</visible>
+            <visible>!Skin.HasSetting(DisableSpotlightTop250) + !Skin.HasSetting(DisableSpotlightContent) + !Skin.HasSetting(DisableSpotlightLabel)</visible>
         </control>
 		<!-- Prefer Color Director Sub Label on Home Spotlight -->	
 		<control type="radiobutton" id="2037">
@@ -740,14 +748,7 @@
 			<visible>!Skin.HasSetting(EnableAudioCodec)</visible>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-		<!--Fake Codec info on Details Row (if no codec info is present)-->
-		<control type="radiobutton" id="2031">
-            <include>SkinSettings_Button</include>
-            <label>320166</label>
-            <onclick>Skin.ToggleSetting(EnableFakeResolution)</onclick>
-            <selected>Skin.HasSetting(EnableFakeResolution)</selected>
-            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-        </control>	
+		
 		<!--TV Show Status on Details Row Home & Bingie Views-->
 		<control type="radiobutton" id="2032">
             <include>SkinSettings_Button</include>
@@ -756,14 +757,14 @@
             <selected>Skin.HasSetting(EnableTVShowStatus)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>       
-		<!-- Disable Top250 Sublabel on home and bingie views -->
+		<!-- Disable Top250 on Home Widgets and Bingie Views -->
 		<control type="radiobutton" id="2028">
             <include>SkinSettings_Button</include>
             <label>320168</label>
             <onclick>Skin.ToggleSetting(DisableTop250)</onclick>
             <selected>Skin.HasSetting(DisableTop250)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
-        </control>	
+        </control>
         <!-- Prefer White Top250 Sublabel on Spotlight Details Row -->	
 		<control type="radiobutton" id="2038">
             <include>SkinSettings_Button</include>
@@ -1130,7 +1131,15 @@
             <selected>Skin.HasSetting(DisableMediaCount)</selected>
             <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
-        <!--Show Fanart Background-->
+        <!-- Show File Path -->
+		<control type="radiobutton" id="511441">
+            <include>SkinSettings_Button</include>
+            <label>Show Media File Path (BingiePoster/List/Panel)</label>
+            <onclick>Skin.ToggleSetting(ShowFilePath)</onclick>
+            <selected>Skin.HasSetting(ShowFilePath)</selected>
+            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+        </control>
+		<!--Show Fanart Background-->
         <control type="radiobutton" id="31141">
             <include>SkinSettings_Button</include>
             <label>31141</label>

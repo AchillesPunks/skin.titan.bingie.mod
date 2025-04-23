@@ -794,12 +794,12 @@
 				<include>Default_Visible_Fade</include>
 			<control type="button" id="6117">
 				<visible>!String.IsEmpty(Control.GetLabel(6117))</visible>
-				<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast) + !String.IsEqual(Window.Property(AdditionalInfo),trailers)</visible>
+				<visible>![Skin.HasSetting(UseBingieInfoDialog) + [String.IsEqual(Window.Property(AdditionalInfo),similar) | String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),trailers)]]</visible>
 				<posy>7</posy>
                 <height>36</height>
                 <width>auto</width>
 				<align>center</align>
-				<aligny>top</aligny>
+				<aligny>center</aligny>
 				<textwidth>158</textwidth> 
 				<textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
 				<disabledcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</disabledcolor>
@@ -812,34 +812,31 @@
 				<enable>false</enable>
             </control>
 	</include>	
-	<!-- Fake Resolution -->
-    <include name="Resolution_Details_Row_fake">
-		<control type="group">
+	
+	<!-- HDR -->
+    <include name="HDR_Details_Row">
 				<include>Default_Visible_Fade</include>
-				<visible>![Control.IsVisible(6111161) + $EXP[IsTvShowDBType]] + String.IsEmpty(ListItem.VideoResolution) + [$EXP[IsMovieDBType] | $EXP[IsTvShowDBType] | $EXP[IsEpisodeDBType]]</visible>
-				<visible>!String.IsEmpty(ListItem.Plot)</visible> <!--it works but find a better visibility tag to stop control showing up in categories widget!-->
-				<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast) + !String.IsEqual(Window.Property(AdditionalInfo),trailers)</visible>
+			<control type="button" id="61171">
+				<visible>String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)</visible>
+				<visible>![Skin.HasSetting(UseBingieInfoDialog) + [String.IsEqual(Window.Property(AdditionalInfo),similar) | String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),trailers)]]</visible>
 				<posy>7</posy>
-				<width>111</width>
                 <height>36</height>
-			<control type="image">
-				<height>100%</height>
-                <width>100%</width>
-                <texture colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texture>
-			</control>
-			<control type="label">
-				<width>100%</width>
-                <height>100%</height>
-                <align>center</align>
-                <textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
-				<textoffsety>6</textoffsety>
-                <font>Reg24</font>
-                <scroll>false</scroll>
-                <label>[B]4K HDR[/B]</label>
-			</control>
-		</control>
+                <width>auto</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textwidth>160</textwidth> 
+				<textcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</textcolor>
+				<disabledcolor>$INFO[Skin.String(BingieDetailsFlagTextColor)]</disabledcolor>
+				<texturenofocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturenofocus>
+				<texturefocus colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="10">bingie/square-rounded2.png</texturefocus>
+				<textoffsetx>8</textoffsetx>
+				<textoffsety>2</textoffsety>
+				<font>Reg24</font>
+				<label>[B]$VAR[VideoHDRVar][/B]</label>
+				<enable>false</enable>
+            </control>
 	</include>
-
+	
 	<!-- Audio Channels Top Box -->
     <include name="Audio_Channels_Details_Row">
 				<include>Default_Visible_Fade</include>
@@ -864,8 +861,8 @@
             </control>
 	</include>
 
-<!-- Audio Codec -->
-<include name="Audiocodec1">
+		<!-- Audio Codec -->
+		<include name="Audiocodec1">
 	 <control type="group" id="6662221">
 		<include>Default_Visible_Fade</include>
 		<posy>7</posy>
@@ -952,7 +949,7 @@
 	
     <!-- END OF DETAILS ROW INCLUDES-->
 
-	<!-- Spotlight Row Details Gap-->
+	<!-- Spotlight Row Details Gap -->
 	<include name="SpotlightRowDetails">
 		<control type="grouplist">
 			<orientation>horizontal</orientation>
@@ -971,8 +968,10 @@
 			<include condition="Skin.HasSetting(enableUSIcons) + Skin.HasSetting(FixedMPAAPanel)">MPAA_Details_RowUS_Fixed_Size</include>
 			<include>Duration_TotalSeasonsEpisodes_Details_Row</include>
 			<include>Resolution_Details_Row</include>
-			<include condition="Skin.HasSetting(EnableFakeResolution)">Resolution_Details_Row_fake</include>
-            <include>Audio_Channels_Details_Row</include>
+			<include condition="Skin.HasSetting(details_row_resolution)">Resolution_Details_Row</include>
+			<include condition="Skin.HasSetting(details_row_resolution)">HDR_Details_Row</include>
+			<include>HDR_Details_Row</include>
+			<include>Audio_Channels_Details_Row</include>
 			<include condition="Skin.HasSetting(EnableTVShowStatus)">ShowStatus</include>
 			<include condition="!Skin.HasSetting(EnableAudioCodec)">Audiocodec1</include>
 		</control>
@@ -1587,23 +1586,19 @@
 		<value condition="!String.IsEmpty(Container(99950).ListItem.Player.MPAA)">$INFO[Container(99950).ListItem.Player.MPAA]</value>
     </variable>
 
-<!-- Resolution Info -->
+    <!-- Resolution Info -->
 	<variable name="GetResolution">
-		<!--normal-->
+		<!-- NORMAL -->
 		<value condition="ListItem.IsStereoscopic">3D</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,8K) + ![String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">Ultra HD 8K</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,8K) + [String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">8K HDR</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,4K) + ![String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">Ultra HD 4K</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,4K) + [String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]">4K HDR</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">8K</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,4K)">4K</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">FHD</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,720)">HD</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,540)">SD</value>
-		<!--home-->
+		<!-- HOME -->
 		<value condition="$EXP[IsMainMenuOpened] + Window(Home).Property(ListItem.IsStereoscopic)">3D</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">Ultra HD 8K</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">8K HDR</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">Ultra HD 4K</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K) + [String.IsEqual(Window(Home).Property(Listitem.HdrType),hdr10) | String.IsEqual(Window(Home).Property(Listitem.HdrType),dolbyvision) | String.IsEqual(Window(Home).Property(Listitem.HdrType),hlg)]">4K HDR</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K)">8K</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K)">4K</value>
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),1080)">FHD</value>
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),720)">HD</value>
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),480) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),576) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),540)">SD</value>
@@ -1611,13 +1606,23 @@
 
 	<!-- Audio Channels Info (from 5.1 and up) -->
 	<variable name="GetAudioChannels">
-		<!--normal-->
+		<!-- NORMAL -->
+		<value condition="String.IsEqual(ListItem.AudioChannels,1)">1.0</value>
+		<value condition="String.IsEqual(ListItem.AudioChannels,2)">2.0</value>
+		<value condition="String.IsEqual(ListItem.AudioChannels,3)">2.1</value>
+		<value condition="String.IsEqual(ListItem.AudioChannels,4)">4.0</value>
+		<value condition="String.IsEqual(ListItem.AudioChannels,5)">4.1</value>
 		<value condition="String.IsEqual(ListItem.AudioChannels,6)">5.1</value>
 		<value condition="String.IsEqual(ListItem.AudioChannels,7)">6.1</value>
 		<value condition="String.IsEqual(ListItem.AudioChannels,8)">7.1</value>
 		<value condition="String.IsEqual(ListItem.AudioChannels,9)">8.1</value>
 		<value condition="String.IsEqual(ListItem.AudioChannels,10)">9.1</value>
-		<!--home-->
+		<!-- HOME -->
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),1)">1.0</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),2)">2.0</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),3)">2.1</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),4)">4.0</value>
+		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),5)">4.1</value>
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),6)">5.1</value>
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),7)">6.1</value>
 		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.AudioChannels),8)">7.1</value>

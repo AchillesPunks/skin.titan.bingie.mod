@@ -9,7 +9,7 @@
         <value>$INFO[System.StartupWindow]</value>
     </variable>
 
-    <!-- splash image -->
+    <!-- Splash Image -->
     <variable name="SplashImage">
         <value condition="!Skin.HasSetting(UseAltDefaultSplashImage) | Skin.HasSetting(UseAltDefaultSplashImage) + [String.IsEqual(Skin.String(splash_screen),netflix_alternative) | String.IsEqual(Skin.String(splash_screen),netflix_extended)]">special://skin/extras/media/bingie_splash.png</value>
         <value condition="Skin.HasSetting(UseAltDefaultSplashImage)">special://skin/extras/media/bingie_splash2.png</value>
@@ -260,11 +260,14 @@
 	
 	<variable name="HDIndicator">
 		<value condition="ListItem.IsStereoscopic">3D</value>
-        <value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K)
-         | String.IsEqual(ListItem.VideoResolution,8K)">UHD</value>
-        <value condition="Integer.IsGreater(ListItem.VideoResolution,720)">FHD</value>
-		<value condition="Integer.IsGreater(ListItem.VideoResolution,700)">HD</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution)">SD</value>
+		<value condition="Integer.IsGreater(ListItem.VideoResolution,700)">HD</value>
+		<value condition="Integer.IsGreater(ListItem.VideoResolution,720)">FHD</value>
+		<value condition="Integer.IsGreater(ListItem.VideoResolution,1080) | String.IsEqual(ListItem.VideoResolution,4K)
+         | String.IsEqual(ListItem.VideoResolution,8K)">UHD</value>
+        
+		
+		
 	</variable>
 
 	<variable name="BannerImage">
@@ -1047,6 +1050,23 @@
         <value condition="[String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)]">00000000</value>
         <value>$INFO[Skin.String(ViewDetailsTextShadowColor)]</value>
     </variable>
+	
+	<variable name="VideoResolutionTypeVar">
+		<value condition="String.IsEqual(ListItem.VideoResolution,480)">SD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,540)">SD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,576)">SD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,720)">HD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">HD</value>			
+		<value condition="String.IsEqual(ListItem.VideoResolution,4K)">UHD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">UHD2</value>	
+	</variable>
+	
+	<variable name="VideoHDRVar">
+		<value condition="String.IsEqual(ListItem.HdrType,hlg)">HLG</value>
+		<value condition="String.IsEqual(ListItem.HdrType,hdr10)">HDR10</value>
+		<value condition="String.IsEqual(ListItem.HdrType,dolbyvision)">Dolby Vision</value>
+		<value>$INFO[ListItem.HdrType]</value>
+	</variable>
 	
 	<variable name="DetailsTextColor">
         <value condition="!Window.IsActive(1118)">$INFO[Skin.String(BingieDeatailsTextColor)]</value>

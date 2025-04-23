@@ -857,8 +857,8 @@
             Control.IsVisible(515) | Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(527)
             </visible>
 		</control>
-        <control type="button" id="84403">
-            <!--Open Skin settings-->
+        <!-- Open Skin Settings -->
+		<control type="button" id="84403">
             <include>SideBladeMenuButton</include>
             <label>20077</label>
             <onclick>ClearProperty(ShowViewSubMenu,Home)</onclick>

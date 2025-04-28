@@ -13,7 +13,7 @@
             
 			<!-- Media File Location -->
 			<control type="label">
-			<description>Show Media File Pather BingiePoster/List/Panel</description>
+			<description>Show Media File Path BingiePoster/List/Panel</description>
 				<visible>Skin.HasSetting(ShowFilePath)</visible>
 				<posx>138</posx>
 				<posy>615</posy>

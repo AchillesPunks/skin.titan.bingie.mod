@@ -7,7 +7,7 @@
             <include>animation_view_change</include>
 			<!-- Media File Location -->
 			<control type="label">
-			<description>Show Media Location Label</description>
+			<description>Show Media File Path BingiePoster/List/Panel</description>
 				<visible>Skin.HasSetting(ShowFilePath)</visible>
 				<posx>35</posx>
 				<posy>953</posy>

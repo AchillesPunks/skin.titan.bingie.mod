@@ -1006,7 +1006,7 @@
         <value>$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
     </variable>
 
-    <!-- home vars -->
+    <!-- Home Vars -->
     <variable name="HomeMenuWidgetInfoLabel">
         <value condition="String.Contains(Container(900).ListItem.Property(widgetPath), plugin.video.youtube) + !String.IsEmpty(ListItem.Label2)">[B]$INFO[ListItem.label][CR]$INFO[ListItem.label2][/B]</value>
         <value condition="String.IsEqual(ListItem.Property(DBTYPE), systeminfo)">[B]$INFO[ListItem.label][/B] $INFO[ListItem.label2]</value>
@@ -1026,7 +1026,7 @@
         <value condition="!String.IsEmpty(ListItem.PictureKeywords)">$INFO[ListItem.PictureKeywords]</value>
     </variable>
     <variable name="HomeMenuWidgetInfoPlotAlt">
-        <!-- details widget -->
+        <!-- Details Widget -->
         <value condition="!String.IsEmpty(ListItem.VideoResolution)">[B]$VAR[VideoResolutionVar,, • ]$VAR[VideoCodecVar,[UPPERCASE], • [/UPPERCASE]]$VAR[VideoAspectVar,, • ]$VAR[AudioCodecVar,[UPPERCASE], • [/UPPERCASE]]$VAR[AudioChannelsVar][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
         <value>$VAR[HomeMenuWidgetInfoPlot]</value>
     </variable>

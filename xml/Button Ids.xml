@@ -187,3 +187,19 @@
 <!-- Enable Air Date -->	
         <control type="radiobutton" id="2072">  
 		
+		
+		
+		
+		
+		
+		<!-- Show Genre -->
+			<control type="label">
+			    <description>Genre Label</description>
+				<posx>138</posx>
+				<posy>615</posy>
+				<width>100%</width>
+				<height>30</height>
+				<font>font13</font>
+			<label>$INFO[ListItem.Genre]</label>
+			</control>
+		

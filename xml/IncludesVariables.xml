@@ -914,8 +914,6 @@
         <value condition="Control.IsVisible(55)">$INFO[Skin.String(View55.Tags.label)]</value>
         <value condition="Control.IsVisible(57) + !Skin.String(View57.Tags)">$LOCALIZE[1223]</value>
         <value condition="Control.IsVisible(57)">$INFO[Skin.String(View57.Tags.label)]</value>
-        <value condition="Control.IsVisible(58) + !Skin.String(View58.Tags)">$LOCALIZE[1223]</value>
-        <value condition="Control.IsVisible(58)">$INFO[Skin.String(View58.Tags.label)]</value>
         <value condition="Control.IsVisible(59) + !Skin.String(View59.Tags)">$LOCALIZE[1223]</value>
         <value condition="Control.IsVisible(59)">$INFO[Skin.String(View59.Tags.label)]</value>
         <value condition="Control.IsVisible(500) + !Skin.String(View500.Tags)">$LOCALIZE[1223]</value>
@@ -944,9 +942,7 @@
         <value condition="Control.IsVisible(519)">$INFO[Skin.String(View519.Tags.label)]</value>
         <value condition="Control.IsVisible(520) + !Skin.String(View520.Tags)">$LOCALIZE[1223]</value>
         <value condition="Control.IsVisible(520)">$INFO[Skin.String(View520.Tags.label)]</value>
-		<value condition="Control.IsVisible(521) + !Skin.String(View521.Tags)">$LOCALIZE[1223]</value>
-        <value condition="Control.IsVisible(521)">$INFO[Skin.String(View521.Tags.label)]</value>
-        <value condition="Control.IsVisible(523) + !Skin.String(View523.Tags)">$LOCALIZE[1223]</value>
+		<value condition="Control.IsVisible(523) + !Skin.String(View523.Tags)">$LOCALIZE[1223]</value>
         <value condition="Control.IsVisible(523)">$INFO[Skin.String(View523.Tags.label)]</value>
         <value condition="Control.IsVisible(526) + !Skin.String(View526.Tags)">$LOCALIZE[1223]</value>
         <value condition="Control.IsVisible(526)">$INFO[Skin.String(View526.Tags.label)]</value>
@@ -1065,7 +1061,27 @@
 		<value condition="String.IsEqual(ListItem.HdrType,hlg)">HLG</value>
 		<value condition="String.IsEqual(ListItem.HdrType,hdr10)">HDR10</value>
 		<value condition="String.IsEqual(ListItem.HdrType,dolbyvision)">Dolby Vision</value>
-		<value>$INFO[ListItem.HdrType]</value>
+        <value>$INFO[ListItem.HdrType]</value>
+	</variable>
+	
+	<variable name="AudioCodecVar">
+        <value condition="String.Contains(ListItem.AudioCodec,atmos)">ATMOS</value>
+		<value condition="String.Contains(ListItem.AudioCodec,truehd)">TRUEHD</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,eac3)">DOLBY D+</value>
+		<value condition="String.Contains(ListItem.AudioCodec,ac3)">DOLBY</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dtsx)">DTS X</value>
+		<value condition="String.Contains(ListItem.AudioCodec,dts_es)">DTS-ES</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dts_x)">DTS X</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dca)">DTS</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dts)">DTS</value>
+		<value condition="String.Contains(ListItem.AudioCodec,dts-hd)">DTS-HD</value>
+		<value condition="String.Contains(ListItem.AudioCodec,dtshd)">DTS HD</value>
+		<value condition="String.Contains(ListItem.AudioCodec,pcm)">PCM</value>
+		<value condition="String.Contains(ListItem.AudioCodec,aac)">AAC</value>
+		<value condition="String.Contains(ListItem.AudioCodec,mp3)">MP3</value>
+		<value condition="String.Contains(ListItem.AudioCodec,flac)">FLAC</value>
+		<value condition="String.Contains(ListItem.AudioCodec,opus)">OPUS</value>
+        <value>$INFO[ListItem.AudioCodec]</value>
 	</variable>
 	
 	<variable name="DetailsTextColor">

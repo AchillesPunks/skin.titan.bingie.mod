@@ -32,7 +32,7 @@
 						<width>100%</width>
 						<height>100%</height>
 						<aspectratio align="center">keep</aspectratio>
-						<texture background="true">bingie_logo.png</texture>
+						<texture background="true">home/bingie_mod_logo.png</texture>
 					</control>
 				</control>
 				<!-- headline -->

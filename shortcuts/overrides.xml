@@ -35,7 +35,7 @@
 			<shortcut label="7" grouping="32029" icon="resource://resource.images.skinicons.wide/filemanager.png">ActivateWindow(filemanager)</shortcut>
 			<shortcut label="10040" grouping="32029" icon="resource://resource.images.skinicons.wide/addons.png">ActivateWindow(Programs,Addons,return)</shortcut>
 			<shortcut label="20244" grouping="32029" icon="resource://resource.images.skinicons.wide/programs.png" condition="System.Platform.Android">ActivateWindow(10001,androidapp://sources/apps/,return)</shortcut>
-			<shortcut label="10134" grouping="32029" icon="resource://resource.images.skinicons.wide/favourites.png">ActivateWindow(favourites)</shortcut>
+			<shortcut label="10134" grouping="32029" icon="resource://resource.images.skinicons.wide/favourites.png">ActivateWindow(favouritesbrowser)</shortcut>
 			<shortcut label="31062" grouping="32029" type="youtube" icon="resource://resource.images.skinicons.wide/youtube.png" condition="System.HasAddon(plugin.video.youtube)">ActivateWindow(Videos,plugin://plugin.video.youtube,return)</shortcut>
 			<shortcut label="32032" type="playdvd" grouping="32029" icon="resource://resource.images.skinicons.wide/videos.png">PlayDVD()</shortcut>
 		</node>
@@ -127,7 +127,7 @@
 
 		<!-- favourites-->	
 		<node label="32006">
-			<shortcut label="10134" grouping="32029" icon="resource://resource.images.skinicons.wide/favourites.png">ActivateWindow(favourites)</shortcut>
+			<shortcut label="10134" grouping="32029" icon="resource://resource.images.skinicons.wide/favourites.png">ActivateWindow(favouritesbrowser)</shortcut>
 			<content>favourite</content>
 		</node>
 		

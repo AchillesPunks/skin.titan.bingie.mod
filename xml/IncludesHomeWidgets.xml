@@ -2,51 +2,26 @@
 <!-- BINGIE -->
 <includes>
     <include name="widget_layout_default">
-        <include content="widget_layout_poster" condition="String.IsEqual(Skin.String(widgetstyle),poster)">
+        <!-- Poster -->
+		<include content="widget_layout_poster" condition="String.IsEqual(Skin.String(widgetstyle),poster)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include content="widget_layout_landscape" condition="String.IsEqual(Skin.String(widgetstyle),landscape)">
+        <!-- Landscape -->
+		<include content="widget_layout_landscape" condition="String.IsEqual(Skin.String(widgetstyle),landscape)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include content="widget_layout_landscapesmall" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="widgetTags" value="$PARAM[widgetTags]"/>
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
-        <include content="widget_layout_smallposter" condition="String.IsEqual(Skin.String(widgetstyle),small poster) | Skin.String(widgetstyle, smallposter)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="widgetTags" value="$PARAM[widgetTags]"/>
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
-        <include content="widget_layout_square" condition="String.IsEqual(Skin.String(widgetstyle),square)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="widgetTags" value="$PARAM[widgetTags]"/>
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
-        <include content="widget_layout_banner" condition="String.IsEqual(Skin.String(widgetstyle),banner)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="widgetTags" value="$PARAM[widgetTags]"/>
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
+        
+        <!-- Landscape Large -->
         <include content="widget_layout_landscapelarge" condition="String.IsEqual(Skin.String(widgetstyle),landscapelarge)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
-        <include content="widget_layout_landscapedetails" condition="String.IsEqual(Skin.String(widgetstyle),landscapedetails)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="widgetTags" value="$PARAM[widgetTags]"/>
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
-        <include content="widget_layout_posterdetails" condition="String.IsEqual(Skin.String(widgetstyle),posterdetails)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="widgetTags" value="$PARAM[widgetTags]"/>
-            <param name="multiRows" value="$PARAM[multiRows]" />
-        </include>
+        <!-- Highlight -->
         <include content="widget_layout_highlight" condition="String.IsEqual(Skin.String(widgetstyle),highlight)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="widgetTags" value="$PARAM[widgetTags]"/>
@@ -338,244 +313,7 @@
         <height>760</height>
     </include>
     
-    <!-- widget poster details layout -->
-    <include name="widget_layout_posterdetails">
-        <height>331</height>
-        <orientation>horizontal</orientation>
-        <itemlayout height="330" width="238">
-          <control type="group">
-              <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                  <param name="left" value="bingie_no_circular_posx"/>
-              </include>
-            <width>240</width>
-            <height>330</height>
-            <include>PosterPanelBingieLayout</include>
-            <control type="group">
-                <description>widget label overlay</description>
-                <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">PosterTagOverlayBingie</include>
-                <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                    <param name="prefix" value="Poster" />
-                </include>
-				<include>Poster_New_Episodes_Tag_Overlay</include>
-            </control>
-          </control>
-        </itemlayout>
-        <focusedlayout height="330" width="238" condition="!Control.HasFocus($PARAM[widgetid])">
-          <control type="group">
-              <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                  <param name="left" value="bingie_no_circular_posx"/>
-              </include>
-            <width>240</width>
-            <height>330</height>
-            <include>PosterPanelBingieLayout</include>
-            <control type="group">
-                <description>widget label overlay</description>
-                <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">PosterTagOverlayBingie</include>
-                <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                    <param name="prefix" value="Poster" />
-                </include>
-            </control>
-          </control>
-        </focusedlayout>
-        <focusedlayout width="714" height="330" condition="Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>716</width>
-                <height>330</height>
-                <include content="widget_layout_posterdetails_widebox">
-                    <param name="widgetid" value="$PARAM[widgetid]" />
-                </include>
-                <include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="posterdetails" />
-                    <param name="widgetid" value="$PARAM[widgetid]" />
-                </include>
-				<include>Top250Indicator</include>
-				<include>Poster_New_Episodes_Tag_Overlay</include>
-            </control>
-        </focusedlayout>
-	</include>
-
-    <include name="widget_layout_posterdetails_widebox">
-        <!-- wide box widget -->
-        <control type="group">
-		<!-- poster image -->
-			<control type="image">
-                <texture>diffuse/panel2.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-				<bordersize>8</bordersize>
-            </control>
-			<control type="group">
-                <width>240</width>
-                <height>330</height>
-                <include>PosterPanelBingieLayout</include>
-            </control> 			
-            <control type="image">
-                <texture background="true" border="12">$INFO[Skin.String(thumbsborder_focused),bingie/border/poster_fo_,.png]</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-				<bordersize>2</bordersize>
-            </control>         
-            <control type="label">
-                <left>242</left>
-                <right>30</right>
-                <top>11</top>
-                <aligny>top</aligny>
-                <height>40</height>
-				<width>456</width>
-                <font>Reg30</font>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <label>$VAR[HomeMenuWidgetInfoLabel]</label>
-				<scroll>true</scroll>
-            </control>
-            <control type="textbox">
-                <left>242</left>
-                <right>30</right>
-                <top>65</top>
-                <bottom>20</bottom>
-				<height>251</height>
-				<width>456</width>
-                <font>Reg24</font>
-                <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Skin.HasSetting(DisablePlotAutoScroll)" />
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
-            </control>
-        </control>
-    
-    </include>
-    
-    <!-- widget small poster layout -->
-    <include name="widget_layout_smallposter">
-        <height>240</height>
-        <itemlayout height="253" width="175">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>177</width>
-                <height>240</height>
-                <include>SmallPosterPanelBingieLayout</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SmallPosterTagOverlayBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Poster"/>
-                    </include>
-                </control>
-            </control>
-        </itemlayout>
-        <focusedlayout height="253" width="175" condition="!Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>177</width>
-                <height>240</height>
-                <include>SmallPosterPanelBingieLayout</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SmallPosterTagOverlayBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Poster"/>
-                    </include>
-                </control>
-				<include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="smallposter"/>
-                    <param name="widgetid" value="$PARAM[widgetid]"/>
-                </include>
-            </control>
-        </focusedlayout>
-        <focusedlayout height="253" width="175" condition="Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>177</width>
-                <height>240</height>
-                <include>SmallPosterPanelBingieLayoutFocus</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SmallPosterTagOverlayBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Poster"/>
-                    </include>
-                </control>
-                <include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="smallposter"/>
-                    <param name="widgetid" value="$PARAM[widgetid]"/>
-                </include>
-            </control>
-        </focusedlayout>        
-    </include>
-    
-    <!-- widget square layout -->
-    <include name="widget_layout_square">
-        <height>255</height>
-        <itemlayout height="263" width="238">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>240</width>
-                <height>240</height>
-                <include>SquarePosterPanelLayout</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">SquarePosterTagOverlay</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="SquarePoster"/>
-                    </include>
-                </control>
-            </control>
-        </itemlayout>
-        <focusedlayout height="263" width="238" condition="!Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>240</width>
-                <height>240</height>
-                <include>SquarePosterPanelLayout</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">SquarePosterTagOverlay</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="SquarePoster"/>
-                    </include>
-                </control>
-            </control>
-        </focusedlayout>
-		<focusedlayout height="263" width="238" condition="Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>240</width>
-                <height>240</height>
-				<control type="image">
-					<visible>![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]</visible>
-					<visible>Control.HasFocus($PARAM[widgetid])</visible>
-					<include>SquareThumbFO</include>
-					<include>thumbsborder_focused</include>
-				</control>
-                <include>SquarePosterPanelLayout</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">SquarePosterTagOverlay</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="SquarePoster"/>
-                    </include>
-                </control>
-                <include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="square"/>
-                    <param name="widgetid" value="$PARAM[widgetid]"/>
-                </include>
-            </control>
-        </focusedlayout>
-    </include>
-
-    <!-- widget landscape layout -->
+    <!-- Widget Landscape -->
     <include name="widget_layout_landscape">
         <include content="widget_layout_landscape_not_vertical_layout">
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -907,7 +645,7 @@
         </focusedlayout>
     </include>
     
-    <!-- widget bingie large landscape -->
+    <!-- Widget Landscape Large -->
     <include name="widget_layout_landscapelarge">
         <height>248</height>
         <itemlayout width="428" height="260">
@@ -1013,309 +751,6 @@
         </focusedlayout>
     </include>
     
-    <!-- landscape details -->
-    <include name="widget_layout_landscapedetails">
-        <height>212</height>
-        <orientation>horizontal</orientation>
-        <itemlayout width="364" height="212">
-			<control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>366</width>
-                <height>210</height>
-                <include>ThumbsViewBingieLayout</include>
-			<control type="image">
-				<!-- fallback logo image -->
-				<width>366</width>
-				<height>210</height>
-				<bottom>-46</bottom>
-				<left>0</left>
-				<bordersize>54</bordersize>
-				<texture background="true">$VAR[ClearLogoFallback]</texture>
-				<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-				<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
-				<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
-				<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
-			</control>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlayBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Landscape" />
-                    </include>
-					<include>New_Episodes_Tag_Overlay</include>
-                </control>
-            </control>
-		</itemlayout>
-        <focusedlayout width="1092" height="212" condition="Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>1088</width>
-                <height>206</height>
-                <include>widget_layout_landscapelarge_widebox</include>
-			<control type="image">
-				<!-- fallback logo image -->
-				<width>366</width>
-				<height>210</height>
-				<bottom>-50</bottom>
-				<left>0</left>
-				<bordersize>54</bordersize>
-				<texture background="true">$VAR[ClearLogoFallback]</texture>
-				<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-				<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
-				<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
-				<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
-			</control>
-                <include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="landscapedetails" />
-                    <param name="widgetid" value="$PARAM[widgetid]" />
-                </include>
-				<include>Top250Indicator</include>
-				<include>New_Episodes_Tag_Overlay</include>
-            </control>
-        </focusedlayout>
-		<focusedlayout width="364" height="212" condition="!Control.HasFocus($PARAM[widgetid])">
-			<control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>366</width>
-                <height>210</height>
-                <include>ThumbsViewBingieLayout</include>
-			<control type="image">
-				<!-- fallback logo image -->
-				<width>366</width>
-				<height>210</height>
-				<bottom>-46</bottom>
-				<left>0</left>
-				<bordersize>54</bordersize>
-				<texture background="true">$VAR[ClearLogoFallback]</texture>
-				<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-				<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
-				<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
-				<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
-			</control>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlayBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Landscape" />
-                    </include>
-                </control>
-            </control>
-		</focusedlayout>
-	</include>
-    <include name="widget_layout_landscapelarge_widebox">
-        <!-- wide box widget -->
-        <control type="group">
-		<!-- poster image -->
-            <control type="group">
-                <width>366</width>
-                <height>210</height>
-                <include>ThumbsViewBingieLayout</include>
-            </control>
-			<control type="image">
-                <texture border="5">diffuse/panel2.png</texture>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsPanelColor)]</colordiffuse>
-				<left>358</left>
-				<width>728</width>
-				<posy>4</posy>
-            </control>
-            <control type="image">
-                <texture background="true" border="10">$INFO[Skin.String(thumbsborder_focused),bingie/border/thumb_fo_,.png]</texture>
-				<bordersize>-2</bordersize>
-                <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-				<posx>4</posx>
-				<posy>4</posy>
-            </control>           
-            <control type="label">
-                <left>368</left>
-                <top>12</top>
-                <aligny>top</aligny>
-                <height>80</height>
-				<width>704</width>
-                <font>Reg30</font>
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <label>$VAR[HomeMenuWidgetInfoLabel]</label>
-				<scroll>true</scroll>
-            </control>
-            <control type="textbox">
-                <left>368</left>
-                <right>30</right>
-                <top>66</top>
-                <height>130</height>
-				<width>706</width>
-                <font>Reg24</font>
-                <align>justify</align>
-                <autoscroll delay="4000" time="3000" repeat="10000" condition="!Skin.HasSetting(DisablePlotAutoScroll)" />
-                <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
-                <label>$VAR[HomeMenuWidgetInfoPlotAlt]</label>
-            </control>
-        </control>
-    
-    </include>
-    
-    <!-- widget banner layout -->
-    <include name="widget_layout_banner">
-        <height>128</height>
-        <itemlayout height="128" width="594">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>596</width>
-                <height>122</height>
-                <control type="image">
-                    <texture border="5">diffuse/banner.png</texture>
-                    <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                    <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                </control>
-                <include>BannerBingieLayout</include>
-            </control>
-        </itemlayout>
-        <focusedlayout height="128" width="594" condition="!Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>596</width>
-                <height>122</height>
-                <control type="image">
-                    <texture border="5">diffuse/banner.png</texture>
-                    <colordiffuse>$VAR[ViewDetailsPanelColor]</colordiffuse>
-                    <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                </control>
-                <include>BannerBingieLayout</include>
-            </control>
-        </focusedlayout>
-		<focusedlayout height="128" width="594" condition="Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>596</width>
-                <height>122</height>
-                <control type="image">
-                    <texture border="5">diffuse/banner.png</texture>
-                    <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-                    <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                    <include>thumbsborder_focused</include>
-                </control>
-                <include>BannerBingieLayout</include>
-                <include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="banner"/>
-                    <param name="widgetid" value="$PARAM[widgetid]"/>
-                </include>
-            </control>
-        </focusedlayout>
-    </include>
-    
-    <!-- widget landscapesmall layout -->
-    <include name="widget_layout_landscapesmall">
-        <height>148</height>
-        <itemlayout width="248" height="148">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>250</width>
-                <height>148</height>
-                <include>ThumbsViewBingieLayout</include>
-				<control type="image">
-					<!-- fallback logo image -->
-					<width>250</width>
-					<height>148</height>
-					<bottom>-32</bottom>
-					<left>0</left>
-					<bordersize>40</bordersize>
-					<texture background="true">$VAR[ClearLogoFallback]</texture>
-					<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-					<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
-					<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
-					<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
-				</control>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">ThumbsTagOverlaySmallBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Landscape"/>
-                    </include>
-                </control>
-            </control>
-        </itemlayout>
-        <focusedlayout width="248" height="148" condition="Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>250</width>
-                <height>148</height>
-                <include>ThumbsViewBingieLayoutFocus</include>
-				<control type="image">
-					<!-- fallback logo image -->
-					<width>250</width>
-					<height>148</height>
-					<bottom>-32</bottom>
-					<left>0</left>
-					<bordersize>40</bordersize>
-					<texture background="true">$VAR[ClearLogoFallback]</texture>
-					<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-					<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
-					<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
-					<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
-				</control>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">ThumbsTagOverlaySmallBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Landscape"/>
-                    </include>
-                </control>
-                <include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="landscapesmall"/>
-                    <param name="widgetid" value="$PARAM[widgetid]"/>
-                </include>
-            </control>
-        </focusedlayout>
-        <focusedlayout width="248" height="148" condition="!Control.HasFocus($PARAM[widgetid])">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>250</width>
-                <height>148</height>
-                <include>ThumbsViewBingieLayout</include>
-				<control type="image">
-					<!-- fallback logo image -->
-					<width>250</width>
-					<height>148</height>
-					<bottom>-32</bottom>
-					<left>0</left>
-					<bordersize>40</bordersize>
-					<texture background="true">$VAR[ClearLogoFallback]</texture>
-					<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-					<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.Property(DBTYPE),season)</visible>
-					<visible>String.IsEmpty(ListItem.Property(defaultID))</visible>
-					<visible>Skin.HasSetting(ShowClearLogoOnLandscape)</visible>
-				</control>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable) | [String.IsEqual(Skin.String(Widgets_DisplayTags),disable) + Skin.HasSetting(ShowLabelsPosterEpisodes)]">ThumbsTagOverlaySmallBingie</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="Landscape"/>
-                    </include>
-                </control>
-				<include content="HiddenWidgetButton">
-                    <param name="widgetstyle" value="landscapesmall"/>
-                    <param name="widgetid" value="$PARAM[widgetid]"/>
-                </include>
-            </control>
-        </focusedlayout>
-    </include>
-
 	<!-- Widget header width -->
 	<include name="FooterON">
 		<width>560</width>
@@ -1502,7 +937,8 @@
         <content browse="never" sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">special://skin/playlists/mylistshows.xsp</content>
         <content browse="never" sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]">special://skin/playlists/mylistmovies.xsp</content>
     </include>
-
+    
+	<!-- Static Widget Caregories -->
     <include name="StaticWidget_Categories">
         <content>			
             <!-- Library lists -->
@@ -2304,7 +1740,8 @@
             <property name="DBTYPE">rcb</property>
         </item>
     </include>
-
+    
+	<!-- Widget Tag Overlay -->
     <include name="WidgetTagOverlayEnable">
         <visible>true</visible>
     </include>
@@ -2327,7 +1764,7 @@
                 <focusedposition>0</focusedposition>
                 <itemgap>0</itemgap>
                 <width>1666</width>
-				<include condition="[String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails)] | Window.IsActive(1115) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails)]" content="height">
+				<include condition="[String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapelarge)] | Window.IsActive(1115) + [String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapelarge)]" content="height">
                     <param name="height" value="390" />
 				</include>
                 <height>469</height>
@@ -2345,7 +1782,7 @@
 				<onback condition="$EXP[IsPlayingUnrecognizedContent]">PlayerControl(Stop)</onback>
 				<onup condition="Skin.HasSetting(BingieAutoTrailer)">noop</onup>
 				<ondown condition="Skin.HasSetting(BingieAutoTrailer)">noop</ondown>
-                <itemlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)">
+                <itemlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster)">
                     <control type="group">
                         <width>240</width>
                         <height>330</height>
@@ -2356,7 +1793,8 @@
                         </control>
                     </control>
                 </itemlayout>
-                <focusedlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),smallposter) | String.IsEqual(Skin.String(widgetstyle),posterdetails)">
+                <!-- Poster -->
+				<focusedlayout height="330" width="238" condition="String.IsEqual(Skin.String(widgetstyle),poster)">
                     <control type="group">
                         <width>240</width>
                         <height>330</height>
@@ -2372,7 +1810,8 @@
 						<param name="widgetid" value="$PARAM[widgetid]"/>
 					</include>
                 </focusedlayout>
-				<itemlayout height="196" width="333" condition="String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails)">
+				<!-- Landscape -->
+				<itemlayout height="196" width="333" condition="String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapelarge)">
                     <control type="group">
                         <width>335</width>
                         <height>198</height>
@@ -2383,7 +1822,7 @@
                         </control>
                     </control>
                 </itemlayout>
-                <focusedlayout height="196" width="333" condition="String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapedetails)">
+                <focusedlayout height="196" width="333" condition="String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),landscapelarge)">
                     <control type="group">
                         <width>335</width>
                         <height>198</height>
@@ -2399,67 +1838,17 @@
 						<param name="widgetid" value="$PARAM[widgetid]"/>
 					</include>
                 </focusedlayout>
-				<itemlayout height="116" width="555" condition="String.IsEqual(Skin.String(widgetstyle),banner)">
-                    <control type="group">
-                        <width>557</width>
-                        <height>118</height>
-                        <include>BannerBingieLayout</include>
-					</control>
-                </itemlayout>
-                <focusedlayout height="116" width="555" condition="String.IsEqual(Skin.String(widgetstyle),banner)">
-                    <control type="group">
-                        <width>557</width>
-                        <height>118</height>
-                        <control type="image">
-                            <texture>diffuse/banner.png</texture>
-                            <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include>thumbsborder_focused</include>
-                        </control>
-                        <include>BannerBingieLayout</include>
-					</control>
-					<include content="HiddenWidgetButton">
-						<param name="widgetstyle" value="banner"/>
-						<param name="widgetid" value="$PARAM[widgetid]"/>
-					</include>
-                </focusedlayout>
-				<itemlayout height="185" width="185" condition="String.IsEqual(Skin.String(widgetstyle),square)">
-                    <control type="group">
-                        <width>187</width>
-                        <height>187</height>
-                        <include>SquarePosterPanelLayout</include>
-                        <control type="group">
-                            <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SquarePosterTagOverlay</include>
-                        </control>
-                    </control>
-                </itemlayout>
-                <focusedlayout height="185" width="185" condition="String.IsEqual(Skin.String(widgetstyle),square)">
-                    <control type="group">
-                        <width>187</width>
-                        <height>187</height>
-                        <include>SquarePosterPanelLayoutFocus</include>
-                        <control type="group">
-                            <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SquarePosterTagOverlay</include>
-                        </control>
-                    </control>
-                    <include content="HiddenWidgetButton">
-						<param name="widgetstyle" value="square"/>
-						<param name="widgetid" value="$PARAM[widgetid]"/>
-					</include>
-                </focusedlayout>
-                <content sortby="$PARAM[sortBy]" sortorder="$PARAM[sortOrder]" limit="$PARAM[limit]" target="$PARAM[target]">$PARAM[content]</content>
+				<content sortby="$PARAM[sortBy]" sortorder="$PARAM[sortOrder]" limit="$PARAM[limit]" target="$PARAM[target]">$PARAM[content]</content>
             </control>
         </definition>
     </include>
-
+    <!-- Spotlight Dummy Landscape Widget -->
     <include name="SpotlightDummyLandscapeWidget">
         <control type="grouplist">
             <visible>Control.IsVisible(1508)</visible>
             <visible>Integer.IsGreater(Container(77777).NumItems,1) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),Container(77777).NumItems)</visible>
             <animation effect="fade" start="0" end="55" time="250">VisibleChange</animation>
 			<animation effect="slide" start="0,0" end="0,120" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),poster)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-62" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),landscapesmall)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,30" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),smallposter)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="0,38" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),landscapelarge)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="0,-11" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),highlight)">Conditional</animation>
             <animation effect="slide" start="0,-252" end="0,0" time="300" condition="!String.IsEqual(Window(Home).Property(CurrentWidgetPos),1)">Conditional</animation>
@@ -2490,21 +1879,17 @@
             </control>
         </control>
     </include>
-	
+	<!-- Spotlight Dummy Poster Widetet -->
 	<include name="SpotlightDummyPosterWidget">
         <control type="grouplist">
             <visible>Control.IsVisible(1508)</visible>
             <visible>Integer.IsGreater(Container(77777).NumItems,1) + String.IsEqual(Window(Home).Property(CurrentWidgetPos),Container(77777).NumItems)</visible>
             <animation effect="fade" start="0" end="55" time="250">VisibleChange</animation>
-			<animation effect="slide" start="0,0" end="0,-120" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),landscape)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-182" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),landscapesmall)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-90" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),smallposter)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-120" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),landscape)">Conditional
+			</animation>
 			<animation effect="slide" start="0,0" end="0,-82" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),landscapelarge)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="0,-91" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),highlight)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-90" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),square)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-208" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),banner)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-120" time="0" condition="String.IsEqual(window(home).Property(widgetstyle),landscapedetails)">Conditional</animation>
-            <animation effect="slide" start="0,-371" end="0,0" time="300" condition="!String.IsEqual(Window(Home).Property(CurrentWidgetPos),1)">Conditional</animation>
+			<animation effect="slide" start="0,-371" end="0,0" time="300" condition="!String.IsEqual(Window(Home).Property(CurrentWidgetPos),1)">Conditional</animation>
             <animation effect="slide" start="0,371" end="0,0" time="300" condition="String.IsEqual(Window(Home).Property(CurrentWidgetPos),1) | String.IsEqual(Window(Home).Property(CurrentWidgetPos),Container(77777).NumItems)">Conditional</animation>
             <orientation>vertical</orientation>
             <itemgap>0</itemgap>
@@ -2544,77 +1929,12 @@
     </include>
 
 
-    <include name="widget_layout_bingie_square">
-        <onclick condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onclick>
-        <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
-        <onclick>AlarmClock(preview_delay,PlayMedia($ESCINFO[ListItem.FileNameAndPath]),00:03,silent)</onclick>
-        <height>212</height>
-        <itemlayout height="212" width="208">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>210</width>
-                <height>210</height>
-                <include>SquarePosterPanelLayout</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SquarePosterTagOverlay</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="SquarePoster"/>
-                    </include>
-                </control>
-            </control>
-        </itemlayout>
-        <focusedlayout height="212" width="208">
-            <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
-                    <param name="left" value="bingie_no_circular_posx"/>
-                </include>
-                <width>210</width>
-                <height>210</height>
-                <control type="image">
-                    <visible>!Skin.HasSetting(EnableFixedFrameWidgets)</visible>
-                    <include>SquareThumbFO</include>
-                    <include>thumbsborder_focused</include>
-                </control>
-                <control type="image">
-                    <include>SquareThumb</include>
-                    <visible>!String.StartsWith(ListItem.FileNameAndPath, pvr://) + ![!String.IsEmpty(ListItem.Art(thumb)) + String.IsEqual(ListItem.Art(thumb),ListItem.Property(channellogo))]</visible>
-                </control>
-                <control type="image">
-                    <aspectratio scalediffuse="false" aligny="center">keep</aspectratio>
-                    <include>SquareThumb</include>
-                    <visible>String.StartsWith(ListItem.FileNameAndPath, pvr://) | [!String.IsEmpty(ListItem.Art(thumb)) + String.IsEqual(ListItem.Art(thumb),ListItem.Property(channellogo))]</visible>
-                </control>
-                <control type="group">
-                    <!--Watched Overlay-->
-                    <right>8</right>
-                    <top>8</top>
-                    <include>WatchedIndicatorSmall</include>
-                </control>
-                <!--Label Overlay-->
-                <include condition="!Window.IsActive(Home) + !$EXP[IsBingieHubsActive] + !Window.IsActive(1117)">SquarePosterTagOverlay</include>
-                <control type="group">
-                    <description>widget label overlay</description>
-                    <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">SquarePosterTagOverlay</include>
-                    <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                        <param name="prefix" value="SquarePoster"/>
-                    </include>
-                </control>
-            </control>
-            <include content="HiddenWidgetButton">
-                <param name="widget" value="PVR"/>
-                <param name="widgetstyle" value="square"/>
-                <param name="widgetid" value="$PARAM[widgetid]"/>
-            </include>
-        </focusedlayout>
-    </include>
-
+    
+    <!-- Widget Base Content PVR -->
     <include name="widget_base_content_pvr">
         <include>StaticWidget_pvr</include>
     </include>
-
+    <!-- Widget PVR -->
     <include name="StaticWidget_pvr">
         <content>
             <item id="1">

@@ -3913,5 +3913,11 @@ msgid "Show Media File Path (BingiePoster/List/Panel)"
 msgstr ""
 
 msgctxt "#320245"
-msgid "Disable Top250 on Spotlight"
+msgid "Show Media File Path (BingiePoster/List/Panel)"
 msgstr ""
+
+msgctxt "#320246"
+msgid "Show Media File Path (DialogVideoInfo)"
+msgstr ""
+
+

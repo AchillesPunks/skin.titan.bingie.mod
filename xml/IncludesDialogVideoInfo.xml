@@ -6,7 +6,7 @@
 			<control type="group"> 
 				<visible>!String.IsEqual(ListItem.Property(item.type),person)</visible>
 				<include>GlobalBackground</include>
-				<!-- background -->
+				<!-- Fanart Background -->
 				<control type="group">
 					<control type="image">
 						<include>FullscreenDimensions</include>
@@ -22,7 +22,7 @@
 					</control>
 				</control>
 		
-				<!-- trailer video preview -->
+				<!-- Trailer Video Preview -->
 				<control type="group">
 					<include>FullscreenDimensions</include>
 					<visible>Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEqual(Window(Home).Property(TrailerPlaying))]</visible>
@@ -83,7 +83,7 @@
 					<textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
 					<label>$INFO[Window.Property(subtitle)]</label>
 				</control>
-			<!-- dialog info details -->
+			<!-- Dialog Info Details Non Bingie -->
 			<control type="grouplist">
 					<include>BingieLeftDefs</include>
 					<top>-40</top>
@@ -91,7 +91,7 @@
 					<usecontrolcoords>true</usecontrolcoords>
 					<orientation>vertical</orientation>
 					<animation effect="slide" end="0,5" time="0" condition="String.IsEmpty(ListItem.Art(clearlogo))">Conditional</animation>
-					
+				<!-- ClearLog -->
 				<control type="grouplist">
 					<include>Animation_Right_Delay_2</include>
 					<usecontrolcoords>true</usecontrolcoords>
@@ -117,6 +117,7 @@
 						<include condition="$PARAM[genre_adjust]">Bingie_TextTitle_Adjust_Genre_Anim</include>
 						<autoscroll delay="4000" time="2000" repeat="6000">true</autoscroll>
 					</control>
+					<!-- Resolution/Genre/AudioCodec/AudioChannels Top Info -->
 					<control type="group">
 						<top>-2</top>
 						<width>1000</width>
@@ -142,7 +143,17 @@
 						<itemgap>0</itemgap>
 						<include condition="Skin.HasSetting(videoinfo_details_cast)">More_Details_Top250</include>
 					</control>	
-
+                    <!-- Media File Location -->
+				    <control type="label">
+					  <description>Show Media File Path Dialog Vidio Info</description>
+						<visible>Skin.HasSetting(ShowFilePathVideoInfo)</visible>
+					    <top>34</top>
+						<height>12</height>
+						<width>100%</width>
+						<font>Plots</font>
+						<align>left</align>
+				       <label>$INFO[ListItem.Path]</label>  
+		      	    </control>
 					<!-- Sublabel -->
 					<control type="label" id="823">						
 						<visible>!String.IsEmpty(Control.GetLabel(823))</visible>
@@ -158,7 +169,7 @@
 						<label>$VAR[BingieDialogEpisodeInfoLabel]</label>
 					</control>
 
-					<!-- plot -->
+					<!-- Plot -->
 					<control type="textbox">
 						<animation effect="fade" start="100" end="0" time="200">Conditional</animation>
 						<width>820</width>
@@ -170,7 +181,7 @@
 						<label>$VAR[BingieDialogInfoPlot]</label>
 					</control>
 					
-                    <!-- more details -->
+                    <!-- More Details -->
 					<control type="grouplist">
 						<animation effect="fade" start="100" end="0" time="200">Conditional</animation>
 						<orientation>vertical</orientation>
@@ -187,6 +198,7 @@
 			</control>
 		</control>
 
+                <!-- Cast Thumbnails  -->
           	    <control type="panel" id="50">
 					<include>Animation_Right_Delay</include>
 					<visible>!String.IsEqual(Window.Property(AdditionalInfo),similar) + !String.IsEqual(Window.Property(AdditionalInfo),cast)</visible>
@@ -1236,6 +1248,7 @@
 		</control>
 	</control>	      
 </control>	
+		
 		<!-- Snow Effect -->
         <control type="group">
             <include condition="String.IsEqual(Skin.String(season_greetings),snow_animation)">snow</include>
@@ -1245,12 +1258,14 @@
             <include condition="String.IsEqual(Skin.String(season_greetings),halloween_animation)">pumpkin</include>
         </control>		
 	</include>
-
+    
+	
+	<!-- Bingie Info -->
 	<include name="BingieInfo">
 		<control type="group">
 			<include>GlobalBackground</include>
 			<include>Animation_Common_2</include>	
-			<!-- base bg -->
+			<!-- Base BG -->
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture background="true" colordiffuse="$VAR[BingiePanelColor]">diffuse/panel2.png</texture>
@@ -1262,12 +1277,12 @@
 				<visible>!ControlGroup(6000).HasFocus()</visible>
 				<visible>String.IsEmpty(Window(Home).Property(Recommendations.IsLoading))</visible>
 				<visible>!String.IsEqual(ListItem.Property(item.type),person)</visible>
-				<!-- hidden my rating button -->
+				<!-- Hidden My Rating Button -->
 				<control type="button" id="7">
 					<include>HiddenObject</include>
 				</control>
 
-				<!-- hiddenlist to get first/next episode -->
+				<!-- Hidden List to Get First/Next Episode -->
 				<control type="list" id="5050">
                     <visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
                     <visible>Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating</visible>
@@ -1279,7 +1294,7 @@
 					<content sortorder="ascending" sortby="playcount" limit="1">$VAR[InfoDialogNextUpContent]</content>
 				</control>
 				
-				<!-- hiddenlist to get first/next episode with tmdb helper -->
+				<!-- Hidden List to Get First/Next Episode with TMDB Helper -->
 				<control type="list" id="1234">
 					<visible>Skin.HasSetting(videoinfo_button_play_next)</visible>
 					<visible>String.IsEqual(ListItem.dbtype,tvshow) + String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.Path,plugin://plugin.video.themoviedb.helper/)</visible>
@@ -1293,7 +1308,7 @@
 					<content>$VAR[InfoDialogTMDBHelperNextUpContent]</content>
 				</control>
 				
-				<!-- normal cast details as hidden list -->
+				<!-- Normal Cast Details as Hidden List -->
 				<control type="list" id="50">
 					<posx>1</posx>
 					<posy>1</posy>
@@ -1308,11 +1323,11 @@
 					<visible allowhiddenfocus="true">false</visible>
 				</control>
 
-				<!-- trailer video preview -->
+				<!-- Trailer Video Preview -->
 				<control type="group">
 					<include>FullscreenDimensions</include>
 					<visible>[Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]] + [!String.IsEmpty(ListItem.Trailer) | !String.IsEqual(Window(Home).Property(TrailerPlaying))]</visible>
-					<!-- bg -->
+					<!-- BG -->
 					<control type="image">
 						<texture colordiffuse="ff000000" background="true">diffuse/panel2.png</texture>
 					</control>
@@ -1327,7 +1342,7 @@
 					</include>
 				</control>						
 
-				<!-- fanart background image -->
+				<!-- Fanart Background Image -->
 				<include content="BingieSpotlightCornerImage">
 					<animation effect="fade" start="100" end="50" time="300" condition="String.IsEmpty(Window(Home).Property(FullImage))">WindowOpen</animation>
 					<animation effect="fade" start="50" end="50" time="300" condition="String.IsEmpty(Window(Home).Property(FullImage))">WindowClose</animation>
@@ -1337,13 +1352,13 @@
 					<param name="image" value="$VAR[fanartBackground]" />
 				</include>
 				
-				<!-- spotlight fanart background image -->
+				<!-- Spotlight Fanart Background Image -->
 				<include content="BingieSpotlightFullImage">
 					<param name="visibility" value="![Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording] | String.IsEmpty(Window(Home).Property(FullImage))]" />
 					<param name="image" value="$VAR[fanartBackground]" />
 				</include>
 							
-				<!-- additional info overlay -->
+				<!-- Additional Info Overlay -->
 				<control type="image">
 					<visible>!String.IsEmpty(Window.Property(AdditionalInfo)) + !String.IsEqual(Window.Property(AdditionalInfo),set)</visible>
 					<width>100%</width>
@@ -1354,7 +1369,7 @@
 					<animation effect="fade" start="0" end="70" time="300" condition="Player.HasVideo">Visible</animation>
 				</control>			
 
-				<!-- dialog info details -->
+				<!-- Dialog Info Details -->
 				<control type="grouplist">
                     <width>1500</width>
                     <include>BingieLeftDefs</include>
@@ -1412,7 +1427,17 @@
 						<itemgap>0</itemgap>
 						<include condition="Skin.HasSetting(videoinfo_details_cast)">More_Details_Top250</include>
 					</control>	
-
+					<!-- Media File Location -->
+				    <control type="label">
+					  <description>Show Media File Path BingiePoster/List/Panel</description>
+						<visible>Skin.HasSetting(ShowFilePathVideoInfo)</visible>
+					    <top>34</top>
+						<height>12</height>
+						<width>100%</width>
+						<font>Plots</font>
+						<align>left</align>
+				       <label>$INFO[ListItem.Path]</label>  
+		      	    </control>
 					<!-- Sublabel -->
 					<control type="label" id="823">						
 						<visible>!String.IsEmpty(Control.GetLabel(823))</visible>
@@ -1428,7 +1453,7 @@
 						<label>$VAR[BingieDialogEpisodeInfoLabel]</label>
 					</control>
 
-					<!-- plot -->
+					<!-- Plot -->
 					<control type="textbox">
 						<visible>[String.IsEmpty(ListItem.Set) + !Skin.HasSetting(VideoInfoButtonCollection)] | Skin.HasSetting(VideoInfoButtonCollection)</visible>
 						<animation effect="fade" start="100" end="0" time="200" condition="String.IsEqual(Window.Property(AdditionalInfo), trailers) | String.IsEqual(Window.Property(AdditionalInfo),similar) | String.IsEqual(Window.Property(AdditionalInfo),cast) | String.IsEqual(Window.Property(AdditionalInfo),plot)">Conditional</animation>
@@ -1453,7 +1478,7 @@
 						<label>$VAR[BingieDialogInfoPlot]</label>   <!-- BingieInfoDialogPlot -->
 					</control>
 
-					<!-- more details -->
+					<!-- More etails -->
 					<control type="grouplist">
 						<animation effect="fade" start="100" end="0" time="200" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
 						<visible>!String.IsEqual(Window.Property(AdditionalInfo),set)</visible>

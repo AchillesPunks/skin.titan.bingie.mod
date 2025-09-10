@@ -6,25 +6,23 @@
 	    <onselect condition="True">Skin.SetBool(ShowAllWidgets)</onselect>
         <onselect condition="True">Skin.SetBool(UseBingieInfoDialog)</onselect>
     </setting>
-
+    
+	<!-- None -->
     <setting id="widgetstyle" value="None" label="$LOCALIZE[31641]" condition="!String.IsEmpty(Window.Property(widgetcontrols))" icon="DefaultAddonNone.png" description="$INFO[Skin.String(widgetstyle)]"/>
 
-    <!-- widget style: horizontal -->
-    <setting id="widgetstyle" value="poster" label="$LOCALIZE[31053]" icon="special://skin/extras/viewthumbs/widget_hor_poster.jpg" description=""/>
-	<setting id="widgetstyle" value="posterdetails" label="$LOCALIZE[31939]" condition="!Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_posterdetails.jpg" description=""/>
-	<setting id="widgetstyle" value="smallposter" label="$LOCALIZE[31936]" icon="special://skin/extras/viewthumbs/widget_hor_smallposter.jpg" description=""/>
-    <setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" icon="special://skin/extras/viewthumbs/widget_hor_landscape.jpg" description=""/>
-	<setting id="widgetstyle" value="landscapedetails" label="$LOCALIZE[31938]" condition="!Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_landscapedetails.jpg" description=""/>
-    <setting id="widgetstyle" value="landscapesmall" label="$LOCALIZE[31932]" icon="special://skin/extras/viewthumbs/widget_hor_landscapesmall.jpg" description=""/>
+    <!-- Widget Style: Horizontal -->
+    <!-- Poster -->
+	<setting id="widgetstyle" value="poster" label="$LOCALIZE[31053]" icon="special://skin/extras/viewthumbs/widget_hor_poster.jpg" description=""/>
+	<!-- Ladscape -->
+	<setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" icon="special://skin/extras/viewthumbs/widget_hor_landscape.jpg" description=""/>
+	<!-- Ladscape Large -->
 	<setting id="widgetstyle" value="landscapelarge" label="$LOCALIZE[31937]" icon="special://skin/extras/viewthumbs/widget_landscapelarge.jpg" description=""/>
-    <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" icon="special://skin/extras/viewthumbs/widget_hor_square.jpg" description=""/>
-    <setting id="widgetstyle" value="banner" label="$LOCALIZE[31055]" condition="!Skin.HasSetting(EnableFixedFrameWidgets)" icon="special://skin/extras/viewthumbs/widget_win10_banner.jpg" description=""/>
-
-	<!-- Highlight Layout-->
+    <!-- Highlight Layout-->
 	<setting id="widgetstyle1" value="highlight" label="$LOCALIZE[320045]" condition="Skin.HasSetting(EnableHighlightWidget)" icon="special://skin/extras/viewthumbs/widget_highlight.jpg" description=""/>
+	<!-- None -->
 	<setting id="widgetstyle1" value="None" label="$LOCALIZE[320046]" condition="!String.IsEmpty(Window.Property(widgetcontrols)) + !Skin.HasSetting(EnableHighlightWidget)" icon="DefaultAddonNone.png" description="$INFO[Skin.String(widgetstyle)]"/>
 	
-    <!-- widgetsortby -->
+    <!-- Widget Sortby -->
     <setting id="widgetsortby" value="" label="$LOCALIZE[16018]"/>
     <setting id="widgetsortby" value="random" label="$LOCALIZE[590]"/>
     <setting id="widgetsortby" value="year" label="$LOCALIZE[562]"/>
@@ -36,7 +34,7 @@
     <setting id="widgetsortby" value="userrating" label="$LOCALIZE[38018]"/>
     <setting id="widgetsortby" value="votes" label="$LOCALIZE[205]"/>
 
-    <!-- widgetsortorder -->
+    <!-- Widget Sort Oder -->
     <setting id="widgetsortorder" value="ascending" label="$LOCALIZE[21430]"/>
     <setting id="widgetsortorder" value="descending" label="$LOCALIZE[21431]"/>
 
@@ -54,7 +52,7 @@
     <setting id="widgetlimit" value="$NUMBER[150]" label="$NUMBER[150]"/>
     <setting id="widgetlimit" value="$NUMBER[200]" label="$NUMBER[200]"/>
 
-    <!-- media flags -->
+    <!-- Media Flags -->
 	<setting id="mediaflagsstyle" value="large_color" label="$LOCALIZE[31945]" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description="" default="true">
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
     </setting>
@@ -65,12 +63,12 @@
         <onselect condition="Window.IsActive(MyVideoNav.xml)">ReloadSkin()</onselect>
     </setting>
 
-    <!-- OSD media flags -->
+    <!-- OSD Media Flags -->
 	<setting id="osdmediaflagsstyle" value="large_color" label="$LOCALIZE[31945]" condition="" icon="special://skin/extras/viewthumbs/flags_large_color.jpg" description=""/>
 	<setting id="osdmediaflagsstyle" value="large" label="$LOCALIZE[31944]" condition="" icon="special://skin/extras/viewthumbs/flags_large.jpg" description=""/>
     <setting id="osdmediaflagsstyle" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description="" default="true"/>
 
-    <!-- Guide rows -->
+    <!-- Guide Rows -->
     <setting id="GuideRows" value="7" label="7 $LOCALIZE[455]" condition="" icon="" description="">
         <onselect condition="Window.IsActive(MyPVRGuide.xml)">ReloadSkin()</onselect>
     </setting>
@@ -143,7 +141,7 @@
     <setting id="ThumbsDownMax" value="2" label="2" condition="" icon="" description=""/>
     <setting id="ThumbsDownMax" value="1" label="1" condition="" icon="" description=""/>
 
-    <!-- Random fanart delay -->
+    <!-- Random Fanart Delay -->
     <setting id="RandomFanartDelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="RandomFanartDelay" value="10" label="10 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="RandomFanartDelay" value="15" label="15 $LOCALIZE[31231]" condition="" icon="" description=""/>
@@ -153,7 +151,7 @@
     <setting id="RandomFanartDelay" value="50" label="50 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="RandomFanartDelay" value="60" label="60 $LOCALIZE[31231]" condition="" icon="" description=""/>
 
-    <!-- Extra fanart delay -->
+    <!-- Extra Fanart Delay -->
     <setting id="extrafanartdelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description="" default="true"/>
     <setting id="extrafanartdelay" value="10" label="10 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="extrafanartdelay" value="15" label="15 $LOCALIZE[31231]" condition="" icon="" description=""/>
@@ -163,29 +161,23 @@
 	<setting id="extrafanartdelay" value="50" label="50 $LOCALIZE[31231]" condition="" icon="" description=""/>
     <setting id="extrafanartdelay" value="60" label="60 $LOCALIZE[31231]" condition="" icon="" description=""/>
 
-    <!-- win10 home show infopanel -->
-    <setting id="widgetInfoPanel" value="top" label="$LOCALIZE[31946]" condition="" icon="special://skin/extras/viewthumbs/widgetinfo_top.jpg" description=""/>
-    <setting id="widgetInfoPanel" value="bottom" label="$LOCALIZE[31947]" condition="" icon="special://skin/extras/viewthumbs/widgetinfo_bottom.jpg" description=""/>
-    <setting id="widgetInfoPanel" value="large" label="$LOCALIZE[31948]" condition="" icon="special://skin/extras/viewthumbs/widgetinfo_large.jpg" description=""/>
-    <setting id="widgetInfoPanel" value="disable" label="$LOCALIZE[1223]" condition="" icon="special://skin/extras/viewthumbs/widgetinfo_disabled.jpg" description=""/>
-
-    <!-- artist fanart -->
+    <!-- Artist Fanart -->
     <setting id="MusicArtistFanart" value="single" label="$LOCALIZE[31949]" condition="" icon="" description=""/>
     <setting id="MusicArtistFanart" value="slideshow" label="$LOCALIZE[31950]" condition="" icon="" description="" default="true"/>
     <setting id="MusicArtistFanart" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description=""/>
 
-    <!-- artist logo -->
+    <!-- Artist Logo -->
     <setting id="MusicArtistLogo" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description=""/>
     <setting id="MusicArtistLogo" value="enabled" label="$LOCALIZE[31951]" condition="" icon="" description="" default="true"/>
     <setting id="MusicArtistLogo" value="osd" label="$LOCALIZE[31952]" condition="" icon="" description=""/>
 
-    <!-- clearlogo location -->
+    <!-- Clearlogo Location -->
     <setting id="ClearLogoLocation" value="topleft" label="$LOCALIZE[31329]" condition="" icon="" description=""/>
     <setting id="ClearLogoLocation" value="topcenter" label="$LOCALIZE[31330]" condition="" icon="" description="" default="true"/>
     <setting id="ClearLogoLocation" value="topright" label="$LOCALIZE[31331]" condition="" icon="" description=""/>
     <setting id="ClearLogoLocation" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description=""/>
 
-    <!-- default osd button -->
+    <!-- Default OSD Button -->
     <setting id="defaultosdbutton_video" value="203" label="$LOCALIZE[208]/$LOCALIZE[31953]" condition="" icon="" description="" default="true"/>
     <setting id="defaultosdbutton_video" value="204" label="$LOCALIZE[31954]" condition="" icon="" description=""/>
     <setting id="defaultosdbutton_video" value="201" label="$LOCALIZE[210]" condition="" icon="" description=""/>
@@ -218,7 +210,7 @@
     <setting id="defaultosdbutton_music" value="206" label="$LOCALIZE[209]" condition="" icon="" description=""/>
     <setting id="defaultosdbutton_music" value="500" label="$LOCALIZE[31959]" condition="" icon="" description=""/>
 
-    <!-- kodi logo on home location -->
+    <!-- Kodi Logo on Home Location -->
     <setting id="LogoImageAlignment" value="center" label="$LOCALIZE[31960]" condition="" icon="" description=""/>
     <setting id="LogoImageAlignment" value="right" label="$LOCALIZE[31961]" condition="" icon="" description="" default="true"/>
     <setting id="LogoImageAlignment" value="left" label="$LOCALIZE[31962]" condition="" icon="" description=""/>
@@ -228,7 +220,7 @@
     <setting id="thumbsborder_focused" value="5" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
 	<setting id="thumbsborder_focused" value="6" label="$LOCALIZE[31729]" condition="" icon="" description=""/>
 
-    <!-- default focus position for home -->
+    <!-- Default Focus Position for Home -->
     <setting id="home.defaultfocus" value="" label="$LOCALIZE[231]" condition="" icon="" description="" default="true"/>
     <setting id="home.defaultfocus" value="0" label="$LOCALIZE[31728]" condition="" icon="" description=""/>
     <setting id="home.defaultfocus" value="1" label="$LOCALIZE[31728]" condition="" icon="" description=""/>
@@ -254,7 +246,7 @@
     <setting id="volumestyle" value="classic" label="$LOCALIZE[31941]" condition="" icon="special://skin/extras/viewthumbs/volumestyle_classic.jpg" description=""/>
     <setting id="volumestyle" value="basic" label="$LOCALIZE[31967]" condition="" icon="special://skin/extras/viewthumbs/volumestyle_basic.jpg" description=""/>
 
-    <!--widgets rotate-->
+    <!--Widgets Rotate-->
     <setting id="widgets_rotate" value="disabled" label="$LOCALIZE[1223]" condition="" icon="" description="$LOCALIZE[31357]" default="true"/>
     <setting id="widgets_rotate" value="510" label="$LOCALIZE[31499] 1" condition="" icon="" description="$LOCALIZE[31359] $INFO[Skin.String(widgets_rotate_delay)] $LOCALIZE[31231]"/>
     <setting id="widgets_rotate" value="520" label="$LOCALIZE[31499] 2" condition="" icon="" description="$LOCALIZE[31360] $INFO[Skin.String(widgets_rotate_delay)] $LOCALIZE[31231]"/>

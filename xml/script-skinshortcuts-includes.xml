@@ -42,21 +42,21 @@
 			<property name="widgetType.1">video</property>
 			<property name="widgetPath.1">plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</property>
 			<property name="widgetName.1">$LOCALIZE[31127]</property>
-			<property name="widget.2">Playlist</property>
+			<property name="widget.2">plugin://script.skin.helper.widgets/?action=medialisting</property>
 			<property name="widgetTarget.2">videos</property>
 			<property name="widgetType.2">movies</property>
-			<property name="widgetPath.2">special://skin/playlists/4kultrahdmovies.xsp</property>
-			<property name="widgetName.2">4K Ultra HD Movies</property>
-			<property name="widget.3">Playlist</property>
+			<property name="widgetPath.2">plugin://script.skin.helper.widgets/?action=random&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</property>
+			<property name="widgetName.2">Random Media</property>
+			<property name="widget.3">watchagainshowsandmovies</property>
 			<property name="widgetTarget.3">videos</property>
-			<property name="widgetType.3">movies</property>
-			<property name="widgetPath.3">special://skin/playlists/criticallyacclaimedmovies.xsp</property>
-			<property name="widgetName.3">Critically-Acclaimed Movies</property>
-			<property name="widget.4">Playlist</property>
+			<property name="widgetType.3">video</property>
+			<property name="widgetPath.3">plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</property>
+			<property name="widgetName.3">$LOCALIZE[31080]</property>
+			<property name="widget.4">criticallyacclaimedmovies</property>
 			<property name="widgetTarget.4">videos</property>
 			<property name="widgetType.4">movies</property>
-			<property name="widgetPath.4">special://skin/extras/widgetplaylists/randommovies.xsp</property>
-			<property name="widgetName.4">Random movies</property>
+			<property name="widgetPath.4">special://skin/playlists/criticallyacclaimedmovies.xsp</property>
+			<property name="widgetName.4">$LOCALIZE[31532]</property>
 			<property name="widget.5">similarshowsandmovies</property>
 			<property name="widgetTarget.5">videos</property>
 			<property name="widgetType.5">video</property>
@@ -1290,17 +1290,17 @@
 		<include content="widget_header_multi" condition="true + true + String.IsEqual(Skin.String(HomeLayout),bingie)">
 			<param name="widgetid" value="2530" />
 			<param name="submenuid" value="num-10000" />
-			<param name="widgetName" value="4K Ultra HD Movies" />
+			<param name="widgetName" value="Random Media" />
 		</include>
 		<include content="widget_base" condition="true">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2530" />
-			<param name="widgetName" value="4K Ultra HD Movies" />
+			<param name="widgetName" value="Random Media" />
 			<param name="submenuid" value="num-10000" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="special://skin/playlists/4kultrahdmovies.xsp" />
+			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=random&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]" />
 			<param name="widgetStyle" value="widget_layout_highlight" />
 			<param name="widgetSortBy" value="random" />
 			<param name="widgetSortOrder" value="" />
@@ -1311,17 +1311,17 @@
 		<include content="widget_header_multi" condition="true + true + String.IsEqual(Skin.String(HomeLayout),bingie)">
 			<param name="widgetid" value="2540" />
 			<param name="submenuid" value="num-10000" />
-			<param name="widgetName" value="Critically-Acclaimed Movies" />
+			<param name="widgetName" value="$LOCALIZE[31080]" />
 		</include>
 		<include content="widget_base" condition="true">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2540" />
-			<param name="widgetName" value="Critically-Acclaimed Movies" />
+			<param name="widgetName" value="$LOCALIZE[31080]" />
 			<param name="submenuid" value="num-10000" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="special://skin/playlists/criticallyacclaimedmovies.xsp" />
+			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -1332,17 +1332,17 @@
 		<include content="widget_header_multi" condition="true + true + String.IsEqual(Skin.String(HomeLayout),bingie)">
 			<param name="widgetid" value="2550" />
 			<param name="submenuid" value="num-10000" />
-			<param name="widgetName" value="Random movies" />
+			<param name="widgetName" value="$LOCALIZE[31532]" />
 		</include>
 		<include content="widget_base" condition="true">
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2550" />
-			<param name="widgetName" value="Random movies" />
+			<param name="widgetName" value="$LOCALIZE[31532]" />
 			<param name="submenuid" value="num-10000" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="special://skin/extras/widgetplaylists/randommovies.xsp" />
+			<param name="widgetPath" value="special://skin/playlists/criticallyacclaimedmovies.xsp" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -1460,7 +1460,7 @@
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>special://skin/playlists/4kultrahdmovies.xsp</value>
+		<value>plugin://script.skin.helper.widgets/?action=random&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</value>
 	</variable>
 	<variable name="widgetinfolabel-2530">
 		<value condition="String.Contains(Container(2530).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2530).ListItem.label] $INFO[Container(2530).ListItem.label2]</value>
@@ -1481,7 +1481,7 @@
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>special://skin/playlists/criticallyacclaimedmovies.xsp</value>
+		<value>plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 	</variable>
 	<variable name="widgetinfolabel-2540">
 		<value condition="String.Contains(Container(2540).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2540).ListItem.label] $INFO[Container(2540).ListItem.label2]</value>
@@ -1502,7 +1502,7 @@
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>special://skin/extras/widgetplaylists/randommovies.xsp</value>
+		<value>special://skin/playlists/criticallyacclaimedmovies.xsp</value>
 	</variable>
 	<variable name="widgetinfolabel-2550">
 		<value condition="String.Contains(Container(2550).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2550).ListItem.label] $INFO[Container(2550).ListItem.label2]</value>
@@ -1586,9 +1586,9 @@
 		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),7)">$LOCALIZE[515]</value>
 		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),6)">$LOCALIZE[31534]</value>
 		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),5)">$ADDON[script.skin.helper.widgets 32022]</value>
-		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),4)">Random movies</value>
-		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),3)">Critically-Acclaimed Movies</value>
-		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),2)">4K Ultra HD Movies</value>
+		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),4)">$LOCALIZE[31532]</value>
+		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),3)">$LOCALIZE[31080]</value>
+		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),2)">Random Media</value>
 		<value condition="String.IsEqual(Skin.String(widgetvalue-num-10000),1)">$LOCALIZE[31127]</value>
 		<value>$LOCALIZE[31535] $VAR[ForCurrentProfileNameLabel]</value>
 	</variable>

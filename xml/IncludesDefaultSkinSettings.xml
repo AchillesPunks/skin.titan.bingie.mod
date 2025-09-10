@@ -21,8 +21,7 @@
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View514_ShowCDart)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View513_ShowCDart)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View508_ShowCDart)</onload>
-	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View58_ShowCDart)</onload>
-    <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_DisableFixedBingieFrame)</onload>
+	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_DisableFixedBingieFrame)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View527_DisableFixedBingieFrame)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PanelViewShowInfo)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(AnimateDiscArt)</onload>

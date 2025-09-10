@@ -725,36 +725,8 @@
                     </include>
                 </control>
             </focusedlayout>
-			<itemlayout height="116" width="555" condition="String.IsEqual(Skin.String(widgetstyle),banner)">
-                    <control type="group">
-                        <width>557</width>
-                        <height>118</height>
-                        <include>BannerBingieLayout</include>
-					</control>
-                </itemlayout>
-                <focusedlayout height="116" width="555" condition="String.IsEqual(Skin.String(widgetstyle),banner)">
-                    <control type="group">
-                        <width>557</width>
-                        <height>118</height>
-                        <control type="image">
-                            <texture>diffuse/banner.png</texture>
-                            <colordiffuse>$INFO[Skin.String(ViewDetailsBorderFocusColor)]</colordiffuse>
-                            <aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-                            <include>thumbsborder_focused</include>
-                        </control>
-                        <include>BannerBingieLayout</include>
-					</control>
-					<control type="button">
-						<visible>false</visible>
-						<include content="Bingie_Default_AutoPreview" condition="Skin.HasSetting(BingieAutoTrailer)">
-							<param name="widgetid" value="$PARAM[widgetid]" />
-							<param name="groupid" value="77777" />
-						</include>
-						<include content="WidgetProperties">
-							<param name="widgetid" value="$PARAM[widgetid]" />
-						</include>
-					</control>
-                </focusedlayout>
+			
+			<!-- Square -->
 				<itemlayout height="185" width="185" condition="String.IsEqual(Skin.String(widgetstyle),square)">
                     <control type="group">
                         <width>187</width>

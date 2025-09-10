@@ -601,39 +601,7 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.VideoCodec)) + !String.IsEmpty(Window(Home).Property(ListItem.FileExtension))">$INFO[Window(Home).Property(ListItem.FileExtension)]</value>
 	</variable>
 	
-	<variable name="AudioCodecVar">
-        <value condition="!String.Contains(ListItem.Title,atmos) + String.Contains(ListItem.Filenameandpath,atmos)">ATMOS</value>
-        <value condition="!String.Contains(ListItem.Title,dts-x) + String.Contains(ListItem.Filenameandpath,dts-x) | !String.Contains(ListItem.Title,dtsx) + String.Contains(ListItem.Filenameandpath,dtsx)">DTS-X</value>
-
-		<value condition="String.Contains(ListItem.AudioCodec,ac3)">DOLBY</value>
-		<value condition="String.Contains(ListItem.AudioCodec,truehd)">TRUEHD</value>
-		<value condition="String.Contains(ListItem.AudioCodec,atmos)">ATMOS</value>
-		<value condition="String.IsEqual(ListItem.AudioCodec,dtsx)">DTS-X</value>
-		<value condition="String.IsEqual(ListItem.AudioCodec,dca)">DTS</value>
-		<value condition="String.IsEqual(ListItem.AudioCodec,dts)">DTS</value>
-		<value condition="String.Contains(ListItem.AudioCodec,dts-hd)">DTS HD</value>
-		<value condition="String.Contains(ListItem.AudioCodec,dtshd)">DTS HD</value>
-		<value condition="String.Contains(ListItem.AudioCodec,pcm)">PCM</value>
-		<value condition="String.Contains(ListItem.AudioCodec,aac)">AAC</value>
-        <value condition="!String.IsEmpty(ListItem.AudioCodec)">$INFO[ListItem.AudioCodec]</value>
-		
-		<value condition="Window.IsActive(visualisation) + !String.IsEmpty(MusicPlayer.Codec)">$INFO[MusicPlayer.Codec]</value>
-		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,ac3)">DOLBY</value>
-		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,dca)">DTS</value>
-		<value condition="Window.IsActive(fullscreenvideo) + String.Contains(VideoPlayer.AudioCodec,dts-hd)">DTS HD</value>
-		<value condition="Window.IsActive(fullscreenvideo) + String.Contains(VideoPlayer.AudioCodec,dtshd)">DTS HD</value>
-		<value condition="Window.IsActive(fullscreenvideo) + String.Contains(VideoPlayer.AudioCodec,pcm)">PCM</value>
-		<value condition="Window.IsActive(fullscreenvideo) + !String.IsEmpty(VideoPlayer.AudioCodec)">$INFO[VideoPlayer.AudioCodec]</value>
-		
-		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioCodec),ac3)">DOLBY</value>
-		<value condition="String.IsEqual(Window(Home).Property(ListItem.AudioCodec),dca)">DTS</value>
-		<value condition="String.Contains(Window(Home).Property(ListItem.AudioCodec),dts-hd)">DTS HD</value>
-		<value condition="String.Contains(Window(Home).Property(ListItem.AudioCodec),dtshd)">DTS HD</value>
-		<value condition="String.Contains(Window(Home).Property(ListItem.AudioCodec),pcm)">PCM</value>
-		<value condition="String.Contains(Window(Home).Property(ListItem.AudioCodec),atmos)">ATMOS</value>
-        <value condition="String.Contains(Window(Home).Property(ListItem.AudioCodec),dtsx)">DTS-X</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(ListItem.AudioCodec))">$INFO[Window(Home).Property(ListItem.AudioCodec)]</value>
-	</variable>
+	
     
     <variable name="AudioLanguageVar">
         <value condition="!String.IsEmpty(ListItem.AudioLanguage)">$INFO[ListItem.AudioLanguage]</value>

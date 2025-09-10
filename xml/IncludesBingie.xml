@@ -166,10 +166,6 @@
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="FixedAnimationHeight" value="-371"/>
         </include>
-        <include content="Fixed_Focus_Navigation" condition="String.IsEqual(Skin.String(widgetstyle),banner) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight" value="-168"/>
-        </include>
     </include>
 	
 	<!-- Fixed Focus Navigation Factory for Hubs -->
@@ -201,10 +197,6 @@
         <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),posterdetails) + !Window.IsActive(1116)">
             <param name="widgetid" value="$PARAM[widgetid]"/>
             <param name="FixedAnimationHeight1" value="-371"/>
-        </include>
-        <include content="Fixed_Focus_Navigation1" condition="String.IsEqual(Skin.String(widgetstyle),banner) + !Window.IsActive(1116)">
-            <param name="widgetid" value="$PARAM[widgetid]"/>
-            <param name="FixedAnimationHeight1" value="-167"/>
         </include>
     </include>
 
@@ -967,10 +959,14 @@
 			<include condition="Skin.HasSetting(enableUSIcons) + !Skin.HasSetting(FixedMPAAPanel)">MPAA_Details_RowUS</include>
 			<include condition="Skin.HasSetting(enableUSIcons) + Skin.HasSetting(FixedMPAAPanel)">MPAA_Details_RowUS_Fixed_Size</include>
 			<include>Duration_TotalSeasonsEpisodes_Details_Row</include>
-			<include>Resolution_Details_Row</include>
+			<!-- Resolution_Details_Row -->
+			
+			<!-- <include>Resolution_Details_Row</include> -->
 			<include condition="Skin.HasSetting(details_row_resolution)">Resolution_Details_Row</include>
 			<include condition="Skin.HasSetting(details_row_resolution)">HDR_Details_Row</include>
-			<include>HDR_Details_Row</include>
+			<!-- HDR_Details_Row -->
+			
+			<!-- <include>HDR_Details_Row</include> -->
 			<include>Audio_Channels_Details_Row</include>
 			<include condition="Skin.HasSetting(EnableTVShowStatus)">ShowStatus</include>
 			<include condition="!Skin.HasSetting(EnableAudioCodec)">Audiocodec1</include>
@@ -1595,13 +1591,7 @@
 		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">FHD</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,720)">HD</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,540)">SD</value>
-		<!-- HOME -->
-		<value condition="$EXP[IsMainMenuOpened] + Window(Home).Property(ListItem.IsStereoscopic)">3D</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),8K)">8K</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),4K)">4K</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),1080)">FHD</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),720)">HD</value>
-		<value condition="$EXP[IsMainMenuOpened] + String.IsEqual(Window(Home).Property(ListItem.VideoResolution),480) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),576) | String.IsEqual(Window(Home).Property(ListItem.VideoResolution),540)">SD</value>
+		
 	</variable>
 
 	<!-- Audio Channels Info (from 5.1 and up) -->
@@ -2510,7 +2500,7 @@
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscape)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="landscape_width"/>
             <param name="height" value="210"/>
@@ -2550,7 +2540,7 @@
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapesmall)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="250" />
             <param name="height" value="148" />
@@ -2590,7 +2580,7 @@
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),landscapelarge)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) +
-			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="430" />
             <param name="height" value="248" />
@@ -2630,7 +2620,7 @@
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),poster)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="240" />
             <param name="height" value="330" />
@@ -2670,7 +2660,7 @@
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),smallposter)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),square) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="177" />
             <param name="height" value="240" />
@@ -2710,7 +2700,7 @@
         <include content="Bingie_Screens_Fixed_Focus_Frame_Base" condition="String.IsEqual(Skin.String(widgetstyle),square)">
             <param name="visibility" value="ControlGroup(77777).HasFocus() + !String.IsEmpty(Container(77777).CurrentItem) + !String.IsEmpty(ListItem.Label) + 
 			!String.IsEqual(window(home).Property(widgetstyle),landscape) + !String.IsEqual(window(home).Property(widgetstyle),poster) + !String.IsEqual(window(home).Property(widgetstyle),smallposter) + !String.IsEqual(window(home).Property(widgetstyle),landscapesmall) + !String.IsEqual(window(home).Property(widgetstyle),landscapelarge) +
-			!String.IsEqual(window(home).Property(widgetstyle),banner) + !String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
+			!String.IsEqual(window(home).Property(widgetstyle),landscapedetails) + !String.IsEqual(window(home).Property(widgetstyle),posterdetails) +
 			![$EXP[IsCurrentWidgetSpotlight] | String.IsEqual(window(home).Property(widgetstyle),highlight)]"/>
             <param name="width" value="240" />
             <param name="height" value="240" />

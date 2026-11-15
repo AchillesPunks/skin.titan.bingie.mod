@@ -1262,7 +1262,7 @@
             </itemlayout>
             <focusedlayout width="1" height="1">
             </focusedlayout>
-            <content><include>skinshortcuts-submenu</include></content>
+            <content><include>skinshortcuts-mainmenu-submenu</include></content>
         </control>
     </include>
 
@@ -2184,7 +2184,7 @@
 				<focusedlayout width="384" height="55"  condition="!Control.HasFocus(40003)">
                     <include content="BingiePowerMenuItemLabel"></include>
                 </focusedlayout>
-                <content><include>skinshortcuts-group-powermenu</include></content>
+                <content><include>skinshortcuts-powermenu</include></content>
             </control>
         </control>
         <include condition="!Skin.HasSetting(DisableAllSubmenus)">SideBladeSubMenu</include>
@@ -2272,7 +2272,7 @@
 					</control>
                 </focusedlayout>
                 <content>
-                    <include condition="!Skin.HasSetting(DisableAllSubmenus)">skinshortcuts-submenu</include>
+                    <include condition="!Skin.HasSetting(DisableAllSubmenus)">skinshortcuts-mainmenu-submenu</include>
                 </content>
             </control>
         </control>

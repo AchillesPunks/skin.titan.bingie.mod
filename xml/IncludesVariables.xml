@@ -36,7 +36,7 @@
 		<value condition="Window.IsActive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(profilesettings) | Window.IsActive(profiles)">$LOCALIZE[10130]</value>
 		<value condition="Window.IsActive(selectdialog) + !String.IsEmpty(Control.GetLabel(1))">$INFO[Control.GetLabel(1)]</value>
-		<value condition="Window.IsActive(script-skinshortcuts.xml) + String.IsEqual(Window.Property(groupname),powermenu)">$LOCALIZE[31204]</value>
+		<value condition="Window.IsActive(script-skinshortcuts.xml) + String.IsEqual(Window.Property(menuname),powermenu)">$LOCALIZE[31204]</value>
 		<value condition="Window.IsActive(script-skinshortcuts.xml) + !String.IsEmpty(Control.GetLabel(500))">$INFO[Control.GetLabel(500)]</value>
 		
 		<value condition="Window.IsActive(script-skinshortcuts.xml)">$LOCALIZE[31014]</value>

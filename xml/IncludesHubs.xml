@@ -456,7 +456,7 @@
             <font>Reg32</font>
             <label>$PARAM[label]</label>
             <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>           
-            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+            <onclick>RunScript(script.skinshortcuts,type=skinstring&amp;skinLabel=$PARAM[skinsetting].label&amp;skinTarget=$PARAM[skinsetting].target&amp;skinPath=$PARAM[skinsetting].path)</onclick>
             <texturenofocus/>
         </control>
     </include>
@@ -480,7 +480,7 @@
             <onclick condition="Skin.String(spotlight$PARAM[hubname].label)">Skin.Reset(spotlight$PARAM[hubname].label)</onclick>
             <onclick condition="Skin.String(spotlight$PARAM[hubname].path)">Skin.Reset(spotlight$PARAM[hubname].path)</onclick>
             <onclick>
-                RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlight$PARAM[hubname].label&amp;skinWidgetTarget=spotlight$PARAM[hubname].target&amp;skinWidgetPath=spotlight$PARAM[hubname].path)</onclick>
+                RunScript(script.skinshortcuts,type=skinstring&amp;skinLabel=spotlight$PARAM[hubname].label&amp;skinTarget=spotlight$PARAM[hubname].target&amp;skinPath=spotlight$PARAM[hubname].path)</onclick>
             <texturenofocus/>
             <selected>Skin.String(spotlight$PARAM[hubname].label)</selected>
         </control>
@@ -502,7 +502,7 @@
             <label2>$INFO[Skin.String(mycustom.label)]</label2>
             <onclick condition="Skin.String(mycustom.label)">Skin.Reset(mycustom.label)</onclick>
             <onclick condition="Skin.String(mycustom.path)">Skin.Reset(mycustom.path)</onclick>
-            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mycustom.label&amp;skinWidgetTarget=mycustom.target&amp;skinWidgetPath=mycustom.path)</onclick>
+            <onclick>RunScript(script.skinshortcuts,type=skinstring&amp;skinLabel=mycustom.label&amp;skinTarget=mycustom.target&amp;skinPath=mycustom.path)</onclick>
             <texturenofocus/>
             <selected>Skin.String(mycustom.label)</selected>
         </control>

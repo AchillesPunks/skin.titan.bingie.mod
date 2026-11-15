@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<templates>
+
+    <template include="Widgets" menu="mainmenu">
+        <condition>widgetPath | widgetPath.1 | widgetPath.2 | widgetPath.3 | widgetPath.4 | widgetPath.5 | widgetPath.6 | widgetPath.7</condition>
+
+        <property name="id" from="index" />
+        <property name="submenuid" from="name" />
+
+        <property name="multiWidgets" condition="multiwidget=single | single2">false</property>
+        <property name="multiWidgets">true</property>
+
+        <!-- widget 1 -->
+		<property name="widgetTarget1" from="widgetTarget" />
+        <property name="contentStyle1" condition="widgetForceRefresh=refresh">refresh</property>
+        <property name="contentStyle1" condition="widgetPath=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle1" condition="widgetPath=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle1" condition="widgetPath=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle1" condition="widgetPath=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle1" condition="widgetPath=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle1" condition="widgetPath=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle1">normal</property>
+        <property name="widgetPath1" from="widgetPath" condition="widgetPath" />
+        <property name="widgetPath1"/>
+        <property name="widgetName1" from="widgetLabel" />
+        <property name="widgetTags1" condition="widgetTags=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags1" condition="widgetTags=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags1">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle1" from="widgetstyle" condition="widgetstyle" />
+        <property name="widgetStyle1">default</property>
+        <property name="widgetSortBy1" from="widgetSortBy" />
+        <property name="widgetSortOrder1" from="widgetSortOrder" />
+        <property name="widgetLimit1" from="widgetLimit" condition="widgetLimit" />
+        <property name="widgetLimit1">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel1" from="widgetInfoPanel" condition="widgetInfoPanel" />
+        <property name="widgetInfoPanel1">top</property>
+        <property name="widgetFixedFocus1" from="widgetFixedFocus" condition="widgetFixedFocus" />
+        <property name="widgetFixedFocus1">disabled</property>
+
+        <!-- widget 2 -->
+		<property name="widgetTarget2" from="widgetTarget.1" />
+        <property name="contentStyle2" condition="widgetForceRefresh.1=refresh">refresh</property>
+        <property name="contentStyle2" condition="widgetPath.1=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle2" condition="widgetPath.1=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle2" condition="widgetPath.1=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle2" condition="widgetPath.1=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle2" condition="widgetPath.1=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle2" condition="widgetPath.1=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle2">normal</property>
+        <property name="widgetPath2" from="widgetPath.1" condition="widgetPath.1" />
+        <property name="widgetPath2"/>
+        <property name="widgetName2" from="widgetLabel.1" />
+        <property name="widgetTags2" condition="widgetTags.1=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags2" condition="widgetTags.1=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags2">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle2" from="widgetstyle.1" condition="widgetstyle.1" />
+        <property name="widgetStyle2">default</property>
+        <property name="widgetSortBy2" from="widgetSortBy.1" />
+        <property name="widgetSortOrder2" from="widgetSortOrder.1" />
+        <property name="widgetLimit2" from="widgetLimit.1" condition="widgetLimit.1" />
+        <property name="widgetLimit2">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel2" from="widgetInfoPanel.1" condition="widgetInfoPanel.1" />
+        <property name="widgetInfoPanel2">top</property>
+        <property name="widgetFixedFocus2" from="widgetFixedFocus.1" condition="widgetFixedFocus.1" />
+        <property name="widgetFixedFocus2">disabled</property>
+
+        <!-- widget 3 -->
+		<property name="widgetTarget3" from="widgetTarget.2" />
+        <property name="contentStyle3" condition="widgetForceRefresh.2=refresh">refresh</property>
+        <property name="contentStyle3" condition="widgetPath.2=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle3" condition="widgetPath.2=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle3" condition="widgetPath.2=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle3" condition="widgetPath.2=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle3" condition="widgetPath.2=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle3" condition="widgetPath.2=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle3">normal</property>
+        <property name="widgetPath3" from="widgetPath.2" condition="widgetPath.2" />
+        <property name="widgetPath3"/>
+        <property name="widgetName3" from="widgetLabel.2" />
+        <property name="widgetTags3" condition="widgetTags.2=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags3" condition="widgetTags.2=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags3">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle3" from="widgetstyle.2" condition="widgetstyle.2" />
+        <property name="widgetStyle3">default</property>
+        <property name="widgetSortBy3" from="widgetSortBy.2" />
+        <property name="widgetSortOrder3" from="widgetSortOrder.2" />
+        <property name="widgetLimit3" from="widgetLimit.2" condition="widgetLimit.2" />
+        <property name="widgetLimit3">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel3" from="widgetInfoPanel.2" condition="widgetInfoPanel.2" />
+        <property name="widgetInfoPanel3">top</property>
+        <property name="widgetFixedFocus3" from="widgetFixedFocus.2" condition="widgetFixedFocus.2" />
+        <property name="widgetFixedFocus3">disabled</property>
+
+        <!-- widget 4 -->
+		<property name="widgetTarget4" from="widgetTarget.3" />
+        <property name="contentStyle4" condition="widgetForceRefresh.3=refresh">refresh</property>
+        <property name="contentStyle4" condition="widgetPath.3=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle4" condition="widgetPath.3=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle4" condition="widgetPath.3=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle4" condition="widgetPath.3=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle4" condition="widgetPath.3=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle4" condition="widgetPath.3=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle4">normal</property>
+        <property name="widgetPath4" from="widgetPath.3" condition="widgetPath.3" />
+        <property name="widgetPath4"/>
+        <property name="widgetName4" from="widgetLabel.3" />
+        <property name="widgetTags4" condition="widgetTags.3=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags4" condition="widgetTags.3=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags4">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle4" from="widgetstyle.3" condition="widgetstyle.3" />
+        <property name="widgetStyle4">default</property>
+        <property name="widgetSortBy4" from="widgetSortBy.3" />
+        <property name="widgetSortOrder4" from="widgetSortOrder.3" />
+        <property name="widgetLimit4" from="widgetLimit.3" condition="widgetLimit.3" />
+        <property name="widgetLimit4">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel4" from="widgetInfoPanel.3" condition="widgetInfoPanel.3" />
+        <property name="widgetInfoPanel4">top</property>
+        <property name="widgetFixedFocus4" from="widgetFixedFocus.3" condition="widgetFixedFocus.3" />
+        <property name="widgetFixedFocus4">disabled</property>
+
+        <!-- widget 5 -->
+		<property name="widgetTarget5" from="widgetTarget.4" />
+        <property name="contentStyle5" condition="widgetForceRefresh.4=refresh">refresh</property>
+        <property name="contentStyle5" condition="widgetPath.4=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle5" condition="widgetPath.4=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle5" condition="widgetPath.4=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle5" condition="widgetPath.4=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle5" condition="widgetPath.4=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle5" condition="widgetPath.4=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle5">normal</property>
+        <property name="widgetPath5" from="widgetPath.4" condition="widgetPath.4" />
+        <property name="widgetPath5"/>
+        <property name="widgetName5" from="widgetLabel.4" />
+        <property name="widgetTags5" condition="widgetTags.4=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags5" condition="widgetTags.4=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags5">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle5" from="widgetstyle.4" condition="widgetstyle.4" />
+        <property name="widgetStyle5">default</property>
+        <property name="widgetSortBy5" from="widgetSortBy.4" />
+        <property name="widgetSortOrder5" from="widgetSortOrder.4" />
+        <property name="widgetLimit5" from="widgetLimit.4" condition="widgetLimit.4" />
+        <property name="widgetLimit5">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel5" from="widgetInfoPanel.4" condition="widgetInfoPanel.4" />
+        <property name="widgetInfoPanel5">top</property>
+        <property name="widgetFixedFocus5" from="widgetFixedFocus.4" condition="widgetFixedFocus.4" />
+        <property name="widgetFixedFocus5">disabled</property>
+
+        <!-- widget 6 -->
+		<property name="widgetTarget6" from="widgetTarget.5" />
+        <property name="contentStyle6" condition="widgetForceRefresh.5=refresh">refresh</property>
+        <property name="contentStyle6" condition="widgetPath.5=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle6" condition="widgetPath.5=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle6" condition="widgetPath.5=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle6" condition="widgetPath.5=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle6" condition="widgetPath.5=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle6" condition="widgetPath.5=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle6">normal</property>
+        <property name="widgetPath6" from="widgetPath.5" condition="widgetPath.5" />
+        <property name="widgetPath6"/>
+        <property name="widgetName6" from="widgetLabel.5" />
+        <property name="widgetTags6" condition="widgetTags.5=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags6" condition="widgetTags.5=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags6">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle6" from="widgetstyle.5" condition="widgetstyle.5" />
+        <property name="widgetStyle6">default</property>
+        <property name="widgetSortBy6" from="widgetSortBy.5" />
+        <property name="widgetSortOrder6" from="widgetSortOrder.5" />
+        <property name="widgetLimit6" from="widgetLimit.5" condition="widgetLimit.5" />
+        <property name="widgetLimit6">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel6" from="widgetInfoPanel.5" condition="widgetInfoPanel.5" />
+        <property name="widgetInfoPanel6">top</property>
+        <property name="widgetFixedFocus6" from="widgetFixedFocus.5" condition="widgetFixedFocus.5" />
+        <property name="widgetFixedFocus6">disabled</property>
+
+        <!-- widget 7 -->
+		<property name="widgetTarget7" from="widgetTarget.6" />
+        <property name="contentStyle7" condition="widgetForceRefresh.6=refresh">refresh</property>
+        <property name="contentStyle7" condition="widgetPath.6=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle7" condition="widgetPath.6=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle7" condition="widgetPath.6=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle7" condition="widgetPath.6=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle7" condition="widgetPath.6=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle7" condition="widgetPath.6=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle7">normal</property>
+        <property name="widgetPath7" from="widgetPath.6" condition="widgetPath.6" />
+        <property name="widgetPath7"/>
+        <property name="widgetName7" from="widgetLabel.6" />
+        <property name="widgetTags7" condition="widgetTags.6=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags7" condition="widgetTags.6=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags7">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle7" from="widgetstyle.6" condition="widgetstyle.6" />
+        <property name="widgetStyle7">default</property>
+        <property name="widgetSortBy7" from="widgetSortBy.6" />
+        <property name="widgetSortOrder7" from="widgetSortOrder.6" />
+        <property name="widgetLimit7" from="widgetLimit.6" condition="widgetLimit.6" />
+        <property name="widgetLimit7">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel7" from="widgetInfoPanel.6" condition="widgetInfoPanel.6" />
+        <property name="widgetInfoPanel7">top</property>
+        <property name="widgetFixedFocus7" from="widgetFixedFocus.6" condition="widgetFixedFocus.6" />
+        <property name="widgetFixedFocus7">disabled</property>
+
+        <!-- widget 8 -->
+		<property name="widgetTarget8" from="widgetTarget.7" />
+        <property name="contentStyle8" condition="widgetForceRefresh.7=refresh">refresh</property>
+        <property name="contentStyle8" condition="widgetPath.7=$INCLUDE[skinshortcuts-submenu]">submenu</property>
+        <property name="contentStyle8" condition="widgetPath.7=$INCLUDE[WeatherWidget]">weather</property>
+        <property name="contentStyle8" condition="widgetPath.7=$INCLUDE[SystemInfoWidget]">systeminfo</property>
+        <property name="contentStyle8" condition="widgetPath.7=$INCLUDE[RCBWidget]">rcb</property>
+        <property name="contentStyle8" condition="widgetPath.7=$INCLUDE[CategoriesWidget]">categories</property>
+        <property name="contentStyle8" condition="widgetPath.7=$INCLUDE[MyListWidget]">mylist</property>
+        <property name="contentStyle8">normal</property>
+        <property name="widgetPath8" from="widgetPath.7" condition="widgetPath.7" />
+        <property name="widgetPath8"/>
+        <property name="widgetName8" from="widgetLabel.7" />
+        <property name="widgetTags8" condition="widgetTags.7=enable">WidgetTagOverlayEnable</property>
+        <property name="widgetTags8" condition="widgetTags.7=disable">WidgetTagOverlayDisable</property>
+        <property name="widgetTags8">WidgetTagOverlayAuto</property>
+        <property name="widgetStyle8" from="widgetstyle.7" condition="widgetstyle.7" />
+        <property name="widgetStyle8">default</property>
+        <property name="widgetSortBy8" from="widgetSortBy.7" />
+        <property name="widgetSortOrder8" from="widgetSortOrder.7" />
+        <property name="widgetLimit8" from="widgetLimit.7" condition="widgetLimit.7" />
+        <property name="widgetLimit8">$INFO[Skin.String(WidgetsGlobalLimit)]</property>
+        <property name="widgetInfoPanel8" from="widgetInfoPanel.7" condition="widgetInfoPanel.7" />
+        <property name="widgetInfoPanel8">top</property>
+        <property name="widgetFixedFocus8" from="widgetFixedFocus.7" condition="widgetFixedFocus.7" />
+        <property name="widgetFixedFocus8">disabled</property>
+
+        <controls>
+            <!-- widget 1 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath1 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]510" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName1]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath1 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle1=details | widgetFixedFocus1~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle1]" />
+                <param name="widgetid" value="$PROPERTY[id]510" />
+                <param name="widgetName" value="$PROPERTY[widgetName1]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags1]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget1]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath1]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle1]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy1]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder1]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit1]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel1]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + [Skin.String(widgetvalue-$PROPERTY[submenuid],0) | String.IsEmpty(Skin.String(widgetvalue-$PROPERTY[submenuid]))]]" />
+            </include>
+
+            <!-- widget 2 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath2 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]520" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName2]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath2 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle2=details | widgetFixedFocus2~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle2]" />
+                <param name="widgetid" value="$PROPERTY[id]520" />
+                <param name="widgetName" value="$PROPERTY[widgetName2]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags2]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget2]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath2]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle2]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy2]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder2]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit2]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel2]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$PROPERTY[submenuid],1)]" />
+            </include>
+
+            <!-- widget 3 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath3 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]530" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName3]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath3 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle3=details | widgetFixedFocus3~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle3]" />
+                <param name="widgetid" value="$PROPERTY[id]530" />
+                <param name="widgetName" value="$PROPERTY[widgetName3]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags3]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget3]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath3]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle3]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy3]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder3]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit3]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel3]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$PROPERTY[submenuid],2)]" />
+            </include>
+
+            <!-- widget 4 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath4 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]540" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName4]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath4 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle4=details | widgetFixedFocus4~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle4]" />
+                <param name="widgetid" value="$PROPERTY[id]540" />
+                <param name="widgetName" value="$PROPERTY[widgetName4]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags4]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget4]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath4]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle4]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy4]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder4]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit4]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel4]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$PROPERTY[submenuid],3)]" />
+            </include>
+
+            <!-- widget 5 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath5 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]550" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName5]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath5 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle5=details | widgetFixedFocus5~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle5]" />
+                <param name="widgetid" value="$PROPERTY[id]550" />
+                <param name="widgetName" value="$PROPERTY[widgetName5]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags5]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget5]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath5]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle5]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy5]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder5]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit5]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel5]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$PROPERTY[submenuid],4)]" />
+            </include>
+
+            <!-- widget 6 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath6 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]560" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName6]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath6 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle6=details | widgetFixedFocus6~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle6]" />
+                <param name="widgetid" value="$PROPERTY[id]560" />
+                <param name="widgetName" value="$PROPERTY[widgetName6]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags6]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget6]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath6]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle6]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy6]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder6]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit6]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel6]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$PROPERTY[submenuid],5)]" />
+            </include>
+
+            <!-- widget 7 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath7 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]570" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName7]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath7 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle7=details | widgetFixedFocus7~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle7]" />
+                <param name="widgetid" value="$PROPERTY[id]570" />
+                <param name="widgetName" value="$PROPERTY[widgetName7]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags7]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget7]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath7]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle7]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy7]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder7]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit7]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel7]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$PROPERTY[submenuid],6)]" />
+            </include>
+
+            <!-- widget 8 -->
+            <include content="widget_header_multi" condition="$PROPERTY[multiWidgets] + $IF[widgetPath8 THEN true ELSE false] + String.IsEqual(Skin.String(HomeLayout),bingie)">
+                <param name="widgetid" value="$PROPERTY[id]580" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetName" value="$PROPERTY[widgetName8]" />
+            </include>
+            <include content="widget_base" condition="$IF[widgetPath8 THEN true ELSE false]">
+                <param name="containerType" value="$IF[widgetStyle8=details | widgetFixedFocus8~enabled THEN fixedlist ELSE panel]" />
+                <param name="contentStyle" value="$PROPERTY[contentStyle8]" />
+                <param name="widgetid" value="$PROPERTY[id]580" />
+                <param name="widgetName" value="$PROPERTY[widgetName8]" />
+                <param name="submenuid" value="$PROPERTY[submenuid]" />
+                <param name="widgetTags" value="$PROPERTY[widgetTags8]" />
+                <param name="widgetTarget" value="$PROPERTY[widgetTarget8]" />
+                <param name="widgetPath" value="$PROPERTY[widgetPath8]" />
+                <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle8]" />
+                <param name="widgetSortBy" value="$PROPERTY[widgetSortBy8]" />
+                <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder8]" />
+                <param name="widgetLimit" value="$PROPERTY[widgetLimit8]" />
+                <param name="widgetInfoPanel" value="$PROPERTY[widgetInfoPanel8]" />
+                <param name="visibility" value="[$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] | [![$PROPERTY[multiWidgets] + String.IsEqual(Skin.String(HomeLayout),bingie)] + Skin.String(widgetvalue-$PROPERTY[submenuid],7)]" />
+            </include>
+        </controls>
+        <variables>
+
+            <variable name="$PROPERTY[id]510-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath1]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]510">
+                <value condition="String.Contains(Container($PROPERTY[id]510).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]510).ListItem.label] $INFO[Container($PROPERTY[id]510).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.Title) + String.Contains(Container($PROPERTY[id]510).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]510).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]510).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]510).ListItem.TvShowTitle,Container($PROPERTY[id]510).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]510).ListItem.Season]E$INFO[Container($PROPERTY[id]510).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]510).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.Title)">$INFO[Container($PROPERTY[id]510).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.Label)">$INFO[Container($PROPERTY[id]510).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]510">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]510).ListItem.Genre)">$INFO[Container($PROPERTY[id]510).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]510).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.Year)">$INFO[Container($PROPERTY[id]510).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]510).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]510).ListItem.Album)">$INFO[Container($PROPERTY[id]510).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]510).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]510).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]510).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]510).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]510).ListItem.StartTime)">$INFO[Container($PROPERTY[id]510).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]510).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]510).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]510).ListItem.Genre]</value>
+            </variable>
+
+
+            <variable name="$PROPERTY[id]520-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath2]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]520">
+                <value condition="String.Contains(Container($PROPERTY[id]520).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]520).ListItem.label] $INFO[Container($PROPERTY[id]520).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.Title) + String.Contains(Container($PROPERTY[id]520).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]520).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]520).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]520).ListItem.TvShowTitle,Container($PROPERTY[id]520).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]520).ListItem.Season]E$INFO[Container($PROPERTY[id]520).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]520).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.Title)">$INFO[Container($PROPERTY[id]520).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.Label)">$INFO[Container($PROPERTY[id]520).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]520">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]520).ListItem.Genre)">$INFO[Container($PROPERTY[id]520).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]520).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.Year)">$INFO[Container($PROPERTY[id]520).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]520).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]520).ListItem.Album)">$INFO[Container($PROPERTY[id]520).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]520).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]520).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]520).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]520).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]520).ListItem.StartTime)">$INFO[Container($PROPERTY[id]520).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]520).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]520).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]520).ListItem.Genre]</value>
+            </variable>
+
+
+            <variable name="$PROPERTY[id]530-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath3]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]530">
+                <value condition="String.Contains(Container($PROPERTY[id]530).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]530).ListItem.label] $INFO[Container($PROPERTY[id]530).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.Title) + String.Contains(Container($PROPERTY[id]530).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]530).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]530).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]530).ListItem.TvShowTitle,Container($PROPERTY[id]530).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]530).ListItem.Season]E$INFO[Container($PROPERTY[id]530).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]530).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.Title)">$INFO[Container($PROPERTY[id]530).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.Label)">$INFO[Container($PROPERTY[id]530).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]530">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]530).ListItem.Genre)">$INFO[Container($PROPERTY[id]530).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]530).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.Year)">$INFO[Container($PROPERTY[id]530).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]530).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]530).ListItem.Album)">$INFO[Container($PROPERTY[id]530).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]530).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]530).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]530).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]530).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]530).ListItem.StartTime)">$INFO[Container($PROPERTY[id]530).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]530).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]530).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]530).ListItem.Genre]</value>
+            </variable>
+
+            <variable name="$PROPERTY[id]540-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath4]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]540">
+                <value condition="String.Contains(Container($PROPERTY[id]540).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]540).ListItem.label] $INFO[Container($PROPERTY[id]540).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.Title) + String.Contains(Container($PROPERTY[id]540).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]540).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]540).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]540).ListItem.TvShowTitle,Container($PROPERTY[id]540).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]540).ListItem.Season]E$INFO[Container($PROPERTY[id]540).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]540).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.Title)">$INFO[Container($PROPERTY[id]540).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.Label)">$INFO[Container($PROPERTY[id]540).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]540">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]540).ListItem.Genre)">$INFO[Container($PROPERTY[id]540).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]540).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.Year)">$INFO[Container($PROPERTY[id]540).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]540).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]540).ListItem.Album)">$INFO[Container($PROPERTY[id]540).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]540).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]540).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]540).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]540).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]540).ListItem.StartTime)">$INFO[Container($PROPERTY[id]540).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]540).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]540).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]540).ListItem.Genre]</value>
+            </variable>
+
+            <variable name="$PROPERTY[id]550-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath5]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]550">
+                <value condition="String.Contains(Container($PROPERTY[id]550).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]550).ListItem.label] $INFO[Container($PROPERTY[id]550).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.Title) + String.Contains(Container($PROPERTY[id]550).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]550).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]550).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]550).ListItem.TvShowTitle,Container($PROPERTY[id]550).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]550).ListItem.Season]E$INFO[Container($PROPERTY[id]550).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]550).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.Title)">$INFO[Container($PROPERTY[id]550).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.Label)">$INFO[Container($PROPERTY[id]550).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]550">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]550).ListItem.Genre)">$INFO[Container($PROPERTY[id]550).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]550).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.Year)">$INFO[Container($PROPERTY[id]550).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]550).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]550).ListItem.Album)">$INFO[Container($PROPERTY[id]550).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]550).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]550).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]550).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]550).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]550).ListItem.StartTime)">$INFO[Container($PROPERTY[id]550).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]550).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]550).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]550).ListItem.Genre]</value>
+            </variable>
+
+            <variable name="$PROPERTY[id]560-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath6]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]560">
+                <value condition="String.Contains(Container($PROPERTY[id]560).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]560).ListItem.label] $INFO[Container($PROPERTY[id]560).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.Title) + String.Contains(Container($PROPERTY[id]560).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]560).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]560).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]560).ListItem.TvShowTitle,Container($PROPERTY[id]560).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]560).ListItem.Season]E$INFO[Container($PROPERTY[id]560).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]560).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.Title)">$INFO[Container($PROPERTY[id]560).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.Label)">$INFO[Container($PROPERTY[id]560).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]560">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]560).ListItem.Genre)">$INFO[Container($PROPERTY[id]560).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]560).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.Year)">$INFO[Container($PROPERTY[id]560).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]560).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]560).ListItem.Album)">$INFO[Container($PROPERTY[id]560).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]560).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]560).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]560).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]560).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]560).ListItem.StartTime)">$INFO[Container($PROPERTY[id]560).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]560).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]560).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]560).ListItem.Genre]</value>
+            </variable>
+
+            <variable name="$PROPERTY[id]570-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath7]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]570">
+                <value condition="String.Contains(Container($PROPERTY[id]570).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]570).ListItem.label] $INFO[Container($PROPERTY[id]570).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.Title) + String.Contains(Container($PROPERTY[id]570).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]570).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]570).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]570).ListItem.TvShowTitle,Container($PROPERTY[id]570).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]570).ListItem.Season]E$INFO[Container($PROPERTY[id]570).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]570).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.Title)">$INFO[Container($PROPERTY[id]570).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.Label)">$INFO[Container($PROPERTY[id]570).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]570">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]570).ListItem.Genre)">$INFO[Container($PROPERTY[id]570).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]570).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.Year)">$INFO[Container($PROPERTY[id]570).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]570).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]570).ListItem.Album)">$INFO[Container($PROPERTY[id]570).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]570).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]570).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]570).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]570).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]570).ListItem.StartTime)">$INFO[Container($PROPERTY[id]570).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]570).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]570).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]570).ListItem.Genre]</value>
+            </variable>
+
+            <variable name="$PROPERTY[id]580-refresh">
+                <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
+                <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
+                <value>$PROPERTY[widgetPath8]</value>
+            </variable>
+            <variable name="widgetinfolabel-$PROPERTY[id]580">
+                <value condition="String.Contains(Container($PROPERTY[id]580).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]580).ListItem.label] $INFO[Container($PROPERTY[id]580).ListItem.label2]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.Title) + String.Contains(Container($PROPERTY[id]580).ListItem.FolderPath, pvr://)">$INFO[Container($PROPERTY[id]580).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.Season) + !String.IsEmpty(Container($PROPERTY[id]580).ListItem.Episode) + !String.Contains(Container($PROPERTY[id]580).ListItem.TvShowTitle,Container($PROPERTY[id]580).ListItem.Title)">[UPPERCASE]S$INFO[Container($PROPERTY[id]580).ListItem.Season]E$INFO[Container($PROPERTY[id]580).ListItem.Episode]:[/UPPERCASE] $INFO[Container($PROPERTY[id]580).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.Title)">$INFO[Container($PROPERTY[id]580).ListItem.Title]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.Label)">$INFO[Container($PROPERTY[id]580).ListItem.Label]</value>
+            </variable>
+            <variable name="widgetsubtitle-$PROPERTY[id]580">
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.TvShowTitle) + !String.IsEmpty(Container($PROPERTY[id]580).ListItem.Genre)">$INFO[Container($PROPERTY[id]580).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.TvShowTitle)">$INFO[Container($PROPERTY[id]580).ListItem.TvShowTitle,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Premiered,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Duration,,min.]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.Year)">$INFO[Container($PROPERTY[id]580).ListItem.Year,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Duration,,min. • ]$INFO[Container($PROPERTY[id]580).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.Artist) + !String.IsEmpty(Container($PROPERTY[id]580).ListItem.Album)">$INFO[Container($PROPERTY[id]580).ListItem.Artist,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Album,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Duration]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.Property(StartTime))">$INFO[Container($PROPERTY[id]580).ListItem.Property(ChannelName),, • ]$INFO[Container($PROPERTY[id]580).ListItem.Property(StartTime),, - ]$INFO[Container($PROPERTY[id]580).ListItem.Property(EndTime),, • ]$INFO[Container($PROPERTY[id]580).ListItem.Genre]</value>
+                <value condition="!String.IsEmpty(Container($PROPERTY[id]580).ListItem.StartTime)">$INFO[Container($PROPERTY[id]580).ListItem.ChannelName,, • ]$INFO[Container($PROPERTY[id]580).ListItem.StartTime,, - ]$INFO[Container($PROPERTY[id]580).ListItem.EndTime,, • ]$INFO[Container($PROPERTY[id]580).ListItem.Genre]</value>
+            </variable>
+
+            <variable name="widgetlabel-$PROPERTY[id]">
+                <value condition="String.IsEqual(Skin.String(widgetvalue-$PROPERTY[submenuid]),7)">$PROPERTY[widgetName8]</value>
+                <value condition="String.IsEqual(Skin.String(widgetvalue-$PROPERTY[submenuid]),6)">$PROPERTY[widgetName7]</value>
+                <value condition="String.IsEqual(Skin.String(widgetvalue-$PROPERTY[submenuid]),5)">$PROPERTY[widgetName6]</value>
+                <value condition="String.IsEqual(Skin.String(widgetvalue-$PROPERTY[submenuid]),4)">$PROPERTY[widgetName5]</value>
+                <value condition="String.IsEqual(Skin.String(widgetvalue-$PROPERTY[submenuid]),3)">$PROPERTY[widgetName4]</value>
+                <value condition="String.IsEqual(Skin.String(widgetvalue-$PROPERTY[submenuid]),2)">$PROPERTY[widgetName3]</value>
+                <value condition="String.IsEqual(Skin.String(widgetvalue-$PROPERTY[submenuid]),1)">$PROPERTY[widgetName2]</value>
+                <value>$PROPERTY[widgetName1]</value>
+            </variable>
+        </variables>
+	</template>
+</templates>

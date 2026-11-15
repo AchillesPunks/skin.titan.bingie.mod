@@ -919,7 +919,7 @@
         <content browse="never" target="$PARAM[widgetTarget]">$VAR[$PARAM[widgetid]-refresh]</content>
     </include>
     <include name="widget_base_content_submenu">
-        <content><include>skinshortcuts-group-$PARAM[submenuid]</include></content>
+        <content><include>skinshortcuts-mainmenu-submenu</include></content>
     </include>
     <include name="widget_base_content_weather">
         <content><include>StaticWidget_Weather</include></content>

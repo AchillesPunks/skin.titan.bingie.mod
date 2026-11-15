@@ -91,7 +91,7 @@
 				</control>
 			</focusedlayout>
 			<content>
-				<include condition="!Window.IsActive(loginscreen)">skinshortcuts-group-powermenu</include>
+				<include condition="!Window.IsActive(loginscreen)">skinshortcuts-powermenu</include>
                 <!-- shutdown menu options for loginscreen -->
                 <item id="997">
                     <label>$LOCALIZE[13009]</label>

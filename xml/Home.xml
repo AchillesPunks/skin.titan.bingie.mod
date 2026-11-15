@@ -14,7 +14,7 @@
     <onload>Skin.SetString(TMDbHelper.MonitorContainer,99950)</onload>
 	
 	<!-- Build Menu -->
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;group=mainmenu|powermenu)</onload>
+    <onload>RunScript(script.skinshortcuts,type=buildxml)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle,$INFO[Skin.String(widgetstyle)])</onload>
 
     <!-- First Run -->

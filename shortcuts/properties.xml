@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<properties>
+    <includes>
+        <include name="widgetstyleOptions">
+            <option value="poster" label="$LOCALIZE[31053]">
+                <icon>special://skin/extras/viewthumbs/widget_hor_poster.jpg</icon>
+            </option>
+            <option value="landscape" label="$LOCALIZE[31056]">
+                <icon>special://skin/extras/viewthumbs/widget_hor_landscape.jpg</icon>
+            </option>
+            <option value="landscapelarge" label="$LOCALIZE[31937]">
+                <icon>special://skin/extras/viewthumbs/widget_landscapelarge.jpg</icon>
+            </option>
+        </include>
+        <include name="widgetlimitOptions">
+            <option value="" label="$LOCALIZE[571]" />
+            <option value="5" label="$NUMBER[5]" />
+            <option value="10" label="$NUMBER[10]" />
+            <option value="15" label="$NUMBER[15]" />
+            <option value="20" label="$NUMBER[20]" />
+            <option value="25" label="$NUMBER[25]" />
+            <option value="30" label="$NUMBER[30]" />
+            <option value="50" label="$NUMBER[50]" />
+            <option value="75" label="$NUMBER[75]" />
+            <option value="100" label="$NUMBER[100]" />
+            <option value="150" label="$NUMBER[150]" />
+            <option value="200" label="$NUMBER[200]" />
+        </include>
+        <include name="widgetsortbyOptions">
+            <option value="" label="$LOCALIZE[16018]" />
+            <option value="random" label="$LOCALIZE[590]" />
+            <option value="year" label="$LOCALIZE[562]" />
+            <option value="dateadded" label="$LOCALIZE[570]" />
+            <option value="title" label="$LOCALIZE[556]" />
+            <option value="playcount" label="$LOCALIZE[567]" />
+            <option value="lastplayed" label="$LOCALIZE[568]" />
+            <option value="rating" label="$LOCALIZE[563]" />
+            <option value="userrating" label="$LOCALIZE[38018]" />
+            <option value="votes" label="$LOCALIZE[205]" />
+        </include>
+        <include name="widgetsortorderOptions">
+            <option value="ascending" label="$LOCALIZE[21430]" />
+            <option value="descending" label="$LOCALIZE[21431]" />
+        </include>
+        <include name="Widgets_DisplayTagsOptions">
+            <option value="disable" label="$LOCALIZE[1223]" />
+            <option value="enable" label="$LOCALIZE[305]" />
+        </include>
+        <include name="infolineOptions">
+            <option value="none" label="$LOCALIZE[231] - $LOCALIZE[13305]" visible="[Window.IsActive(script-skinshortcuts.xml) + system.getbool(lookandfeel.enablerssfeeds)]" />
+            <option value="none" label="$LOCALIZE[231]" visible="![Window.IsActive(script-skinshortcuts.xml) + system.getbool(lookandfeel.enablerssfeeds)]" />
+            <option value="backgroundtitle" label="$LOCALIZE[31739]" visible="Window.IsActive(script-skinshortcuts.xml)" />
+            <option value="library_info" label="$LOCALIZE[20314]" />
+            <option value="movie_library" label="$LOCALIZE[14022] - $LOCALIZE[20342]" />
+            <option value="tvshows_library" label="$LOCALIZE[14022] - $LOCALIZE[20343]" />
+            <option value="music_library" label="$LOCALIZE[14022] - $LOCALIZE[2]" />
+            <option value="pvr" label="$LOCALIZE[19166]" />
+            <option value="weather" label="$LOCALIZE[24027]" />
+            <option value="musicvideo_library" label="$LOCALIZE[14022] - $LOCALIZE[20389]" />
+            <option value="sysinfo" label="$LOCALIZE[130]" />
+            <option value="addonsinfo" label="$LOCALIZE[24001]/$LOCALIZE[1036]" />
+        </include>
+        <include name="customsubmenuheaderOptions">
+            <option value="None" label="$LOCALIZE[16018]" />
+            <option value="" label="$LOCALIZE[1034] $LOCALIZE[571,(,)]" />
+            <option value="mainmenu" label="$LOCALIZE[31978]" />
+        </include>
+    </includes>
+    <property name="widgetLimit" type="options" requires="widget">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy" type="options" requires="widget">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder" type="options" requires="widget">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags" type="options" requires="widget">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh" type="toggle" value="refresh" requires="widget" />
+    <property name="widgetAutoRotate" type="toggle" value="enabled" requires="widget" />
+    <property name="widgetFixedFocus" type="toggle" value="enabled" requires="widget" />
+    <property name="widgetstyle" type="options" requires="widget">
+        <options>
+            <include content="widgetstyleOptions" />
+        </options>
+    </property>
+    <property name="widgetLimit.1" type="options" requires="widget.1">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy.1" type="options" requires="widget.1">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder.1" type="options" requires="widget.1">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags.1" type="options" requires="widget.1">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh.1" type="toggle" value="refresh" requires="widget.1" />
+    <property name="widgetAutoRotate.1" type="toggle" value="enabled" requires="widget.1" />
+    <property name="widgetFixedFocus.1" type="toggle" value="enabled" requires="widget.1" />
+    <property name="widgetstyle.1" type="options" requires="widget.1">
+        <options>
+            <include content="widgetstyleOptions" />
+        </options>
+    </property>
+    <property name="widgetLimit.2" type="options" requires="widget.2">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy.2" type="options" requires="widget.2">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder.2" type="options" requires="widget.2">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags.2" type="options" requires="widget.2">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh.2" type="toggle" value="refresh" requires="widget.2" />
+    <property name="widgetAutoRotate.2" type="toggle" value="enabled" requires="widget.2" />
+    <property name="widgetFixedFocus.2" type="toggle" value="enabled" requires="widget.2" />
+    <property name="widgetstyle.2" type="toggle" value="highlight" requires="widget.2" />
+    <property name="widgetLimit.3" type="options" requires="widget.3">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy.3" type="options" requires="widget.3">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder.3" type="options" requires="widget.3">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags.3" type="options" requires="widget.3">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh.3" type="toggle" value="refresh" requires="widget.3" />
+    <property name="widgetAutoRotate.3" type="toggle" value="enabled" requires="widget.3" />
+    <property name="widgetFixedFocus.3" type="toggle" value="enabled" requires="widget.3" />
+    <property name="widgetstyle.3" type="options" requires="widget.3">
+        <options>
+            <include content="widgetstyleOptions" />
+        </options>
+    </property>
+    <property name="widgetLimit.4" type="options" requires="widget.4">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy.4" type="options" requires="widget.4">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder.4" type="options" requires="widget.4">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags.4" type="options" requires="widget.4">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh.4" type="toggle" value="refresh" requires="widget.4" />
+    <property name="widgetAutoRotate.4" type="toggle" value="enabled" requires="widget.4" />
+    <property name="widgetFixedFocus.4" type="toggle" value="enabled" requires="widget.4" />
+    <property name="widgetstyle.4" type="options" requires="widget.4">
+        <options>
+            <include content="widgetstyleOptions" />
+        </options>
+    </property>
+    <property name="widgetLimit.5" type="options" requires="widget.5">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy.5" type="options" requires="widget.5">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder.5" type="options" requires="widget.5">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags.5" type="options" requires="widget.5">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh.5" type="toggle" value="refresh" requires="widget.5" />
+    <property name="widgetAutoRotate.5" type="toggle" value="enabled" requires="widget.5" />
+    <property name="widgetFixedFocus.5" type="toggle" value="enabled" requires="widget.5" />
+    <property name="widgetstyle.5" type="options" requires="widget.5">
+        <options>
+            <include content="widgetstyleOptions" />
+        </options>
+    </property>
+    <property name="widgetLimit.6" type="options" requires="widget.6">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy.6" type="options" requires="widget.6">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder.6" type="options" requires="widget.6">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags.6" type="options" requires="widget.6">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh.6" type="toggle" value="refresh" requires="widget.6" />
+    <property name="widgetAutoRotate.6" type="toggle" value="enabled" requires="widget.6" />
+    <property name="widgetFixedFocus.6" type="toggle" value="enabled" requires="widget.6" />
+    <property name="widgetstyle.6" type="options" requires="widget.6">
+        <options>
+            <include content="widgetstyleOptions" />
+        </options>
+    </property>
+    <property name="widgetLimit.7" type="options" requires="widget.7">
+        <options>
+            <include content="widgetlimitOptions" />
+        </options>
+    </property>
+    <property name="widgetSortBy.7" type="options" requires="widget.7">
+        <options>
+            <include content="widgetsortbyOptions" />
+        </options>
+    </property>
+    <property name="widgetSortOrder.7" type="options" requires="widget.7">
+        <options>
+            <include content="widgetsortorderOptions" />
+        </options>
+    </property>
+    <property name="widgetTags.7" type="options" requires="widget.7">
+        <options>
+            <include content="Widgets_DisplayTagsOptions" />
+        </options>
+    </property>
+    <property name="widgetForceRefresh.7" type="toggle" value="refresh" requires="widget.7" />
+    <property name="widgetAutoRotate.7" type="toggle" value="enabled" requires="widget.7" />
+    <property name="widgetFixedFocus.7" type="toggle" value="enabled" requires="widget.7" />
+    <property name="widgetstyle.7" type="options" requires="widget.7">
+        <options>
+            <include content="widgetstyleOptions" />
+        </options>
+    </property>
+    <property name="infoline" type="options">
+        <options>
+            <include content="infolineOptions" />
+        </options>
+    </property>
+    <property name="customsubmenuheader" type="options">
+        <options>
+            <include content="customsubmenuheaderOptions" />
+        </options>
+    </property>
+    <buttons suffix="false">
+        <button id="90011" property="widget" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90012" property="widgetLabel" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget" />
+        <button id="90013" property="widgetstyle" title="$LOCALIZE[320036]" requires="widget" />
+        <button id="90014" property="widgetLimit" title="$LOCALIZE[21427]" requires="widget" showNone="false" />
+        <button id="90015" property="widgetSortBy" title="$LOCALIZE[581]" requires="widget" showNone="false" />
+        <button id="90016" property="widgetSortOrder" title="$LOCALIZE[580]" requires="widget" />
+        <button id="90018" property="widgetTags" title="$LOCALIZE[31675]" requires="widget" />
+        <button id="90019" property="widgetForceRefresh" title="$LOCALIZE[31717]" type="toggle" requires="widget" />
+        <button id="900110" property="widgetAutoRotate" title="$LOCALIZE[31723]" type="toggle" requires="widget" />
+        <button id="900111" property="widgetFixedFocus" title="$LOCALIZE[31823]" type="toggle" requires="widget" />
+        <button id="90021" property="widget.1" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90022" property="widgetLabel.1" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget.1" />
+        <button id="90023" property="widgetstyle.1" title="$LOCALIZE[320036]" requires="widget.1" />
+        <button id="90024" property="widgetLimit.1" title="$LOCALIZE[21427]" requires="widget.1" showNone="false" />
+        <button id="90025" property="widgetSortBy.1" title="$LOCALIZE[581]" requires="widget.1" showNone="false" />
+        <button id="90026" property="widgetSortOrder.1" title="$LOCALIZE[580]" requires="widget.1" />
+        <button id="90028" property="widgetTags.1" title="$LOCALIZE[31675]" requires="widget.1" />
+        <button id="90029" property="widgetForceRefresh.1" title="$LOCALIZE[31717]" type="toggle" requires="widget.1" />
+        <button id="900210" property="widgetAutoRotate.1" title="$LOCALIZE[31723]" type="toggle" requires="widget.1" />
+        <button id="900211" property="widgetFixedFocus.1" title="$LOCALIZE[31823]" type="toggle" requires="widget.1" />
+        <button id="90031" property="widget.2" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90032" property="widgetLabel.2" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget.2" />
+        <button id="90033" property="widgetstyle.2" title="$LOCALIZE[320036]" requires="widget.2" type="toggle" />
+        <button id="90034" property="widgetLimit.2" title="$LOCALIZE[21427]" requires="widget.2" showNone="false" />
+        <button id="90035" property="widgetSortBy.2" title="$LOCALIZE[581]" requires="widget.2" showNone="false" />
+        <button id="90036" property="widgetSortOrder.2" title="$LOCALIZE[580]" requires="widget.2" />
+        <button id="90038" property="widgetTags.2" title="$LOCALIZE[31675]" requires="widget.2" />
+        <button id="90039" property="widgetForceRefresh.2" title="$LOCALIZE[31717]" type="toggle" requires="widget.2" />
+        <button id="900310" property="widgetAutoRotate.2" title="$LOCALIZE[31723]" type="toggle" requires="widget.2" />
+        <button id="900311" property="widgetFixedFocus.2" title="$LOCALIZE[31823]" type="toggle" requires="widget.2" />
+        <button id="90041" property="widget.3" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90042" property="widgetLabel.3" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget.3" />
+        <button id="90043" property="widgetstyle.3" title="$LOCALIZE[320036]" requires="widget.3" />
+        <button id="90044" property="widgetLimit.3" title="$LOCALIZE[21427]" requires="widget.3" showNone="false" />
+        <button id="90045" property="widgetSortBy.3" title="$LOCALIZE[581]" requires="widget.3" showNone="false" />
+        <button id="90046" property="widgetSortOrder.3" title="$LOCALIZE[580]" requires="widget.3" />
+        <button id="90048" property="widgetTags.3" title="$LOCALIZE[31675]" requires="widget.3" />
+        <button id="90049" property="widgetForceRefresh.3" title="$LOCALIZE[31717]" type="toggle" requires="widget.3" />
+        <button id="900410" property="widgetAutoRotate.3" title="$LOCALIZE[31723]" type="toggle" requires="widget.3" />
+        <button id="900411" property="widgetFixedFocus.3" title="$LOCALIZE[31823]" type="toggle" requires="widget.3" />
+        <button id="90051" property="widget.4" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90052" property="widgetLabel.4" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget.4" />
+        <button id="90053" property="widgetstyle.4" title="$LOCALIZE[320036]" requires="widget.4" />
+        <button id="90054" property="widgetLimit.4" title="$LOCALIZE[21427]" requires="widget.4" showNone="false" />
+        <button id="90055" property="widgetSortBy.4" title="$LOCALIZE[581]" requires="widget.4" showNone="false" />
+        <button id="90056" property="widgetSortOrder.4" title="$LOCALIZE[580]" requires="widget.4" />
+        <button id="90058" property="widgetTags.4" title="$LOCALIZE[31675]" requires="widget.4" />
+        <button id="90059" property="widgetForceRefresh.4" title="$LOCALIZE[31717]" type="toggle" requires="widget.4" />
+        <button id="900510" property="widgetAutoRotate.4" title="$LOCALIZE[31723]" type="toggle" requires="widget.4" />
+        <button id="900511" property="widgetFixedFocus.4" title="$LOCALIZE[31823]" type="toggle" requires="widget.4" />
+        <button id="90061" property="widget.5" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90062" property="widgetLabel.5" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget.5" />
+        <button id="90063" property="widgetstyle.5" title="$LOCALIZE[320036]" requires="widget.5" />
+        <button id="90064" property="widgetLimit.5" title="$LOCALIZE[21427]" requires="widget.5" showNone="false" />
+        <button id="90065" property="widgetSortBy.5" title="$LOCALIZE[581]" requires="widget.5" showNone="false" />
+        <button id="90066" property="widgetSortOrder.5" title="$LOCALIZE[580]" requires="widget.5" />
+        <button id="90068" property="widgetTags.5" title="$LOCALIZE[31675]" requires="widget.5" />
+        <button id="90069" property="widgetForceRefresh.5" title="$LOCALIZE[31717]" type="toggle" requires="widget.5" />
+        <button id="900610" property="widgetAutoRotate.5" title="$LOCALIZE[31723]" type="toggle" requires="widget.5" />
+        <button id="900611" property="widgetFixedFocus.5" title="$LOCALIZE[31823]" type="toggle" requires="widget.5" />
+        <button id="90071" property="widget.6" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90072" property="widgetLabel.6" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget.6" />
+        <button id="90073" property="widgetstyle.6" title="$LOCALIZE[320036]" requires="widget.6" />
+        <button id="90074" property="widgetLimit.6" title="$LOCALIZE[21427]" requires="widget.6" showNone="false" />
+        <button id="90075" property="widgetSortBy.6" title="$LOCALIZE[581]" requires="widget.6" showNone="false" />
+        <button id="90076" property="widgetSortOrder.6" title="$LOCALIZE[580]" requires="widget.6" />
+        <button id="90078" property="widgetTags.6" title="$LOCALIZE[31675]" requires="widget.6" />
+        <button id="90079" property="widgetForceRefresh.6" title="$LOCALIZE[31717]" type="toggle" requires="widget.6" />
+        <button id="900710" property="widgetAutoRotate.6" title="$LOCALIZE[31723]" type="toggle" requires="widget.6" />
+        <button id="900711" property="widgetFixedFocus.6" title="$LOCALIZE[31823]" type="toggle" requires="widget.6" />
+        <button id="90081" property="widget.7" title="$ADDON[script.skinshortcuts 32044]" type="widget" rename="true" />
+        <button id="90082" property="widgetLabel.7" title="$ADDON[script.skinshortcuts 32025]" type="text" requires="widget.7" />
+        <button id="90083" property="widgetstyle.7" title="$LOCALIZE[320036]" requires="widget.7" />
+        <button id="90084" property="widgetLimit.7" title="$LOCALIZE[21427]" requires="widget.7" showNone="false" />
+        <button id="90085" property="widgetSortBy.7" title="$LOCALIZE[581]" requires="widget.7" showNone="false" />
+        <button id="90086" property="widgetSortOrder.7" title="$LOCALIZE[580]" requires="widget.7" />
+        <button id="90088" property="widgetTags.7" title="$LOCALIZE[31675]" requires="widget.7" />
+        <button id="90089" property="widgetForceRefresh.7" title="$LOCALIZE[31717]" type="toggle" requires="widget.7" />
+        <button id="900810" property="widgetAutoRotate.7" title="$LOCALIZE[31723]" type="toggle" requires="widget.7" />
+        <button id="900811" property="widgetFixedFocus.7" title="$LOCALIZE[31823]" type="toggle" requires="widget.7" />
+        <button id="31687" property="infoline" title="$LOCALIZE[31687]" />
+        <button id="31773" property="customsubmenuheader" title="$LOCALIZE[31773]" showNone="false" />
+        <button id="41773" property="customsubmenuheader" type="text" title="$LOCALIZE[31979]" />
+    </buttons>
+</properties>

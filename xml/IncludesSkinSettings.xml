@@ -2624,6 +2624,14 @@
             <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
             <selected>Skin.HasSetting(LockHubWidgets)</selected>
         </control>
+        <control type="radiobutton" id="60041">
+            <include>SkinSettings_Button</include>
+            <label>31980</label>
+            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <onclick>Skin.ToggleSetting(ExtendedMovieTVHubs)</onclick>
+            <onclick>ReloadSkin()</onclick>
+            <selected>Skin.HasSetting(ExtendedMovieTVHubs)</selected>
+        </control>
         <!-- empty label -->
         <control type="label" id="6004">
             <height>20</height>

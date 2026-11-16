@@ -73,6 +73,24 @@
             <texturenofocus/>
             <visible>!Skin.HasSetting(LockHubWidgets) + Skin.String($PARAM[skinsetting].label) + [String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(similartitle)) + String.IsEmpty(Container($PARAM[widgetid]).ListItem.Property(genretitle))]</visible>
         </control>
+        <!-- Empty/deferred rows stay focusable so sparse feeds cannot trap navigation. -->
+        <control type="button" id="$PARAM[widgetid]7">
+            <visible>Skin.HasSetting(ExtendedMovieTVHubs) + Skin.HasSetting(LockHubWidgets) + [Window.IsActive(1110) | Window.IsActive(1111)] + Skin.String($PARAM[skinsetting].path) + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0)</visible>
+            <left>130</left>
+            <width>auto</width>
+            <height>46</height>
+            <align>left</align>
+            <aligny>center</aligny>
+            <font>Reg32</font>
+            <label>$VAR[BingieHubEmptyLabel$PARAM[widgetid]]</label>
+            <textcolor>$INFO[Skin.String(ViewDetailsTextColor)]</textcolor>
+            <texturenofocus />
+            <include content="SetFixedVerticalNavigationProps">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
+            <onunfocus condition="Skin.HasSetting(ExtendedMovieTVHubs) + [Window.IsActive(1110) | Window.IsActive(1111)] + String.IsEqual(Window(Home).Property(CurrentWidgetID),$PARAM[widgetid]) + !Control.IsVisible($PARAM[widgetid]7) + Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)">SetFocus($PARAM[widgetid])</onunfocus>
+            <onclick condition="Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)">SetFocus($PARAM[widgetid])</onclick>
+        </control>
         <include content="bingie_widget_hub">
             <param name="containerType" value="fixedlist" />
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -123,7 +141,7 @@
     <!-- hub widget base -->
     <include name="bingie_widget_hub">
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
-            <visible>Container($PARAM[widgetid]).IsUpdating + Control.IsVisible($PARAM[widgetid]) | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
+            <visible>[Skin.HasSetting(ExtendedMovieTVHubs) + [Window.IsActive(1110) | Window.IsActive(1111)]] | [Container($PARAM[widgetid]).IsUpdating + Control.IsVisible($PARAM[widgetid]) | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)]</visible>
             <width>100%</width>
             <include content="BingieUnfocusedWidgetFade">
                 <param name="widgetid" value="$PARAM[widgetid]" />
@@ -152,7 +170,7 @@
                 <param name="widgetTags" value="WidgetTagOverlayAuto" />
                 <param name="multiRows" value="false" />
             </include>
-            <content sortby="$INFO[Skin.String($PARAM[skinsetting].sortby)]" sortorder="$INFO[Skin.String($PARAM[skinsetting].sortorder)]" limit="$INFO[Skin.String(WidgetsGlobalLimit)]" target="$INFO[Skin.String($PARAM[skinsetting].target)]" browse="never">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+            <content sortby="$INFO[Skin.String($PARAM[skinsetting].sortby)]" sortorder="$INFO[Skin.String($PARAM[skinsetting].sortorder)]" limit="$INFO[Skin.String(WidgetsGlobalLimit)]" target="$INFO[Skin.String($PARAM[skinsetting].target)]" browse="never">$VAR[BingieHubPath$PARAM[widgetid]]</content>
             <visible>Skin.String($PARAM[skinsetting].path)</visible>
         </control>
     </include>
@@ -269,6 +287,9 @@
         <include content="bingie_custom_hub_items">
             <param name="hubname" value="movies"/>
         </include>
+        <include content="bingie_extended_hub_items" condition="Skin.HasSetting(ExtendedMovieTVHubs)">
+            <param name="hubname" value="movies" />
+        </include>
     </include>
 
     <!-- Bingie Items TVShows -->
@@ -280,6 +301,9 @@
         </include>
         <include content="bingie_custom_hub_items">
             <param name="hubname" value="tvshows"/>
+        </include>
+        <include content="bingie_extended_hub_items" condition="Skin.HasSetting(ExtendedMovieTVHubs)">
+            <param name="hubname" value="tvshows" />
         </include>
     </include>
 	
@@ -764,7 +788,7 @@
     <!-- no items in hubs buttons -->
     <include name="Empty_Hub_Alt_Buttons">
         <control type="textbox" id="1501">
-            <visible>Skin.HasSetting(LockHubWidgets)
+            <visible>!$EXP[HasConfiguredExtendedHubRows] + Skin.HasSetting(LockHubWidgets)
                 + [Integer.IsEqual(Container(1510).NumItems,0) + !Container(1510).IsUpdating] + [Integer.IsEqual(Container(1520).NumItems,0) + !Container(1520).IsUpdating]
                 + [Integer.IsEqual(Container(1530).NumItems,0) + !Container(1530).IsUpdating] + [Integer.IsEqual(Container(1540).NumItems,0) + !Container(1540).IsUpdating]
                 + [Integer.IsEqual(Container(1550).NumItems,0) + !Container(1550).IsUpdating] + [Integer.IsEqual(Container(1560).NumItems,0) + !Container(1560).IsUpdating]
@@ -857,5 +881,418 @@
         <value condition="Control.HasFocus(1504)">$LOCALIZE[31391]</value>
         <value condition="Control.HasFocus(1505)">$LOCALIZE[31393]</value>
     </variable>
-</includes>
 
+    <!-- Additional configurable rows are opt-in for Movies and TV Shows. -->
+    <include name="bingie_extended_hub_items">
+        <include content="bingie_customhub_row_9">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_10">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_11">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_12">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_13">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_14">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_15">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_16">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_17">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_18">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_19">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_20">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_21">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_22">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_23">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+        <include content="bingie_customhub_row_24">
+            <param name="hubname" value="$PARAM[hubname]" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_9">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1590" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-590" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_10">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1600" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-600" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_11">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1610" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-610" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_12">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1620" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-620" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_13">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1630" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-630" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_14">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1640" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-640" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_15">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1650" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-650" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_16">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1660" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-660" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_17">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1670" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-670" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_18">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1680" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-680" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_19">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1690" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-690" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_20">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1700" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-700" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_21">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1710" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-710" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_22">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1720" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-720" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_23">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1730" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-730" />
+        </include>
+    </include>
+    <include name="bingie_customhub_row_24">
+        <include content="bingie_customhub_item">
+            <param name="widgetid" value="1740" />
+            <param name="widgetStyle" value="widget_layout_default" />
+            <param name="skinsetting" value="bingiehub-$PARAM[hubname]-740" />
+        </include>
+    </include>
+    <!-- Load the first three rows, then two ahead of the focused row. -->
+    <variable name="BingieHubPath1510">
+        <value condition="Window.IsActive(1111)">$INFO[Skin.String(bingiehub-movies-510.path)]</value>
+        <value condition="Window.IsActive(1110)">$INFO[Skin.String(bingiehub-tvshows-510.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-510.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-510.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-510.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-510.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1510">
+        <value condition="Container(1510).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1520">
+        <value condition="Window.IsActive(1111)">$INFO[Skin.String(bingiehub-movies-520.path)]</value>
+        <value condition="Window.IsActive(1110)">$INFO[Skin.String(bingiehub-tvshows-520.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-520.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-520.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-520.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-520.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1520">
+        <value condition="Container(1520).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1530">
+        <value condition="Window.IsActive(1111)">$INFO[Skin.String(bingiehub-movies-530.path)]</value>
+        <value condition="Window.IsActive(1110)">$INFO[Skin.String(bingiehub-tvshows-530.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-530.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-530.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-530.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-530.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1530">
+        <value condition="Container(1530).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1540">
+        <value condition="Window.IsActive(1111) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1510)]]">$INFO[Skin.String(bingiehub-movies-540.path)]</value>
+        <value condition="Window.IsActive(1110) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1510)]]">$INFO[Skin.String(bingiehub-tvshows-540.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-540.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-540.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-540.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-540.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1540">
+        <value condition="Container(1540).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1550">
+        <value condition="Window.IsActive(1111) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1520)]]">$INFO[Skin.String(bingiehub-movies-550.path)]</value>
+        <value condition="Window.IsActive(1110) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1520)]]">$INFO[Skin.String(bingiehub-tvshows-550.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-550.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-550.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-550.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-550.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1550">
+        <value condition="Container(1550).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1560">
+        <value condition="Window.IsActive(1111) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1530)]]">$INFO[Skin.String(bingiehub-movies-560.path)]</value>
+        <value condition="Window.IsActive(1110) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1530)]]">$INFO[Skin.String(bingiehub-tvshows-560.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-560.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-560.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-560.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-560.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1560">
+        <value condition="Container(1560).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1570">
+        <value condition="Window.IsActive(1111) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1540)]]">$INFO[Skin.String(bingiehub-movies-570.path)]</value>
+        <value condition="Window.IsActive(1110) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1540)]]">$INFO[Skin.String(bingiehub-tvshows-570.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-570.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-570.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-570.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-570.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1570">
+        <value condition="Container(1570).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1580">
+        <value condition="Window.IsActive(1111) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1550)]]">$INFO[Skin.String(bingiehub-movies-580.path)]</value>
+        <value condition="Window.IsActive(1110) + [!Skin.HasSetting(ExtendedMovieTVHubs) | [String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1550)]]">$INFO[Skin.String(bingiehub-tvshows-580.path)]</value>
+        <value condition="Window.IsActive(1112)">$INFO[Skin.String(bingiehub-new-580.path)]</value>
+        <value condition="Window.IsActive(1113)">$INFO[Skin.String(bingiehub-myhub-580.path)]</value>
+        <value condition="Window.IsActive(1114)">$INFO[Skin.String(bingiehub-mylist-580.path)]</value>
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-580.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1580">
+        <value condition="Container(1580).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1590">
+        <value condition="Window.IsActive(1118)">$INFO[Skin.String(bingiehub-something-590.path)]</value><value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1560)">$INFO[Skin.String(bingiehub-movies-590.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1560)">$INFO[Skin.String(bingiehub-tvshows-590.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1590">
+        <value condition="Container(1590).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1600">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1570)">$INFO[Skin.String(bingiehub-movies-600.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1570)">$INFO[Skin.String(bingiehub-tvshows-600.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1600">
+        <value condition="Container(1600).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1610">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1580)">$INFO[Skin.String(bingiehub-movies-610.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1580)">$INFO[Skin.String(bingiehub-tvshows-610.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1610">
+        <value condition="Container(1610).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1620">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1590)">$INFO[Skin.String(bingiehub-movies-620.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1590)">$INFO[Skin.String(bingiehub-tvshows-620.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1620">
+        <value condition="Container(1620).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1630">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1600)">$INFO[Skin.String(bingiehub-movies-630.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1600)">$INFO[Skin.String(bingiehub-tvshows-630.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1630">
+        <value condition="Container(1630).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1640">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1610)">$INFO[Skin.String(bingiehub-movies-640.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1610)">$INFO[Skin.String(bingiehub-tvshows-640.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1640">
+        <value condition="Container(1640).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1650">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1620)">$INFO[Skin.String(bingiehub-movies-650.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1620)">$INFO[Skin.String(bingiehub-tvshows-650.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1650">
+        <value condition="Container(1650).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1660">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1630)">$INFO[Skin.String(bingiehub-movies-660.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1630)">$INFO[Skin.String(bingiehub-tvshows-660.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1660">
+        <value condition="Container(1660).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1670">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1640)">$INFO[Skin.String(bingiehub-movies-670.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1640)">$INFO[Skin.String(bingiehub-tvshows-670.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1670">
+        <value condition="Container(1670).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1680">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1650)">$INFO[Skin.String(bingiehub-movies-680.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1650)">$INFO[Skin.String(bingiehub-tvshows-680.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1680">
+        <value condition="Container(1680).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1690">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1660)">$INFO[Skin.String(bingiehub-movies-690.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1660)">$INFO[Skin.String(bingiehub-tvshows-690.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1690">
+        <value condition="Container(1690).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1700">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1670)">$INFO[Skin.String(bingiehub-movies-700.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1670)">$INFO[Skin.String(bingiehub-tvshows-700.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1700">
+        <value condition="Container(1700).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1710">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1680)">$INFO[Skin.String(bingiehub-movies-710.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1680)">$INFO[Skin.String(bingiehub-tvshows-710.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1710">
+        <value condition="Container(1710).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1720">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1690)">$INFO[Skin.String(bingiehub-movies-720.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1690)">$INFO[Skin.String(bingiehub-tvshows-720.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1720">
+        <value condition="Container(1720).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1730">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1700)">$INFO[Skin.String(bingiehub-movies-730.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1700)">$INFO[Skin.String(bingiehub-tvshows-730.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1730">
+        <value condition="Container(1730).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <variable name="BingieHubPath1740">
+        <value condition="Window.IsActive(1111) + String.IsEqual(Window(Home).Property(BingieLoadedHub),movies) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1710)">$INFO[Skin.String(bingiehub-movies-740.path)]</value>
+        <value condition="Window.IsActive(1110) + String.IsEqual(Window(Home).Property(BingieLoadedHub),tvshows) + Integer.IsGreater(Window(Home).Property(CurrentWidgetID),1710)">$INFO[Skin.String(bingiehub-tvshows-740.path)]</value>
+        <value />
+    </variable>
+    <variable name="BingieHubEmptyLabel1740">
+        <value condition="Container(1740).IsUpdating">$LOCALIZE[31981]</value>
+        <value>$LOCALIZE[31982]</value>
+    </variable>
+    <expression name="HasConfiguredExtendedHubRows">Skin.HasSetting(ExtendedMovieTVHubs) + [[Window.IsActive(1111) + [Skin.String(bingiehub-movies-510.path) | Skin.String(bingiehub-movies-520.path) | Skin.String(bingiehub-movies-530.path) | Skin.String(bingiehub-movies-540.path) | Skin.String(bingiehub-movies-550.path) | Skin.String(bingiehub-movies-560.path) | Skin.String(bingiehub-movies-570.path) | Skin.String(bingiehub-movies-580.path) | Skin.String(bingiehub-movies-590.path) | Skin.String(bingiehub-movies-600.path) | Skin.String(bingiehub-movies-610.path) | Skin.String(bingiehub-movies-620.path) | Skin.String(bingiehub-movies-630.path) | Skin.String(bingiehub-movies-640.path) | Skin.String(bingiehub-movies-650.path) | Skin.String(bingiehub-movies-660.path) | Skin.String(bingiehub-movies-670.path) | Skin.String(bingiehub-movies-680.path) | Skin.String(bingiehub-movies-690.path) | Skin.String(bingiehub-movies-700.path) | Skin.String(bingiehub-movies-710.path) | Skin.String(bingiehub-movies-720.path) | Skin.String(bingiehub-movies-730.path) | Skin.String(bingiehub-movies-740.path)]] | [Window.IsActive(1110) + [Skin.String(bingiehub-tvshows-510.path) | Skin.String(bingiehub-tvshows-520.path) | Skin.String(bingiehub-tvshows-530.path) | Skin.String(bingiehub-tvshows-540.path) | Skin.String(bingiehub-tvshows-550.path) | Skin.String(bingiehub-tvshows-560.path) | Skin.String(bingiehub-tvshows-570.path) | Skin.String(bingiehub-tvshows-580.path) | Skin.String(bingiehub-tvshows-590.path) | Skin.String(bingiehub-tvshows-600.path) | Skin.String(bingiehub-tvshows-610.path) | Skin.String(bingiehub-tvshows-620.path) | Skin.String(bingiehub-tvshows-630.path) | Skin.String(bingiehub-tvshows-640.path) | Skin.String(bingiehub-tvshows-650.path) | Skin.String(bingiehub-tvshows-660.path) | Skin.String(bingiehub-tvshows-670.path) | Skin.String(bingiehub-tvshows-680.path) | Skin.String(bingiehub-tvshows-690.path) | Skin.String(bingiehub-tvshows-700.path) | Skin.String(bingiehub-tvshows-710.path) | Skin.String(bingiehub-tvshows-720.path) | Skin.String(bingiehub-tvshows-730.path) | Skin.String(bingiehub-tvshows-740.path)]]]</expression>
+</includes>

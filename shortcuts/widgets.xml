@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widgets>
+    <widget name="continuewatching" label="$LOCALIZE[31535] $VAR[ForCurrentProfileNameLabel]" type="video" target="videos">
+        <path>plugin://script.skin.helper.widgets/?action=inprogressshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</path>
+    </widget>
+    <widget name="recentshowsandmovies" label="$LOCALIZE[31127]" type="video" target="videos">
+        <path>plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</path>
+    </widget>
+    <widget name="bingeworthyshows" label="$LOCALIZE[31079]" type="tvshows" target="videos">
+        <path>special://skin/playlists/bingeworthyshows.xsp</path>
+    </widget>
+    <widget name="watchagainshowsandmovies" label="$LOCALIZE[31080]" type="video" target="videos">
+        <path>plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</path>
+    </widget>
+    <widget name="criticallyacclaimedmovies" label="$LOCALIZE[31532]" type="movies" target="videos">
+        <path>special://skin/playlists/criticallyacclaimedmovies.xsp</path>
+    </widget>
+    <widget name="similarshowsandmovies" label="$ADDON[script.skin.helper.widgets 32022]" type="video" target="videos">
+        <path>plugin://script.skin.helper.widgets/?action=similarshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</path>
+    </widget>
+    <widget name="mylist" label="$LOCALIZE[31534]" type="video" target="videos">
+        <path>$INCLUDE[MyListWidget]</path>
+    </widget>
+    <widget name="forgenre" label="$LOCALIZE[515]" type="video" target="videos">
+        <path>plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</path>
+    </widget>
+    <widget name="recentmusicvideos" label="$LOCALIZE[20390]" type="musicvideos" target="videos">
+        <path>videodb://recentlyaddedmusicvideos/</path>
+    </widget>
+    <widget name="weather" label="$LOCALIZE[8]" type="static" target="static">
+        <path>$INCLUDE[WeatherWidget]</path>
+    </widget>
+    <widget name="smartshortcuts" label="$LOCALIZE[31531]" type="video" target="videos" visible="Window.IsActive(script-skinshortcuts.xml)" browse="true">
+        <path>plugin://script.skin.helper.service/?action=smartshortcuts</path>
+    </widget>
+    <widget name="gto" label="$INFO[System.AddonTitle(plugin.service.gto)]" type="pvr" target="pvr" visible="System.HasAddon(plugin.service.gto)">
+        <path>plugin://plugin.service.gto?action=getcontent&amp;ts=$INFO[Window(Home).Property(GTO.timestamp)]</path>
+    </widget>
+    <widget name="categories" label="$LOCALIZE[31025]" type="static" target="static">
+        <path>$INCLUDE[CategoriesWidget]</path>
+    </widget>
+    <group name="browse" label="$LOCALIZE[1024]">
+        <widget name="group-1" label="$LOCALIZE[31799]" visible="System.HasAddon(script.skin.helper.service) + Window.IsActive(script-skinshortcuts.xml)" type="video" target="videos" browse="true">
+            <path>plugin://script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites,static</path>
+        </widget>
+        <widget name="group-2" label="$LOCALIZE[31799]" visible="System.HasAddon(script.skin.helper.service) + !Window.IsActive(script-skinshortcuts.xml)" type="video" target="videos" browse="true">
+            <path>plugin://script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,smartshortcuts,extendedinfo,librarydataprovider,smartishwidgets,favourites</path>
+        </widget>
+        <content source="addons" target="video" />
+        <group name="group-4" label="$ADDON[script.skinshortcuts 32030]">
+            <content source="nodes" target="video" />
+            <group name="group-4-2" label="$ADDON[script.skinshortcuts 32040]">
+                <content source="playlists" target="video" />
+            </group>
+            <group name="group-4-3" label="$ADDON[script.skinshortcuts 32010]">
+                <content source="addons" target="video" />
+            </group>
+            <group name="group-4-4" label="$ADDON[script.skinshortcuts 32075]">
+                <content source="sources" target="video" />
+            </group>
+        </group>
+        <group name="group-5" label="$ADDON[script.skinshortcuts 32031]">
+            <content source="nodes" target="music" />
+            <group name="group-5-2" label="$ADDON[script.skinshortcuts 32040]">
+                <content source="playlists" target="music" />
+            </group>
+            <group name="group-5-3" label="$ADDON[script.skinshortcuts 32011]">
+                <content source="addons" target="audio" />
+            </group>
+            <group name="group-5-4" label="$ADDON[script.skinshortcuts 32075]">
+                <content source="sources" target="music" />
+            </group>
+        </group>
+        <group name="group-6" label="$ADDON[script.skinshortcuts 32020]">
+            <content source="sources" target="pictures" />
+        </group>
+        <group name="group-7" label="$ADDON[script.skinshortcuts 32007]">
+            <group name="group-7-1" label="$ADDON[script.skinshortcuts 32010]">
+                <content source="addons" target="video" />
+            </group>
+            <group name="group-7-2" label="$ADDON[script.skinshortcuts 32011]">
+                <content source="addons" target="audio" />
+            </group>
+            <group name="group-7-3" label="$ADDON[script.skinshortcuts 32012]">
+                <content source="addons" target="image" />
+            </group>
+            <group name="group-7-4" label="$ADDON[script.skinshortcuts 32009]">
+                <content source="addons" target="executable" />
+            </group>
+            <widget name="group-7-5" label="$LOCALIZE[10001]" icon="defaultaddonprogram.png" type="program" target="programs" browse="true">
+                <path>addons://sources/executable</path>
+            </widget>
+            <widget name="group-7-6" label="$LOCALIZE[1037]" icon="defaultaddonvideo.png" type="video" target="video" browse="true">
+                <path>addons://sources/video</path>
+            </widget>
+            <widget name="group-7-7" label="$LOCALIZE[1038]" icon="defaultaddonmusic.png" type="music" target="music" browse="true">
+                <path>addons://sources/audio</path>
+            </widget>
+            <widget name="group-7-8" label="$LOCALIZE[1039]" icon="defaultaddonpicture.png" type="picture" target="pictures" browse="true">
+                <path>addons://sources/image</path>
+            </widget>
+        </group>
+    </group>
+</widgets>

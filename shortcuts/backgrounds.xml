@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<backgrounds>
+    <background name="movies-background" label="$ADDON[script.skin.helper.service 32039]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</path>
+    </background>
+    <background name="tvshows-background" label="$ADDON[script.skin.helper.service 32043]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</path>
+    </background>
+    <background name="new-background" label="$LOCALIZE[31837]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground)]</path>
+    </background>
+    <background name="music-background" label="$ADDON[script.skin.helper.service 32048]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</path>
+    </background>
+    <background name="musicvideos-background" label="$ADDON[script.skin.helper.service 32047]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]</path>
+    </background>
+    <background name="pictures-background" label="$ADDON[script.skin.helper.service 32046]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]</path>
+    </background>
+    <background name="videos-background" label="$ADDON[script.skin.helper.service 32038]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</path>
+    </background>
+    <background name="weather-background" label="$LOCALIZE[31006]" type="property">
+        <path>$INFO[Skin.String(WeatherFanArtPack.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanArtExtension]</path>
+    </background>
+    <background name="livetv-background" label="$LOCALIZE[571]" type="property">
+        <path>$INFO[Window(Home).Property(SkinHelper.PvrBackground)]</path>
+    </background>
+    <background name="plugin.video.youtube-background" label="$LOCALIZE[571]" type="static">
+        <path>resource://resource.images.skinbackgrounds.titanium/hover_extensions.jpg</path>
+    </background>
+    <background name="10040-background" label="$LOCALIZE[571]" type="static">
+        <path>resource://resource.images.skinbackgrounds.titanium/programs.jpg</path>
+    </background>
+    <background name="settings-background" label="$LOCALIZE[571]" type="static">
+        <path>resource://resource.images.skinbackgrounds.titanium/systeminfo.jpg</path>
+    </background>
+    <background name="custom-image" type="browse" label="$LOCALIZE[31006]">
+        <source label="$LOCALIZE[1024]">browse</source>
+    </background>
+    <background name="custom-folder" type="multi" label="$LOCALIZE[31007]">
+        <source label="$LOCALIZE[1024]">browse</source>
+    </background>
+</backgrounds>

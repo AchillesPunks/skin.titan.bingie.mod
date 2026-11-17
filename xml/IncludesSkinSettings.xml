@@ -424,7 +424,7 @@
         <control type="radiobutton" id="31793">
             <include>SkinSettings_Button</include>
             <label>31882</label>
-            <onclick condition="String.IsEmpty(Skin.String(spotlighthome.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlighthome.label&amp;skinWidgetTarget=spotlighthome.target&amp;skinWidgetPath=spotlighthome.path)</onclick>
+            <onclick condition="String.IsEmpty(Skin.String(spotlighthome.label))">RunScript(script.skinshortcuts,type=skinstring&amp;skinLabel=spotlighthome.label&amp;skinTarget=spotlighthome.target&amp;skinPath=spotlighthome.path)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(spotlighthome.label))">Skin.Reset(spotlighthome.label)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(spotlighthome.path))">Skin.Reset(spotlighthome.path)</onclick>
             <selected>Skin.String(spotlighthome.label)</selected>
@@ -2579,13 +2579,13 @@
         <include content="SkinSettings_ActionButton">
             <param name="id" value="6003" />
             <param name="label" value="31014" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;menu=mainmenu)" />
             <param name="visible" value="true" />
         </include>
         <include content="SkinSettings_ActionButton">
             <param name="id" value="96008" />
             <param name="label" value="31204" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=powermenu)" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;menu=powermenu)" />
             <param name="action2" value="SetProperty(powermenu, active,Home)" />
             <param name="visible" value="true" />
         </include>

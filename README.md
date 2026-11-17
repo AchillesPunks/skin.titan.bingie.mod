@@ -2,6 +2,8 @@
 
 Titan BINGIE MOD for Kodi Omega.
 
+This development branch uses Skin Shortcuts 3.0.5 or newer, including its native menu and widget editor. Skin Shortcuts v3 stores custom menus separately from v2 and does not automatically import v2 customisations. Back up your Kodi userdata before trying this branch; existing v2 menus remain available when restoring the original skin and helper.
+
 #IMPORTANT NOTE FOR USERS# 
 Install the skin through the official titan bingie mod repository for updates and the supported addons required!
 The content here is for developing purposes!

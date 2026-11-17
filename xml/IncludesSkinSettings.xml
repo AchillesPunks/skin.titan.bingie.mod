@@ -2624,6 +2624,26 @@
             <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
             <selected>Skin.HasSetting(LockHubWidgets)</selected>
         </control>
+        <control type="radiobutton" id="60041">
+            <include>SkinSettings_Button</include>
+            <label>31980</label>
+            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <onclick>Skin.ToggleSetting(ExtendedMovieTVHubs)</onclick>
+            <onclick>ReloadSkin()</onclick>
+            <selected>Skin.HasSetting(ExtendedMovieTVHubs)</selected>
+        </control>
+        <control type="button" id="60042">
+            <include>SkinSettings_Button</include>
+            <label>$ADDON[skin.titan.bingie.mod 320247]</label>
+            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <onclick>RunScript(special://skin/extras/new_popular_preset.py,apply)</onclick>
+        </control>
+        <control type="button" id="60043">
+            <include>SkinSettings_Button</include>
+            <label>$ADDON[skin.titan.bingie.mod 320248]</label>
+            <visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
+            <onclick>RunScript(special://skin/extras/new_popular_preset.py,restore)</onclick>
+        </control>
         <!-- empty label -->
         <control type="label" id="6004">
             <height>20</height>

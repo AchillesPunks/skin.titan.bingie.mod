@@ -3,6 +3,8 @@
 <window id="1110">
     <defaultcontrol always="true">77777</defaultcontrol>
     <menucontrol>900</menucontrol>
+    <onload condition="Skin.HasSetting(ExtendedMovieTVHubs)">SetProperty(CurrentWidgetID,1510,Home)</onload>
+    <onload condition="Skin.HasSetting(ExtendedMovieTVHubs)">SetProperty(BingieLoadedHub,tvshows,Home)</onload>
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
     <controls>

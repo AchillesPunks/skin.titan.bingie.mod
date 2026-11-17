@@ -3921,3 +3921,63 @@ msgid "Show Media File Path (DialogVideoInfo)"
 msgstr ""
 
 
+
+msgctxt "#31980"
+msgid "Extended Movies and TV Shows hubs (24 rows)"
+msgstr ""
+
+msgctxt "#31981"
+msgid "Loading titles..."
+msgstr ""
+
+msgctxt "#31982"
+msgid "No titles available"
+msgstr ""
+
+msgctxt "#320247"
+msgid "Apply TMDb New & Popular shelves"
+msgstr ""
+
+msgctxt "#320248"
+msgid "Restore previous New & Popular shelves"
+msgstr ""
+
+msgctxt "#320249"
+msgid "Replace the first four New & Popular rows with New movies, New TV shows, Popular movies and Popular TV shows from TMDb? Your current rows will be saved for restoration."
+msgstr ""
+
+msgctxt "#320250"
+msgid "Restore the first four New & Popular rows saved before applying the TMDb preset? This replaces any changes you have made to those rows since then."
+msgstr ""
+
+msgctxt "#320251"
+msgid "Unable to apply or restore the shelves. See the Kodi log for details."
+msgstr ""
+
+msgctxt "#320252"
+msgid "There are no saved New & Popular shelves to restore."
+msgstr ""
+
+msgctxt "#320253"
+msgid "New movies"
+msgstr ""
+
+msgctxt "#320254"
+msgid "New TV shows"
+msgstr ""
+
+msgctxt "#320255"
+msgid "Popular movies"
+msgstr ""
+
+msgctxt "#320256"
+msgid "Popular TV shows"
+msgstr ""
+
+msgctxt "#320257"
+msgid "TMDb shelves applied"
+msgstr ""
+
+msgctxt "#320258"
+msgid "Previous shelves restored"
+msgstr ""
